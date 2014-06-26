@@ -3,6 +3,10 @@ ngEmoticons
 
 An angularjs filter for converting text into emoticons.
 
+Screenshot
+==========
+![screenshot](https://raw.github.com/ritz078/ngEmoticons/master/demo/screen.png)
+
 Dependencies
 ============
 + AngularJs 1.2
