@@ -5,8 +5,8 @@ An angularjs filter for converting text into emoticons.
 
 Dependencies
 ============
-+AngularJs 1.2
-+ng-Sanitize
++ AngularJs 1.2
++ ng-Sanitize
 
 Getting Started
 ===============
