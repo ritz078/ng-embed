@@ -2,6 +2,7 @@ ngEmoticons
 ===========
 
 An angularjs filter for converting text into emoticons.
+Sopports chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
 
 Screenshot
 ==========
