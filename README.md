@@ -11,12 +11,15 @@ Screenshot
 
 Dependencies
 ============
-+ AngularJs 1.2
++ AngularJs 1.2 or above
 + ng-Sanitize
 
 Getting Started
 ===============
-
+Install through bower
+```html
+bower install ng-emoticons --save
+```
 load css files
 put this below code in the head of html
 ```html
