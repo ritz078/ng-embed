@@ -6,7 +6,7 @@
     "Ritesh Kumar <rkritesh078@gmail.com>"
   ],
   "description": "An angularjs filter for converting text into emoticons.",
-  "main": "./ng-emoticons.js","./ng-emoticons.css"
+  "main": ["./ng-emoticons.js","./ng-emoticons.css"],
   "keywords": [
     "ngEmoticons",
     "emoticons",
