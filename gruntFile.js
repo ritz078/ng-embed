@@ -7,14 +7,13 @@ module.exports = function(grunt) {
                 sourceMap: "dist/ng-emoticon.map"
             },
             target: {
-                src: "demo/js/ng-emoticon.js",
+                src: "ng-emoticon.js",
                 dest: "dist/ng-emoticon.min.js"
             }
         },
         cssmin:{
         	minify:{
         		expand:true,
-        		cwd:"demo/css/",
         		src:["ng-emoticons.css"],
         		dest:"dist/",
         		ext:".min.css"
@@ -28,7 +27,7 @@ module.exports = function(grunt) {
                 unused: true
             },
             target: {
-                src: "demo/js/ng-emoticon.js"
+                src: "ng-emoticon.js"
 
             }
         }

@@ -1,3 +1,4 @@
+
 angular.module('ngEmoticons', ['ngSanitize'])
     .filter('emoticons', function() {
         var icons = [{

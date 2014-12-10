@@ -39,3 +39,8 @@ HTML:
 ```html
 <div ng-bind-html="text | linky:'_blank' | emoticons"></div>
 ```
+
+Version 0.2.0
+=============
+Using font instead of images provided by icomoon.
+
