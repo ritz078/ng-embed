@@ -80,7 +80,8 @@ angular.module('ngEmoticons', ['ngSanitize'])
             'code':'e61c'
         }];
         return function(input) {
-            var a = input.split(' ');
+            if(input){
+               var a = input.split(' ');
             var data = a;
             angular.forEach(icons, function(icon) {
                 for (var i = 0; i < a.length; i++) {
@@ -91,5 +92,7 @@ angular.module('ngEmoticons', ['ngSanitize'])
             });
             var c = data.join(' ');
             return c;
-        };
+ 
+            }
+                    };
     });

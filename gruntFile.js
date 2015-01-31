@@ -4,11 +4,11 @@ module.exports = function(grunt) {
             options: {
                 mangle: true,
                 compress: true,
-                sourceMap: "dist/ng-emoticon.map"
+                sourceMap: "dist/ng-emoticons.map"
             },
             target: {
-                src: "ng-emoticon.js",
-                dest: "dist/ng-emoticon.min.js"
+                src: "ng-emoticons.js",
+                dest: "dist/ng-emoticons.min.js"
             }
         },
         cssmin:{
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 unused: true
             },
             target: {
-                src: "ng-emoticon.js"
+                src: "ng-emoticons.js"
 
             }
         }
