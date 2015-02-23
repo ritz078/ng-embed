@@ -47,3 +47,7 @@ Version 0.2.0
 =============
 Using font instead of images provided by icomoon.
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ritz078/ngemoticons/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
