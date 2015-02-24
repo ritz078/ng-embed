@@ -66,7 +66,15 @@
                 'class': 'heart',
                 'code': 'e604'
             }, {
+                'text': '<3',
+                'class': 'heart',
+                'code': 'e604'
+            }, {
                 'text': '&lt;/3',
+                'class': 'heart-broken',
+                'code': 'e605'
+            }, {
+                'text': '</3',
                 'class': 'heart-broken',
                 'code': 'e605'
             }, {
@@ -254,26 +262,58 @@
                 "large_blue_circle", "large_blue_diamond", "large_orange_diamond",
                 "small_blue_diamond", "small_orange_diamond", "small_red_triangle",
                 "small_red_triangle_down", "shipit"
-                ];
+            ];
 
             var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
-            return function (input) {
+            return function (input, options) {
+
+
+                var defaultOptions = {
+                    link: true,
+                    linkTarget: '_self'
+                };
+
+                angular.extend(defaultOptions, options);
+
+                console.log(defaultOptions);
+
                 if (input) {
-                    if(input === undefined) {return;}
-                    if (typeof input === "object") {return input;}
+                    if (input === undefined) {
+                        return;
+                    }
+                    if (typeof input === "object") {
+                        return input;
+                    }
                     var a = input.split(' ');
                     var data = a;
                     angular.forEach(icons, function (icon) {
                         for (var i = 0; i < a.length; i++) {
                             if (a[i] === icon.text) {
-                                data[i] = '<span class="icon-smiley" title="'+icon.text+'">' + '&#x' + icon.code + '</span>';
+                                data[i] = '<span class="icon-smiley" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
                             }
                         }
                     });
-                    var c = data.join(' ');
+                    var b = data.join(' ');
+
+                    /* URL Matcher and url link converter
+                     */
+
+                    if (defaultOptions.link) {
+                        var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+
+
+                        var c = b.replace(urlRegex, function (match) {
+                            return "<a href='" + match + "' " + (defaultOptions.linkTarget === '_blank' ? "target='_blank'" : "") + ">" + match + "</a>";
+                        });
+                    }
+                    else {
+                        c = b;
+                    }
+
+
+                    /* Emoji Embedding code */
 
                     return c.replace(emojiRegex, function (match, text) {
-                        console.log(match);
                         return "<span class='smiley smiley-" + text + "' title=':" + text + ":'></span>";
 
                     });
