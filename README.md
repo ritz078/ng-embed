@@ -5,14 +5,19 @@ An angularjs filter for converting text into emoticons.
 
 Supports chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
 
-###Screenshot
+Screenshot
+----------
 ![screenshot](https://raw.github.com/ritz078/ngEmoticons/emoji/demo/screen.png)
 
-###Dependencies
+Dependencies
+-----------
 + AngularJs 1.2 or above
 + ng-Sanitize
 
-###Getting Started
+
+Getting Started
+---------------
+
 Install through bower
 ```html
 bower install ng-emoticons --save
@@ -39,11 +44,36 @@ HTML:
 <div ng-bind-html="text | linky:'_blank' | emoticons"></div>
 ```
 
-###Version 0.2.0
+
+Version 0.2.0
+-------------
+
 Using font instead of images provided by icomoon.
 
+Contributing
+------------
 
-###License
+* If you are Interested in contributing to this project, you are most welcome.
+* If it is a bug-fix/improvement, first report it at [issues](https://github.com/ritz078/ngEmoticons/issues)
+* Discuss with us in detail about your issue/improvement
+* Get the issue allotted.
+
+
+Pull Requests
+-------------
+
+* If you are contributing a bug-fix or a very minor addition, feel free to do a pull request on the master # branch.
+* If you are unsure about the bug/improvement, create an issue to discuss.
+
+
+Bug Report
+----------
+
+* Report bugs @ [issues](https://github.com/ritz078/ngEmoticons/issues)
+
+
+License
+-------
 
 The MIT License (MIT)
 
