@@ -57,18 +57,8 @@ Contributing
 * If it is a bug-fix/improvement, first report it at [issues](https://github.com/ritz078/ngEmoticons/issues)
 * Discuss with us in detail about your issue/improvement
 * Get the issue allotted.
-
-
-Pull Requests
--------------
-
 * If you are contributing a bug-fix or a very minor addition, feel free to do a pull request on the master # branch.
 * If you are unsure about the bug/improvement, create an issue to discuss.
-
-
-Bug Report
-----------
-
 * Report bugs @ [issues](https://github.com/ritz078/ngEmoticons/issues)
 
 
