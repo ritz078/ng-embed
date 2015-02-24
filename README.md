@@ -1,9 +1,25 @@
-ngEmoticons
-===========
+![Imgur](http://i.imgur.com/T8i1GM0.jpg?1)
 
 An angularjs filter for converting text into emoticons.
 
 Supports chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
+
+Description
+------------
+
+Currently this filter supports two types of smileys.
+
+1.  Font Smileys : These smileys are fonts .
+
+      *   Fully Customizable (colour and other styles)
+      *   Syntax : Chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
+
+2.  Emojis : If you are going to use it you already know about it.
+
+      * Around 850 emojis
+      * Retina Display Support
+      * Syntax : ':smile:', ':heart:', etc.
+
 
 Screenshot
 ----------
