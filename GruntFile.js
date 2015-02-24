@@ -17,6 +17,17 @@ module.exports = function(grunt) {
         		dest:'dist/ng-emoticons.min.css'
         	}
         },
+        clean:{
+          build:'dist/'
+        },
+        copy:{
+            main:{
+                expand: true,
+                cwd: 'src/',
+                src:'images/**',
+                dest:'dist/'
+            }
+        },
          jshint: {
             options: {
                 eqeqeq: false,
@@ -34,5 +45,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('default', ['jshint','uglify','cssmin']);
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.registerTask('default', ['clean','jshint','uglify','cssmin','copy']);
 };
