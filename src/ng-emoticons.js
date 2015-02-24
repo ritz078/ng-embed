@@ -259,8 +259,8 @@
             var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
             return function (input) {
                 if (input) {
-                    if(input === undefined) return;
-                    if (typeof input === "object") return input;
+                    if(input === undefined) {return;}
+                    if (typeof input === "object") {return input;}
                     var a = input.split(' ');
                     var data = a;
                     angular.forEach(icons, function (icon) {
