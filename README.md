@@ -74,14 +74,14 @@ HTML:
 Options
 -------
 
-1. link ( boolean )
+* link ( boolean )
      * default : **true**
      * Usage :
 ```html
      <div ng-bind-html="text | emoticons:{link:false}"></div>
 ```
 
-2. linkTarget ( '_self' / '_blank' )
+* linkTarget ( '_self' / '_blank' )
       * default : **'_self'**
       * Works only when **link** option is set to **true**.
       * **'_blank'** is used to open the link in a new tab and **'_self'** is used to open the link in the same tab.
