@@ -1,9 +1,18 @@
 ![Imgur](http://i.imgur.com/T8i1GM0.jpg?1)
 
-Description
-------------
+An AngularJS filter for converting text into emoticons.
 
-This is an AngularJS filter for converting text into emoticons. Currently this filter supports two types of smileys :
+
+Features
+--------
+
+* Converts emoticon text codes into emoticons.
+* Finds links in text input and turns them into html links.
+
+Types of emoticons
+------------------
+
+Currently this filter supports two types of smileys :
 
 1.  Font Smileys : These smileys are fonts .
 
@@ -25,7 +34,7 @@ Screenshot
 Dependencies
 -----------
 + AngularJs 1.2 or above
-+ ng-sanitize 1.2 or above
++ angular-sanitize 1.2 or above
 
 
 Getting Started
@@ -33,7 +42,7 @@ Getting Started
 
 Install through bower
 ```html
-bower install ng-emoticons --save
+bower install --save ng-emoticons
 ```
 Install through npm
 ```html
@@ -54,18 +63,38 @@ load css files
 
 Load 'Emoticons' as a dependency
 ```javascript
-angular.module('ngEmoticonApp', ['ngSanitize','ngEmoticons'])
+angular.module('ngEmoticonApp', ['ngEmoticons'])
 ```
 
 HTML:
 ```html
-<div ng-bind-html="text | linky:'_blank' | emoticons"></div>
+<div ng-bind-html="text | emoticons"></div>
 ```
+
+Options
+-------
+
+1. link (boolean)
+     * default : true
+     * Usage :
+     ```html
+        <div ng-bind-html="text | emoticons:{link:false}"></div>
+     ```
+
+2. linkTarget ('_self'/'_blank')
+      * default : '_self'
+      * Works only when **link** option is set to true.
+      * Usage :
+      ```html
+      <div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"></div>
+      ```
+
 
 Version 1.1.0
 -------------
 
-* Emoji support added
+* Emoji support added.
+* Converts links into anchor tags.
 
 Version 1.0.0
 -------------
