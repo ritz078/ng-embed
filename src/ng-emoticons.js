@@ -10,6 +10,10 @@ angular.module('ngEmoticons', ['ngSanitize'])
             'class': 'happy',
             'code':'e608'
         }, {
+            'text':':d',
+            'class':'happy',
+            'code':'e608'
+        },{
             'text': ':(',
             'class': 'sad',
             'code':'e60e'
@@ -21,6 +25,10 @@ angular.module('ngEmoticons', ['ngSanitize'])
         }, {
             'text': ':P',
             'class': 'tongue',
+            'code':'e60c'
+        },{
+            'text':':p',
+            'class':'tongue',
             'code':'e60c'
         },  {
             'text': '3:)',
@@ -93,5 +101,5 @@ angular.module('ngEmoticons', ['ngSanitize'])
             var c = data.join(' ');
             return c;
             }
-                    };
+        };
     });
