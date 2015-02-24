@@ -1,8 +1,8 @@
 {
   "name": "ngEmoticons",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ngEmoticons",
-  "main": "index.js",
+  "main": ["src/ng-emoticons.js","src/ng-emoticons.css"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,7 @@
     "url": "https://github.com/ritz078/ngEmoticons.git"
   },
   "author": "Ritesh Kumar",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ritz078/ngEmoticons/issues"
   },
