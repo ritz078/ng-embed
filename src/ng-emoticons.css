@@ -1,16 +1,16 @@
 @font-face {
-    font-family: 'icomoon';
-    src:url('../fonts/icomoon.eot?5zh0vu');
-    src:url('../fonts/icomoon.eot?#iefix5zh0vu') format('embedded-opentype'),
-        url('../fonts/icomoon.woff?5zh0vu') format('woff'),
-        url('../fonts/icomoon.ttf?5zh0vu') format('truetype'),
-        url('../fonts/icomoon.svg?5zh0vu#icomoon') format('svg');
+    font-family: 'smileys';
+    src:url('../fonts/smileys.eot?5zh0vu');
+    src:url('../fonts/smileys.eot?#iefix5zh0vu') format('embedded-opentype'),
+        url('../fonts/smileys.woff?5zh0vu') format('woff'),
+        url('../fonts/smileys.ttf?5zh0vu') format('truetype'),
+        url('../fonts/smileys.svg?5zh0vu#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 .icon-smiley {
-    font-family: 'icomoon';
+    font-family: 'smileys';
     speak: none;
     font-style: normal;
     font-weight: normal;
