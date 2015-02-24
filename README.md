@@ -23,14 +23,14 @@ bower install ng-emoticons --save
 load css files
 put this below code in the head of html
 ```html
- <link rel="stylesheet" href="ng-emoticons.min.css">
+ <link rel="stylesheet" href="path/to/ng-emoticons.min.css">
 ```
 
  Then load the following files
 ```html
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="js/ng-emoticon.min.js"></script>
+<script src="path/to/ng-emoticon.min.js"></script>
 ```
 
 Load 'Emoticons' as a dependency
