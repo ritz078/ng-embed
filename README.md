@@ -29,9 +29,9 @@ load css files
 
  Then load the following files
 ```html
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="path/to/ng-emoticon.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="path/to/ng-emoticons.js"></script>
 ```
 
 Load 'Emoticons' as a dependency
