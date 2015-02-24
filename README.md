@@ -6,13 +6,16 @@ An angularjs filter for converting text into emoticons.
 Supports chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
 
 ###Screenshot
+---
 ![screenshot](https://raw.github.com/ritz078/ngEmoticons/emoji/demo/screen.png)
 
 ###Dependencies
+---
 + AngularJs 1.2 or above
 + ng-Sanitize
 
 ###Getting Started
+---
 Install through bower
 ```html
 bower install ng-emoticons --save
@@ -40,10 +43,12 @@ HTML:
 ```
 
 ###Version 0.2.0
+---
 Using font instead of images provided by icomoon.
 
 
 ###License
+---
 
 The MIT License (MIT)
 
