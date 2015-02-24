@@ -22,6 +22,11 @@ Install through bower
 ```html
 bower install ng-emoticons --save
 ```
+Install through npm
+```html
+npm install --save ng-emoticons
+```
+
 load css files
 ```html
  <link rel="stylesheet" href="path/to/ng-emoticons.min.css"/>
