@@ -1,24 +1,21 @@
 ![Imgur](http://i.imgur.com/T8i1GM0.jpg?1)
 
-An angularjs filter for converting text into emoticons.
-
-Supports chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
-
 Description
 ------------
 
-Currently this filter supports two types of smileys.
+This is an AngularJS filter for converting text into emoticons. Currently this filter supports two types of smileys :
 
 1.  Font Smileys : These smileys are fonts .
 
       *   Fully Customizable (colour and other styles)
-      *   Syntax : Chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc.
+      *   Since these are fonts ,work flawlessly in any resolution.
+      *   Chat codes like :) :P :( 3:) :D :/ ;)  (y) (^) <3 </3 etc. are supported.
 
 2.  Emojis : If you are going to use it you already know about it.
 
       * Around 850 emojis
       * Retina Display Support
-      * Syntax : ':smile:', ':heart:', etc.
+      * Default emoji syntax i.e text surrounded by ':' . Example - :smile:
 
 
 Screenshot
@@ -28,7 +25,7 @@ Screenshot
 Dependencies
 -----------
 + AngularJs 1.2 or above
-+ ng-Sanitize
++ ng-sanitize 1.2 or above
 
 
 Getting Started
@@ -65,6 +62,10 @@ HTML:
 <div ng-bind-html="text | linky:'_blank' | emoticons"></div>
 ```
 
+Version 1.1.0
+-------------
+
+* Emoji support added
 
 Version 1.0.0
 -------------
