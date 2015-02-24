@@ -17,13 +17,14 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+    margin-right: .5em;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.emoji {
+.smiley {
     text-indent: -9999px;
     display: inline-block;
     height: 22px;
@@ -32,3509 +33,3517 @@
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1), all and (min--moz-device-pixel-ratio: 1), all and (-o-min-device-pixel-ratio: 1), all and (min-device-pixel-ratio: 1), all and (min-resolution: 96dpi) {
-    .emoji {
+    .smiley {
         background: transparent url(images/emojis.png) 0 0 no-repeat;
     }
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 144dpi) {
-    .emoji {
+    .smiley {
         background: transparent url(images/emojis@2x.png) 0 0 no-repeat;
         background-size: 27776px 22px;
     }
 }
 
 @-moz-document url-prefix() {
-    .emoji {
+    .smiley {
         background: transparent url(images/emojis.png) 0 0 no-repeat;
     }
 }
 
-.emoji_bowtie {
+.smiley-bowtie {
     background-position: -5px 0;
 }
 
-.emoji_smile {
+.smiley-smile {
     background-position: -37px 0;
 }
 
-.emoji_laughing {
+.smiley-laughing {
     background-position: -69px 0;
 }
 
-.emoji_blush {
+.smiley-blush {
     background-position: -101px 0;
 }
 
-.emoji_smiley {
+.smiley-smiley {
     background-position: -133px 0;
 }
 
-.emoji_relaxed {
+.smiley-relaxed {
     background-position: -165px 0;
 }
 
-.emoji_smirk {
+.smiley-smirk {
     background-position: -197px 0;
 }
 
-.emoji_heart_eyes {
+.smiley-heart_eyes {
     background-position: -229px 0;
 }
 
-.emoji_kissing_heart {
+.smiley-kissing_heart {
     background-position: -261px 0;
 }
 
-.emoji_kissing_closed_eyes {
+.smiley-kissing_closed_eyes {
     background-position: -293px 0;
 }
 
-.emoji_flushed {
+.smiley-flushed {
     background-position: -325px 0;
 }
 
-.emoji_relieved {
+.smiley-relieved {
     background-position: -357px 0;
 }
 
-.emoji_satisfied {
+.smiley-satisfied {
     background-position: -389px 0;
 }
 
-.emoji_grin {
+.smiley-grin {
     background-position: -421px 0;
 }
 
-.emoji_wink {
+.smiley-wink {
     background-position: -453px 0;
 }
 
-.emoji_stuck_out_tongue_winking_eye {
+.smiley-stuck_out_tongue_winking_eye {
     background-position: -485px 0;
 }
 
-.emoji_winky_face {
+.smiley-winky_face {
     background-position: -485px 0;
 }
 
-.emoji_stuck_out_tongue_closed_eyes {
+.smiley-stuck_out_tongue_closed_eyes {
     background-position: -517px 0;
 }
 
-.emoji_grinning {
+.smiley-grinning {
     background-position: -549px 0;
 }
 
-.emoji_kissing {
+.smiley-kissing {
     background-position: -581px 0;
 }
 
-.emoji_kissing_smiling_eyes {
+.smiley-kissing_smiling_eyes {
     background-position: -613px 0;
 }
 
-.emoji_stuck_out_tongue {
+.smiley-stuck_out_tongue {
     background-position: -645px 0;
 }
 
-.emoji_sleeping {
+.smiley-sleeping {
     background-position: -677px 0;
 }
 
-.emoji_worried {
+.smiley-worried {
     background-position: -709px 0;
 }
 
-.emoji_frowning {
+.smiley-frowning {
     background-position: -741px 0;
 }
 
-.emoji_anguished {
+.smiley-anguished {
     background-position: -773px 0;
 }
 
-.emoji_open_mouth {
+.smiley-open_mouth {
     background-position: -805px 0;
 }
 
-.emoji_wow {
+.smiley-wow {
     background-position: -805px 0;
 }
 
-.emoji_grimacing {
+.smiley-grimacing {
     background-position: -837px 0;
 }
 
-.emoji_confused {
+.smiley-confused {
     background-position: -869px 0;
 }
 
-.emoji_hushed {
+.smiley-hushed {
     background-position: -901px 0;
 }
 
-.emoji_expressionless {
+.smiley-expressionless {
     background-position: -933px 0;
 }
 
-.emoji_unamused {
+.smiley-unamused {
     background-position: -965px 0;
 }
 
-.emoji_sweat_smile {
+.smiley-sweat_smile {
     background-position: -997px 0;
 }
 
-.emoji_sweat {
+.smiley-sweat {
     background-position: -1029px 0;
 }
 
-.emoji_disappointed_relieved {
+.smiley-disappointed_relieved {
     background-position: -1061px 0;
 }
 
-.emoji_weary {
+.smiley-weary {
     background-position: -1093px 0;
 }
 
-.emoji_pensive {
+.smiley-pensive {
     background-position: -1125px 0;
 }
 
-.emoji_disappointed {
+.smiley-disappointed {
     background-position: -1157px 0;
 }
 
-.emoji_confounded {
+.smiley-confounded {
     background-position: -1189px 0;
 }
 
-.emoji_fearful {
+.smiley-fearful {
     background-position: -1221px 0;
 }
 
-.emoji_cold_sweat {
+.smiley-cold_sweat {
     background-position: -1253px 0;
 }
 
-.emoji_persevere {
+.smiley-persevere {
     background-position: -1285px 0;
 }
 
-.emoji_cry {
+.smiley-cry {
     background-position: -1317px 0;
 }
 
-.emoji_sob {
+.smiley-sob {
     background-position: -1349px 0;
 }
 
-.emoji_joy {
+.smiley-joy {
     background-position: -1381px 0;
 }
 
-.emoji_astonished {
+.smiley-astonished {
     background-position: -1413px 0;
 }
 
-.emoji_scream {
+.smiley-scream {
     background-position: -1445px 0;
 }
 
-.emoji_neckbeard {
+.smiley-neckbeard {
     background-position: -1477px 0;
 }
 
-.emoji_tired_face {
+.smiley-tired_face {
     background-position: -1509px 0;
 }
 
-.emoji_angry {
+.smiley-angry {
     background-position: -1541px 0;
 }
 
-.emoji_rage {
+.smiley-rage {
     background-position: -1573px 0;
 }
 
-.emoji_triumph {
+.smiley-triumph {
     background-position: -1605px 0;
 }
 
-.emoji_sleepy {
+.smiley-sleepy {
     background-position: -1637px 0;
 }
 
-.emoji_yum {
+.smiley-yum {
     background-position: -1669px 0;
 }
 
-.emoji_mask {
+.smiley-mask {
     background-position: -1701px 0;
 }
 
-.emoji_sunglasses {
+.smiley-sunglasses {
     background-position: -1733px 0;
 }
 
-.emoji_dizzy_face {
+.smiley-dizzy_face {
     background-position: -1765px 0;
 }
 
-.emoji_imp {
+.smiley-imp {
     background-position: -1797px 0;
 }
 
-.emoji_smiling_imp {
+.smiley-smiling_imp {
     background-position: -1829px 0;
 }
 
-.emoji_neutral_face {
+.smiley-neutral_face {
     background-position: -1861px 0;
 }
 
-.emoji_no_mouth {
+.smiley-no_mouth {
     background-position: -1893px 0;
 }
 
-.emoji_innocent {
+.smiley-innocent {
     background-position: -1925px 0;
 }
 
-.emoji_alien {
+.smiley-alien {
     background-position: -1957px 0;
 }
 
-.emoji_yellow_heart {
+.smiley-yellow_heart {
     background-position: -1989px 0;
 }
 
-.emoji_blue_heart {
+.smiley-blue_heart {
     background-position: -2021px 0;
 }
 
-.emoji_purple_heart {
+.smiley-purple_heart {
     background-position: -2053px 0;
 }
 
-.emoji_heart {
+.smiley-heart {
     background-position: -2085px 0;
 }
 
-.emoji_green_heart {
+.smiley-green_heart {
     background-position: -2117px 0;
 }
 
-.emoji_broken_heart {
+.smiley-broken_heart {
     background-position: -2149px 0;
 }
 
-.emoji_heartbeat {
+.smiley-heartbeat {
     background-position: -2181px 0;
 }
 
-.emoji_heartpulse {
+.smiley-heartpulse {
     background-position: -2213px 0;
 }
 
-.emoji_two_hearts {
+.smiley-two_hearts {
     background-position: -2245px 0;
 }
 
-.emoji_revolving_hearts {
+.smiley-revolving_hearts {
     background-position: -2277px 0;
 }
 
-.emoji_cupid {
+.smiley-cupid {
     background-position: -2309px 0;
 }
 
-.emoji_sparkling_heart {
+.smiley-sparkling_heart {
     background-position: -2341px 0;
 }
 
-.emoji_sparkles {
+.smiley-sparkles {
     background-position: -2373px 0;
 }
 
-.emoji_star {
+.smiley-star {
     background-position: -2405px 0;
 }
 
-.emoji_star2 {
+.smiley-star2 {
     background-position: -2437px 0;
 }
 
-.emoji_dizzy {
+.smiley-dizzy {
     background-position: -2469px 0;
 }
 
-.emoji_boom {
+.smiley-boom {
     background-position: -2501px 0;
 }
 
-.emoji_collision {
+.smiley-collision {
     background-position: -2533px 0;
 }
 
-.emoji_anger {
+.smiley-anger {
     background-position: -2565px 0;
 }
 
-.emoji_exclamation {
+.smiley-exclamation {
     background-position: -2597px 0;
 }
 
-.emoji_question {
+.smiley-question {
     background-position: -2629px 0;
 }
 
-.emoji_grey_exclamation {
+.smiley-grey_exclamation {
     background-position: -2661px 0;
 }
 
-.emoji_grey_question {
+.smiley-grey_question {
     background-position: -2693px 0;
 }
 
-.emoji_zzz {
+.smiley-zzz {
     background-position: -2725px 0;
 }
 
-.emoji_dash {
+.smiley-dash {
     background-position: -2757px 0;
 }
 
-.emoji_sweat_drops {
+.smiley-sweat_drops {
     background-position: -2789px 0;
 }
 
-.emoji_notes {
+.smiley-notes {
     background-position: -2821px 0;
 }
 
-.emoji_musical_note {
+.smiley-musical_note {
     background-position: -2853px 0;
 }
 
-.emoji_fire {
+.smiley-fire {
     background-position: -2885px 0;
 }
 
-.emoji_hankey {
+.smiley-hankey {
     background-position: -2917px 0;
 }
 
-.emoji_poop {
+.smiley-poop {
     background-position: -2949px 0;
 }
 
-.emoji_shit {
+.smiley-shit {
     background-position: -2981px 0;
 }
 
-.emoji_\+1 {
+.smiley-\+1 {
     background-position: -3013px 0;
 }
 
-.emoji_thumbsup {
+.smiley-thumbsup {
     background-position: -3045px 0;
 }
 
-.emoji_\-1 {
+.smiley-\-1 {
     background-position: -3077px 0;
 }
 
-.emoji_thumbsdown {
+.smiley-thumbsdown {
     background-position: -3109px 0;
 }
 
-.emoji_ok_hand {
+.smiley-ok_hand {
     background-position: -3141px 0;
 }
 
-.emoji_punch {
+.smiley-punch {
     background-position: -3173px 0;
 }
 
-.emoji_facepunch {
+.smiley-facepunch {
     background-position: -3205px 0;
 }
 
-.emoji_fist {
+.smiley-fist {
     background-position: -3237px 0;
 }
 
-.emoji_v {
+.smiley-v {
     background-position: -3269px 0;
 }
 
-.emoji_wave {
+.smiley-wave {
     background-position: -3301px 0;
 }
 
-.emoji_hand {
+.smiley-hand {
     background-position: -3333px 0;
 }
 
-.emoji_raised_hand {
+.smiley-raised_hand {
     background-position: -3365px 0;
 }
 
-.emoji_open_hands {
+.smiley-open_hands {
     background-position: -3397px 0;
 }
 
-.emoji_point_up {
+.smiley-point_up {
     background-position: -3429px 0;
 }
 
-.emoji_point_down {
+.smiley-point_down {
     background-position: -3461px 0;
 }
 
-.emoji_point_left {
+.smiley-point_left {
     background-position: -3493px 0;
 }
 
-.emoji_point_right {
+.smiley-point_right {
     background-position: -3525px 0;
 }
 
-.emoji_raised_hands {
+.smiley-raised_hands {
     background-position: -3557px 0;
 }
 
-.emoji_pray {
+.smiley-pray {
     background-position: -3589px 0;
 }
 
-.emoji_point_up_2 {
+.smiley-point_up_2 {
     background-position: -3621px 0;
 }
 
-.emoji_clap {
+.smiley-clap {
     background-position: -3653px 0;
 }
 
-.emoji_muscle {
+.smiley-muscle {
     background-position: -3685px 0;
 }
 
-.emoji_metal {
+.smiley-metal {
     background-position: -3717px 0;
 }
 
-.emoji_fu {
+.smiley-fu {
     background-position: -3749px 0;
 }
 
-.emoji_walking {
+.smiley-walking {
     background-position: -3781px 0;
 }
 
-.emoji_runner {
+.smiley-runner {
     background-position: -3813px 0;
 }
 
-.emoji_running {
+.smiley-running {
     background-position: -3845px 0;
 }
 
-.emoji_couple {
+.smiley-couple {
     background-position: -3877px 0;
 }
 
-.emoji_family {
+.smiley-family {
     background-position: -3909px 0;
 }
 
-.emoji_two_men_holding_hands {
+.smiley-two_men_holding_hands {
     background-position: -3941px 0;
 }
 
-.emoji_two_women_holding_hands {
+.smiley-two_women_holding_hands {
     background-position: -3973px 0;
 }
 
-.emoji_dancer {
+.smiley-dancer {
     background-position: -4005px 0;
 }
 
-.emoji_dancers {
+.smiley-dancers {
     background-position: -4037px 0;
 }
 
-.emoji_ok_woman {
+.smiley-ok_woman {
     background-position: -4069px 0;
 }
 
-.emoji_no_good {
+.smiley-no_good {
     background-position: -4101px 0;
 }
 
-.emoji_information_desk_person {
+.smiley-information_desk_person {
     background-position: -4133px 0;
 }
 
-.emoji_raising_hand {
+.smiley-raising_hand {
     background-position: -4165px 0;
 }
 
-.emoji_bride_with_veil {
+.smiley-bride_with_veil {
     background-position: -4197px 0;
 }
 
-.emoji_person_with_pouting_face {
+.smiley-person_with_pouting_face {
     background-position: -4229px 0;
 }
 
-.emoji_person_frowning {
+.smiley-person_frowning {
     background-position: -4261px 0;
 }
 
-.emoji_bow {
+.smiley-bow {
     background-position: -4293px 0;
 }
 
-.emoji_couplekiss {
+.smiley-couplekiss {
     background-position: -4325px 0;
 }
 
-.emoji_couple_with_heart {
+.smiley-couple_with_heart {
     background-position: -4357px 0;
 }
 
-.emoji_massage {
+.smiley-massage {
     background-position: -4389px 0;
 }
 
-.emoji_haircut {
+.smiley-haircut {
     background-position: -4421px 0;
 }
 
-.emoji_nail_care {
+.smiley-nail_care {
     background-position: -4453px 0;
 }
 
-.emoji_boy {
+.smiley-boy {
     background-position: -4485px 0;
 }
 
-.emoji_girl {
+.smiley-girl {
     background-position: -4517px 0;
 }
 
-.emoji_woman {
+.smiley-woman {
     background-position: -4549px 0;
 }
 
-.emoji_man {
+.smiley-man {
     background-position: -4581px 0;
 }
 
-.emoji_baby {
+.smiley-baby {
     background-position: -4613px 0;
 }
 
-.emoji_older_woman {
+.smiley-older_woman {
     background-position: -4645px 0;
 }
 
-.emoji_older_man {
+.smiley-older_man {
     background-position: -4677px 0;
 }
 
-.emoji_person_with_blond_hair {
+.smiley-person_with_blond_hair {
     background-position: -4709px 0;
 }
 
-.emoji_man_with_gua_pi_mao {
+.smiley-man_with_gua_pi_mao {
     background-position: -4741px 0;
 }
 
-.emoji_man_with_turban {
+.smiley-man_with_turban {
     background-position: -4773px 0;
 }
 
-.emoji_construction_worker {
+.smiley-construction_worker {
     background-position: -4805px 0;
 }
 
-.emoji_cop {
+.smiley-cop {
     background-position: -4837px 0;
 }
 
-.emoji_angel {
+.smiley-angel {
     background-position: -4869px 0;
 }
 
-.emoji_princess {
+.smiley-princess {
     background-position: -4901px 0;
 }
 
-.emoji_smiley_cat {
+.smiley-smiley_cat {
     background-position: -4933px 0;
 }
 
-.emoji_smile_cat {
+.smiley-smile_cat {
     background-position: -4965px 0;
 }
 
-.emoji_heart_eyes_cat {
+.smiley-heart_eyes_cat {
     background-position: -4997px 0;
 }
 
-.emoji_kissing_cat {
+.smiley-kissing_cat {
     background-position: -5029px 0;
 }
 
-.emoji_smirk_cat {
+.smiley-smirk_cat {
     background-position: -5061px 0;
 }
 
-.emoji_scream_cat {
+.smiley-scream_cat {
     background-position: -5093px 0;
 }
 
-.emoji_crying_cat_face {
+.smiley-crying_cat_face {
     background-position: -5125px 0;
 }
 
-.emoji_joy_cat {
+.smiley-joy_cat {
     background-position: -5157px 0;
 }
 
-.emoji_pouting_cat {
+.smiley-pouting_cat {
     background-position: -5189px 0;
 }
 
-.emoji_japanese_ogre {
+.smiley-japanese_ogre {
     background-position: -5221px 0;
 }
 
-.emoji_japanese_goblin {
+.smiley-japanese_goblin {
     background-position: -5253px 0;
 }
 
-.emoji_see_no_evil {
+.smiley-see_no_evil {
     background-position: -5285px 0;
 }
 
-.emoji_hear_no_evil {
+.smiley-hear_no_evil {
     background-position: -5317px 0;
 }
 
-.emoji_speak_no_evil {
+.smiley-speak_no_evil {
     background-position: -5349px 0;
 }
 
-.emoji_guardsman {
+.smiley-guardsman {
     background-position: -5381px 0;
 }
 
-.emoji_skull {
+.smiley-skull {
     background-position: -5413px 0;
 }
 
-.emoji_feet {
+.smiley-feet {
     background-position: -5445px 0;
 }
 
-.emoji_lips {
+.smiley-lips {
     background-position: -5477px 0;
 }
 
-.emoji_kiss {
+.smiley-kiss {
     background-position: -5509px 0;
 }
 
-.emoji_droplet {
+.smiley-droplet {
     background-position: -5541px 0;
 }
 
-.emoji_ear {
+.smiley-ear {
     background-position: -5573px 0;
 }
 
-.emoji_eyes {
+.smiley-eyes {
     background-position: -5605px 0;
 }
 
-.emoji_nose {
+.smiley-nose {
     background-position: -5637px 0;
 }
 
-.emoji_tongue {
+.smiley-tongue {
     background-position: -5669px 0;
 }
 
-.emoji_love_letter {
+.smiley-love_letter {
     background-position: -5701px 0;
 }
 
-.emoji_bust_in_silhouette {
+.smiley-bust_in_silhouette {
     background-position: -5733px 0;
 }
 
-.emoji_busts_in_silhouette {
+.smiley-busts_in_silhouette {
     background-position: -5765px 0;
 }
 
-.emoji_speech_balloon {
+.smiley-speech_balloon {
     background-position: -5797px 0;
 }
 
-.emoji_thought_balloon {
+.smiley-thought_balloon {
     background-position: -5829px 0;
 }
 
-.emoji_feelsgood {
+.smiley-feelsgood {
     background-position: -5861px 0;
 }
 
-.emoji_finnadie {
+.smiley-finnadie {
     background-position: -5893px 0;
 }
 
-.emoji_goberserk {
+.smiley-goberserk {
     background-position: -5925px 0;
 }
 
-.emoji_godmode {
+.smiley-godmode {
     background-position: -5957px 0;
 }
 
-.emoji_hurtrealbad {
+.smiley-hurtrealbad {
     background-position: -5989px 0;
 }
 
-.emoji_rage1 {
+.smiley-rage1 {
     background-position: -6021px 0;
 }
 
-.emoji_rage2 {
+.smiley-rage2 {
     background-position: -6053px 0;
 }
 
-.emoji_rage3 {
+.smiley-rage3 {
     background-position: -6085px 0;
 }
 
-.emoji_rage4 {
+.smiley-rage4 {
     background-position: -6117px 0;
 }
 
-.emoji_suspect {
+.smiley-suspect {
     background-position: -6149px 0;
 }
 
-.emoji_trollface {
+.smiley-trollface {
     background-position: -6181px 0;
 }
 
-.emoji_sunny {
+.smiley-sunny {
     background-position: -6213px 0;
 }
 
-.emoji_umbrella {
+.smiley-umbrella {
     background-position: -6245px 0;
 }
 
-.emoji_cloud {
+.smiley-cloud {
     background-position: -6277px 0;
 }
 
-.emoji_snowflake {
+.smiley-snowflake {
     background-position: -6309px 0;
 }
 
-.emoji_snowman {
+.smiley-snowman {
     background-position: -6341px 0;
 }
 
-.emoji_zap {
+.smiley-zap {
     background-position: -6373px 0;
 }
 
-.emoji_cyclone {
+.smiley-cyclone {
     background-position: -6405px 0;
 }
 
-.emoji_foggy {
+.smiley-foggy {
     background-position: -6437px 0;
 }
 
-.emoji_ocean {
+.smiley-ocean {
     background-position: -6469px 0;
 }
 
-.emoji_cat {
+.smiley-cat {
     background-position: -6501px 0;
 }
 
-.emoji_dog {
+.smiley-dog {
     background-position: -6533px 0;
 }
 
-.emoji_mouse {
+.smiley-mouse {
     background-position: -6565px 0;
 }
 
-.emoji_hamster {
+.smiley-hamster {
     background-position: -6597px 0;
 }
 
-.emoji_rabbit {
+.smiley-rabbit {
     background-position: -6629px 0;
 }
 
-.emoji_wolf {
+.smiley-wolf {
     background-position: -6661px 0;
 }
 
-.emoji_frog {
+.smiley-frog {
     background-position: -6693px 0;
 }
 
-.emoji_tiger {
+.smiley-tiger {
     background-position: -6725px 0;
 }
 
-.emoji_koala {
+.smiley-koala {
     background-position: -6757px 0;
 }
 
-.emoji_bear {
+.smiley-bear {
     background-position: -6789px 0;
 }
 
-.emoji_pig {
+.smiley-pig {
     background-position: -6821px 0;
 }
 
-.emoji_pig_nose {
+.smiley-pig_nose {
     background-position: -6853px 0;
 }
 
-.emoji_cow {
+.smiley-cow {
     background-position: -6885px 0;
 }
 
-.emoji_boar {
+.smiley-boar {
     background-position: -6917px 0;
 }
 
-.emoji_monkey_face {
+.smiley-monkey_face {
     background-position: -6949px 0;
 }
 
-.emoji_monkey {
+.smiley-monkey {
     background-position: -6981px 0;
 }
 
-.emoji_horse {
+.smiley-horse {
     background-position: -7013px 0;
 }
 
-.emoji_racehorse {
+.smiley-racehorse {
     background-position: -7045px 0;
 }
 
-.emoji_camel {
+.smiley-camel {
     background-position: -7077px 0;
 }
 
-.emoji_sheep {
+.smiley-sheep {
     background-position: -7109px 0;
 }
 
-.emoji_elephant {
+.smiley-elephant {
     background-position: -7141px 0;
 }
 
-.emoji_panda_face {
+.smiley-panda_face {
     background-position: -7173px 0;
 }
 
-.emoji_snake {
+.smiley-snake {
     background-position: -7205px 0;
 }
 
-.emoji_bird {
+.smiley-bird {
     background-position: -7237px 0;
 }
 
-.emoji_baby_chick {
+.smiley-baby_chick {
     background-position: -7269px 0;
 }
 
-.emoji_hatched_chick {
+.smiley-hatched_chick {
     background-position: -7301px 0;
 }
 
-.emoji_hatching_chick {
+.smiley-hatching_chick {
     background-position: -7333px 0;
 }
 
-.emoji_chicken {
+.smiley-chicken {
     background-position: -7365px 0;
 }
 
-.emoji_penguin {
+.smiley-penguin {
     background-position: -7397px 0;
 }
 
-.emoji_turtle {
+.smiley-turtle {
     background-position: -7429px 0;
 }
 
-.emoji_bug {
+.smiley-bug {
     background-position: -7461px 0;
 }
 
-.emoji_honeybee {
+.smiley-honeybee {
     background-position: -7493px 0;
 }
 
-.emoji_ant {
+.smiley-ant {
     background-position: -7525px 0;
 }
 
-.emoji_beetle {
+.smiley-beetle {
     background-position: -7557px 0;
 }
 
-.emoji_snail {
+.smiley-snail {
     background-position: -7589px 0;
 }
 
-.emoji_octopus {
+.smiley-octopus {
     background-position: -7621px 0;
 }
 
-.emoji_tropical_fish {
+.smiley-tropical_fish {
     background-position: -7653px 0;
 }
 
-.emoji_fish {
+.smiley-fish {
     background-position: -7685px 0;
 }
 
-.emoji_whale {
+.smiley-whale {
     background-position: -7717px 0;
 }
 
-.emoji_whale2 {
+.smiley-whale2 {
     background-position: -7749px 0;
 }
 
-.emoji_dolphin {
+.smiley-dolphin {
     background-position: -7781px 0;
 }
 
-.emoji_cow2 {
+.smiley-cow2 {
     background-position: -7813px 0;
 }
 
-.emoji_ram {
+.smiley-ram {
     background-position: -7845px 0;
 }
 
-.emoji_rat {
+.smiley-rat {
     background-position: -7877px 0;
 }
 
-.emoji_water_buffalo {
+.smiley-water_buffalo {
     background-position: -7909px 0;
 }
 
-.emoji_tiger2 {
+.smiley-tiger2 {
     background-position: -7941px 0;
 }
 
-.emoji_rabbit2 {
+.smiley-rabbit2 {
     background-position: -7973px 0;
 }
 
-.emoji_dragon {
+.smiley-dragon {
     background-position: -8005px 0;
 }
 
-.emoji_goat {
+.smiley-goat {
     background-position: -8037px 0;
 }
 
-.emoji_rooster {
+.smiley-rooster {
     background-position: -8069px 0;
 }
 
-.emoji_dog2 {
+.smiley-dog2 {
     background-position: -8101px 0;
 }
 
-.emoji_pig2 {
+.smiley-pig2 {
     background-position: -8133px 0;
 }
 
-.emoji_mouse2 {
+.smiley-mouse2 {
     background-position: -8165px 0;
 }
 
-.emoji_ox {
+.smiley-ox {
     background-position: -8197px 0;
 }
 
-.emoji_dragon_face {
+.smiley-dragon_face {
     background-position: -8229px 0;
 }
 
-.emoji_blowfish {
+.smiley-blowfish {
     background-position: -8261px 0;
 }
 
-.emoji_crocodile {
+.smiley-crocodile {
     background-position: -8293px 0;
 }
 
-.emoji_dromedary_camel {
+.smiley-dromedary_camel {
     background-position: -8325px 0;
 }
 
-.emoji_leopard {
+.smiley-leopard {
     background-position: -8357px 0;
 }
 
-.emoji_cat2 {
+.smiley-cat2 {
     background-position: -8389px 0;
 }
 
-.emoji_poodle {
+.smiley-poodle {
     background-position: -8421px 0;
 }
 
-.emoji_paw_prints {
+.smiley-paw_prints {
     background-position: -8453px 0;
 }
 
-.emoji_bouquet {
+.smiley-bouquet {
     background-position: -8485px 0;
 }
 
-.emoji_cherry_blossom {
+.smiley-cherry_blossom {
     background-position: -8517px 0;
 }
 
-.emoji_tulip {
+.smiley-tulip {
     background-position: -8549px 0;
 }
 
-.emoji_four_leaf_clover {
+.smiley-four_leaf_clover {
     background-position: -8581px 0;
 }
 
-.emoji_rose {
+.smiley-rose {
     background-position: -8613px 0;
 }
 
-.emoji_sunflower {
+.smiley-sunflower {
     background-position: -8645px 0;
 }
 
-.emoji_hibiscus {
+.smiley-hibiscus {
     background-position: -8677px 0;
 }
 
-.emoji_maple_leaf {
+.smiley-maple_leaf {
     background-position: -8709px 0;
 }
 
-.emoji_leaves {
+.smiley-leaves {
     background-position: -8741px 0;
 }
 
-.emoji_fallen_leaf {
+.smiley-fallen_leaf {
     background-position: -8773px 0;
 }
 
-.emoji_herb {
+.smiley-herb {
     background-position: -8805px 0;
 }
 
-.emoji_mushroom {
+.smiley-mushroom {
     background-position: -8837px 0;
 }
 
-.emoji_cactus {
+.smiley-cactus {
     background-position: -8869px 0;
 }
 
-.emoji_palm_tree {
+.smiley-palm_tree {
     background-position: -8901px 0;
 }
 
-.emoji_evergreen_tree {
+.smiley-evergreen_tree {
     background-position: -8933px 0;
 }
 
-.emoji_deciduous_tree {
+.smiley-deciduous_tree {
     background-position: -8965px 0;
 }
 
-.emoji_chestnut {
+.smiley-chestnut {
     background-position: -8997px 0;
 }
 
-.emoji_seedling {
+.smiley-seedling {
     background-position: -9029px 0;
 }
 
-.emoji_blossom {
+.smiley-blossom {
     background-position: -9061px 0;
 }
 
-.emoji_ear_of_rice {
+.smiley-ear_of_rice {
     background-position: -9093px 0;
 }
 
-.emoji_shell {
+.smiley-shell {
     background-position: -9125px 0;
 }
 
-.emoji_globe_with_meridians {
+.smiley-globe_with_meridians {
     background-position: -9157px 0;
 }
 
-.emoji_sun_with_face {
+.smiley-sun_with_face {
     background-position: -9189px 0;
 }
 
-.emoji_full_moon_with_face {
+.smiley-full_moon_with_face {
     background-position: -9221px 0;
 }
 
-.emoji_new_moon_with_face {
+.smiley-new_moon_with_face {
     background-position: -9253px 0;
 }
 
-.emoji_new_moon {
+.smiley-new_moon {
     background-position: -9285px 0;
 }
 
-.emoji_waxing_crescent_moon {
+.smiley-waxing_crescent_moon {
     background-position: -9317px 0;
 }
 
-.emoji_first_quarter_moon {
+.smiley-first_quarter_moon {
     background-position: -9349px 0;
 }
 
-.emoji_waxing_gibbous_moon {
+.smiley-waxing_gibbous_moon {
     background-position: -9381px 0;
 }
 
-.emoji_full_moon {
+.smiley-full_moon {
     background-position: -9413px 0;
 }
 
-.emoji_waning_gibbous_moon {
+.smiley-waning_gibbous_moon {
     background-position: -9445px 0;
 }
 
-.emoji_last_quarter_moon {
+.smiley-last_quarter_moon {
     background-position: -9477px 0;
 }
 
-.emoji_waning_crescent_moon {
+.smiley-waning_crescent_moon {
     background-position: -9509px 0;
 }
 
-.emoji_last_quarter_moon_with_face {
+.smiley-last_quarter_moon_with_face {
     background-position: -9541px 0;
 }
 
-.emoji_first_quarter_moon_with_face {
+.smiley-first_quarter_moon_with_face {
     background-position: -9573px 0;
 }
 
-.emoji_moon {
+.smiley-moon {
     background-position: -9605px 0;
 }
 
-.emoji_earth_africa {
+.smiley-earth_africa {
     background-position: -9637px 0;
 }
 
-.emoji_earth_americas {
+.smiley-earth_americas {
     background-position: -9669px 0;
 }
 
-.emoji_earth_asia {
+.smiley-earth_asia {
     background-position: -9701px 0;
 }
 
-.emoji_volcano {
+.smiley-volcano {
     background-position: -9733px 0;
 }
 
-.emoji_milky_way {
+.smiley-milky_way {
     background-position: -9765px 0;
 }
 
-.emoji_partly_sunny {
+.smiley-partly_sunny {
     background-position: -9797px 0;
 }
 
-.emoji_octocat {
+.smiley-octocat {
     background-position: -9829px 0;
 }
 
-.emoji_squirrel {
+.smiley-squirrel {
     background-position: -9861px 0;
 }
 
-.emoji_bamboo {
+.smiley-bamboo {
     background-position: -9893px 0;
 }
 
-.emoji_gift_heart {
+.smiley-gift_heart {
     background-position: -9925px 0;
 }
 
-.emoji_dolls {
+.smiley-dolls {
     background-position: -9957px 0;
 }
 
-.emoji_school_satchel {
+.smiley-school_satchel {
     background-position: -9989px 0;
 }
 
-.emoji_mortar_board {
+.smiley-mortar_board {
     background-position: -10021px 0;
 }
 
-.emoji_flags {
+.smiley-flags {
     background-position: -10053px 0;
 }
 
-.emoji_fireworks {
+.smiley-fireworks {
     background-position: -10085px 0;
 }
 
-.emoji_sparkler {
+.smiley-sparkler {
     background-position: -10117px 0;
 }
 
-.emoji_wind_chime {
+.smiley-wind_chime {
     background-position: -10149px 0;
 }
 
-.emoji_rice_scene {
+.smiley-rice_scene {
     background-position: -10181px 0;
 }
 
-.emoji_jack_o_lantern {
+.smiley-jack_o_lantern {
     background-position: -10213px 0;
 }
 
-.emoji_ghost {
+.smiley-ghost {
     background-position: -10245px 0;
 }
 
-.emoji_santa {
+.smiley-santa {
     background-position: -10277px 0;
 }
 
-.emoji_christmas_tree {
+.smiley-christmas_tree {
     background-position: -10309px 0;
 }
 
-.emoji_gift {
+.smiley-gift {
     background-position: -10341px 0;
 }
 
-.emoji_bell {
+.smiley-bell {
     background-position: -10373px 0;
 }
 
-.emoji_no_bell {
+.smiley-no_bell {
     background-position: -10405px 0;
 }
 
-.emoji_tanabata_tree {
+.smiley-tanabata_tree {
     background-position: -10437px 0;
 }
 
-.emoji_tada {
+.smiley-tada {
     background-position: -10469px 0;
 }
 
-.emoji_confetti_ball {
+.smiley-confetti_ball {
     background-position: -10501px 0;
 }
 
-.emoji_balloon {
+.smiley-balloon {
     background-position: -10533px 0;
 }
 
-.emoji_crystal_ball {
+.smiley-crystal_ball {
     background-position: -10565px 0;
 }
 
-.emoji_cd {
+.smiley-cd {
     background-position: -10597px 0;
 }
 
-.emoji_dvd {
+.smiley-dvd {
     background-position: -10629px 0;
 }
 
-.emoji_floppy_disk {
+.smiley-floppy_disk {
     background-position: -10661px 0;
 }
 
-.emoji_camera {
+.smiley-camera {
     background-position: -10693px 0;
 }
 
-.emoji_video_camera {
+.smiley-video_camera {
     background-position: -10725px 0;
 }
 
-.emoji_movie_camera {
+.smiley-movie_camera {
     background-position: -10757px 0;
 }
 
-.emoji_computer {
+.smiley-computer {
     background-position: -10789px 0;
 }
 
-.emoji_tv {
+.smiley-tv {
     background-position: -10821px 0;
 }
 
-.emoji_iphone {
+.smiley-iphone {
     background-position: -10853px 0;
 }
 
-.emoji_phone {
+.smiley-phone {
     background-position: -10885px 0;
 }
 
-.emoji_telephone {
+.smiley-telephone {
     background-position: -10917px 0;
 }
 
-.emoji_telephone_receiver {
+.smiley-telephone_receiver {
     background-position: -10949px 0;
 }
 
-.emoji_pager {
+.smiley-pager {
     background-position: -10981px 0;
 }
 
-.emoji_fax {
+.smiley-fax {
     background-position: -11013px 0;
 }
 
-.emoji_minidisc {
+.smiley-minidisc {
     background-position: -11045px 0;
 }
 
-.emoji_vhs {
+.smiley-vhs {
     background-position: -11077px 0;
 }
 
-.emoji_sound {
+.smiley-sound {
     background-position: -11109px 0;
 }
 
-.emoji_speaker {
+.smiley-speaker {
     background-position: -11141px 0;
 }
 
-.emoji_mute {
+.smiley-mute {
     background-position: -11173px 0;
 }
 
-.emoji_loudspeaker {
+.smiley-loudspeaker {
     background-position: -11205px 0;
 }
 
-.emoji_mega {
+.smiley-mega {
     background-position: -11237px 0;
 }
 
-.emoji_hourglass {
+.smiley-hourglass {
     background-position: -11269px 0;
 }
 
-.emoji_hourglass_flowing_sand {
+.smiley-hourglass_flowing_sand {
     background-position: -11301px 0;
 }
 
-.emoji_alarm_clock {
+.smiley-alarm_clock {
     background-position: -11333px 0;
 }
 
-.emoji_watch {
+.smiley-watch {
     background-position: -11365px 0;
 }
 
-.emoji_radio {
+.smiley-radio {
     background-position: -11397px 0;
 }
 
-.emoji_satellite {
+.smiley-satellite {
     background-position: -11429px 0;
 }
 
-.emoji_loop {
+.smiley-loop {
     background-position: -11461px 0;
 }
 
-.emoji_mag {
+.smiley-mag {
     background-position: -11493px 0;
 }
 
-.emoji_mag_right {
+.smiley-mag_right {
     background-position: -11525px 0;
 }
 
-.emoji_unlock {
+.smiley-unlock {
     background-position: -11557px 0;
 }
 
-.emoji_lock {
+.smiley-lock {
     background-position: -11589px 0;
 }
 
-.emoji_lock_with_ink_pen {
+.smiley-lock_with_ink_pen {
     background-position: -11621px 0;
 }
 
-.emoji_closed_lock_with_key {
+.smiley-closed_lock_with_key {
     background-position: -11653px 0;
 }
 
-.emoji_key {
+.smiley-key {
     background-position: -11685px 0;
 }
 
-.emoji_bulb {
+.smiley-bulb {
     background-position: -11717px 0;
 }
 
-.emoji_flashlight {
+.smiley-flashlight {
     background-position: -11749px 0;
 }
 
-.emoji_high_brightness {
+.smiley-high_brightness {
     background-position: -11781px 0;
 }
 
-.emoji_low_brightness {
+.smiley-low_brightness {
     background-position: -11813px 0;
 }
 
-.emoji_electric_plug {
+.smiley-electric_plug {
     background-position: -11845px 0;
 }
 
-.emoji_battery {
+.smiley-battery {
     background-position: -11877px 0;
 }
 
-.emoji_calling {
+.smiley-calling {
     background-position: -11909px 0;
 }
 
-.emoji_email {
+.smiley-email {
     background-position: -11941px 0;
 }
 
-.emoji_mailbox {
+.smiley-mailbox {
     background-position: -11973px 0;
 }
 
-.emoji_postbox {
+.smiley-postbox {
     background-position: -12005px 0;
 }
 
-.emoji_bath {
+.smiley-bath {
     background-position: -12037px 0;
 }
 
-.emoji_bathtub {
+.smiley-bathtub {
     background-position: -12069px 0;
 }
 
-.emoji_shower {
+.smiley-shower {
     background-position: -12101px 0;
 }
 
-.emoji_toilet {
+.smiley-toilet {
     background-position: -12133px 0;
 }
 
-.emoji_wrench {
+.smiley-wrench {
     background-position: -12165px 0;
 }
 
-.emoji_nut_and_bolt {
+.smiley-nut_and_bolt {
     background-position: -12197px 0;
 }
 
-.emoji_hammer {
+.smiley-hammer {
     background-position: -12229px 0;
 }
 
-.emoji_seat {
+.smiley-seat {
     background-position: -12261px 0;
 }
 
-.emoji_moneybag {
+.smiley-moneybag {
     background-position: -12293px 0;
 }
 
-.emoji_yen {
+.smiley-yen {
     background-position: -12325px 0;
 }
 
-.emoji_dollar {
+.smiley-dollar {
     background-position: -12357px 0;
 }
 
-.emoji_pound {
+.smiley-pound {
     background-position: -12389px 0;
 }
 
-.emoji_euro {
+.smiley-euro {
     background-position: -12421px 0;
 }
 
-.emoji_credit_card {
+.smiley-credit_card {
     background-position: -12453px 0;
 }
 
-.emoji_money_with_wings {
+.smiley-money_with_wings {
     background-position: -12485px 0;
 }
 
-.emoji_e\-mail {
+.smiley-e\-mail {
     background-position: -12517px 0;
 }
 
-.emoji_inbox_tray {
+.smiley-inbox_tray {
     background-position: -12549px 0;
 }
 
-.emoji_outbox_tray {
+.smiley-outbox_tray {
     background-position: -12581px 0;
 }
 
-.emoji_envelope {
+.smiley-envelope {
     background-position: -12613px 0;
 }
 
-.emoji_incoming_envelope {
+.smiley-incoming_envelope {
     background-position: -12645px 0;
 }
 
-.emoji_postal_horn {
+.smiley-postal_horn {
     background-position: -12677px 0;
 }
 
-.emoji_mailbox_closed {
+.smiley-mailbox_closed {
     background-position: -12709px 0;
 }
 
-.emoji_mailbox_with_mail {
+.smiley-mailbox_with_mail {
     background-position: -12741px 0;
 }
 
-.emoji_mailbox_with_no_mail {
+.smiley-mailbox_with_no_mail {
     background-position: -12773px 0;
 }
 
-.emoji_door {
+.smiley-door {
     background-position: -12805px 0;
 }
 
-.emoji_smoking {
+.smiley-smoking {
     background-position: -12837px 0;
 }
 
-.emoji_bomb {
+.smiley-bomb {
     background-position: -12869px 0;
 }
 
-.emoji_gun {
+.smiley-gun {
     background-position: -12901px 0;
 }
 
-.emoji_hocho {
+.smiley-hocho {
     background-position: -12933px 0;
 }
 
-.emoji_pill {
+.smiley-pill {
     background-position: -12965px 0;
 }
 
-.emoji_syringe {
+.smiley-syringe {
     background-position: -12997px 0;
 }
 
-.emoji_page_facing_up {
+.smiley-page_facing_up {
     background-position: -13029px 0;
 }
 
-.emoji_page_with_curl {
+.smiley-page_with_curl {
     background-position: -13061px 0;
 }
 
-.emoji_bookmark_tabs {
+.smiley-bookmark_tabs {
     background-position: -13093px 0;
 }
 
-.emoji_bar_chart {
+.smiley-bar_chart {
     background-position: -13125px 0;
 }
 
-.emoji_chart_with_upwards_trend {
+.smiley-chart_with_upwards_trend {
     background-position: -13157px 0;
 }
 
-.emoji_chart_with_downwards_trend {
+.smiley-chart_with_downwards_trend {
     background-position: -13189px 0;
 }
 
-.emoji_scroll {
+.smiley-scroll {
     background-position: -13221px 0;
 }
 
-.emoji_clipboard {
+.smiley-clipboard {
     background-position: -13253px 0;
 }
 
-.emoji_calendar {
+.smiley-calendar {
     background-position: -13285px 0;
 }
 
-.emoji_date {
+.smiley-date {
     background-position: -13317px 0;
 }
 
-.emoji_card_index {
+.smiley-card_index {
     background-position: -13349px 0;
 }
 
-.emoji_file_folder {
+.smiley-file_folder {
     background-position: -13381px 0;
 }
 
-.emoji_open_file_folder {
+.smiley-open_file_folder {
     background-position: -13413px 0;
 }
 
-.emoji_scissors {
+.smiley-scissors {
     background-position: -13445px 0;
 }
 
-.emoji_pushpin {
+.smiley-pushpin {
     background-position: -13477px 0;
 }
 
-.emoji_paperclip {
+.smiley-paperclip {
     background-position: -13509px 0;
 }
 
-.emoji_black_nib {
+.smiley-black_nib {
     background-position: -13541px 0;
 }
 
-.emoji_pencil2 {
+.smiley-pencil2 {
     background-position: -13573px 0;
 }
 
-.emoji_straight_ruler {
+.smiley-straight_ruler {
     background-position: -13605px 0;
 }
 
-.emoji_triangular_ruler {
+.smiley-triangular_ruler {
     background-position: -13637px 0;
 }
 
-.emoji_closed_book {
+.smiley-closed_book {
     background-position: -13669px 0;
 }
 
-.emoji_green_book {
+.smiley-green_book {
     background-position: -13701px 0;
 }
 
-.emoji_blue_book {
+.smiley-blue_book {
     background-position: -13733px 0;
 }
 
-.emoji_orange_book {
+.smiley-orange_book {
     background-position: -13765px 0;
 }
 
-.emoji_notebook {
+.smiley-notebook {
     background-position: -13797px 0;
 }
 
-.emoji_notebook_with_decorative_cover {
+.smiley-notebook_with_decorative_cover {
     background-position: -13829px 0;
 }
 
-.emoji_ledger {
+.smiley-ledger {
     background-position: -13861px 0;
 }
 
-.emoji_books {
+.smiley-books {
     background-position: -13893px 0;
 }
 
-.emoji_bookmark {
+.smiley-bookmark {
     background-position: -13925px 0;
 }
 
-.emoji_name_badge {
+.smiley-name_badge {
     background-position: -13957px 0;
 }
 
-.emoji_microscope {
+.smiley-microscope {
     background-position: -13989px 0;
 }
 
-.emoji_telescope {
+.smiley-telescope {
     background-position: -14021px 0;
 }
 
-.emoji_newspaper {
+.smiley-newspaper {
     background-position: -14053px 0;
 }
 
-.emoji_football {
+.smiley-football {
     background-position: -14085px 0;
 }
 
-.emoji_basketball {
+.smiley-basketball {
     background-position: -14117px 0;
 }
 
-.emoji_soccer {
+.smiley-soccer {
     background-position: -14149px 0;
 }
 
-.emoji_baseball {
+.smiley-baseball {
     background-position: -14181px 0;
 }
 
-.emoji_tennis {
+.smiley-tennis {
     background-position: -14213px 0;
 }
 
-.emoji_8ball {
+.smiley-8ball {
     background-position: -14245px 0;
 }
 
-.emoji_rugby_football {
+.smiley-rugby_football {
     background-position: -14277px 0;
 }
 
-.emoji_bowling {
+.smiley-bowling {
     background-position: -14309px 0;
 }
 
-.emoji_golf {
+.smiley-golf {
     background-position: -14341px 0;
 }
 
-.emoji_mountain_bicyclist {
+.smiley-mountain_bicyclist {
     background-position: -14373px 0;
 }
 
-.emoji_bicyclist {
+.smiley-bicyclist {
     background-position: -14405px 0;
 }
 
-.emoji_horse_racing {
+.smiley-horse_racing {
     background-position: -14437px 0;
 }
 
-.emoji_snowboarder {
+.smiley-snowboarder {
     background-position: -14469px 0;
 }
 
-.emoji_swimmer {
+.smiley-swimmer {
     background-position: -14501px 0;
 }
 
-.emoji_surfer {
+.smiley-surfer {
     background-position: -14533px 0;
 }
 
-.emoji_ski {
+.smiley-ski {
     background-position: -14565px 0;
 }
 
-.emoji_spades {
+.smiley-spades {
     background-position: -14597px 0;
 }
 
-.emoji_hearts {
+.smiley-hearts {
     background-position: -14629px 0;
 }
 
-.emoji_clubs {
+.smiley-clubs {
     background-position: -14661px 0;
 }
 
-.emoji_diamonds {
+.smiley-diamonds {
     background-position: -14693px 0;
 }
 
-.emoji_gem {
+.smiley-gem {
     background-position: -14725px 0;
 }
 
-.emoji_ring {
+.smiley-ring {
     background-position: -14757px 0;
 }
 
-.emoji_trophy {
+.smiley-trophy {
     background-position: -14789px 0;
 }
 
-.emoji_musical_score {
+.smiley-musical_score {
     background-position: -14821px 0;
 }
 
-.emoji_musical_keyboard {
+.smiley-musical_keyboard {
     background-position: -14853px 0;
 }
 
-.emoji_violin {
+.smiley-violin {
     background-position: -14885px 0;
 }
 
-.emoji_space_invader {
+.smiley-space_invader {
     background-position: -14917px 0;
 }
 
-.emoji_video_game {
+.smiley-video_game {
     background-position: -14949px 0;
 }
 
-.emoji_black_joker {
+.smiley-black_joker {
     background-position: -14981px 0;
 }
 
-.emoji_flower_playing_cards {
+.smiley-flower_playing_cards {
     background-position: -15013px 0;
 }
 
-.emoji_game_die {
+.smiley-game_die {
     background-position: -15045px 0;
 }
 
-.emoji_dart {
+.smiley-dart {
     background-position: -15077px 0;
 }
 
-.emoji_mahjong {
+.smiley-mahjong {
     background-position: -15109px 0;
 }
 
-.emoji_clapper {
+.smiley-clapper {
     background-position: -15141px 0;
 }
 
-.emoji_memo {
+.smiley-memo {
     background-position: -15173px 0;
 }
 
-.emoji_pencil {
+.smiley-pencil {
     background-position: -15205px 0;
 }
 
-.emoji_book {
+.smiley-book {
     background-position: -15237px 0;
 }
 
-.emoji_art {
+.smiley-art {
     background-position: -15269px 0;
 }
 
-.emoji_microphone {
+.smiley-microphone {
     background-position: -15301px 0;
 }
 
-.emoji_headphones {
+.smiley-headphones {
     background-position: -15333px 0;
 }
 
-.emoji_trumpet {
+.smiley-trumpet {
     background-position: -15365px 0;
 }
 
-.emoji_saxophone {
+.smiley-saxophone {
     background-position: -15397px 0;
 }
 
-.emoji_guitar {
+.smiley-guitar {
     background-position: -15429px 0;
 }
 
-.emoji_shoe {
+.smiley-shoe {
     background-position: -15461px 0;
 }
 
-.emoji_sandal {
+.smiley-sandal {
     background-position: -15493px 0;
 }
 
-.emoji_high_heel {
+.smiley-high_heel {
     background-position: -15525px 0;
 }
 
-.emoji_lipstick {
+.smiley-lipstick {
     background-position: -15557px 0;
 }
 
-.emoji_boot {
+.smiley-boot {
     background-position: -15589px 0;
 }
 
-.emoji_shirt {
+.smiley-shirt {
     background-position: -15621px 0;
 }
 
-.emoji_tshirt {
+.smiley-tshirt {
     background-position: -15653px 0;
 }
 
-.emoji_necktie {
+.smiley-necktie {
     background-position: -15685px 0;
 }
 
-.emoji_womans_clothes {
+.smiley-womans_clothes {
     background-position: -15717px 0;
 }
 
-.emoji_dress {
+.smiley-dress {
     background-position: -15749px 0;
 }
 
-.emoji_running_shirt_with_sash {
+.smiley-running_shirt_with_sash {
     background-position: -15781px 0;
 }
 
-.emoji_jeans {
+.smiley-jeans {
     background-position: -15813px 0;
 }
 
-.emoji_kimono {
+.smiley-kimono {
     background-position: -15845px 0;
 }
 
-.emoji_bikini {
+.smiley-bikini {
     background-position: -15877px 0;
 }
 
-.emoji_ribbon {
+.smiley-ribbon {
     background-position: -15909px 0;
 }
 
-.emoji_tophat {
+.smiley-tophat {
     background-position: -15941px 0;
 }
 
-.emoji_crown {
+.smiley-crown {
     background-position: -15973px 0;
 }
 
-.emoji_womans_hat {
+.smiley-womans_hat {
     background-position: -16005px 0;
 }
 
-.emoji_mans_shoe {
+.smiley-mans_shoe {
     background-position: -16037px 0;
 }
 
-.emoji_closed_umbrella {
+.smiley-closed_umbrella {
     background-position: -16069px 0;
 }
 
-.emoji_briefcase {
+.smiley-briefcase {
     background-position: -16101px 0;
 }
 
-.emoji_handbag {
+.smiley-handbag {
     background-position: -16133px 0;
 }
 
-.emoji_pouch {
+.smiley-pouch {
     background-position: -16165px 0;
 }
 
-.emoji_purse {
+.smiley-purse {
     background-position: -16197px 0;
 }
 
-.emoji_eyeglasses {
+.smiley-eyeglasses {
     background-position: -16229px 0;
 }
 
-.emoji_fishing_pole_and_fish {
+.smiley-fishing_pole_and_fish {
     background-position: -16261px 0;
 }
 
-.emoji_coffee {
+.smiley-coffee {
     background-position: -16293px 0;
 }
 
-.emoji_tea {
+.smiley-tea {
     background-position: -16325px 0;
 }
 
-.emoji_sake {
+.smiley-sake {
     background-position: -16357px 0;
 }
 
-.emoji_baby_bottle {
+.smiley-baby_bottle {
     background-position: -16389px 0;
 }
 
-.emoji_beer {
+.smiley-beer {
     background-position: -16421px 0;
 }
 
-.emoji_beers {
+.smiley-beers {
     background-position: -16453px 0;
 }
 
-.emoji_cocktail {
+.smiley-cocktail {
     background-position: -16485px 0;
 }
 
-.emoji_tropical_drink {
+.smiley-tropical_drink {
     background-position: -16517px 0;
 }
 
-.emoji_wine_glass {
+.smiley-wine_glass {
     background-position: -16549px 0;
 }
 
-.emoji_fork_and_knife {
+.smiley-fork_and_knife {
     background-position: -16581px 0;
 }
 
-.emoji_pizza {
+.smiley-pizza {
     background-position: -16613px 0;
 }
 
-.emoji_hamburger {
+.smiley-hamburger {
     background-position: -16645px 0;
 }
 
-.emoji_fries {
+.smiley-fries {
     background-position: -16677px 0;
 }
 
-.emoji_poultry_leg {
+.smiley-poultry_leg {
     background-position: -16709px 0;
 }
 
-.emoji_meat_on_bone {
+.smiley-meat_on_bone {
     background-position: -16741px 0;
 }
 
-.emoji_spaghetti {
+.smiley-spaghetti {
     background-position: -16773px 0;
 }
 
-.emoji_curry {
+.smiley-curry {
     background-position: -16805px 0;
 }
 
-.emoji_fried_shrimp {
+.smiley-fried_shrimp {
     background-position: -16837px 0;
 }
 
-.emoji_bento {
+.smiley-bento {
     background-position: -16869px 0;
 }
 
-.emoji_sushi {
+.smiley-sushi {
     background-position: -16901px 0;
 }
 
-.emoji_fish_cake {
+.smiley-fish_cake {
     background-position: -16933px 0;
 }
 
-.emoji_rice_ball {
+.smiley-rice_ball {
     background-position: -16965px 0;
 }
 
-.emoji_rice_cracker {
+.smiley-rice_cracker {
     background-position: -16997px 0;
 }
 
-.emoji_rice {
+.smiley-rice {
     background-position: -17029px 0;
 }
 
-.emoji_ramen {
+.smiley-ramen {
     background-position: -17061px 0;
 }
 
-.emoji_stew {
+.smiley-stew {
     background-position: -17093px 0;
 }
 
-.emoji_oden {
+.smiley-oden {
     background-position: -17125px 0;
 }
 
-.emoji_dango {
+.smiley-dango {
     background-position: -17157px 0;
 }
 
-.emoji_egg {
+.smiley-egg {
     background-position: -17189px 0;
 }
 
-.emoji_bread {
+.smiley-bread {
     background-position: -17221px 0;
 }
 
-.emoji_doughnut {
+.smiley-doughnut {
     background-position: -17253px 0;
 }
 
-.emoji_custard {
+.smiley-custard {
     background-position: -17285px 0;
 }
 
-.emoji_icecream {
+.smiley-icecream {
     background-position: -17317px 0;
 }
 
-.emoji_ice_cream {
+.smiley-ice_cream {
     background-position: -17349px 0;
 }
 
-.emoji_shaved_ice {
+.smiley-shaved_ice {
     background-position: -17381px 0;
 }
 
-.emoji_birthday {
+.smiley-birthday {
     background-position: -17413px 0;
 }
 
-.emoji_cake {
+.smiley-cake {
     background-position: -17445px 0;
 }
 
-.emoji_cookie {
+.smiley-cookie {
     background-position: -17477px 0;
 }
 
-.emoji_chocolate_bar {
+.smiley-chocolate_bar {
     background-position: -17509px 0;
 }
 
-.emoji_candy {
+.smiley-candy {
     background-position: -17541px 0;
 }
 
-.emoji_lollipop {
+.smiley-lollipop {
     background-position: -17573px 0;
 }
 
-.emoji_honey_pot {
+.smiley-honey_pot {
     background-position: -17605px 0;
 }
 
-.emoji_apple {
+.smiley-apple {
     background-position: -17637px 0;
 }
 
-.emoji_green_apple {
+.smiley-green_apple {
     background-position: -17669px 0;
 }
 
-.emoji_tangerine {
+.smiley-tangerine {
     background-position: -17701px 0;
 }
 
-.emoji_lemon {
+.smiley-lemon {
     background-position: -17733px 0;
 }
 
-.emoji_cherries {
+.smiley-cherries {
     background-position: -17765px 0;
 }
 
-.emoji_grapes {
+.smiley-grapes {
     background-position: -17797px 0;
 }
 
-.emoji_watermelon {
+.smiley-watermelon {
     background-position: -17829px 0;
 }
 
-.emoji_strawberry {
+.smiley-strawberry {
     background-position: -17861px 0;
 }
 
-.emoji_peach {
+.smiley-peach {
     background-position: -17893px 0;
 }
 
-.emoji_melon {
+.smiley-melon {
     background-position: -17925px 0;
 }
 
-.emoji_banana {
+.smiley-banana {
     background-position: -17957px 0;
 }
 
-.emoji_pear {
+.smiley-pear {
     background-position: -17989px 0;
 }
 
-.emoji_pineapple {
+.smiley-pineapple {
     background-position: -18021px 0;
 }
 
-.emoji_sweet_potato {
+.smiley-sweet_potato {
     background-position: -18053px 0;
 }
 
-.emoji_eggplant {
+.smiley-eggplant {
     background-position: -18085px 0;
 }
 
-.emoji_tomato {
+.smiley-tomato {
     background-position: -18117px 0;
 }
 
-.emoji_corn {
+.smiley-corn {
     background-position: -18149px 0;
 }
 
-.emoji_house {
+.smiley-house {
     background-position: -18181px 0;
 }
 
-.emoji_house_with_garden {
+.smiley-house_with_garden {
     background-position: -18213px 0;
 }
 
-.emoji_school {
+.smiley-school {
     background-position: -18245px 0;
 }
 
-.emoji_office {
+.smiley-office {
     background-position: -18277px 0;
 }
 
-.emoji_post_office {
+.smiley-post_office {
     background-position: -18309px 0;
 }
 
-.emoji_hospital {
+.smiley-hospital {
     background-position: -18341px 0;
 }
 
-.emoji_bank {
+.smiley-bank {
     background-position: -18373px 0;
 }
 
-.emoji_convenience_store {
+.smiley-convenience_store {
     background-position: -18405px 0;
 }
 
-.emoji_love_hotel {
+.smiley-love_hotel {
     background-position: -18437px 0;
 }
 
-.emoji_hotel {
+.smiley-hotel {
     background-position: -18469px 0;
 }
 
-.emoji_wedding {
+.smiley-wedding {
     background-position: -18501px 0;
 }
 
-.emoji_church {
+.smiley-church {
     background-position: -18533px 0;
 }
 
-.emoji_department_store {
+.smiley-department_store {
     background-position: -18565px 0;
 }
 
-.emoji_european_post_office {
+.smiley-european_post_office {
     background-position: -18597px 0;
 }
 
-.emoji_city_sunrise {
+.smiley-city_sunrise {
     background-position: -18629px 0;
 }
 
-.emoji_city_sunset {
+.smiley-city_sunset {
     background-position: -18661px 0;
 }
 
-.emoji_japanese_castle {
+.smiley-japanese_castle {
     background-position: -18693px 0;
 }
 
-.emoji_european_castle {
+.smiley-european_castle {
     background-position: -18725px 0;
 }
 
-.emoji_tent {
+.smiley-tent {
     background-position: -18757px 0;
 }
 
-.emoji_factory {
+.smiley-factory {
     background-position: -18789px 0;
 }
 
-.emoji_tokyo_tower {
+.smiley-tokyo_tower {
     background-position: -18821px 0;
 }
 
-.emoji_japan {
+.smiley-japan {
     background-position: -18853px 0;
 }
 
-.emoji_mount_fuji {
+.smiley-mount_fuji {
     background-position: -18885px 0;
 }
 
-.emoji_sunrise_over_mountains {
+.smiley-sunrise_over_mountains {
     background-position: -18917px 0;
 }
 
-.emoji_sunrise {
+.smiley-sunrise {
     background-position: -18949px 0;
 }
 
-.emoji_stars {
+.smiley-stars {
     background-position: -18981px 0;
 }
 
-.emoji_themoreyouknow {
+.smiley-themoreyouknow {
     background-position: -18981px 0;
 }
 
-.emoji_tmyk {
+.smiley-tmyk {
     background-position: -18981px 0;
 }
 
-.emoji_statue_of_liberty {
+.smiley-statue_of_liberty {
     background-position: -19013px 0;
 }
 
-.emoji_bridge_at_night {
+.smiley-bridge_at_night {
     background-position: -19045px 0;
 }
 
-.emoji_carousel_horse {
+.smiley-carousel_horse {
     background-position: -19077px 0;
 }
 
-.emoji_rainbow {
+.smiley-rainbow {
     background-position: -19109px 0;
 }
 
-.emoji_ferris_wheel {
+.smiley-ferris_wheel {
     background-position: -19141px 0;
 }
 
-.emoji_fountain {
+.smiley-fountain {
     background-position: -19173px 0;
 }
 
-.emoji_roller_coaster {
+.smiley-roller_coaster {
     background-position: -19205px 0;
 }
 
-.emoji_ship {
+.smiley-ship {
     background-position: -19237px 0;
 }
 
-.emoji_speedboat {
+.smiley-speedboat {
     background-position: -19269px 0;
 }
 
-.emoji_boat {
+.smiley-boat {
     background-position: -19301px 0;
 }
 
-.emoji_sailboat {
+.smiley-sailboat {
     background-position: -19333px 0;
 }
 
-.emoji_rowboat {
+.smiley-rowboat {
     background-position: -19365px 0;
 }
 
-.emoji_anchor {
+.smiley-anchor {
     background-position: -19397px 0;
 }
 
-.emoji_rocket {
+.smiley-rocket {
     background-position: -19429px 0;
 }
 
-.emoji_airplane {
+.smiley-airplane {
     background-position: -19461px 0;
 }
 
-.emoji_helicopter {
+.smiley-helicopter {
     background-position: -19493px 0;
 }
 
-.emoji_steam_locomotive {
+.smiley-steam_locomotive {
     background-position: -19525px 0;
 }
 
-.emoji_tram {
+.smiley-tram {
     background-position: -19557px 0;
 }
 
-.emoji_mountain_railway {
+.smiley-mountain_railway {
     background-position: -19589px 0;
 }
 
-.emoji_bike {
+.smiley-bike {
     background-position: -19621px 0;
 }
 
-.emoji_aerial_tramway {
+.smiley-aerial_tramway {
     background-position: -19653px 0;
 }
 
-.emoji_suspension_railway {
+.smiley-suspension_railway {
     background-position: -19685px 0;
 }
 
-.emoji_mountain_cableway {
+.smiley-mountain_cableway {
     background-position: -19717px 0;
 }
 
-.emoji_tractor {
+.smiley-tractor {
     background-position: -19749px 0;
 }
 
-.emoji_blue_car {
+.smiley-blue_car {
     background-position: -19781px 0;
 }
 
-.emoji_oncoming_automobile {
+.smiley-oncoming_automobile {
     background-position: -19813px 0;
 }
 
-.emoji_car {
+.smiley-car {
     background-position: -19845px 0;
 }
 
-.emoji_red_car {
+.smiley-red_car {
     background-position: -19877px 0;
 }
 
-.emoji_taxi {
+.smiley-taxi {
     background-position: -19909px 0;
 }
 
-.emoji_oncoming_taxi {
+.smiley-oncoming_taxi {
     background-position: -19941px 0;
 }
 
-.emoji_articulated_lorry {
+.smiley-articulated_lorry {
     background-position: -19973px 0;
 }
 
-.emoji_bus {
+.smiley-bus {
     background-position: -20005px 0;
 }
 
-.emoji_oncoming_bus {
+.smiley-oncoming_bus {
     background-position: -20037px 0;
 }
 
-.emoji_rotating_light {
+.smiley-rotating_light {
     background-position: -20069px 0;
 }
 
-.emoji_police_car {
+.smiley-police_car {
     background-position: -20101px 0;
 }
 
-.emoji_oncoming_police_car {
+.smiley-oncoming_police_car {
     background-position: -20133px 0;
 }
 
-.emoji_fire_engine {
+.smiley-fire_engine {
     background-position: -20165px 0;
 }
 
-.emoji_ambulance {
+.smiley-ambulance {
     background-position: -20197px 0;
 }
 
-.emoji_minibus {
+.smiley-minibus {
     background-position: -20229px 0;
 }
 
-.emoji_truck {
+.smiley-truck {
     background-position: -20261px 0;
 }
 
-.emoji_train {
+.smiley-train {
     background-position: -20293px 0;
 }
 
-.emoji_station {
+.smiley-station {
     background-position: -20325px 0;
 }
 
-.emoji_train2 {
+.smiley-train2 {
     background-position: -20357px 0;
 }
 
-.emoji_bullettrain_front {
+.smiley-bullettrain_front {
     background-position: -20389px 0;
 }
 
-.emoji_bullettrain_side {
+.smiley-bullettrain_side {
     background-position: -20421px 0;
 }
 
-.emoji_light_rail {
+.smiley-light_rail {
     background-position: -20453px 0;
 }
 
-.emoji_monorail {
+.smiley-monorail {
     background-position: -20485px 0;
 }
 
-.emoji_railway_car {
+.smiley-railway_car {
     background-position: -20517px 0;
 }
 
-.emoji_trolleybus {
+.smiley-trolleybus {
     background-position: -20549px 0;
 }
 
-.emoji_ticket {
+.smiley-ticket {
     background-position: -20581px 0;
 }
 
-.emoji_fuelpump {
+.smiley-fuelpump {
     background-position: -20613px 0;
 }
 
-.emoji_vertical_traffic_light {
+.smiley-vertical_traffic_light {
     background-position: -20645px 0;
 }
 
-.emoji_traffic_light {
+.smiley-traffic_light {
     background-position: -20677px 0;
 }
 
-.emoji_warning {
+.smiley-warning {
     background-position: -20709px 0;
 }
 
-.emoji_construction {
+.smiley-construction {
     background-position: -20741px 0;
 }
 
-.emoji_beginner {
+.smiley-beginner {
     background-position: -20773px 0;
 }
 
-.emoji_atm {
+.smiley-atm {
     background-position: -20805px 0;
 }
 
-.emoji_slot_machine {
+.smiley-slot_machine {
     background-position: -20837px 0;
 }
 
-.emoji_busstop {
+.smiley-busstop {
     background-position: -20869px 0;
 }
 
-.emoji_barber {
+.smiley-barber {
     background-position: -20901px 0;
 }
 
-.emoji_hotsprings {
+.smiley-hotsprings {
     background-position: -20933px 0;
 }
 
-.emoji_checkered_flag {
+.smiley-checkered_flag {
     background-position: -20965px 0;
 }
 
-.emoji_crossed_flags {
+.smiley-crossed_flags {
     background-position: -20997px 0;
 }
 
-.emoji_izakaya_lantern {
+.smiley-izakaya_lantern {
     background-position: -21029px 0;
 }
 
-.emoji_moyai {
+.smiley-moyai {
     background-position: -21061px 0;
 }
 
-.emoji_circus_tent {
+.smiley-circus_tent {
     background-position: -21093px 0;
 }
 
-.emoji_performing_arts {
+.smiley-performing_arts {
     background-position: -21125px 0;
 }
 
-.emoji_round_pushpin {
+.smiley-round_pushpin {
     background-position: -21157px 0;
 }
 
-.emoji_triangular_flag_on_post {
+.smiley-triangular_flag_on_post {
     background-position: -21189px 0;
 }
 
-.emoji_jp {
+.smiley-jp {
     background-position: -21221px 0;
 }
 
-.emoji_kr {
+.smiley-kr {
     background-position: -21253px 0;
 }
 
-.emoji_cn {
+.smiley-cn {
     background-position: -21285px 0;
 }
 
-.emoji_us {
+.smiley-us {
     background-position: -21317px 0;
 }
 
-.emoji_fr {
+.smiley-fr {
     background-position: -21349px 0;
 }
 
-.emoji_es {
+.smiley-es {
     background-position: -21381px 0;
 }
 
-.emoji_it {
+.smiley-it {
     background-position: -21413px 0;
 }
 
-.emoji_ru {
+.smiley-ru {
     background-position: -21445px 0;
 }
 
-.emoji_gb {
+.smiley-gb {
     background-position: -21477px 0;
 }
 
-.emoji_uk {
+.smiley-uk {
     background-position: -21509px 0;
 }
 
-.emoji_de {
+.smiley-de {
     background-position: -21541px 0;
 }
 
-.emoji_one {
+.smiley-one {
     background-position: -21573px 0;
 }
 
-.emoji_two {
+.smiley-two {
     background-position: -21605px 0;
 }
 
-.emoji_three {
+.smiley-three {
     background-position: -21637px 0;
 }
 
-.emoji_four {
+.smiley-four {
     background-position: -21669px 0;
 }
 
-.emoji_five {
+.smiley-five {
     background-position: -21701px 0;
 }
 
-.emoji_six {
+.smiley-six {
     background-position: -21733px 0;
 }
 
-.emoji_seven {
+.smiley-seven {
     background-position: -21765px 0;
 }
 
-.emoji_eight {
+.smiley-eight {
     background-position: -21797px 0;
 }
 
-.emoji_nine {
+.smiley-nine {
     background-position: -21829px 0;
 }
 
-.emoji_keycap_ten {
+.smiley-keycap_ten {
     background-position: -21861px 0;
 }
 
-.emoji_1234 {
+.smiley-1234 {
     background-position: -21893px 0;
 }
 
-.emoji_zero {
+.smiley-zero {
     background-position: -21925px 0;
 }
 
-.emoji_hash {
+.smiley-hash {
     background-position: -21957px 0;
 }
 
-.emoji_symbols {
+.smiley-symbols {
     background-position: -21989px 0;
 }
 
-.emoji_arrow_backward {
+.smiley-arrow_backward {
     background-position: -22021px 0;
 }
 
-.emoji_arrow_down {
+.smiley-arrow_down {
     background-position: -22053px 0;
 }
 
-.emoji_arrow_forward {
+.smiley-arrow_forward {
     background-position: -22085px 0;
 }
 
-.emoji_arrow_left {
+.smiley-arrow_left {
     background-position: -22117px 0;
 }
 
-.emoji_capital_abcd {
+.smiley-capital_abcd {
     background-position: -22149px 0;
 }
 
-.emoji_abcd {
+.smiley-abcd {
     background-position: -22181px 0;
 }
 
-.emoji_abc {
+.smiley-abc {
     background-position: -22213px 0;
 }
 
-.emoji_arrow_lower_left {
+.smiley-arrow_lower_left {
     background-position: -22245px 0;
 }
 
-.emoji_arrow_lower_right {
+.smiley-arrow_lower_right {
     background-position: -22277px 0;
 }
 
-.emoji_arrow_right {
+.smiley-arrow_right {
     background-position: -22309px 0;
 }
 
-.emoji_arrow_up {
+.smiley-arrow_up {
     background-position: -22341px 0;
 }
 
-.emoji_arrow_upper_left {
+.smiley-arrow_upper_left {
     background-position: -22373px 0;
 }
 
-.emoji_arrow_upper_right {
+.smiley-arrow_upper_right {
     background-position: -22405px 0;
 }
 
-.emoji_arrow_double_down {
+.smiley-arrow_double_down {
     background-position: -22437px 0;
 }
 
-.emoji_arrow_double_up {
+.smiley-arrow_double_up {
     background-position: -22469px 0;
 }
 
-.emoji_arrow_down_small {
+.smiley-arrow_down_small {
     background-position: -22501px 0;
 }
 
-.emoji_arrow_heading_down {
+.smiley-arrow_heading_down {
     background-position: -22533px 0;
 }
 
-.emoji_arrow_heading_up {
+.smiley-arrow_heading_up {
     background-position: -22565px 0;
 }
 
-.emoji_leftwards_arrow_with_hook {
+.smiley-leftwards_arrow_with_hook {
     background-position: -22597px 0;
 }
 
-.emoji_arrow_right_hook {
+.smiley-arrow_right_hook {
     background-position: -22629px 0;
 }
 
-.emoji_left_right_arrow {
+.smiley-left_right_arrow {
     background-position: -22661px 0;
 }
 
-.emoji_arrow_up_down {
+.smiley-arrow_up_down {
     background-position: -22693px 0;
 }
 
-.emoji_arrow_up_small {
+.smiley-arrow_up_small {
     background-position: -22725px 0;
 }
 
-.emoji_arrows_clockwise {
+.smiley-arrows_clockwise {
     background-position: -22757px 0;
 }
 
-.emoji_arrows_counterclockwise {
+.smiley-arrows_counterclockwise {
     background-position: -22789px 0;
 }
 
-.emoji_rewind {
+.smiley-rewind {
     background-position: -22821px 0;
 }
 
-.emoji_fast_forward {
+.smiley-fast_forward {
     background-position: -22853px 0;
 }
 
-.emoji_information_source {
+.smiley-information_source {
     background-position: -22885px 0;
 }
 
-.emoji_ok {
+.smiley-ok {
     background-position: -22917px 0;
 }
 
-.emoji_twisted_rightwards_arrows {
+.smiley-twisted_rightwards_arrows {
     background-position: -22949px 0;
 }
 
-.emoji_repeat {
+.smiley-repeat {
     background-position: -22981px 0;
 }
 
-.emoji_repeat_one {
+.smiley-repeat_one {
     background-position: -23013px 0;
 }
 
-.emoji_new {
+.smiley-new {
     background-position: -23045px 0;
 }
 
-.emoji_top {
+.smiley-top {
     background-position: -23077px 0;
 }
 
-.emoji_up {
+.smiley-up {
     background-position: -23109px 0;
 }
 
-.emoji_cool {
+.smiley-cool {
     background-position: -23141px 0;
 }
 
-.emoji_free {
+.smiley-free {
     background-position: -23173px 0;
 }
 
-.emoji_ng {
+.smiley-ng {
     background-position: -23205px 0;
 }
 
-.emoji_cinema {
+.smiley-cinema {
     background-position: -23237px 0;
 }
 
-.emoji_koko {
+.smiley-koko {
     background-position: -23269px 0;
 }
 
-.emoji_signal_strength {
+.smiley-signal_strength {
     background-position: -23301px 0;
 }
 
-.emoji_u5272 {
+.smiley-u5272 {
     background-position: -23333px 0;
 }
 
-.emoji_u5408 {
+.smiley-u5408 {
     background-position: -23365px 0;
 }
 
-.emoji_u55b6 {
+.smiley-u55b6 {
     background-position: -23397px 0;
 }
 
-.emoji_u6307 {
+.smiley-u6307 {
     background-position: -23429px 0;
 }
 
-.emoji_u6708 {
+.smiley-u6708 {
     background-position: -23461px 0;
 }
 
-.emoji_u6709 {
+.smiley-u6709 {
     background-position: -23493px 0;
 }
 
-.emoji_u6e80 {
+.smiley-u6e80 {
     background-position: -23525px 0;
 }
 
-.emoji_u7121 {
+.smiley-u7121 {
     background-position: -23557px 0;
 }
 
-.emoji_u7533 {
+.smiley-u7533 {
     background-position: -23589px 0;
 }
 
-.emoji_u7a7a {
+.smiley-u7a7a {
     background-position: -23621px 0;
 }
 
-.emoji_u7981 {
+.smiley-u7981 {
     background-position: -23653px 0;
 }
 
-.emoji_sa {
+.smiley-sa {
     background-position: -23685px 0;
 }
 
-.emoji_restroom {
+.smiley-restroom {
     background-position: -23717px 0;
 }
 
-.emoji_mens {
+.smiley-mens {
     background-position: -23749px 0;
 }
 
-.emoji_womens {
+.smiley-womens {
     background-position: -23781px 0;
 }
 
-.emoji_baby_symbol {
+.smiley-baby_symbol {
     background-position: -23813px 0;
 }
 
-.emoji_no_smoking {
+.smiley-no_smoking {
     background-position: -23845px 0;
 }
 
-.emoji_parking {
+.smiley-parking {
     background-position: -23877px 0;
 }
 
-.emoji_wheelchair {
+.smiley-wheelchair {
     background-position: -23909px 0;
 }
 
-.emoji_metro {
+.smiley-metro {
     background-position: -23941px 0;
 }
 
-.emoji_baggage_claim {
+.smiley-baggage_claim {
     background-position: -23973px 0;
 }
 
-.emoji_accept {
+.smiley-accept {
     background-position: -24005px 0;
 }
 
-.emoji_wc {
+.smiley-wc {
     background-position: -24037px 0;
 }
 
-.emoji_potable_water {
+.smiley-potable_water {
     background-position: -24069px 0;
 }
 
-.emoji_put_litter_in_its_place {
+.smiley-put_litter_in_its_place {
     background-position: -24101px 0;
 }
 
-.emoji_secret {
+.smiley-secret {
     background-position: -24133px 0;
 }
 
-.emoji_congratulations {
+.smiley-congratulations {
     background-position: -24165px 0;
 }
 
-.emoji_m {
+.smiley-m {
     background-position: -24197px 0;
 }
 
-.emoji_passport_control {
+.smiley-passport_control {
     background-position: -24229px 0;
 }
 
-.emoji_left_luggage {
+.smiley-left_luggage {
     background-position: -24261px 0;
 }
 
-.emoji_customs {
+.smiley-customs {
     background-position: -24293px 0;
 }
 
-.emoji_ideograph_advantage {
+.smiley-ideograph_advantage {
     background-position: -24325px 0;
 }
 
-.emoji_cl {
+.smiley-cl {
     background-position: -24357px 0;
 }
 
-.emoji_sos {
+.smiley-sos {
     background-position: -24389px 0;
 }
 
-.emoji_id {
+.smiley-id {
     background-position: -24421px 0;
 }
 
-.emoji_no_entry_sign {
+.smiley-no_entry_sign {
     background-position: -24453px 0;
 }
 
-.emoji_underage {
+.smiley-underage {
     background-position: -24485px 0;
 }
 
-.emoji_no_mobile_phones {
+.smiley-no_mobile_phones {
     background-position: -24517px 0;
 }
 
-.emoji_do_not_litter {
+.smiley-do_not_litter {
     background-position: -24549px 0;
 }
 
-.emoji_non\-potable_water {
+.smiley-non\-potable_water {
     background-position: -24581px 0;
 }
 
-.emoji_no_bicycles {
+.smiley-no_bicycles {
     background-position: -24613px 0;
 }
 
-.emoji_no_pedestrians {
+.smiley-no_pedestrians {
     background-position: -24645px 0;
 }
 
-.emoji_children_crossing {
+.smiley-children_crossing {
     background-position: -24677px 0;
 }
 
-.emoji_no_entry {
+.smiley-no_entry {
     background-position: -24709px 0;
 }
 
-.emoji_eight_spoked_asterisk {
+.smiley-eight_spoked_asterisk {
     background-position: -24741px 0;
 }
 
-.emoji_eight_pointed_black_star {
+.smiley-eight_pointed_black_star {
     background-position: -24773px 0;
 }
 
-.emoji_heart_decoration {
+.smiley-heart_decoration {
     background-position: -24805px 0;
 }
 
-.emoji_vs {
+.smiley-vs {
     background-position: -24837px 0;
 }
 
-.emoji_vibration_mode {
+.smiley-vibration_mode {
     background-position: -24869px 0;
 }
 
-.emoji_mobile_phone_off {
+.smiley-mobile_phone_off {
     background-position: -24901px 0;
 }
 
-.emoji_chart {
+.smiley-chart {
     background-position: -24933px 0;
 }
 
-.emoji_currency_exchange {
+.smiley-currency_exchange {
     background-position: -24965px 0;
 }
 
-.emoji_aries {
+.smiley-aries {
     background-position: -24997px 0;
 }
 
-.emoji_taurus {
+.smiley-taurus {
     background-position: -25029px 0;
 }
 
-.emoji_gemini {
+.smiley-gemini {
     background-position: -25061px 0;
 }
 
-.emoji_cancer {
+.smiley-cancer {
     background-position: -25093px 0;
 }
 
-.emoji_leo {
+.smiley-leo {
     background-position: -25125px 0;
 }
 
-.emoji_virgo {
+.smiley-virgo {
     background-position: -25157px 0;
 }
 
-.emoji_libra {
+.smiley-libra {
     background-position: -25189px 0;
 }
 
-.emoji_scorpius {
+.smiley-scorpius {
     background-position: -25221px 0;
 }
 
-.emoji_sagittarius {
+.smiley-sagittarius {
     background-position: -25253px 0;
 }
 
-.emoji_capricorn {
+.smiley-capricorn {
     background-position: -25285px 0;
 }
 
-.emoji_aquarius {
+.smiley-aquarius {
     background-position: -25317px 0;
 }
 
-.emoji_pisces {
+.smiley-pisces {
     background-position: -25349px 0;
 }
 
-.emoji_ophiuchus {
+.smiley-ophiuchus {
     background-position: -25381px 0;
 }
 
-.emoji_six_pointed_star {
+.smiley-six_pointed_star {
     background-position: -25413px 0;
 }
 
-.emoji_negative_squared_cross_mark {
+.smiley-negative_squared_cross_mark {
     background-position: -25445px 0;
 }
 
-.emoji_a {
+.smiley-a {
     background-position: -25477px 0;
 }
 
-.emoji_b {
+.smiley-b {
     background-position: -25509px 0;
 }
 
-.emoji_ab {
+.smiley-ab {
     background-position: -25541px 0;
 }
 
-.emoji_o2 {
+.smiley-o2 {
     background-position: -25573px 0;
 }
 
-.emoji_diamond_shape_with_a_dot_inside {
+.smiley-diamond_shape_with_a_dot_inside {
     background-position: -25605px 0;
 }
 
-.emoji_recycle {
+.smiley-recycle {
     background-position: -25637px 0;
 }
 
-.emoji_end {
+.smiley-end {
     background-position: -25669px 0;
 }
 
-.emoji_on {
+.smiley-on {
     background-position: -25701px 0;
 }
 
-.emoji_soon {
+.smiley-soon {
     background-position: -25733px 0;
 }
 
-.emoji_clock1 {
+.smiley-clock1 {
     background-position: -25765px 0;
 }
 
-.emoji_clock130 {
+.smiley-clock130 {
     background-position: -25797px 0;
 }
 
-.emoji_clock10 {
+.smiley-clock10 {
     background-position: -25829px 0;
 }
 
-.emoji_clock1030 {
+.smiley-clock1030 {
     background-position: -25861px 0;
 }
 
-.emoji_clock11 {
+.smiley-clock11 {
     background-position: -25893px 0;
 }
 
-.emoji_clock1130 {
+.smiley-clock1130 {
     background-position: -25925px 0;
 }
 
-.emoji_clock12 {
+.smiley-clock12 {
     background-position: -25957px 0;
 }
 
-.emoji_clock1230 {
+.smiley-clock1230 {
     background-position: -25989px 0;
 }
 
-.emoji_clock2 {
+.smiley-clock2 {
     background-position: -26021px 0;
 }
 
-.emoji_clock230 {
+.smiley-clock230 {
     background-position: -26053px 0;
 }
 
-.emoji_clock3 {
+.smiley-clock3 {
     background-position: -26085px 0;
 }
 
-.emoji_clock330 {
+.smiley-clock330 {
     background-position: -26117px 0;
 }
 
-.emoji_clock4 {
+.smiley-clock4 {
     background-position: -26149px 0;
 }
 
-.emoji_clock430 {
+.smiley-clock430 {
     background-position: -26181px 0;
 }
 
-.emoji_clock5 {
+.smiley-clock5 {
     background-position: -26213px 0;
 }
 
-.emoji_clock530 {
+.smiley-clock530 {
     background-position: -26245px 0;
 }
 
-.emoji_clock6 {
+.smiley-clock6 {
     background-position: -26277px 0;
 }
 
-.emoji_clock630 {
+.smiley-clock630 {
     background-position: -26309px 0;
 }
 
-.emoji_clock7 {
+.smiley-clock7 {
     background-position: -26341px 0;
 }
 
-.emoji_clock730 {
+.smiley-clock730 {
     background-position: -26373px 0;
 }
 
-.emoji_clock8 {
+.smiley-clock8 {
     background-position: -26405px 0;
 }
 
-.emoji_clock830 {
+.smiley-clock830 {
     background-position: -26437px 0;
 }
 
-.emoji_clock9 {
+.smiley-clock9 {
     background-position: -26469px 0;
 }
 
-.emoji_clock930 {
+.smiley-clock930 {
     background-position: -26501px 0;
 }
 
-.emoji_heavy_dollar_sign {
+.smiley-heavy_dollar_sign {
     background-position: -26533px 0;
 }
 
-.emoji_copyright {
+.smiley-copyright {
     background-position: -26565px 0;
 }
 
-.emoji_registered {
+.smiley-registered {
     background-position: -26597px 0;
 }
 
-.emoji_tm {
+.smiley-tm {
     background-position: -26629px 0;
 }
 
-.emoji_x {
+.smiley-x {
     background-position: -26661px 0;
 }
 
-.emoji_heavy_exclamation_mark {
+.smiley-heavy_exclamation_mark {
     background-position: -26693px 0;
 }
 
-.emoji_bangbang {
+.smiley-bangbang {
     background-position: -26725px 0;
 }
 
-.emoji_interrobang {
+.smiley-interrobang {
     background-position: -26757px 0;
 }
 
-.emoji_o {
+.smiley-o {
     background-position: -26789px 0;
 }
 
-.emoji_heavy_multiplication_x {
+.smiley-heavy_multiplication_x {
     background-position: -26821px 0;
 }
 
-.emoji_heavy_plus_sign {
+.smiley-heavy_plus_sign {
     background-position: -26853px 0;
 }
 
-.emoji_heavy_minus_sign {
+.smiley-heavy_minus_sign {
     background-position: -26885px 0;
 }
 
-.emoji_heavy_division_sign {
+.smiley-heavy_division_sign {
     background-position: -26917px 0;
 }
 
-.emoji_white_flower {
+.smiley-white_flower {
     background-position: -26949px 0;
 }
 
-.emoji_100 {
+.smiley-100 {
     background-position: -26981px 0;
 }
 
-.emoji_heavy_check_mark {
+.smiley-heavy_check_mark {
     background-position: -27013px 0;
 }
 
-.emoji_ballot_box_with_check {
+.smiley-ballot_box_with_check {
     background-position: -27045px 0;
 }
 
-.emoji_radio_button {
+.smiley-radio_button {
     background-position: -27077px 0;
 }
 
-.emoji_link {
+.smiley-link {
     background-position: -27109px 0;
 }
 
-.emoji_curly_loop {
+.smiley-curly_loop {
     background-position: -27141px 0;
 }
 
-.emoji_wavy_dash {
+.smiley-wavy_dash {
     background-position: -27173px 0;
 }
 
-.emoji_part_alternation_mark {
+.smiley-part_alternation_mark {
     background-position: -27205px 0;
 }
 
-.emoji_trident {
+.smiley-trident {
     background-position: -27237px 0;
 }
 
-.emoji_black_large_square {
+.smiley-black_large_square {
     background-position: -27269px 0;
 }
 
-.emoji_white_large_square {
+.smiley-white_large_square {
     background-position: -27301px 0;
 }
 
-.emoji_white_check_mark {
+.smiley-white_check_mark {
     background-position: -27333px 0;
 }
 
-.emoji_black_square_button {
+.smiley-black_square{
+    background-position: -27268px 0;
+}
+
+.smiley-white_square{
+    background-position: -27301px 0;
+}
+
+.smiley-black_square_button {
     background-position: -27365px 0;
 }
 
-.emoji_white_square_button {
+.smiley-white_square_button {
     background-position: -27397px 0;
 }
 
-.emoji_black_circle {
+.smiley-black_circle {
     background-position: -27429px 0;
 }
 
-.emoji_white_circle {
+.smiley-white_circle {
     background-position: -27461px 0;
 }
 
-.emoji_red_circle {
+.smiley-red_circle {
     background-position: -27493px 0;
 }
 
-.emoji_large_blue_circle {
+.smiley-large_blue_circle {
     background-position: -27525px 0;
 }
 
-.emoji_large_blue_diamond {
+.smiley-large_blue_diamond {
     background-position: -27557px 0;
 }
 
-.emoji_large_orange_diamond {
+.smiley-large_orange_diamond {
     background-position: -27589px 0;
 }
 
-.emoji_small_blue_diamond {
+.smiley-small_blue_diamond {
     background-position: -27621px 0;
 }
 
-.emoji_small_orange_diamond {
+.smiley-small_orange_diamond {
     background-position: -27653px 0;
 }
 
-.emoji_small_red_triangle {
+.smiley-small_red_triangle {
     background-position: -27685px 0;
 }
 
-.emoji_small_red_triangle_down {
+.smiley-small_red_triangle_down {
     background-position: -27717px 0;
 }
 
-.emoji_shipit {
+.smiley-shipit {
     background-position: -27749px 0;
 }
 
