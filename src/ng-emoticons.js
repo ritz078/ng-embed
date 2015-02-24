@@ -85,14 +85,13 @@ angular.module('ngEmoticons', ['ngSanitize'])
             var data = a;
             angular.forEach(icons, function(icon) {
                 for (var i = 0; i < a.length; i++) {
-                    if (a[i] == icon.text) {
+                    if (a[i] === icon.text) {
                         data[i] = '<span class="icon-smiley">'+'&#x'+icon.code+'</span>';
                     }
                 }
             });
             var c = data.join(' ');
             return c;
- 
             }
                     };
     });
