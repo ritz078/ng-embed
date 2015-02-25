@@ -303,7 +303,7 @@
 
 
                         var c = b.replace(urlRegex, function (match) {
-                            return "<a href='" + match + "' " + (defaultOptions.linkTarget === '_blank' ? "target='_blank'" : "") + ">" + match + "</a>";
+                            return '<a href="' + match + '" target="' + defaultOptions.linkTarget + '">' + match + '</a>';
                         });
                     }
                     else {

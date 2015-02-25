@@ -81,7 +81,7 @@ Options
      <div ng-bind-html="text | emoticons:{link:false}"></div>
 ```
 
-* linkTarget ( '_self' / '_blank' )
+* linkTarget (_blank|_self|_parent|_top|framename )
       * default : **'_self'**
       * Works only when **link** option is set to **true**.
       * **'_blank'** is used to open the link in a new tab and **'_self'** is used to open the link in the same tab.

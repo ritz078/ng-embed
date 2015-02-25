@@ -41,10 +41,10 @@
     </style>
 </head>
 
-<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl">
+<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
 <h2><img src="http://i.imgur.com/T8i1GM0.jpg?1" alt=""/></h2>
 <h3>Font Smileys</h3>
-<div ng-bind-html="text | emoticons:{}"></div>
+<div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"></div>
 <h3>Emojis</h3>
 <div ng-bind-html="emoji | emoticons"></div>
 </body>
