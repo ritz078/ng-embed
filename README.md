@@ -29,7 +29,7 @@ Currently this filter supports two types of smileys :
 
 Screenshot
 ----------
-![screenshot](https://raw.github.com/ritz078/ngEmoticons/emoji/demo/screen.png)
+![screenshot](https://raw.github.com/ritz078/ngEmoticons/master/demo/screen.png)
 
 Dependencies
 -----------
