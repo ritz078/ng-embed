@@ -1,4 +1,4 @@
-![Imgur](http://i.imgur.com/T8i1GM0.jpg?1)
+![Imgur](http://i.imgur.com/iFROGaB.png)
 
 An AngularJS filter for converting text into emoticons.
 
@@ -71,7 +71,7 @@ load css files
 
 Load 'Emoticons' as a dependency
 ```javascript
-angular.module('ngEmoticonApp', ['ngEmoticons'])
+angular.module('yourAppname', ['ngEmoticons'])
 ```
 
 HTML:
@@ -83,14 +83,14 @@ Options
 -------
 
 * **link** ( boolean )
-     * default : 'true'
+     * default : **true**
      * Usage Example:
 ```html
 <div ng-bind-html="text | emoticons:{link:false}"></div>
 ```
 
-* **linkTarget** (_blank|_self|_parent|_top|framename )
-      * default : '_self'
+* **linkTarget** ( _blank | _self | _parent | _top | framename )
+      * default : **_self**
       * Works only when **link** option is set to "true".
       * Usage Example:
 ```html
