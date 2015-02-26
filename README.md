@@ -2,6 +2,14 @@
 
 An AngularJS filter for converting text into emoticons.
 
+Contents
+-------
+* [Features](#features)
+* [Types of Emoticons](#types-of-emoticons)
+* [Screenshot](#screenshot)
+* [Dependencies](#dependencies)
+* [Getting Started](#getting-started)
+* [Options](#options)
 
 Features
 --------
@@ -74,20 +82,19 @@ HTML:
 Options
 -------
 
-* link ( boolean )
-     * default : **true**
-     * Usage :
+* **link** ( boolean )
+     * default : 'true'
+     * Usage Example:
 ```html
-     <div ng-bind-html="text | emoticons:{link:false}"></div>
+<div ng-bind-html="text | emoticons:{link:false}"></div>
 ```
 
-* linkTarget (_blank|_self|_parent|_top|framename )
-      * default : **'_self'**
-      * Works only when **link** option is set to **true**.
-      * **'_blank'** is used to open the link in a new tab and **'_self'** is used to open the link in the same tab.
-      * Usage :
+* **linkTarget** (_blank|_self|_parent|_top|framename )
+      * default : '_self'
+      * Works only when **link** option is set to "true".
+      * Usage Example:
 ```html
-      <div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"></div>
+<div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"></div>
 ```
 
 
