@@ -1,4 +1,4 @@
-![Imgur](http://i.imgur.com/iFROGaB.png)
+![Imgur](http://i.imgur.com/VZTXbW6.jpg)
 
 An AngularJS filter for converting text into emoticons.
 
