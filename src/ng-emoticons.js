@@ -1,9 +1,9 @@
-(function () {
+;(function() {
 
     'use strict';
 
     angular.module('ngEmoticons', ['ngSanitize'])
-        .filter('emoticons', function () {
+        .filter('emoticons', function() {
             var icons = [{
                 'text': ':)',
                 'class': 'smiley',
@@ -265,9 +265,16 @@
             ];
 
             var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
-            return function (input, options) {
+            return function(input, options) {
 
-
+                /**
+                 * defaultOptions
+                 *
+                 * @description
+                 * Holds the default configuration of the module.
+                 *    
+                 * @type {Object}
+                 */
                 var defaultOptions = {
                     link: true,
                     linkTarget: '_self'
@@ -275,49 +282,100 @@
 
                 angular.extend(defaultOptions, options);
 
-                console.log(defaultOptions);
+                //Checks for invalid inputs
+                //
+                if (input === undefined || input === null) {
+                    return;
+                }
+                if (typeof input === "object") {
+                    return input;
+                }
 
-                if (input) {
-                    if (input === undefined) {
-                        return;
-                    }
-                    if (typeof input === "object") {
-                        return input;
-                    }
-                    var a = input.split(' ');
-                    var data = a;
-                    angular.forEach(icons, function (icon) {
+
+
+                /**
+                 * FUNCTION insertfontSmiley 
+                 * @description
+                 * Coverts the text into font emoticons
+                 * 
+                 * @param  {string} str
+                 * 
+                 * @return {string}
+                 */
+
+                function insertfontSmiley(str) {
+
+                    var a = str.split(' ');
+                    angular.forEach(icons, function(icon) {
                         for (var i = 0; i < a.length; i++) {
                             if (a[i] === icon.text) {
-                                data[i] = '<span class="icon-smiley" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
+                                a[i] = '<span class="icon-smiley" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
                             }
                         }
                     });
-                    var b = data.join(' ');
-
-                    /* URL Matcher and url link converter
-                     */
-
-                    if (defaultOptions.link) {
-                        var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+                    return a.join(' ');
+                }
 
 
-                        var c = b.replace(urlRegex, function (match) {
+                /**
+                 * FUNCTION UrlEmbed 
+                 * @description
+                 * Converts normal links written in the text into html anchor tags.
+                 * 
+                 * @param  {string} text
+                 * 
+                 * @return {string}
+                 */
+
+                function urlEmbed(str) {
+
+                    var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+
+                    var str = str.replace(urlRegex, function(match) {
                             return '<a href="' + match + '" target="' + defaultOptions.linkTarget + '">' + match + '</a>';
-                        });
-                    }
-                    else {
-                        c = b;
-                    }
+                        }
 
 
-                    /* Emoji Embedding code */
+                    );
+                    return str;
+                }
 
-                    return c.replace(emojiRegex, function (match, text) {
+                /**
+                 * FUNCTION insertEmoji
+                 * 
+                 * @description 
+                 * Converts text into emojis
+                 * 
+                 * @param  {string} str
+                 * 
+                 * @return {string}
+                 */
+
+                function insertEmoji(str) {
+                    return str.replace(emojiRegex, function(match, text) {
                         return "<span class='smiley smiley-" + text + "' title=':" + text + ":'></span>";
 
                     });
                 }
+
+                /**
+                 *
+                 * @description
+                 * 
+                 * _a : font smileys included
+                 * _b : url embedded (configurable)
+                 * _c : emojis inserted
+                 * _z : fully processed
+                 */
+
+                var _a = insertfontSmiley(input);
+                var _b = (defaultOptions.link) ? urlEmbed(_a) : _a;
+                var _z = insertEmoji(_b);
+
+                return _z;
+
+
+
             };
         });
 
