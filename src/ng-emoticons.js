@@ -264,7 +264,7 @@
                 "small_red_triangle_down", "shipit"
             ];
 
-            var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
+            
             return function(input, options) {
 
                 /**
@@ -352,6 +352,9 @@
                  */
 
                 function insertEmoji(str) {
+
+                    var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
+
                     return str.replace(emojiRegex, function(match, text) {
                         return "<span class='smiley smiley-" + text + "' title=':" + text + ":'></span>";
 
