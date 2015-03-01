@@ -331,13 +331,13 @@
 
                     var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
 
-                    var str = str.replace(urlRegex, function(match) {
+                    var strReplaced = str.replace(urlRegex, function(match) {
                             return '<a href="' + match + '" target="' + defaultOptions.linkTarget + '">' + match + '</a>';
                         }
 
 
                     );
-                    return str;
+                    return strReplaced;
                 }
 
                 /**
