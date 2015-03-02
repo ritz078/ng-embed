@@ -238,8 +238,14 @@
 
                 extendDeep(options, userOptions);
 
+                //GLOBAL VARIABLES
+                var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;     //regexp to detect any anchor tag
+
+
                 //Checks for invalid inputs
                 //
+
+
                 if (input === undefined || input === null) {
                     return;
                 }
@@ -360,7 +366,6 @@
 
                     embed: function (data) {
 
-                        var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;     //regexp to detect any anchor tag
 
                         var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
@@ -446,7 +451,18 @@
 
                         if (data.match(i)) {
                             var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
-                            data = data.concat(" " + image);
+                            if(!options.image.inline){
+                                data = data.concat(" " + image);
+                            }
+                            else{
+                                data=data.replace(anchorRegex,function(match,text){
+                                    if(text.match(i)){
+                                        return image;
+                                    }
+                                    return match;
+                                })
+                            }
+
                         }
 
                         return data;
