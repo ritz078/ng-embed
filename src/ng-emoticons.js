@@ -1,11 +1,9 @@
-;
 (function () {
 
     'use strict';
 
     angular.module('ngEmoticons', ['ngSanitize'])
         .filter('emoticons', ['$sce', function ($sce) {
-            console.log(this);
             var icons = [{
                 'text': ':)',
                 'class': 'smiley',
@@ -188,8 +186,6 @@
 
             return function (input, userOptions) {
 
-                var filterInput = input;
-
                 /**
                  * defaultOptions
                  *
@@ -201,12 +197,16 @@
                 var options = {
                     link: true,
                     linkTarget: '_self',
+                    image: {
+                        embed: false,
+                        inline: false
+                    },
                     video: {
                         embed: false,
                         width: null,
                         height: null,
                         inline: true,
-                        theme:'dark'
+                        theme: 'dark'
                     }
                 };
 
@@ -288,15 +288,16 @@
                     });
                 }
 
+                /**
+                 * Video-embedding
+                 *
+                 * A default aspect ratio of 4:3 until specified by the user
+                 *
+                 * @type {{calcDimensions: Function, embed: Function}}
+                 */
+
 
                 var videoProcess = {
-
-                    /**
-                     *
-                     * Calculates the dimensions of the video
-                     * Maintains a ratio of 4:3
-                     *
-                     */
 
 
                     calcDimensions: function () {
@@ -331,19 +332,19 @@
 
 
 
-                    embed: function (d) {
+                    embed: function (data) {
                         var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
                         /**
                          * Youtube embedding
                          */
 
-                        if (input.match(p)) {
+                        if (data.match(p)) {
                             var youtubeDimensions = this.calcDimensions();
 
-                            var youtubeVideo = '<div class="ngemoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 +'?theme='+options.video.theme + '" ' +
+                            var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.theme + '" ' +
                                 'frameborder="0" width="' + youtubeDimensions.width + '" height=' + youtubeDimensions.height + ' allowfullscreen></iframe></div>';
-                            d = d.concat(" " + youtubeVideo);
+                            data = data.concat(" " + youtubeVideo);
                         }
 
                         /**
@@ -352,16 +353,36 @@
 
                         var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
 
-                        if (input.match(e)) {
+                        if (data.match(e)) {
                             var vimeoDimensions = this.calcDimensions();
 
-                            var vimeoVideo = '<iframe src="//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0" width="' + vimeoDimensions.width + '" height="' + vimeoDimensions.height
-                                + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-                            d = d.concat(" " + vimeoVideo);
+                            var vimeoVideo = '<div class="emoticons-video"><iframe src="//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0" width="' + vimeoDimensions.width + '" height="' + vimeoDimensions.height + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
+                            data = data.concat(" " + vimeoVideo);
 
                         }
 
-                        return d;
+                        return data;
+                    }
+                };
+
+                /**
+                 * Image embedding
+                 *
+                 * Supports jpg,jpeg,png,gif now
+                 *
+                 * @type {{embed: Function}}
+                 */
+
+                var imageProcess = {
+                    embed: function (data) {
+                        var i = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/gi;
+
+                        if (data.match(i)) {
+                            var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
+                            data = data.concat(" " + image);
+                        }
+
+                        return data;
                     }
                 };
 
@@ -376,7 +397,16 @@
                 }
 
                 input = insertEmoji(input);
-                input = videoProcess.embed(input);
+
+                if (options.video.embed) {
+                    input = videoProcess.embed(input);
+
+                }
+
+                if (options.image.embed) {
+                    input = imageProcess.embed(input);
+
+                }
 
                 return $sce.trustAsHtml(input);
 

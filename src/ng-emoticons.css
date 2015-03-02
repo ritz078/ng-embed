@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: 'smileys';
     src: url('../fonts/smileys.eot?5zh0vu');
@@ -7,6 +11,17 @@
     url('../fonts/smileys.svg?5zh0vu#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+.emoticons-image-wrapper,.emoticons-image{
+    width: 100%;
+}
+
+.emoticons-image{
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #F2F2F2;
+    display: block;
 }
 
 .icon-smiley {
