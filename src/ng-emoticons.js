@@ -4,7 +4,8 @@
     'use strict';
 
     angular.module('ngEmoticons', ['ngSanitize'])
-        .filter('emoticons',['$sce', function ($sce) {
+        .filter('emoticons', ['$sce', function ($sce) {
+            console.log(this);
             var icons = [{
                 'text': ':)',
                 'class': 'smiley',
@@ -268,7 +269,7 @@
 
             return function (input, userOptions) {
 
-                var filterInput=input;
+                var filterInput = input;
 
                 /**
                  * defaultOptions
@@ -285,7 +286,7 @@
                         embed: false,
                         width: null,
                         height: null,
-                        inline:true
+                        inline: true
                     }
                 };
 
@@ -367,26 +368,48 @@
                     });
                 }
 
-                /**
-                 *
-                 * @description
-                 *
-                 * _a : font smileys included
-                 * _b : url embedded (configurable)
-                 * _c : emojis inserted
-                 * _z : fully processed
-                 */
 
-                var videoProcess={
 
-                    embed:function(d){
-                        var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;;
+                var videoProcess = {
 
-                        if(filterInput.match(p)){
+                    /**
+                     * Calculates the dimensions of the video
+                     *
+                     */
+                    calcDimensions: function () {
+                        var dimensions = {
+                            'width': options.video.width,
+                            'height': options.video.height
+                        };
+                        if (options.video.height && options.video.width) {
+                            return dimensions;
+                        }
+                        else if (options.video.height) {
+                            dimensions.width = ((options.video.height) / 390) * 640;
+                            return dimensions;
+                        }
+                        else if (options.video.width) {
+                            dimensions.height = ((dimensions.width) / 640) * 390;
+                            return dimensions;
+                        }
+                        else {
+                            dimensions.width = 640;
+                            dimensions.height = 390;
+                            return dimensions;
+                        }
+                    },
+
+                    embed: function (d) {
+                        var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
+
+
+                        if (filterInput.match(p)) {
+                            var dimensions = this.calcDimensions();
+
                             var video = '' +
-                                '<div id="ngemoticons-video"><iframe src="https://www.youtube.com/embed/'+RegExp.$1+'" ' +
-                                'frameborder="0" allowfullscreen></iframe></div>';
-                            d=d.concat(" "+video);
+                                '<div class="ngemoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '" ' +
+                                'frameborder="0" width="' + dimensions.width + '" height=' + dimensions.height + ' allowfullscreen></iframe></div>';
+                            d = d.concat(" " + video);
                         }
 
                         return d;
@@ -394,10 +417,9 @@
                 };
 
 
-
                 input = insertfontSmiley(input);
-                if(options.link){
-                    input=urlEmbed(input);
+                if (options.link) {
+                    input = urlEmbed(input);
                 }
 
                 input = insertEmoji(input);

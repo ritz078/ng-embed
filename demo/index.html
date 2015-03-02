@@ -13,7 +13,7 @@
             font-family: 'Calibri';
         }
 
-        .ngemoticons-video{
+        .ngemoticons-video {
             width: 100%;
         }
 
@@ -37,7 +37,8 @@
             color: cornflowerblue;
             margin-bottom: 30px;
         }
-        h3{
+
+        h3 {
             font-family: "Calibri";
             text-align: center;
         }
@@ -46,9 +47,12 @@
 
 <body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
 <h2><img style="width:600px;" src="http://i.imgur.com/VZTXbW6.jpg" alt=""/></h2>
+
 <h3>Font Smileys</h3>
-<div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"></div>
+
+<div ng-bind-html="text | emoticons:{linkTarget:'_blank','video':{width:800}}" class="ng-emoticons"></div>
 <h3>Emojis</h3>
+
 <div ng-bind-html="emoji | emoticons"></div>
 </body>
 <script src="../bower_components/angular/angular.min.js"></script>
