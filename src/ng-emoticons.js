@@ -205,12 +205,38 @@
                         embed: false,
                         width: null,
                         height: null,
-                        inline: true,
-                        theme: 'dark'
+                        inline: false,
+                        ytTheme: 'dark',
+                        ytDetail: false
                     }
                 };
 
-                angular.extend(options, userOptions);
+                /**
+                 * Function extendDeep
+                 *
+                 * @description
+                 * Extends an object to another object using deep analyzing
+                 *
+                 * @param dst
+                 * @returns extended object
+                 */
+
+                function extendDeep(dst) {
+                    angular.forEach(arguments, function (obj) {
+                        if (obj !== dst) {
+                            angular.forEach(obj, function (value, key) {
+                                if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
+                                    extendDeep(dst[key], value);
+                                } else {
+                                    dst[key] = value;
+                                }
+                            });
+                        }
+                    });
+                    return dst;
+                }
+
+                extendDeep(options, userOptions);
 
                 //Checks for invalid inputs
                 //
@@ -333,6 +359,9 @@
 
 
                     embed: function (data) {
+
+                        var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;     //regexp to detect any anchor tag
+
                         var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
                         /**
@@ -342,9 +371,35 @@
                         if (data.match(p)) {
                             var youtubeDimensions = this.calcDimensions();
 
-                            var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.theme + '" ' +
+                            var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.ytTheme + '" ' +
                                 'frameborder="0" width="' + youtubeDimensions.width + '" height=' + youtubeDimensions.height + ' allowfullscreen></iframe></div>';
-                            data = data.concat(" " + youtubeVideo);
+
+
+                            if (!(options.video.inline)) {
+                                data = data.concat(" " + youtubeVideo);
+                            }
+                            else {
+                                /**
+                                 * If inline is set to true then
+                                 * 1. detect the youtube link in anchor tag and replace whole by embedding url.
+                                 *
+                                 * @type {RegExp}
+                                 */
+
+
+                                data = data.replace(anchorRegex, function (match, text) {
+
+                                    //compare the text of the matched url with youtube's url
+
+                                    if (text.match(p)) {
+                                        return youtubeVideo;
+                                    }
+                                    return match;
+
+
+                                });
+                            }
+
                         }
 
                         /**
@@ -357,7 +412,19 @@
                             var vimeoDimensions = this.calcDimensions();
 
                             var vimeoVideo = '<div class="emoticons-video"><iframe src="//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0" width="' + vimeoDimensions.width + '" height="' + vimeoDimensions.height + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
-                            data = data.concat(" " + vimeoVideo);
+
+                            if (!options.video.inline) {
+                                data = data.concat(" " + vimeoVideo);
+                            }
+                            else {
+                                data = data.replace(anchorRegex, function (match, text) {
+                                    if (text.match(e)) {
+                                        return vimeoVideo;
+                                    }
+                                    return match;
+                                })
+                            }
+
 
                         }
 
@@ -392,11 +459,13 @@
 
 
                 input = insertfontSmiley(input);
+
+
+                input = insertEmoji(input);
+
                 if (options.link) {
                     input = urlEmbed(input);
                 }
-
-                input = insertEmoji(input);
 
                 if (options.video.embed) {
                     input = videoProcess.embed(input);
