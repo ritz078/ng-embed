@@ -238,7 +238,7 @@
                     angular.forEach(icons, function (icon) {
                         for (var i = 0; i < a.length; i++) {
                             if (a[i] === icon.text) {
-                                a[i] = '<span class="icon-smiley" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
+                                a[i] = '<span class="icon-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
                             }
                         }
                     });
@@ -283,7 +283,7 @@
                     var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
 
                     return str.replace(emojiRegex, function (match, text) {
-                        return "<span class='smiley smiley-" + text + "' title=':" + text + ":'></span>";
+                        return "<span class='emoticon emoticon-" + text + "' title=':" + text + ":'></span>";
 
                     });
                 }

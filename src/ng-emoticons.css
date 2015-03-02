@@ -3,12 +3,12 @@
 }
 
 @font-face {
-    font-family: 'smileys';
-    src: url('../fonts/smileys.eot?5zh0vu');
-    src: url('../fonts/smileys.eot?#iefix5zh0vu') format('embedded-opentype'),
-    url('../fonts/smileys.woff?5zh0vu') format('woff'),
-    url('../fonts/smileys.ttf?5zh0vu') format('truetype'),
-    url('../fonts/smileys.svg?5zh0vu#icomoon') format('svg');
+    font-family: 'emoticons';
+    src: url('../fonts/emoticons.eot?5zh0vu');
+    src: url('../fonts/emoticons.eot?#iefix5zh0vu') format('embedded-opentype'),
+    url('../fonts/emoticons.woff?5zh0vu') format('woff'),
+    url('../fonts/emoticons.ttf?5zh0vu') format('truetype'),
+    url('../fonts/emoticons.svg?5zh0vu#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,8 +24,8 @@
     display: block;
 }
 
-.icon-smiley {
-    font-family: 'smileys';
+.icon-emoticon {
+    font-family: 'emoticons';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -39,7 +39,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.smiley {
+.emoticon {
     text-indent: -9999px;
     display: inline-block;
     height: 22px;
@@ -48,3517 +48,3517 @@
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1), all and (min--moz-device-pixel-ratio: 1), all and (-o-min-device-pixel-ratio: 1), all and (min-device-pixel-ratio: 1), all and (min-resolution: 96dpi) {
-    .smiley {
+    .emoticon {
         background: transparent url(images/emojis.png) 0 0 no-repeat;
     }
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 144dpi) {
-    .smiley {
+    .emoticon {
         background: transparent url(images/emojis@2x.png) 0 0 no-repeat;
         background-size: 27776px 22px;
     }
 }
 
 @-moz-document url-prefix() {
-    .smiley {
+    .emoticon {
         background: transparent url(images/emojis.png) 0 0 no-repeat;
     }
 }
 
-.smiley-bowtie {
+.emoticon-bowtie {
     background-position: -5px 0;
 }
 
-.smiley-smile {
+.emoticon-smile {
     background-position: -37px 0;
 }
 
-.smiley-laughing {
+.emoticon-laughing {
     background-position: -69px 0;
 }
 
-.smiley-blush {
+.emoticon-blush {
     background-position: -101px 0;
 }
 
-.smiley-smiley {
+.emoticon-emoticon {
     background-position: -133px 0;
 }
 
-.smiley-relaxed {
+.emoticon-relaxed {
     background-position: -165px 0;
 }
 
-.smiley-smirk {
+.emoticon-smirk {
     background-position: -197px 0;
 }
 
-.smiley-heart_eyes {
+.emoticon-heart_eyes {
     background-position: -229px 0;
 }
 
-.smiley-kissing_heart {
+.emoticon-kissing_heart {
     background-position: -261px 0;
 }
 
-.smiley-kissing_closed_eyes {
+.emoticon-kissing_closed_eyes {
     background-position: -293px 0;
 }
 
-.smiley-flushed {
+.emoticon-flushed {
     background-position: -325px 0;
 }
 
-.smiley-relieved {
+.emoticon-relieved {
     background-position: -357px 0;
 }
 
-.smiley-satisfied {
+.emoticon-satisfied {
     background-position: -389px 0;
 }
 
-.smiley-grin {
+.emoticon-grin {
     background-position: -421px 0;
 }
 
-.smiley-wink {
+.emoticon-wink {
     background-position: -453px 0;
 }
 
-.smiley-stuck_out_tongue_winking_eye {
+.emoticon-stuck_out_tongue_winking_eye {
     background-position: -485px 0;
 }
 
-.smiley-winky_face {
+.emoticon-winky_face {
     background-position: -485px 0;
 }
 
-.smiley-stuck_out_tongue_closed_eyes {
+.emoticon-stuck_out_tongue_closed_eyes {
     background-position: -517px 0;
 }
 
-.smiley-grinning {
+.emoticon-grinning {
     background-position: -549px 0;
 }
 
-.smiley-kissing {
+.emoticon-kissing {
     background-position: -581px 0;
 }
 
-.smiley-kissing_smiling_eyes {
+.emoticon-kissing_smiling_eyes {
     background-position: -613px 0;
 }
 
-.smiley-stuck_out_tongue {
+.emoticon-stuck_out_tongue {
     background-position: -645px 0;
 }
 
-.smiley-sleeping {
+.emoticon-sleeping {
     background-position: -677px 0;
 }
 
-.smiley-worried {
+.emoticon-worried {
     background-position: -709px 0;
 }
 
-.smiley-frowning {
+.emoticon-frowning {
     background-position: -741px 0;
 }
 
-.smiley-anguished {
+.emoticon-anguished {
     background-position: -773px 0;
 }
 
-.smiley-open_mouth {
+.emoticon-open_mouth {
     background-position: -805px 0;
 }
 
-.smiley-wow {
+.emoticon-wow {
     background-position: -805px 0;
 }
 
-.smiley-grimacing {
+.emoticon-grimacing {
     background-position: -837px 0;
 }
 
-.smiley-confused {
+.emoticon-confused {
     background-position: -869px 0;
 }
 
-.smiley-hushed {
+.emoticon-hushed {
     background-position: -901px 0;
 }
 
-.smiley-expressionless {
+.emoticon-expressionless {
     background-position: -933px 0;
 }
 
-.smiley-unamused {
+.emoticon-unamused {
     background-position: -965px 0;
 }
 
-.smiley-sweat_smile {
+.emoticon-sweat_smile {
     background-position: -997px 0;
 }
 
-.smiley-sweat {
+.emoticon-sweat {
     background-position: -1029px 0;
 }
 
-.smiley-disappointed_relieved {
+.emoticon-disappointed_relieved {
     background-position: -1061px 0;
 }
 
-.smiley-weary {
+.emoticon-weary {
     background-position: -1093px 0;
 }
 
-.smiley-pensive {
+.emoticon-pensive {
     background-position: -1125px 0;
 }
 
-.smiley-disappointed {
+.emoticon-disappointed {
     background-position: -1157px 0;
 }
 
-.smiley-confounded {
+.emoticon-confounded {
     background-position: -1189px 0;
 }
 
-.smiley-fearful {
+.emoticon-fearful {
     background-position: -1221px 0;
 }
 
-.smiley-cold_sweat {
+.emoticon-cold_sweat {
     background-position: -1253px 0;
 }
 
-.smiley-persevere {
+.emoticon-persevere {
     background-position: -1285px 0;
 }
 
-.smiley-cry {
+.emoticon-cry {
     background-position: -1317px 0;
 }
 
-.smiley-sob {
+.emoticon-sob {
     background-position: -1349px 0;
 }
 
-.smiley-joy {
+.emoticon-joy {
     background-position: -1381px 0;
 }
 
-.smiley-astonished {
+.emoticon-astonished {
     background-position: -1413px 0;
 }
 
-.smiley-scream {
+.emoticon-scream {
     background-position: -1445px 0;
 }
 
-.smiley-neckbeard {
+.emoticon-neckbeard {
     background-position: -1477px 0;
 }
 
-.smiley-tired_face {
+.emoticon-tired_face {
     background-position: -1509px 0;
 }
 
-.smiley-angry {
+.emoticon-angry {
     background-position: -1541px 0;
 }
 
-.smiley-rage {
+.emoticon-rage {
     background-position: -1573px 0;
 }
 
-.smiley-triumph {
+.emoticon-triumph {
     background-position: -1605px 0;
 }
 
-.smiley-sleepy {
+.emoticon-sleepy {
     background-position: -1637px 0;
 }
 
-.smiley-yum {
+.emoticon-yum {
     background-position: -1669px 0;
 }
 
-.smiley-mask {
+.emoticon-mask {
     background-position: -1701px 0;
 }
 
-.smiley-sunglasses {
+.emoticon-sunglasses {
     background-position: -1733px 0;
 }
 
-.smiley-dizzy_face {
+.emoticon-dizzy_face {
     background-position: -1765px 0;
 }
 
-.smiley-imp {
+.emoticon-imp {
     background-position: -1797px 0;
 }
 
-.smiley-smiling_imp {
+.emoticon-smiling_imp {
     background-position: -1829px 0;
 }
 
-.smiley-neutral_face {
+.emoticon-neutral_face {
     background-position: -1861px 0;
 }
 
-.smiley-no_mouth {
+.emoticon-no_mouth {
     background-position: -1893px 0;
 }
 
-.smiley-innocent {
+.emoticon-innocent {
     background-position: -1925px 0;
 }
 
-.smiley-alien {
+.emoticon-alien {
     background-position: -1957px 0;
 }
 
-.smiley-yellow_heart {
+.emoticon-yellow_heart {
     background-position: -1989px 0;
 }
 
-.smiley-blue_heart {
+.emoticon-blue_heart {
     background-position: -2021px 0;
 }
 
-.smiley-purple_heart {
+.emoticon-purple_heart {
     background-position: -2053px 0;
 }
 
-.smiley-heart {
+.emoticon-heart {
     background-position: -2085px 0;
 }
 
-.smiley-green_heart {
+.emoticon-green_heart {
     background-position: -2117px 0;
 }
 
-.smiley-broken_heart {
+.emoticon-broken_heart {
     background-position: -2149px 0;
 }
 
-.smiley-heartbeat {
+.emoticon-heartbeat {
     background-position: -2181px 0;
 }
 
-.smiley-heartpulse {
+.emoticon-heartpulse {
     background-position: -2213px 0;
 }
 
-.smiley-two_hearts {
+.emoticon-two_hearts {
     background-position: -2245px 0;
 }
 
-.smiley-revolving_hearts {
+.emoticon-revolving_hearts {
     background-position: -2277px 0;
 }
 
-.smiley-cupid {
+.emoticon-cupid {
     background-position: -2309px 0;
 }
 
-.smiley-sparkling_heart {
+.emoticon-sparkling_heart {
     background-position: -2341px 0;
 }
 
-.smiley-sparkles {
+.emoticon-sparkles {
     background-position: -2373px 0;
 }
 
-.smiley-star {
+.emoticon-star {
     background-position: -2405px 0;
 }
 
-.smiley-star2 {
+.emoticon-star2 {
     background-position: -2437px 0;
 }
 
-.smiley-dizzy {
+.emoticon-dizzy {
     background-position: -2469px 0;
 }
 
-.smiley-boom {
+.emoticon-boom {
     background-position: -2501px 0;
 }
 
-.smiley-collision {
+.emoticon-collision {
     background-position: -2533px 0;
 }
 
-.smiley-anger {
+.emoticon-anger {
     background-position: -2565px 0;
 }
 
-.smiley-exclamation {
+.emoticon-exclamation {
     background-position: -2597px 0;
 }
 
-.smiley-question {
+.emoticon-question {
     background-position: -2629px 0;
 }
 
-.smiley-grey_exclamation {
+.emoticon-grey_exclamation {
     background-position: -2661px 0;
 }
 
-.smiley-grey_question {
+.emoticon-grey_question {
     background-position: -2693px 0;
 }
 
-.smiley-zzz {
+.emoticon-zzz {
     background-position: -2725px 0;
 }
 
-.smiley-dash {
+.emoticon-dash {
     background-position: -2757px 0;
 }
 
-.smiley-sweat_drops {
+.emoticon-sweat_drops {
     background-position: -2789px 0;
 }
 
-.smiley-notes {
+.emoticon-notes {
     background-position: -2821px 0;
 }
 
-.smiley-musical_note {
+.emoticon-musical_note {
     background-position: -2853px 0;
 }
 
-.smiley-fire {
+.emoticon-fire {
     background-position: -2885px 0;
 }
 
-.smiley-hankey {
+.emoticon-hankey {
     background-position: -2917px 0;
 }
 
-.smiley-poop {
+.emoticon-poop {
     background-position: -2949px 0;
 }
 
-.smiley-shit {
+.emoticon-shit {
     background-position: -2981px 0;
 }
 
-.smiley-\+1 {
+.emoticon-\+1 {
     background-position: -3013px 0;
 }
 
-.smiley-thumbsup {
+.emoticon-thumbsup {
     background-position: -3045px 0;
 }
 
-.smiley-\-1 {
+.emoticon-\-1 {
     background-position: -3077px 0;
 }
 
-.smiley-thumbsdown {
+.emoticon-thumbsdown {
     background-position: -3109px 0;
 }
 
-.smiley-ok_hand {
+.emoticon-ok_hand {
     background-position: -3141px 0;
 }
 
-.smiley-punch {
+.emoticon-punch {
     background-position: -3173px 0;
 }
 
-.smiley-facepunch {
+.emoticon-facepunch {
     background-position: -3205px 0;
 }
 
-.smiley-fist {
+.emoticon-fist {
     background-position: -3237px 0;
 }
 
-.smiley-v {
+.emoticon-v {
     background-position: -3269px 0;
 }
 
-.smiley-wave {
+.emoticon-wave {
     background-position: -3301px 0;
 }
 
-.smiley-hand {
+.emoticon-hand {
     background-position: -3333px 0;
 }
 
-.smiley-raised_hand {
+.emoticon-raised_hand {
     background-position: -3365px 0;
 }
 
-.smiley-open_hands {
+.emoticon-open_hands {
     background-position: -3397px 0;
 }
 
-.smiley-point_up {
+.emoticon-point_up {
     background-position: -3429px 0;
 }
 
-.smiley-point_down {
+.emoticon-point_down {
     background-position: -3461px 0;
 }
 
-.smiley-point_left {
+.emoticon-point_left {
     background-position: -3493px 0;
 }
 
-.smiley-point_right {
+.emoticon-point_right {
     background-position: -3525px 0;
 }
 
-.smiley-raised_hands {
+.emoticon-raised_hands {
     background-position: -3557px 0;
 }
 
-.smiley-pray {
+.emoticon-pray {
     background-position: -3589px 0;
 }
 
-.smiley-point_up_2 {
+.emoticon-point_up_2 {
     background-position: -3621px 0;
 }
 
-.smiley-clap {
+.emoticon-clap {
     background-position: -3653px 0;
 }
 
-.smiley-muscle {
+.emoticon-muscle {
     background-position: -3685px 0;
 }
 
-.smiley-metal {
+.emoticon-metal {
     background-position: -3717px 0;
 }
 
-.smiley-fu {
+.emoticon-fu {
     background-position: -3749px 0;
 }
 
-.smiley-walking {
+.emoticon-walking {
     background-position: -3781px 0;
 }
 
-.smiley-runner {
+.emoticon-runner {
     background-position: -3813px 0;
 }
 
-.smiley-running {
+.emoticon-running {
     background-position: -3845px 0;
 }
 
-.smiley-couple {
+.emoticon-couple {
     background-position: -3877px 0;
 }
 
-.smiley-family {
+.emoticon-family {
     background-position: -3909px 0;
 }
 
-.smiley-two_men_holding_hands {
+.emoticon-two_men_holding_hands {
     background-position: -3941px 0;
 }
 
-.smiley-two_women_holding_hands {
+.emoticon-two_women_holding_hands {
     background-position: -3973px 0;
 }
 
-.smiley-dancer {
+.emoticon-dancer {
     background-position: -4005px 0;
 }
 
-.smiley-dancers {
+.emoticon-dancers {
     background-position: -4037px 0;
 }
 
-.smiley-ok_woman {
+.emoticon-ok_woman {
     background-position: -4069px 0;
 }
 
-.smiley-no_good {
+.emoticon-no_good {
     background-position: -4101px 0;
 }
 
-.smiley-information_desk_person {
+.emoticon-information_desk_person {
     background-position: -4133px 0;
 }
 
-.smiley-raising_hand {
+.emoticon-raising_hand {
     background-position: -4165px 0;
 }
 
-.smiley-bride_with_veil {
+.emoticon-bride_with_veil {
     background-position: -4197px 0;
 }
 
-.smiley-person_with_pouting_face {
+.emoticon-person_with_pouting_face {
     background-position: -4229px 0;
 }
 
-.smiley-person_frowning {
+.emoticon-person_frowning {
     background-position: -4261px 0;
 }
 
-.smiley-bow {
+.emoticon-bow {
     background-position: -4293px 0;
 }
 
-.smiley-couplekiss {
+.emoticon-couplekiss {
     background-position: -4325px 0;
 }
 
-.smiley-couple_with_heart {
+.emoticon-couple_with_heart {
     background-position: -4357px 0;
 }
 
-.smiley-massage {
+.emoticon-massage {
     background-position: -4389px 0;
 }
 
-.smiley-haircut {
+.emoticon-haircut {
     background-position: -4421px 0;
 }
 
-.smiley-nail_care {
+.emoticon-nail_care {
     background-position: -4453px 0;
 }
 
-.smiley-boy {
+.emoticon-boy {
     background-position: -4485px 0;
 }
 
-.smiley-girl {
+.emoticon-girl {
     background-position: -4517px 0;
 }
 
-.smiley-woman {
+.emoticon-woman {
     background-position: -4549px 0;
 }
 
-.smiley-man {
+.emoticon-man {
     background-position: -4581px 0;
 }
 
-.smiley-baby {
+.emoticon-baby {
     background-position: -4613px 0;
 }
 
-.smiley-older_woman {
+.emoticon-older_woman {
     background-position: -4645px 0;
 }
 
-.smiley-older_man {
+.emoticon-older_man {
     background-position: -4677px 0;
 }
 
-.smiley-person_with_blond_hair {
+.emoticon-person_with_blond_hair {
     background-position: -4709px 0;
 }
 
-.smiley-man_with_gua_pi_mao {
+.emoticon-man_with_gua_pi_mao {
     background-position: -4741px 0;
 }
 
-.smiley-man_with_turban {
+.emoticon-man_with_turban {
     background-position: -4773px 0;
 }
 
-.smiley-construction_worker {
+.emoticon-construction_worker {
     background-position: -4805px 0;
 }
 
-.smiley-cop {
+.emoticon-cop {
     background-position: -4837px 0;
 }
 
-.smiley-angel {
+.emoticon-angel {
     background-position: -4869px 0;
 }
 
-.smiley-princess {
+.emoticon-princess {
     background-position: -4901px 0;
 }
 
-.smiley-smiley_cat {
+.emoticon-emoticon_cat {
     background-position: -4933px 0;
 }
 
-.smiley-smile_cat {
+.emoticon-smile_cat {
     background-position: -4965px 0;
 }
 
-.smiley-heart_eyes_cat {
+.emoticon-heart_eyes_cat {
     background-position: -4997px 0;
 }
 
-.smiley-kissing_cat {
+.emoticon-kissing_cat {
     background-position: -5029px 0;
 }
 
-.smiley-smirk_cat {
+.emoticon-smirk_cat {
     background-position: -5061px 0;
 }
 
-.smiley-scream_cat {
+.emoticon-scream_cat {
     background-position: -5093px 0;
 }
 
-.smiley-crying_cat_face {
+.emoticon-crying_cat_face {
     background-position: -5125px 0;
 }
 
-.smiley-joy_cat {
+.emoticon-joy_cat {
     background-position: -5157px 0;
 }
 
-.smiley-pouting_cat {
+.emoticon-pouting_cat {
     background-position: -5189px 0;
 }
 
-.smiley-japanese_ogre {
+.emoticon-japanese_ogre {
     background-position: -5221px 0;
 }
 
-.smiley-japanese_goblin {
+.emoticon-japanese_goblin {
     background-position: -5253px 0;
 }
 
-.smiley-see_no_evil {
+.emoticon-see_no_evil {
     background-position: -5285px 0;
 }
 
-.smiley-hear_no_evil {
+.emoticon-hear_no_evil {
     background-position: -5317px 0;
 }
 
-.smiley-speak_no_evil {
+.emoticon-speak_no_evil {
     background-position: -5349px 0;
 }
 
-.smiley-guardsman {
+.emoticon-guardsman {
     background-position: -5381px 0;
 }
 
-.smiley-skull {
+.emoticon-skull {
     background-position: -5413px 0;
 }
 
-.smiley-feet {
+.emoticon-feet {
     background-position: -5445px 0;
 }
 
-.smiley-lips {
+.emoticon-lips {
     background-position: -5477px 0;
 }
 
-.smiley-kiss {
+.emoticon-kiss {
     background-position: -5509px 0;
 }
 
-.smiley-droplet {
+.emoticon-droplet {
     background-position: -5541px 0;
 }
 
-.smiley-ear {
+.emoticon-ear {
     background-position: -5573px 0;
 }
 
-.smiley-eyes {
+.emoticon-eyes {
     background-position: -5605px 0;
 }
 
-.smiley-nose {
+.emoticon-nose {
     background-position: -5637px 0;
 }
 
-.smiley-tongue {
+.emoticon-tongue {
     background-position: -5669px 0;
 }
 
-.smiley-love_letter {
+.emoticon-love_letter {
     background-position: -5701px 0;
 }
 
-.smiley-bust_in_silhouette {
+.emoticon-bust_in_silhouette {
     background-position: -5733px 0;
 }
 
-.smiley-busts_in_silhouette {
+.emoticon-busts_in_silhouette {
     background-position: -5765px 0;
 }
 
-.smiley-speech_balloon {
+.emoticon-speech_balloon {
     background-position: -5797px 0;
 }
 
-.smiley-thought_balloon {
+.emoticon-thought_balloon {
     background-position: -5829px 0;
 }
 
-.smiley-feelsgood {
+.emoticon-feelsgood {
     background-position: -5861px 0;
 }
 
-.smiley-finnadie {
+.emoticon-finnadie {
     background-position: -5893px 0;
 }
 
-.smiley-goberserk {
+.emoticon-goberserk {
     background-position: -5925px 0;
 }
 
-.smiley-godmode {
+.emoticon-godmode {
     background-position: -5957px 0;
 }
 
-.smiley-hurtrealbad {
+.emoticon-hurtrealbad {
     background-position: -5989px 0;
 }
 
-.smiley-rage1 {
+.emoticon-rage1 {
     background-position: -6021px 0;
 }
 
-.smiley-rage2 {
+.emoticon-rage2 {
     background-position: -6053px 0;
 }
 
-.smiley-rage3 {
+.emoticon-rage3 {
     background-position: -6085px 0;
 }
 
-.smiley-rage4 {
+.emoticon-rage4 {
     background-position: -6117px 0;
 }
 
-.smiley-suspect {
+.emoticon-suspect {
     background-position: -6149px 0;
 }
 
-.smiley-trollface {
+.emoticon-trollface {
     background-position: -6181px 0;
 }
 
-.smiley-sunny {
+.emoticon-sunny {
     background-position: -6213px 0;
 }
 
-.smiley-umbrella {
+.emoticon-umbrella {
     background-position: -6245px 0;
 }
 
-.smiley-cloud {
+.emoticon-cloud {
     background-position: -6277px 0;
 }
 
-.smiley-snowflake {
+.emoticon-snowflake {
     background-position: -6309px 0;
 }
 
-.smiley-snowman {
+.emoticon-snowman {
     background-position: -6341px 0;
 }
 
-.smiley-zap {
+.emoticon-zap {
     background-position: -6373px 0;
 }
 
-.smiley-cyclone {
+.emoticon-cyclone {
     background-position: -6405px 0;
 }
 
-.smiley-foggy {
+.emoticon-foggy {
     background-position: -6437px 0;
 }
 
-.smiley-ocean {
+.emoticon-ocean {
     background-position: -6469px 0;
 }
 
-.smiley-cat {
+.emoticon-cat {
     background-position: -6501px 0;
 }
 
-.smiley-dog {
+.emoticon-dog {
     background-position: -6533px 0;
 }
 
-.smiley-mouse {
+.emoticon-mouse {
     background-position: -6565px 0;
 }
 
-.smiley-hamster {
+.emoticon-hamster {
     background-position: -6597px 0;
 }
 
-.smiley-rabbit {
+.emoticon-rabbit {
     background-position: -6629px 0;
 }
 
-.smiley-wolf {
+.emoticon-wolf {
     background-position: -6661px 0;
 }
 
-.smiley-frog {
+.emoticon-frog {
     background-position: -6693px 0;
 }
 
-.smiley-tiger {
+.emoticon-tiger {
     background-position: -6725px 0;
 }
 
-.smiley-koala {
+.emoticon-koala {
     background-position: -6757px 0;
 }
 
-.smiley-bear {
+.emoticon-bear {
     background-position: -6789px 0;
 }
 
-.smiley-pig {
+.emoticon-pig {
     background-position: -6821px 0;
 }
 
-.smiley-pig_nose {
+.emoticon-pig_nose {
     background-position: -6853px 0;
 }
 
-.smiley-cow {
+.emoticon-cow {
     background-position: -6885px 0;
 }
 
-.smiley-boar {
+.emoticon-boar {
     background-position: -6917px 0;
 }
 
-.smiley-monkey_face {
+.emoticon-monkey_face {
     background-position: -6949px 0;
 }
 
-.smiley-monkey {
+.emoticon-monkey {
     background-position: -6981px 0;
 }
 
-.smiley-horse {
+.emoticon-horse {
     background-position: -7013px 0;
 }
 
-.smiley-racehorse {
+.emoticon-racehorse {
     background-position: -7045px 0;
 }
 
-.smiley-camel {
+.emoticon-camel {
     background-position: -7077px 0;
 }
 
-.smiley-sheep {
+.emoticon-sheep {
     background-position: -7109px 0;
 }
 
-.smiley-elephant {
+.emoticon-elephant {
     background-position: -7141px 0;
 }
 
-.smiley-panda_face {
+.emoticon-panda_face {
     background-position: -7173px 0;
 }
 
-.smiley-snake {
+.emoticon-snake {
     background-position: -7205px 0;
 }
 
-.smiley-bird {
+.emoticon-bird {
     background-position: -7237px 0;
 }
 
-.smiley-baby_chick {
+.emoticon-baby_chick {
     background-position: -7269px 0;
 }
 
-.smiley-hatched_chick {
+.emoticon-hatched_chick {
     background-position: -7301px 0;
 }
 
-.smiley-hatching_chick {
+.emoticon-hatching_chick {
     background-position: -7333px 0;
 }
 
-.smiley-chicken {
+.emoticon-chicken {
     background-position: -7365px 0;
 }
 
-.smiley-penguin {
+.emoticon-penguin {
     background-position: -7397px 0;
 }
 
-.smiley-turtle {
+.emoticon-turtle {
     background-position: -7429px 0;
 }
 
-.smiley-bug {
+.emoticon-bug {
     background-position: -7461px 0;
 }
 
-.smiley-honeybee {
+.emoticon-honeybee {
     background-position: -7493px 0;
 }
 
-.smiley-ant {
+.emoticon-ant {
     background-position: -7525px 0;
 }
 
-.smiley-beetle {
+.emoticon-beetle {
     background-position: -7557px 0;
 }
 
-.smiley-snail {
+.emoticon-snail {
     background-position: -7589px 0;
 }
 
-.smiley-octopus {
+.emoticon-octopus {
     background-position: -7621px 0;
 }
 
-.smiley-tropical_fish {
+.emoticon-tropical_fish {
     background-position: -7653px 0;
 }
 
-.smiley-fish {
+.emoticon-fish {
     background-position: -7685px 0;
 }
 
-.smiley-whale {
+.emoticon-whale {
     background-position: -7717px 0;
 }
 
-.smiley-whale2 {
+.emoticon-whale2 {
     background-position: -7749px 0;
 }
 
-.smiley-dolphin {
+.emoticon-dolphin {
     background-position: -7781px 0;
 }
 
-.smiley-cow2 {
+.emoticon-cow2 {
     background-position: -7813px 0;
 }
 
-.smiley-ram {
+.emoticon-ram {
     background-position: -7845px 0;
 }
 
-.smiley-rat {
+.emoticon-rat {
     background-position: -7877px 0;
 }
 
-.smiley-water_buffalo {
+.emoticon-water_buffalo {
     background-position: -7909px 0;
 }
 
-.smiley-tiger2 {
+.emoticon-tiger2 {
     background-position: -7941px 0;
 }
 
-.smiley-rabbit2 {
+.emoticon-rabbit2 {
     background-position: -7973px 0;
 }
 
-.smiley-dragon {
+.emoticon-dragon {
     background-position: -8005px 0;
 }
 
-.smiley-goat {
+.emoticon-goat {
     background-position: -8037px 0;
 }
 
-.smiley-rooster {
+.emoticon-rooster {
     background-position: -8069px 0;
 }
 
-.smiley-dog2 {
+.emoticon-dog2 {
     background-position: -8101px 0;
 }
 
-.smiley-pig2 {
+.emoticon-pig2 {
     background-position: -8133px 0;
 }
 
-.smiley-mouse2 {
+.emoticon-mouse2 {
     background-position: -8165px 0;
 }
 
-.smiley-ox {
+.emoticon-ox {
     background-position: -8197px 0;
 }
 
-.smiley-dragon_face {
+.emoticon-dragon_face {
     background-position: -8229px 0;
 }
 
-.smiley-blowfish {
+.emoticon-blowfish {
     background-position: -8261px 0;
 }
 
-.smiley-crocodile {
+.emoticon-crocodile {
     background-position: -8293px 0;
 }
 
-.smiley-dromedary_camel {
+.emoticon-dromedary_camel {
     background-position: -8325px 0;
 }
 
-.smiley-leopard {
+.emoticon-leopard {
     background-position: -8357px 0;
 }
 
-.smiley-cat2 {
+.emoticon-cat2 {
     background-position: -8389px 0;
 }
 
-.smiley-poodle {
+.emoticon-poodle {
     background-position: -8421px 0;
 }
 
-.smiley-paw_prints {
+.emoticon-paw_prints {
     background-position: -8453px 0;
 }
 
-.smiley-bouquet {
+.emoticon-bouquet {
     background-position: -8485px 0;
 }
 
-.smiley-cherry_blossom {
+.emoticon-cherry_blossom {
     background-position: -8517px 0;
 }
 
-.smiley-tulip {
+.emoticon-tulip {
     background-position: -8549px 0;
 }
 
-.smiley-four_leaf_clover {
+.emoticon-four_leaf_clover {
     background-position: -8581px 0;
 }
 
-.smiley-rose {
+.emoticon-rose {
     background-position: -8613px 0;
 }
 
-.smiley-sunflower {
+.emoticon-sunflower {
     background-position: -8645px 0;
 }
 
-.smiley-hibiscus {
+.emoticon-hibiscus {
     background-position: -8677px 0;
 }
 
-.smiley-maple_leaf {
+.emoticon-maple_leaf {
     background-position: -8709px 0;
 }
 
-.smiley-leaves {
+.emoticon-leaves {
     background-position: -8741px 0;
 }
 
-.smiley-fallen_leaf {
+.emoticon-fallen_leaf {
     background-position: -8773px 0;
 }
 
-.smiley-herb {
+.emoticon-herb {
     background-position: -8805px 0;
 }
 
-.smiley-mushroom {
+.emoticon-mushroom {
     background-position: -8837px 0;
 }
 
-.smiley-cactus {
+.emoticon-cactus {
     background-position: -8869px 0;
 }
 
-.smiley-palm_tree {
+.emoticon-palm_tree {
     background-position: -8901px 0;
 }
 
-.smiley-evergreen_tree {
+.emoticon-evergreen_tree {
     background-position: -8933px 0;
 }
 
-.smiley-deciduous_tree {
+.emoticon-deciduous_tree {
     background-position: -8965px 0;
 }
 
-.smiley-chestnut {
+.emoticon-chestnut {
     background-position: -8997px 0;
 }
 
-.smiley-seedling {
+.emoticon-seedling {
     background-position: -9029px 0;
 }
 
-.smiley-blossom {
+.emoticon-blossom {
     background-position: -9061px 0;
 }
 
-.smiley-ear_of_rice {
+.emoticon-ear_of_rice {
     background-position: -9093px 0;
 }
 
-.smiley-shell {
+.emoticon-shell {
     background-position: -9125px 0;
 }
 
-.smiley-globe_with_meridians {
+.emoticon-globe_with_meridians {
     background-position: -9157px 0;
 }
 
-.smiley-sun_with_face {
+.emoticon-sun_with_face {
     background-position: -9189px 0;
 }
 
-.smiley-full_moon_with_face {
+.emoticon-full_moon_with_face {
     background-position: -9221px 0;
 }
 
-.smiley-new_moon_with_face {
+.emoticon-new_moon_with_face {
     background-position: -9253px 0;
 }
 
-.smiley-new_moon {
+.emoticon-new_moon {
     background-position: -9285px 0;
 }
 
-.smiley-waxing_crescent_moon {
+.emoticon-waxing_crescent_moon {
     background-position: -9317px 0;
 }
 
-.smiley-first_quarter_moon {
+.emoticon-first_quarter_moon {
     background-position: -9349px 0;
 }
 
-.smiley-waxing_gibbous_moon {
+.emoticon-waxing_gibbous_moon {
     background-position: -9381px 0;
 }
 
-.smiley-full_moon {
+.emoticon-full_moon {
     background-position: -9413px 0;
 }
 
-.smiley-waning_gibbous_moon {
+.emoticon-waning_gibbous_moon {
     background-position: -9445px 0;
 }
 
-.smiley-last_quarter_moon {
+.emoticon-last_quarter_moon {
     background-position: -9477px 0;
 }
 
-.smiley-waning_crescent_moon {
+.emoticon-waning_crescent_moon {
     background-position: -9509px 0;
 }
 
-.smiley-last_quarter_moon_with_face {
+.emoticon-last_quarter_moon_with_face {
     background-position: -9541px 0;
 }
 
-.smiley-first_quarter_moon_with_face {
+.emoticon-first_quarter_moon_with_face {
     background-position: -9573px 0;
 }
 
-.smiley-moon {
+.emoticon-moon {
     background-position: -9605px 0;
 }
 
-.smiley-earth_africa {
+.emoticon-earth_africa {
     background-position: -9637px 0;
 }
 
-.smiley-earth_americas {
+.emoticon-earth_americas {
     background-position: -9669px 0;
 }
 
-.smiley-earth_asia {
+.emoticon-earth_asia {
     background-position: -9701px 0;
 }
 
-.smiley-volcano {
+.emoticon-volcano {
     background-position: -9733px 0;
 }
 
-.smiley-milky_way {
+.emoticon-milky_way {
     background-position: -9765px 0;
 }
 
-.smiley-partly_sunny {
+.emoticon-partly_sunny {
     background-position: -9797px 0;
 }
 
-.smiley-octocat {
+.emoticon-octocat {
     background-position: -9829px 0;
 }
 
-.smiley-squirrel {
+.emoticon-squirrel {
     background-position: -9861px 0;
 }
 
-.smiley-bamboo {
+.emoticon-bamboo {
     background-position: -9893px 0;
 }
 
-.smiley-gift_heart {
+.emoticon-gift_heart {
     background-position: -9925px 0;
 }
 
-.smiley-dolls {
+.emoticon-dolls {
     background-position: -9957px 0;
 }
 
-.smiley-school_satchel {
+.emoticon-school_satchel {
     background-position: -9989px 0;
 }
 
-.smiley-mortar_board {
+.emoticon-mortar_board {
     background-position: -10021px 0;
 }
 
-.smiley-flags {
+.emoticon-flags {
     background-position: -10053px 0;
 }
 
-.smiley-fireworks {
+.emoticon-fireworks {
     background-position: -10085px 0;
 }
 
-.smiley-sparkler {
+.emoticon-sparkler {
     background-position: -10117px 0;
 }
 
-.smiley-wind_chime {
+.emoticon-wind_chime {
     background-position: -10149px 0;
 }
 
-.smiley-rice_scene {
+.emoticon-rice_scene {
     background-position: -10181px 0;
 }
 
-.smiley-jack_o_lantern {
+.emoticon-jack_o_lantern {
     background-position: -10213px 0;
 }
 
-.smiley-ghost {
+.emoticon-ghost {
     background-position: -10245px 0;
 }
 
-.smiley-santa {
+.emoticon-santa {
     background-position: -10277px 0;
 }
 
-.smiley-christmas_tree {
+.emoticon-christmas_tree {
     background-position: -10309px 0;
 }
 
-.smiley-gift {
+.emoticon-gift {
     background-position: -10341px 0;
 }
 
-.smiley-bell {
+.emoticon-bell {
     background-position: -10373px 0;
 }
 
-.smiley-no_bell {
+.emoticon-no_bell {
     background-position: -10405px 0;
 }
 
-.smiley-tanabata_tree {
+.emoticon-tanabata_tree {
     background-position: -10437px 0;
 }
 
-.smiley-tada {
+.emoticon-tada {
     background-position: -10469px 0;
 }
 
-.smiley-confetti_ball {
+.emoticon-confetti_ball {
     background-position: -10501px 0;
 }
 
-.smiley-balloon {
+.emoticon-balloon {
     background-position: -10533px 0;
 }
 
-.smiley-crystal_ball {
+.emoticon-crystal_ball {
     background-position: -10565px 0;
 }
 
-.smiley-cd {
+.emoticon-cd {
     background-position: -10597px 0;
 }
 
-.smiley-dvd {
+.emoticon-dvd {
     background-position: -10629px 0;
 }
 
-.smiley-floppy_disk {
+.emoticon-floppy_disk {
     background-position: -10661px 0;
 }
 
-.smiley-camera {
+.emoticon-camera {
     background-position: -10693px 0;
 }
 
-.smiley-video_camera {
+.emoticon-video_camera {
     background-position: -10725px 0;
 }
 
-.smiley-movie_camera {
+.emoticon-movie_camera {
     background-position: -10757px 0;
 }
 
-.smiley-computer {
+.emoticon-computer {
     background-position: -10789px 0;
 }
 
-.smiley-tv {
+.emoticon-tv {
     background-position: -10821px 0;
 }
 
-.smiley-iphone {
+.emoticon-iphone {
     background-position: -10853px 0;
 }
 
-.smiley-phone {
+.emoticon-phone {
     background-position: -10885px 0;
 }
 
-.smiley-telephone {
+.emoticon-telephone {
     background-position: -10917px 0;
 }
 
-.smiley-telephone_receiver {
+.emoticon-telephone_receiver {
     background-position: -10949px 0;
 }
 
-.smiley-pager {
+.emoticon-pager {
     background-position: -10981px 0;
 }
 
-.smiley-fax {
+.emoticon-fax {
     background-position: -11013px 0;
 }
 
-.smiley-minidisc {
+.emoticon-minidisc {
     background-position: -11045px 0;
 }
 
-.smiley-vhs {
+.emoticon-vhs {
     background-position: -11077px 0;
 }
 
-.smiley-sound {
+.emoticon-sound {
     background-position: -11109px 0;
 }
 
-.smiley-speaker {
+.emoticon-speaker {
     background-position: -11141px 0;
 }
 
-.smiley-mute {
+.emoticon-mute {
     background-position: -11173px 0;
 }
 
-.smiley-loudspeaker {
+.emoticon-loudspeaker {
     background-position: -11205px 0;
 }
 
-.smiley-mega {
+.emoticon-mega {
     background-position: -11237px 0;
 }
 
-.smiley-hourglass {
+.emoticon-hourglass {
     background-position: -11269px 0;
 }
 
-.smiley-hourglass_flowing_sand {
+.emoticon-hourglass_flowing_sand {
     background-position: -11301px 0;
 }
 
-.smiley-alarm_clock {
+.emoticon-alarm_clock {
     background-position: -11333px 0;
 }
 
-.smiley-watch {
+.emoticon-watch {
     background-position: -11365px 0;
 }
 
-.smiley-radio {
+.emoticon-radio {
     background-position: -11397px 0;
 }
 
-.smiley-satellite {
+.emoticon-satellite {
     background-position: -11429px 0;
 }
 
-.smiley-loop {
+.emoticon-loop {
     background-position: -11461px 0;
 }
 
-.smiley-mag {
+.emoticon-mag {
     background-position: -11493px 0;
 }
 
-.smiley-mag_right {
+.emoticon-mag_right {
     background-position: -11525px 0;
 }
 
-.smiley-unlock {
+.emoticon-unlock {
     background-position: -11557px 0;
 }
 
-.smiley-lock {
+.emoticon-lock {
     background-position: -11589px 0;
 }
 
-.smiley-lock_with_ink_pen {
+.emoticon-lock_with_ink_pen {
     background-position: -11621px 0;
 }
 
-.smiley-closed_lock_with_key {
+.emoticon-closed_lock_with_key {
     background-position: -11653px 0;
 }
 
-.smiley-key {
+.emoticon-key {
     background-position: -11685px 0;
 }
 
-.smiley-bulb {
+.emoticon-bulb {
     background-position: -11717px 0;
 }
 
-.smiley-flashlight {
+.emoticon-flashlight {
     background-position: -11749px 0;
 }
 
-.smiley-high_brightness {
+.emoticon-high_brightness {
     background-position: -11781px 0;
 }
 
-.smiley-low_brightness {
+.emoticon-low_brightness {
     background-position: -11813px 0;
 }
 
-.smiley-electric_plug {
+.emoticon-electric_plug {
     background-position: -11845px 0;
 }
 
-.smiley-battery {
+.emoticon-battery {
     background-position: -11877px 0;
 }
 
-.smiley-calling {
+.emoticon-calling {
     background-position: -11909px 0;
 }
 
-.smiley-email {
+.emoticon-email {
     background-position: -11941px 0;
 }
 
-.smiley-mailbox {
+.emoticon-mailbox {
     background-position: -11973px 0;
 }
 
-.smiley-postbox {
+.emoticon-postbox {
     background-position: -12005px 0;
 }
 
-.smiley-bath {
+.emoticon-bath {
     background-position: -12037px 0;
 }
 
-.smiley-bathtub {
+.emoticon-bathtub {
     background-position: -12069px 0;
 }
 
-.smiley-shower {
+.emoticon-shower {
     background-position: -12101px 0;
 }
 
-.smiley-toilet {
+.emoticon-toilet {
     background-position: -12133px 0;
 }
 
-.smiley-wrench {
+.emoticon-wrench {
     background-position: -12165px 0;
 }
 
-.smiley-nut_and_bolt {
+.emoticon-nut_and_bolt {
     background-position: -12197px 0;
 }
 
-.smiley-hammer {
+.emoticon-hammer {
     background-position: -12229px 0;
 }
 
-.smiley-seat {
+.emoticon-seat {
     background-position: -12261px 0;
 }
 
-.smiley-moneybag {
+.emoticon-moneybag {
     background-position: -12293px 0;
 }
 
-.smiley-yen {
+.emoticon-yen {
     background-position: -12325px 0;
 }
 
-.smiley-dollar {
+.emoticon-dollar {
     background-position: -12357px 0;
 }
 
-.smiley-pound {
+.emoticon-pound {
     background-position: -12389px 0;
 }
 
-.smiley-euro {
+.emoticon-euro {
     background-position: -12421px 0;
 }
 
-.smiley-credit_card {
+.emoticon-credit_card {
     background-position: -12453px 0;
 }
 
-.smiley-money_with_wings {
+.emoticon-money_with_wings {
     background-position: -12485px 0;
 }
 
-.smiley-e\-mail {
+.emoticon-e\-mail {
     background-position: -12517px 0;
 }
 
-.smiley-inbox_tray {
+.emoticon-inbox_tray {
     background-position: -12549px 0;
 }
 
-.smiley-outbox_tray {
+.emoticon-outbox_tray {
     background-position: -12581px 0;
 }
 
-.smiley-envelope {
+.emoticon-envelope {
     background-position: -12613px 0;
 }
 
-.smiley-incoming_envelope {
+.emoticon-incoming_envelope {
     background-position: -12645px 0;
 }
 
-.smiley-postal_horn {
+.emoticon-postal_horn {
     background-position: -12677px 0;
 }
 
-.smiley-mailbox_closed {
+.emoticon-mailbox_closed {
     background-position: -12709px 0;
 }
 
-.smiley-mailbox_with_mail {
+.emoticon-mailbox_with_mail {
     background-position: -12741px 0;
 }
 
-.smiley-mailbox_with_no_mail {
+.emoticon-mailbox_with_no_mail {
     background-position: -12773px 0;
 }
 
-.smiley-door {
+.emoticon-door {
     background-position: -12805px 0;
 }
 
-.smiley-smoking {
+.emoticon-smoking {
     background-position: -12837px 0;
 }
 
-.smiley-bomb {
+.emoticon-bomb {
     background-position: -12869px 0;
 }
 
-.smiley-gun {
+.emoticon-gun {
     background-position: -12901px 0;
 }
 
-.smiley-hocho {
+.emoticon-hocho {
     background-position: -12933px 0;
 }
 
-.smiley-pill {
+.emoticon-pill {
     background-position: -12965px 0;
 }
 
-.smiley-syringe {
+.emoticon-syringe {
     background-position: -12997px 0;
 }
 
-.smiley-page_facing_up {
+.emoticon-page_facing_up {
     background-position: -13029px 0;
 }
 
-.smiley-page_with_curl {
+.emoticon-page_with_curl {
     background-position: -13061px 0;
 }
 
-.smiley-bookmark_tabs {
+.emoticon-bookmark_tabs {
     background-position: -13093px 0;
 }
 
-.smiley-bar_chart {
+.emoticon-bar_chart {
     background-position: -13125px 0;
 }
 
-.smiley-chart_with_upwards_trend {
+.emoticon-chart_with_upwards_trend {
     background-position: -13157px 0;
 }
 
-.smiley-chart_with_downwards_trend {
+.emoticon-chart_with_downwards_trend {
     background-position: -13189px 0;
 }
 
-.smiley-scroll {
+.emoticon-scroll {
     background-position: -13221px 0;
 }
 
-.smiley-clipboard {
+.emoticon-clipboard {
     background-position: -13253px 0;
 }
 
-.smiley-calendar {
+.emoticon-calendar {
     background-position: -13285px 0;
 }
 
-.smiley-date {
+.emoticon-date {
     background-position: -13317px 0;
 }
 
-.smiley-card_index {
+.emoticon-card_index {
     background-position: -13349px 0;
 }
 
-.smiley-file_folder {
+.emoticon-file_folder {
     background-position: -13381px 0;
 }
 
-.smiley-open_file_folder {
+.emoticon-open_file_folder {
     background-position: -13413px 0;
 }
 
-.smiley-scissors {
+.emoticon-scissors {
     background-position: -13445px 0;
 }
 
-.smiley-pushpin {
+.emoticon-pushpin {
     background-position: -13477px 0;
 }
 
-.smiley-paperclip {
+.emoticon-paperclip {
     background-position: -13509px 0;
 }
 
-.smiley-black_nib {
+.emoticon-black_nib {
     background-position: -13541px 0;
 }
 
-.smiley-pencil2 {
+.emoticon-pencil2 {
     background-position: -13573px 0;
 }
 
-.smiley-straight_ruler {
+.emoticon-straight_ruler {
     background-position: -13605px 0;
 }
 
-.smiley-triangular_ruler {
+.emoticon-triangular_ruler {
     background-position: -13637px 0;
 }
 
-.smiley-closed_book {
+.emoticon-closed_book {
     background-position: -13669px 0;
 }
 
-.smiley-green_book {
+.emoticon-green_book {
     background-position: -13701px 0;
 }
 
-.smiley-blue_book {
+.emoticon-blue_book {
     background-position: -13733px 0;
 }
 
-.smiley-orange_book {
+.emoticon-orange_book {
     background-position: -13765px 0;
 }
 
-.smiley-notebook {
+.emoticon-notebook {
     background-position: -13797px 0;
 }
 
-.smiley-notebook_with_decorative_cover {
+.emoticon-notebook_with_decorative_cover {
     background-position: -13829px 0;
 }
 
-.smiley-ledger {
+.emoticon-ledger {
     background-position: -13861px 0;
 }
 
-.smiley-books {
+.emoticon-books {
     background-position: -13893px 0;
 }
 
-.smiley-bookmark {
+.emoticon-bookmark {
     background-position: -13925px 0;
 }
 
-.smiley-name_badge {
+.emoticon-name_badge {
     background-position: -13957px 0;
 }
 
-.smiley-microscope {
+.emoticon-microscope {
     background-position: -13989px 0;
 }
 
-.smiley-telescope {
+.emoticon-telescope {
     background-position: -14021px 0;
 }
 
-.smiley-newspaper {
+.emoticon-newspaper {
     background-position: -14053px 0;
 }
 
-.smiley-football {
+.emoticon-football {
     background-position: -14085px 0;
 }
 
-.smiley-basketball {
+.emoticon-basketball {
     background-position: -14117px 0;
 }
 
-.smiley-soccer {
+.emoticon-soccer {
     background-position: -14149px 0;
 }
 
-.smiley-baseball {
+.emoticon-baseball {
     background-position: -14181px 0;
 }
 
-.smiley-tennis {
+.emoticon-tennis {
     background-position: -14213px 0;
 }
 
-.smiley-8ball {
+.emoticon-8ball {
     background-position: -14245px 0;
 }
 
-.smiley-rugby_football {
+.emoticon-rugby_football {
     background-position: -14277px 0;
 }
 
-.smiley-bowling {
+.emoticon-bowling {
     background-position: -14309px 0;
 }
 
-.smiley-golf {
+.emoticon-golf {
     background-position: -14341px 0;
 }
 
-.smiley-mountain_bicyclist {
+.emoticon-mountain_bicyclist {
     background-position: -14373px 0;
 }
 
-.smiley-bicyclist {
+.emoticon-bicyclist {
     background-position: -14405px 0;
 }
 
-.smiley-horse_racing {
+.emoticon-horse_racing {
     background-position: -14437px 0;
 }
 
-.smiley-snowboarder {
+.emoticon-snowboarder {
     background-position: -14469px 0;
 }
 
-.smiley-swimmer {
+.emoticon-swimmer {
     background-position: -14501px 0;
 }
 
-.smiley-surfer {
+.emoticon-surfer {
     background-position: -14533px 0;
 }
 
-.smiley-ski {
+.emoticon-ski {
     background-position: -14565px 0;
 }
 
-.smiley-spades {
+.emoticon-spades {
     background-position: -14597px 0;
 }
 
-.smiley-hearts {
+.emoticon-hearts {
     background-position: -14629px 0;
 }
 
-.smiley-clubs {
+.emoticon-clubs {
     background-position: -14661px 0;
 }
 
-.smiley-diamonds {
+.emoticon-diamonds {
     background-position: -14693px 0;
 }
 
-.smiley-gem {
+.emoticon-gem {
     background-position: -14725px 0;
 }
 
-.smiley-ring {
+.emoticon-ring {
     background-position: -14757px 0;
 }
 
-.smiley-trophy {
+.emoticon-trophy {
     background-position: -14789px 0;
 }
 
-.smiley-musical_score {
+.emoticon-musical_score {
     background-position: -14821px 0;
 }
 
-.smiley-musical_keyboard {
+.emoticon-musical_keyboard {
     background-position: -14853px 0;
 }
 
-.smiley-violin {
+.emoticon-violin {
     background-position: -14885px 0;
 }
 
-.smiley-space_invader {
+.emoticon-space_invader {
     background-position: -14917px 0;
 }
 
-.smiley-video_game {
+.emoticon-video_game {
     background-position: -14949px 0;
 }
 
-.smiley-black_joker {
+.emoticon-black_joker {
     background-position: -14981px 0;
 }
 
-.smiley-flower_playing_cards {
+.emoticon-flower_playing_cards {
     background-position: -15013px 0;
 }
 
-.smiley-game_die {
+.emoticon-game_die {
     background-position: -15045px 0;
 }
 
-.smiley-dart {
+.emoticon-dart {
     background-position: -15077px 0;
 }
 
-.smiley-mahjong {
+.emoticon-mahjong {
     background-position: -15109px 0;
 }
 
-.smiley-clapper {
+.emoticon-clapper {
     background-position: -15141px 0;
 }
 
-.smiley-memo {
+.emoticon-memo {
     background-position: -15173px 0;
 }
 
-.smiley-pencil {
+.emoticon-pencil {
     background-position: -15205px 0;
 }
 
-.smiley-book {
+.emoticon-book {
     background-position: -15237px 0;
 }
 
-.smiley-art {
+.emoticon-art {
     background-position: -15269px 0;
 }
 
-.smiley-microphone {
+.emoticon-microphone {
     background-position: -15301px 0;
 }
 
-.smiley-headphones {
+.emoticon-headphones {
     background-position: -15333px 0;
 }
 
-.smiley-trumpet {
+.emoticon-trumpet {
     background-position: -15365px 0;
 }
 
-.smiley-saxophone {
+.emoticon-saxophone {
     background-position: -15397px 0;
 }
 
-.smiley-guitar {
+.emoticon-guitar {
     background-position: -15429px 0;
 }
 
-.smiley-shoe {
+.emoticon-shoe {
     background-position: -15461px 0;
 }
 
-.smiley-sandal {
+.emoticon-sandal {
     background-position: -15493px 0;
 }
 
-.smiley-high_heel {
+.emoticon-high_heel {
     background-position: -15525px 0;
 }
 
-.smiley-lipstick {
+.emoticon-lipstick {
     background-position: -15557px 0;
 }
 
-.smiley-boot {
+.emoticon-boot {
     background-position: -15589px 0;
 }
 
-.smiley-shirt {
+.emoticon-shirt {
     background-position: -15621px 0;
 }
 
-.smiley-tshirt {
+.emoticon-tshirt {
     background-position: -15653px 0;
 }
 
-.smiley-necktie {
+.emoticon-necktie {
     background-position: -15685px 0;
 }
 
-.smiley-womans_clothes {
+.emoticon-womans_clothes {
     background-position: -15717px 0;
 }
 
-.smiley-dress {
+.emoticon-dress {
     background-position: -15749px 0;
 }
 
-.smiley-running_shirt_with_sash {
+.emoticon-running_shirt_with_sash {
     background-position: -15781px 0;
 }
 
-.smiley-jeans {
+.emoticon-jeans {
     background-position: -15813px 0;
 }
 
-.smiley-kimono {
+.emoticon-kimono {
     background-position: -15845px 0;
 }
 
-.smiley-bikini {
+.emoticon-bikini {
     background-position: -15877px 0;
 }
 
-.smiley-ribbon {
+.emoticon-ribbon {
     background-position: -15909px 0;
 }
 
-.smiley-tophat {
+.emoticon-tophat {
     background-position: -15941px 0;
 }
 
-.smiley-crown {
+.emoticon-crown {
     background-position: -15973px 0;
 }
 
-.smiley-womans_hat {
+.emoticon-womans_hat {
     background-position: -16005px 0;
 }
 
-.smiley-mans_shoe {
+.emoticon-mans_shoe {
     background-position: -16037px 0;
 }
 
-.smiley-closed_umbrella {
+.emoticon-closed_umbrella {
     background-position: -16069px 0;
 }
 
-.smiley-briefcase {
+.emoticon-briefcase {
     background-position: -16101px 0;
 }
 
-.smiley-handbag {
+.emoticon-handbag {
     background-position: -16133px 0;
 }
 
-.smiley-pouch {
+.emoticon-pouch {
     background-position: -16165px 0;
 }
 
-.smiley-purse {
+.emoticon-purse {
     background-position: -16197px 0;
 }
 
-.smiley-eyeglasses {
+.emoticon-eyeglasses {
     background-position: -16229px 0;
 }
 
-.smiley-fishing_pole_and_fish {
+.emoticon-fishing_pole_and_fish {
     background-position: -16261px 0;
 }
 
-.smiley-coffee {
+.emoticon-coffee {
     background-position: -16293px 0;
 }
 
-.smiley-tea {
+.emoticon-tea {
     background-position: -16325px 0;
 }
 
-.smiley-sake {
+.emoticon-sake {
     background-position: -16357px 0;
 }
 
-.smiley-baby_bottle {
+.emoticon-baby_bottle {
     background-position: -16389px 0;
 }
 
-.smiley-beer {
+.emoticon-beer {
     background-position: -16421px 0;
 }
 
-.smiley-beers {
+.emoticon-beers {
     background-position: -16453px 0;
 }
 
-.smiley-cocktail {
+.emoticon-cocktail {
     background-position: -16485px 0;
 }
 
-.smiley-tropical_drink {
+.emoticon-tropical_drink {
     background-position: -16517px 0;
 }
 
-.smiley-wine_glass {
+.emoticon-wine_glass {
     background-position: -16549px 0;
 }
 
-.smiley-fork_and_knife {
+.emoticon-fork_and_knife {
     background-position: -16581px 0;
 }
 
-.smiley-pizza {
+.emoticon-pizza {
     background-position: -16613px 0;
 }
 
-.smiley-hamburger {
+.emoticon-hamburger {
     background-position: -16645px 0;
 }
 
-.smiley-fries {
+.emoticon-fries {
     background-position: -16677px 0;
 }
 
-.smiley-poultry_leg {
+.emoticon-poultry_leg {
     background-position: -16709px 0;
 }
 
-.smiley-meat_on_bone {
+.emoticon-meat_on_bone {
     background-position: -16741px 0;
 }
 
-.smiley-spaghetti {
+.emoticon-spaghetti {
     background-position: -16773px 0;
 }
 
-.smiley-curry {
+.emoticon-curry {
     background-position: -16805px 0;
 }
 
-.smiley-fried_shrimp {
+.emoticon-fried_shrimp {
     background-position: -16837px 0;
 }
 
-.smiley-bento {
+.emoticon-bento {
     background-position: -16869px 0;
 }
 
-.smiley-sushi {
+.emoticon-sushi {
     background-position: -16901px 0;
 }
 
-.smiley-fish_cake {
+.emoticon-fish_cake {
     background-position: -16933px 0;
 }
 
-.smiley-rice_ball {
+.emoticon-rice_ball {
     background-position: -16965px 0;
 }
 
-.smiley-rice_cracker {
+.emoticon-rice_cracker {
     background-position: -16997px 0;
 }
 
-.smiley-rice {
+.emoticon-rice {
     background-position: -17029px 0;
 }
 
-.smiley-ramen {
+.emoticon-ramen {
     background-position: -17061px 0;
 }
 
-.smiley-stew {
+.emoticon-stew {
     background-position: -17093px 0;
 }
 
-.smiley-oden {
+.emoticon-oden {
     background-position: -17125px 0;
 }
 
-.smiley-dango {
+.emoticon-dango {
     background-position: -17157px 0;
 }
 
-.smiley-egg {
+.emoticon-egg {
     background-position: -17189px 0;
 }
 
-.smiley-bread {
+.emoticon-bread {
     background-position: -17221px 0;
 }
 
-.smiley-doughnut {
+.emoticon-doughnut {
     background-position: -17253px 0;
 }
 
-.smiley-custard {
+.emoticon-custard {
     background-position: -17285px 0;
 }
 
-.smiley-icecream {
+.emoticon-icecream {
     background-position: -17317px 0;
 }
 
-.smiley-ice_cream {
+.emoticon-ice_cream {
     background-position: -17349px 0;
 }
 
-.smiley-shaved_ice {
+.emoticon-shaved_ice {
     background-position: -17381px 0;
 }
 
-.smiley-birthday {
+.emoticon-birthday {
     background-position: -17413px 0;
 }
 
-.smiley-cake {
+.emoticon-cake {
     background-position: -17445px 0;
 }
 
-.smiley-cookie {
+.emoticon-cookie {
     background-position: -17477px 0;
 }
 
-.smiley-chocolate_bar {
+.emoticon-chocolate_bar {
     background-position: -17509px 0;
 }
 
-.smiley-candy {
+.emoticon-candy {
     background-position: -17541px 0;
 }
 
-.smiley-lollipop {
+.emoticon-lollipop {
     background-position: -17573px 0;
 }
 
-.smiley-honey_pot {
+.emoticon-honey_pot {
     background-position: -17605px 0;
 }
 
-.smiley-apple {
+.emoticon-apple {
     background-position: -17637px 0;
 }
 
-.smiley-green_apple {
+.emoticon-green_apple {
     background-position: -17669px 0;
 }
 
-.smiley-tangerine {
+.emoticon-tangerine {
     background-position: -17701px 0;
 }
 
-.smiley-lemon {
+.emoticon-lemon {
     background-position: -17733px 0;
 }
 
-.smiley-cherries {
+.emoticon-cherries {
     background-position: -17765px 0;
 }
 
-.smiley-grapes {
+.emoticon-grapes {
     background-position: -17797px 0;
 }
 
-.smiley-watermelon {
+.emoticon-watermelon {
     background-position: -17829px 0;
 }
 
-.smiley-strawberry {
+.emoticon-strawberry {
     background-position: -17861px 0;
 }
 
-.smiley-peach {
+.emoticon-peach {
     background-position: -17893px 0;
 }
 
-.smiley-melon {
+.emoticon-melon {
     background-position: -17925px 0;
 }
 
-.smiley-banana {
+.emoticon-banana {
     background-position: -17957px 0;
 }
 
-.smiley-pear {
+.emoticon-pear {
     background-position: -17989px 0;
 }
 
-.smiley-pineapple {
+.emoticon-pineapple {
     background-position: -18021px 0;
 }
 
-.smiley-sweet_potato {
+.emoticon-sweet_potato {
     background-position: -18053px 0;
 }
 
-.smiley-eggplant {
+.emoticon-eggplant {
     background-position: -18085px 0;
 }
 
-.smiley-tomato {
+.emoticon-tomato {
     background-position: -18117px 0;
 }
 
-.smiley-corn {
+.emoticon-corn {
     background-position: -18149px 0;
 }
 
-.smiley-house {
+.emoticon-house {
     background-position: -18181px 0;
 }
 
-.smiley-house_with_garden {
+.emoticon-house_with_garden {
     background-position: -18213px 0;
 }
 
-.smiley-school {
+.emoticon-school {
     background-position: -18245px 0;
 }
 
-.smiley-office {
+.emoticon-office {
     background-position: -18277px 0;
 }
 
-.smiley-post_office {
+.emoticon-post_office {
     background-position: -18309px 0;
 }
 
-.smiley-hospital {
+.emoticon-hospital {
     background-position: -18341px 0;
 }
 
-.smiley-bank {
+.emoticon-bank {
     background-position: -18373px 0;
 }
 
-.smiley-convenience_store {
+.emoticon-convenience_store {
     background-position: -18405px 0;
 }
 
-.smiley-love_hotel {
+.emoticon-love_hotel {
     background-position: -18437px 0;
 }
 
-.smiley-hotel {
+.emoticon-hotel {
     background-position: -18469px 0;
 }
 
-.smiley-wedding {
+.emoticon-wedding {
     background-position: -18501px 0;
 }
 
-.smiley-church {
+.emoticon-church {
     background-position: -18533px 0;
 }
 
-.smiley-department_store {
+.emoticon-department_store {
     background-position: -18565px 0;
 }
 
-.smiley-european_post_office {
+.emoticon-european_post_office {
     background-position: -18597px 0;
 }
 
-.smiley-city_sunrise {
+.emoticon-city_sunrise {
     background-position: -18629px 0;
 }
 
-.smiley-city_sunset {
+.emoticon-city_sunset {
     background-position: -18661px 0;
 }
 
-.smiley-japanese_castle {
+.emoticon-japanese_castle {
     background-position: -18693px 0;
 }
 
-.smiley-european_castle {
+.emoticon-european_castle {
     background-position: -18725px 0;
 }
 
-.smiley-tent {
+.emoticon-tent {
     background-position: -18757px 0;
 }
 
-.smiley-factory {
+.emoticon-factory {
     background-position: -18789px 0;
 }
 
-.smiley-tokyo_tower {
+.emoticon-tokyo_tower {
     background-position: -18821px 0;
 }
 
-.smiley-japan {
+.emoticon-japan {
     background-position: -18853px 0;
 }
 
-.smiley-mount_fuji {
+.emoticon-mount_fuji {
     background-position: -18885px 0;
 }
 
-.smiley-sunrise_over_mountains {
+.emoticon-sunrise_over_mountains {
     background-position: -18917px 0;
 }
 
-.smiley-sunrise {
+.emoticon-sunrise {
     background-position: -18949px 0;
 }
 
-.smiley-stars {
+.emoticon-stars {
     background-position: -18981px 0;
 }
 
-.smiley-themoreyouknow {
+.emoticon-themoreyouknow {
     background-position: -18981px 0;
 }
 
-.smiley-tmyk {
+.emoticon-tmyk {
     background-position: -18981px 0;
 }
 
-.smiley-statue_of_liberty {
+.emoticon-statue_of_liberty {
     background-position: -19013px 0;
 }
 
-.smiley-bridge_at_night {
+.emoticon-bridge_at_night {
     background-position: -19045px 0;
 }
 
-.smiley-carousel_horse {
+.emoticon-carousel_horse {
     background-position: -19077px 0;
 }
 
-.smiley-rainbow {
+.emoticon-rainbow {
     background-position: -19109px 0;
 }
 
-.smiley-ferris_wheel {
+.emoticon-ferris_wheel {
     background-position: -19141px 0;
 }
 
-.smiley-fountain {
+.emoticon-fountain {
     background-position: -19173px 0;
 }
 
-.smiley-roller_coaster {
+.emoticon-roller_coaster {
     background-position: -19205px 0;
 }
 
-.smiley-ship {
+.emoticon-ship {
     background-position: -19237px 0;
 }
 
-.smiley-speedboat {
+.emoticon-speedboat {
     background-position: -19269px 0;
 }
 
-.smiley-boat {
+.emoticon-boat {
     background-position: -19301px 0;
 }
 
-.smiley-sailboat {
+.emoticon-sailboat {
     background-position: -19333px 0;
 }
 
-.smiley-rowboat {
+.emoticon-rowboat {
     background-position: -19365px 0;
 }
 
-.smiley-anchor {
+.emoticon-anchor {
     background-position: -19397px 0;
 }
 
-.smiley-rocket {
+.emoticon-rocket {
     background-position: -19429px 0;
 }
 
-.smiley-airplane {
+.emoticon-airplane {
     background-position: -19461px 0;
 }
 
-.smiley-helicopter {
+.emoticon-helicopter {
     background-position: -19493px 0;
 }
 
-.smiley-steam_locomotive {
+.emoticon-steam_locomotive {
     background-position: -19525px 0;
 }
 
-.smiley-tram {
+.emoticon-tram {
     background-position: -19557px 0;
 }
 
-.smiley-mountain_railway {
+.emoticon-mountain_railway {
     background-position: -19589px 0;
 }
 
-.smiley-bike {
+.emoticon-bike {
     background-position: -19621px 0;
 }
 
-.smiley-aerial_tramway {
+.emoticon-aerial_tramway {
     background-position: -19653px 0;
 }
 
-.smiley-suspension_railway {
+.emoticon-suspension_railway {
     background-position: -19685px 0;
 }
 
-.smiley-mountain_cableway {
+.emoticon-mountain_cableway {
     background-position: -19717px 0;
 }
 
-.smiley-tractor {
+.emoticon-tractor {
     background-position: -19749px 0;
 }
 
-.smiley-blue_car {
+.emoticon-blue_car {
     background-position: -19781px 0;
 }
 
-.smiley-oncoming_automobile {
+.emoticon-oncoming_automobile {
     background-position: -19813px 0;
 }
 
-.smiley-car {
+.emoticon-car {
     background-position: -19845px 0;
 }
 
-.smiley-red_car {
+.emoticon-red_car {
     background-position: -19877px 0;
 }
 
-.smiley-taxi {
+.emoticon-taxi {
     background-position: -19909px 0;
 }
 
-.smiley-oncoming_taxi {
+.emoticon-oncoming_taxi {
     background-position: -19941px 0;
 }
 
-.smiley-articulated_lorry {
+.emoticon-articulated_lorry {
     background-position: -19973px 0;
 }
 
-.smiley-bus {
+.emoticon-bus {
     background-position: -20005px 0;
 }
 
-.smiley-oncoming_bus {
+.emoticon-oncoming_bus {
     background-position: -20037px 0;
 }
 
-.smiley-rotating_light {
+.emoticon-rotating_light {
     background-position: -20069px 0;
 }
 
-.smiley-police_car {
+.emoticon-police_car {
     background-position: -20101px 0;
 }
 
-.smiley-oncoming_police_car {
+.emoticon-oncoming_police_car {
     background-position: -20133px 0;
 }
 
-.smiley-fire_engine {
+.emoticon-fire_engine {
     background-position: -20165px 0;
 }
 
-.smiley-ambulance {
+.emoticon-ambulance {
     background-position: -20197px 0;
 }
 
-.smiley-minibus {
+.emoticon-minibus {
     background-position: -20229px 0;
 }
 
-.smiley-truck {
+.emoticon-truck {
     background-position: -20261px 0;
 }
 
-.smiley-train {
+.emoticon-train {
     background-position: -20293px 0;
 }
 
-.smiley-station {
+.emoticon-station {
     background-position: -20325px 0;
 }
 
-.smiley-train2 {
+.emoticon-train2 {
     background-position: -20357px 0;
 }
 
-.smiley-bullettrain_front {
+.emoticon-bullettrain_front {
     background-position: -20389px 0;
 }
 
-.smiley-bullettrain_side {
+.emoticon-bullettrain_side {
     background-position: -20421px 0;
 }
 
-.smiley-light_rail {
+.emoticon-light_rail {
     background-position: -20453px 0;
 }
 
-.smiley-monorail {
+.emoticon-monorail {
     background-position: -20485px 0;
 }
 
-.smiley-railway_car {
+.emoticon-railway_car {
     background-position: -20517px 0;
 }
 
-.smiley-trolleybus {
+.emoticon-trolleybus {
     background-position: -20549px 0;
 }
 
-.smiley-ticket {
+.emoticon-ticket {
     background-position: -20581px 0;
 }
 
-.smiley-fuelpump {
+.emoticon-fuelpump {
     background-position: -20613px 0;
 }
 
-.smiley-vertical_traffic_light {
+.emoticon-vertical_traffic_light {
     background-position: -20645px 0;
 }
 
-.smiley-traffic_light {
+.emoticon-traffic_light {
     background-position: -20677px 0;
 }
 
-.smiley-warning {
+.emoticon-warning {
     background-position: -20709px 0;
 }
 
-.smiley-construction {
+.emoticon-construction {
     background-position: -20741px 0;
 }
 
-.smiley-beginner {
+.emoticon-beginner {
     background-position: -20773px 0;
 }
 
-.smiley-atm {
+.emoticon-atm {
     background-position: -20805px 0;
 }
 
-.smiley-slot_machine {
+.emoticon-slot_machine {
     background-position: -20837px 0;
 }
 
-.smiley-busstop {
+.emoticon-busstop {
     background-position: -20869px 0;
 }
 
-.smiley-barber {
+.emoticon-barber {
     background-position: -20901px 0;
 }
 
-.smiley-hotsprings {
+.emoticon-hotsprings {
     background-position: -20933px 0;
 }
 
-.smiley-checkered_flag {
+.emoticon-checkered_flag {
     background-position: -20965px 0;
 }
 
-.smiley-crossed_flags {
+.emoticon-crossed_flags {
     background-position: -20997px 0;
 }
 
-.smiley-izakaya_lantern {
+.emoticon-izakaya_lantern {
     background-position: -21029px 0;
 }
 
-.smiley-moyai {
+.emoticon-moyai {
     background-position: -21061px 0;
 }
 
-.smiley-circus_tent {
+.emoticon-circus_tent {
     background-position: -21093px 0;
 }
 
-.smiley-performing_arts {
+.emoticon-performing_arts {
     background-position: -21125px 0;
 }
 
-.smiley-round_pushpin {
+.emoticon-round_pushpin {
     background-position: -21157px 0;
 }
 
-.smiley-triangular_flag_on_post {
+.emoticon-triangular_flag_on_post {
     background-position: -21189px 0;
 }
 
-.smiley-jp {
+.emoticon-jp {
     background-position: -21221px 0;
 }
 
-.smiley-kr {
+.emoticon-kr {
     background-position: -21253px 0;
 }
 
-.smiley-cn {
+.emoticon-cn {
     background-position: -21285px 0;
 }
 
-.smiley-us {
+.emoticon-us {
     background-position: -21317px 0;
 }
 
-.smiley-fr {
+.emoticon-fr {
     background-position: -21349px 0;
 }
 
-.smiley-es {
+.emoticon-es {
     background-position: -21381px 0;
 }
 
-.smiley-it {
+.emoticon-it {
     background-position: -21413px 0;
 }
 
-.smiley-ru {
+.emoticon-ru {
     background-position: -21445px 0;
 }
 
-.smiley-gb {
+.emoticon-gb {
     background-position: -21477px 0;
 }
 
-.smiley-uk {
+.emoticon-uk {
     background-position: -21509px 0;
 }
 
-.smiley-de {
+.emoticon-de {
     background-position: -21541px 0;
 }
 
-.smiley-one {
+.emoticon-one {
     background-position: -21573px 0;
 }
 
-.smiley-two {
+.emoticon-two {
     background-position: -21605px 0;
 }
 
-.smiley-three {
+.emoticon-three {
     background-position: -21637px 0;
 }
 
-.smiley-four {
+.emoticon-four {
     background-position: -21669px 0;
 }
 
-.smiley-five {
+.emoticon-five {
     background-position: -21701px 0;
 }
 
-.smiley-six {
+.emoticon-six {
     background-position: -21733px 0;
 }
 
-.smiley-seven {
+.emoticon-seven {
     background-position: -21765px 0;
 }
 
-.smiley-eight {
+.emoticon-eight {
     background-position: -21797px 0;
 }
 
-.smiley-nine {
+.emoticon-nine {
     background-position: -21829px 0;
 }
 
-.smiley-keycap_ten {
+.emoticon-keycap_ten {
     background-position: -21861px 0;
 }
 
-.smiley-1234 {
+.emoticon-1234 {
     background-position: -21893px 0;
 }
 
-.smiley-zero {
+.emoticon-zero {
     background-position: -21925px 0;
 }
 
-.smiley-hash {
+.emoticon-hash {
     background-position: -21957px 0;
 }
 
-.smiley-symbols {
+.emoticon-symbols {
     background-position: -21989px 0;
 }
 
-.smiley-arrow_backward {
+.emoticon-arrow_backward {
     background-position: -22021px 0;
 }
 
-.smiley-arrow_down {
+.emoticon-arrow_down {
     background-position: -22053px 0;
 }
 
-.smiley-arrow_forward {
+.emoticon-arrow_forward {
     background-position: -22085px 0;
 }
 
-.smiley-arrow_left {
+.emoticon-arrow_left {
     background-position: -22117px 0;
 }
 
-.smiley-capital_abcd {
+.emoticon-capital_abcd {
     background-position: -22149px 0;
 }
 
-.smiley-abcd {
+.emoticon-abcd {
     background-position: -22181px 0;
 }
 
-.smiley-abc {
+.emoticon-abc {
     background-position: -22213px 0;
 }
 
-.smiley-arrow_lower_left {
+.emoticon-arrow_lower_left {
     background-position: -22245px 0;
 }
 
-.smiley-arrow_lower_right {
+.emoticon-arrow_lower_right {
     background-position: -22277px 0;
 }
 
-.smiley-arrow_right {
+.emoticon-arrow_right {
     background-position: -22309px 0;
 }
 
-.smiley-arrow_up {
+.emoticon-arrow_up {
     background-position: -22341px 0;
 }
 
-.smiley-arrow_upper_left {
+.emoticon-arrow_upper_left {
     background-position: -22373px 0;
 }
 
-.smiley-arrow_upper_right {
+.emoticon-arrow_upper_right {
     background-position: -22405px 0;
 }
 
-.smiley-arrow_double_down {
+.emoticon-arrow_double_down {
     background-position: -22437px 0;
 }
 
-.smiley-arrow_double_up {
+.emoticon-arrow_double_up {
     background-position: -22469px 0;
 }
 
-.smiley-arrow_down_small {
+.emoticon-arrow_down_small {
     background-position: -22501px 0;
 }
 
-.smiley-arrow_heading_down {
+.emoticon-arrow_heading_down {
     background-position: -22533px 0;
 }
 
-.smiley-arrow_heading_up {
+.emoticon-arrow_heading_up {
     background-position: -22565px 0;
 }
 
-.smiley-leftwards_arrow_with_hook {
+.emoticon-leftwards_arrow_with_hook {
     background-position: -22597px 0;
 }
 
-.smiley-arrow_right_hook {
+.emoticon-arrow_right_hook {
     background-position: -22629px 0;
 }
 
-.smiley-left_right_arrow {
+.emoticon-left_right_arrow {
     background-position: -22661px 0;
 }
 
-.smiley-arrow_up_down {
+.emoticon-arrow_up_down {
     background-position: -22693px 0;
 }
 
-.smiley-arrow_up_small {
+.emoticon-arrow_up_small {
     background-position: -22725px 0;
 }
 
-.smiley-arrows_clockwise {
+.emoticon-arrows_clockwise {
     background-position: -22757px 0;
 }
 
-.smiley-arrows_counterclockwise {
+.emoticon-arrows_counterclockwise {
     background-position: -22789px 0;
 }
 
-.smiley-rewind {
+.emoticon-rewind {
     background-position: -22821px 0;
 }
 
-.smiley-fast_forward {
+.emoticon-fast_forward {
     background-position: -22853px 0;
 }
 
-.smiley-information_source {
+.emoticon-information_source {
     background-position: -22885px 0;
 }
 
-.smiley-ok {
+.emoticon-ok {
     background-position: -22917px 0;
 }
 
-.smiley-twisted_rightwards_arrows {
+.emoticon-twisted_rightwards_arrows {
     background-position: -22949px 0;
 }
 
-.smiley-repeat {
+.emoticon-repeat {
     background-position: -22981px 0;
 }
 
-.smiley-repeat_one {
+.emoticon-repeat_one {
     background-position: -23013px 0;
 }
 
-.smiley-new {
+.emoticon-new {
     background-position: -23045px 0;
 }
 
-.smiley-top {
+.emoticon-top {
     background-position: -23077px 0;
 }
 
-.smiley-up {
+.emoticon-up {
     background-position: -23109px 0;
 }
 
-.smiley-cool {
+.emoticon-cool {
     background-position: -23141px 0;
 }
 
-.smiley-free {
+.emoticon-free {
     background-position: -23173px 0;
 }
 
-.smiley-ng {
+.emoticon-ng {
     background-position: -23205px 0;
 }
 
-.smiley-cinema {
+.emoticon-cinema {
     background-position: -23237px 0;
 }
 
-.smiley-koko {
+.emoticon-koko {
     background-position: -23269px 0;
 }
 
-.smiley-signal_strength {
+.emoticon-signal_strength {
     background-position: -23301px 0;
 }
 
-.smiley-u5272 {
+.emoticon-u5272 {
     background-position: -23333px 0;
 }
 
-.smiley-u5408 {
+.emoticon-u5408 {
     background-position: -23365px 0;
 }
 
-.smiley-u55b6 {
+.emoticon-u55b6 {
     background-position: -23397px 0;
 }
 
-.smiley-u6307 {
+.emoticon-u6307 {
     background-position: -23429px 0;
 }
 
-.smiley-u6708 {
+.emoticon-u6708 {
     background-position: -23461px 0;
 }
 
-.smiley-u6709 {
+.emoticon-u6709 {
     background-position: -23493px 0;
 }
 
-.smiley-u6e80 {
+.emoticon-u6e80 {
     background-position: -23525px 0;
 }
 
-.smiley-u7121 {
+.emoticon-u7121 {
     background-position: -23557px 0;
 }
 
-.smiley-u7533 {
+.emoticon-u7533 {
     background-position: -23589px 0;
 }
 
-.smiley-u7a7a {
+.emoticon-u7a7a {
     background-position: -23621px 0;
 }
 
-.smiley-u7981 {
+.emoticon-u7981 {
     background-position: -23653px 0;
 }
 
-.smiley-sa {
+.emoticon-sa {
     background-position: -23685px 0;
 }
 
-.smiley-restroom {
+.emoticon-restroom {
     background-position: -23717px 0;
 }
 
-.smiley-mens {
+.emoticon-mens {
     background-position: -23749px 0;
 }
 
-.smiley-womens {
+.emoticon-womens {
     background-position: -23781px 0;
 }
 
-.smiley-baby_symbol {
+.emoticon-baby_symbol {
     background-position: -23813px 0;
 }
 
-.smiley-no_smoking {
+.emoticon-no_smoking {
     background-position: -23845px 0;
 }
 
-.smiley-parking {
+.emoticon-parking {
     background-position: -23877px 0;
 }
 
-.smiley-wheelchair {
+.emoticon-wheelchair {
     background-position: -23909px 0;
 }
 
-.smiley-metro {
+.emoticon-metro {
     background-position: -23941px 0;
 }
 
-.smiley-baggage_claim {
+.emoticon-baggage_claim {
     background-position: -23973px 0;
 }
 
-.smiley-accept {
+.emoticon-accept {
     background-position: -24005px 0;
 }
 
-.smiley-wc {
+.emoticon-wc {
     background-position: -24037px 0;
 }
 
-.smiley-potable_water {
+.emoticon-potable_water {
     background-position: -24069px 0;
 }
 
-.smiley-put_litter_in_its_place {
+.emoticon-put_litter_in_its_place {
     background-position: -24101px 0;
 }
 
-.smiley-secret {
+.emoticon-secret {
     background-position: -24133px 0;
 }
 
-.smiley-congratulations {
+.emoticon-congratulations {
     background-position: -24165px 0;
 }
 
-.smiley-m {
+.emoticon-m {
     background-position: -24197px 0;
 }
 
-.smiley-passport_control {
+.emoticon-passport_control {
     background-position: -24229px 0;
 }
 
-.smiley-left_luggage {
+.emoticon-left_luggage {
     background-position: -24261px 0;
 }
 
-.smiley-customs {
+.emoticon-customs {
     background-position: -24293px 0;
 }
 
-.smiley-ideograph_advantage {
+.emoticon-ideograph_advantage {
     background-position: -24325px 0;
 }
 
-.smiley-cl {
+.emoticon-cl {
     background-position: -24357px 0;
 }
 
-.smiley-sos {
+.emoticon-sos {
     background-position: -24389px 0;
 }
 
-.smiley-id {
+.emoticon-id {
     background-position: -24421px 0;
 }
 
-.smiley-no_entry_sign {
+.emoticon-no_entry_sign {
     background-position: -24453px 0;
 }
 
-.smiley-underage {
+.emoticon-underage {
     background-position: -24485px 0;
 }
 
-.smiley-no_mobile_phones {
+.emoticon-no_mobile_phones {
     background-position: -24517px 0;
 }
 
-.smiley-do_not_litter {
+.emoticon-do_not_litter {
     background-position: -24549px 0;
 }
 
-.smiley-non\-potable_water {
+.emoticon-non\-potable_water {
     background-position: -24581px 0;
 }
 
-.smiley-no_bicycles {
+.emoticon-no_bicycles {
     background-position: -24613px 0;
 }
 
-.smiley-no_pedestrians {
+.emoticon-no_pedestrians {
     background-position: -24645px 0;
 }
 
-.smiley-children_crossing {
+.emoticon-children_crossing {
     background-position: -24677px 0;
 }
 
-.smiley-no_entry {
+.emoticon-no_entry {
     background-position: -24709px 0;
 }
 
-.smiley-eight_spoked_asterisk {
+.emoticon-eight_spoked_asterisk {
     background-position: -24741px 0;
 }
 
-.smiley-eight_pointed_black_star {
+.emoticon-eight_pointed_black_star {
     background-position: -24773px 0;
 }
 
-.smiley-heart_decoration {
+.emoticon-heart_decoration {
     background-position: -24805px 0;
 }
 
-.smiley-vs {
+.emoticon-vs {
     background-position: -24837px 0;
 }
 
-.smiley-vibration_mode {
+.emoticon-vibration_mode {
     background-position: -24869px 0;
 }
 
-.smiley-mobile_phone_off {
+.emoticon-mobile_phone_off {
     background-position: -24901px 0;
 }
 
-.smiley-chart {
+.emoticon-chart {
     background-position: -24933px 0;
 }
 
-.smiley-currency_exchange {
+.emoticon-currency_exchange {
     background-position: -24965px 0;
 }
 
-.smiley-aries {
+.emoticon-aries {
     background-position: -24997px 0;
 }
 
-.smiley-taurus {
+.emoticon-taurus {
     background-position: -25029px 0;
 }
 
-.smiley-gemini {
+.emoticon-gemini {
     background-position: -25061px 0;
 }
 
-.smiley-cancer {
+.emoticon-cancer {
     background-position: -25093px 0;
 }
 
-.smiley-leo {
+.emoticon-leo {
     background-position: -25125px 0;
 }
 
-.smiley-virgo {
+.emoticon-virgo {
     background-position: -25157px 0;
 }
 
-.smiley-libra {
+.emoticon-libra {
     background-position: -25189px 0;
 }
 
-.smiley-scorpius {
+.emoticon-scorpius {
     background-position: -25221px 0;
 }
 
-.smiley-sagittarius {
+.emoticon-sagittarius {
     background-position: -25253px 0;
 }
 
-.smiley-capricorn {
+.emoticon-capricorn {
     background-position: -25285px 0;
 }
 
-.smiley-aquarius {
+.emoticon-aquarius {
     background-position: -25317px 0;
 }
 
-.smiley-pisces {
+.emoticon-pisces {
     background-position: -25349px 0;
 }
 
-.smiley-ophiuchus {
+.emoticon-ophiuchus {
     background-position: -25381px 0;
 }
 
-.smiley-six_pointed_star {
+.emoticon-six_pointed_star {
     background-position: -25413px 0;
 }
 
-.smiley-negative_squared_cross_mark {
+.emoticon-negative_squared_cross_mark {
     background-position: -25445px 0;
 }
 
-.smiley-a {
+.emoticon-a {
     background-position: -25477px 0;
 }
 
-.smiley-b {
+.emoticon-b {
     background-position: -25509px 0;
 }
 
-.smiley-ab {
+.emoticon-ab {
     background-position: -25541px 0;
 }
 
-.smiley-o2 {
+.emoticon-o2 {
     background-position: -25573px 0;
 }
 
-.smiley-diamond_shape_with_a_dot_inside {
+.emoticon-diamond_shape_with_a_dot_inside {
     background-position: -25605px 0;
 }
 
-.smiley-recycle {
+.emoticon-recycle {
     background-position: -25637px 0;
 }
 
-.smiley-end {
+.emoticon-end {
     background-position: -25669px 0;
 }
 
-.smiley-on {
+.emoticon-on {
     background-position: -25701px 0;
 }
 
-.smiley-soon {
+.emoticon-soon {
     background-position: -25733px 0;
 }
 
-.smiley-clock1 {
+.emoticon-clock1 {
     background-position: -25765px 0;
 }
 
-.smiley-clock130 {
+.emoticon-clock130 {
     background-position: -25797px 0;
 }
 
-.smiley-clock10 {
+.emoticon-clock10 {
     background-position: -25829px 0;
 }
 
-.smiley-clock1030 {
+.emoticon-clock1030 {
     background-position: -25861px 0;
 }
 
-.smiley-clock11 {
+.emoticon-clock11 {
     background-position: -25893px 0;
 }
 
-.smiley-clock1130 {
+.emoticon-clock1130 {
     background-position: -25925px 0;
 }
 
-.smiley-clock12 {
+.emoticon-clock12 {
     background-position: -25957px 0;
 }
 
-.smiley-clock1230 {
+.emoticon-clock1230 {
     background-position: -25989px 0;
 }
 
-.smiley-clock2 {
+.emoticon-clock2 {
     background-position: -26021px 0;
 }
 
-.smiley-clock230 {
+.emoticon-clock230 {
     background-position: -26053px 0;
 }
 
-.smiley-clock3 {
+.emoticon-clock3 {
     background-position: -26085px 0;
 }
 
-.smiley-clock330 {
+.emoticon-clock330 {
     background-position: -26117px 0;
 }
 
-.smiley-clock4 {
+.emoticon-clock4 {
     background-position: -26149px 0;
 }
 
-.smiley-clock430 {
+.emoticon-clock430 {
     background-position: -26181px 0;
 }
 
-.smiley-clock5 {
+.emoticon-clock5 {
     background-position: -26213px 0;
 }
 
-.smiley-clock530 {
+.emoticon-clock530 {
     background-position: -26245px 0;
 }
 
-.smiley-clock6 {
+.emoticon-clock6 {
     background-position: -26277px 0;
 }
 
-.smiley-clock630 {
+.emoticon-clock630 {
     background-position: -26309px 0;
 }
 
-.smiley-clock7 {
+.emoticon-clock7 {
     background-position: -26341px 0;
 }
 
-.smiley-clock730 {
+.emoticon-clock730 {
     background-position: -26373px 0;
 }
 
-.smiley-clock8 {
+.emoticon-clock8 {
     background-position: -26405px 0;
 }
 
-.smiley-clock830 {
+.emoticon-clock830 {
     background-position: -26437px 0;
 }
 
-.smiley-clock9 {
+.emoticon-clock9 {
     background-position: -26469px 0;
 }
 
-.smiley-clock930 {
+.emoticon-clock930 {
     background-position: -26501px 0;
 }
 
-.smiley-heavy_dollar_sign {
+.emoticon-heavy_dollar_sign {
     background-position: -26533px 0;
 }
 
-.smiley-copyright {
+.emoticon-copyright {
     background-position: -26565px 0;
 }
 
-.smiley-registered {
+.emoticon-registered {
     background-position: -26597px 0;
 }
 
-.smiley-tm {
+.emoticon-tm {
     background-position: -26629px 0;
 }
 
-.smiley-x {
+.emoticon-x {
     background-position: -26661px 0;
 }
 
-.smiley-heavy_exclamation_mark {
+.emoticon-heavy_exclamation_mark {
     background-position: -26693px 0;
 }
 
-.smiley-bangbang {
+.emoticon-bangbang {
     background-position: -26725px 0;
 }
 
-.smiley-interrobang {
+.emoticon-interrobang {
     background-position: -26757px 0;
 }
 
-.smiley-o {
+.emoticon-o {
     background-position: -26789px 0;
 }
 
-.smiley-heavy_multiplication_x {
+.emoticon-heavy_multiplication_x {
     background-position: -26821px 0;
 }
 
-.smiley-heavy_plus_sign {
+.emoticon-heavy_plus_sign {
     background-position: -26853px 0;
 }
 
-.smiley-heavy_minus_sign {
+.emoticon-heavy_minus_sign {
     background-position: -26885px 0;
 }
 
-.smiley-heavy_division_sign {
+.emoticon-heavy_division_sign {
     background-position: -26917px 0;
 }
 
-.smiley-white_flower {
+.emoticon-white_flower {
     background-position: -26949px 0;
 }
 
-.smiley-100 {
+.emoticon-100 {
     background-position: -26981px 0;
 }
 
-.smiley-heavy_check_mark {
+.emoticon-heavy_check_mark {
     background-position: -27013px 0;
 }
 
-.smiley-ballot_box_with_check {
+.emoticon-ballot_box_with_check {
     background-position: -27045px 0;
 }
 
-.smiley-radio_button {
+.emoticon-radio_button {
     background-position: -27077px 0;
 }
 
-.smiley-link {
+.emoticon-link {
     background-position: -27109px 0;
 }
 
-.smiley-curly_loop {
+.emoticon-curly_loop {
     background-position: -27141px 0;
 }
 
-.smiley-wavy_dash {
+.emoticon-wavy_dash {
     background-position: -27173px 0;
 }
 
-.smiley-part_alternation_mark {
+.emoticon-part_alternation_mark {
     background-position: -27205px 0;
 }
 
-.smiley-trident {
+.emoticon-trident {
     background-position: -27237px 0;
 }
 
-.smiley-black_large_square {
+.emoticon-black_large_square {
     background-position: -27269px 0;
 }
 
-.smiley-white_large_square {
+.emoticon-white_large_square {
     background-position: -27301px 0;
 }
 
-.smiley-white_check_mark {
+.emoticon-white_check_mark {
     background-position: -27333px 0;
 }
 
-.smiley-black_square{
+.emoticon-black_square{
     background-position: -27268px 0;
 }
 
-.smiley-white_square{
+.emoticon-white_square{
     background-position: -27301px 0;
 }
 
-.smiley-black_square_button {
+.emoticon-black_square_button {
     background-position: -27365px 0;
 }
 
-.smiley-white_square_button {
+.emoticon-white_square_button {
     background-position: -27397px 0;
 }
 
-.smiley-black_circle {
+.emoticon-black_circle {
     background-position: -27429px 0;
 }
 
-.smiley-white_circle {
+.emoticon-white_circle {
     background-position: -27461px 0;
 }
 
-.smiley-red_circle {
+.emoticon-red_circle {
     background-position: -27493px 0;
 }
 
-.smiley-large_blue_circle {
+.emoticon-large_blue_circle {
     background-position: -27525px 0;
 }
 
-.smiley-large_blue_diamond {
+.emoticon-large_blue_diamond {
     background-position: -27557px 0;
 }
 
-.smiley-large_orange_diamond {
+.emoticon-large_orange_diamond {
     background-position: -27589px 0;
 }
 
-.smiley-small_blue_diamond {
+.emoticon-small_blue_diamond {
     background-position: -27621px 0;
 }
 
-.smiley-small_orange_diamond {
+.emoticon-small_orange_diamond {
     background-position: -27653px 0;
 }
 
-.smiley-small_red_triangle {
+.emoticon-small_red_triangle {
     background-position: -27685px 0;
 }
 
-.smiley-small_red_triangle_down {
+.emoticon-small_red_triangle_down {
     background-position: -27717px 0;
 }
 
-.smiley-shipit {
+.emoticon-shipit {
     background-position: -27749px 0;
 }
 
