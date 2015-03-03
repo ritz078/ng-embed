@@ -427,7 +427,7 @@
                                         return vimeoVideo;
                                     }
                                     return match;
-                                })
+                                });
                             }
 
 
@@ -460,7 +460,7 @@
                                         return image;
                                     }
                                     return match;
-                                })
+                                });
                             }
 
                         }
