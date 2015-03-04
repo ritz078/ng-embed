@@ -1,0 +1,7 @@
+{
+  "name": "ngemoticons",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1"
+  }
+}
