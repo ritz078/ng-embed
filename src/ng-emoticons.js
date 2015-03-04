@@ -497,6 +497,22 @@
 
 
             };
+        }])
+
+
+        .directive('ngEmoticons',['$filter',function($filter){
+            return{
+                restrict:'AE',
+                template:'<div ng-bind-html="x"></div>',
+                link:function(scope,elements,attributes){
+                    var data=scope.$eval(attributes.emoticonsData);
+
+                    var options=scope.$eval(attributes.emoticonsOptions);
+
+                    scope.x=($filter('emoticons')(data,options));
+                    console.log(scope.x);
+                }
+            }
         }]);
 
 })();
