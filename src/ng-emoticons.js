@@ -251,7 +251,7 @@
                     angular.forEach(icons, function (icon) {
                         for (var i = 0; i < a.length; i++) {
                             if (a[i] === icon.text) {
-                                a[i] = '<span class="icon-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</span>';
+                                a[i] = '<i class="icon-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</i>';
                             }
                         }
                     });
@@ -296,7 +296,7 @@
                     var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
 
                     return str.replace(emojiRegex, function (match, text) {
-                        return "<span class='emoticon emoticon-" + text + "' title=':" + text + ":'></span>";
+                        return "<i class='emoticon emoticon-" + text + "' title=':" + text + ":'></i>";
 
                     });
                 }
@@ -376,6 +376,14 @@
 
                     extendDeep(options,userOptions);
 
+                    String.prototype.trunc =
+                        function(n,useWordBoundary){
+                            var toLong = this.length>n,
+                                s_ = toLong ? this.substr(0,n-1) : this;
+                            s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+                            return  toLong ? s_ + '...' : s_;
+                        };
+
 
 
                     var videoProcess = {
@@ -415,47 +423,31 @@
 
                             if (data.match(p)) {
 
-
-                                scope.video.id=RegExp.$1;
-
                                 console.log(scope.video);
 
                                 var youtubeDimensions = this.calcDimensions(options);
 
-                                var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.ytTheme + '" ' +
-                                    'frameborder="0" width="' + youtubeDimensions.width + '" height=' + youtubeDimensions.height + ' allowfullscreen></iframe></div>';
-
-
                                 if(options.video.details){
-                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + scope.video.id + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,statistics')
+                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,statistics')
                                         .success(function(d){
                                             console.log(d);
                                             var ytData = d.items[0];
+                                            scope.video.id=ytData.id;
                                             scope.video.host='youtube';
                                             scope.video.title= ytData.snippet.title;
-                                            scope.video.thumbnail = ytData.snippet.thumbnails.high.url;
-                                            scope.video.description= ytData.snippet.description;
+                                            scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
+                                            scope.video.description= (ytData.snippet.description.trunc(250,true)).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
                                             scope.video.views= ytData.statistics.viewCount;
                                             scope.video.likes=ytData.statistics.likeCount;
                                             scope.video.uploader=ytData.snippet.channelTitle;
                                             scope.video.uploaderPage='https://www.youtube.com/channel/'+ytData.snippet.channelId;
                                             scope.video.uploadDate=ytData.snippet.publishedAt;
+                                            scope.video.url=$sce.trustAsResourceUrl("https://www.youtube.com/watch?v="+ytData.id);
+                                            scope.video.embedSrc=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+scope.video.id);
+                                            scope.video.width=youtubeDimensions.width;
+                                            scope.video.height=youtubeDimensions.height;
 
                                         })
-                                }
-                                if (!(options.video.inline)) {
-                                    data = data.concat(" " + youtubeVideo);
-                                }
-                                else {
-
-                                    data = data.replace(anchorRegex, function (match, text) {
-                                        if (text.match(p)) {
-                                            return youtubeVideo;
-                                        }
-                                        return match;
-
-
-                                    });
                                 }
                             }
 
@@ -478,7 +470,7 @@
                                             scope.video.id= d[0].id;
                                             scope.video.title=d[0].title;
                                             scope.video.rawDescription=(d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                            scope.video.descripton=(d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g,' ');
+                                            scope.video.description=(d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g,' ').trunc(250,true);
                                             scope.video.thumbnail=d[0].thumbnail_medium;
                                             scope.video.views=d[0].stats_number_of_plays;
                                             scope.video.likes=d[0].stats_number_of_likes;
@@ -486,6 +478,9 @@
                                             scope.video.uploaderPage=d[0].user_url;
                                             scope.video.uploadDate=d[0].uploadDate;
                                             scope.video.url=d[0].url;
+                                            scope.video.embedSrc=$sce.trustAsResourceUrl('//player.vimeo.com/video/'+d[0].id+'?title=0&byline=0&portrait=0');
+                                            scope.video.width=vimeoDimensions.width;
+                                            scope.video.height=vimeoDimensions.height;
                                         });
                                 }
 

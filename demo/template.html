@@ -1,4 +1,27 @@
 <div ng-bind-html="x"></div>
-<pre>{{video |json}}</pre>
+<div class="ne-video" ng-if="video.host">
+    <div class="ne-video-preview" ng-hide="nePlayVideo">
+        <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">
+            <img ng-src="{{video.thumbnail}}" alt=""/>
+            <i class="fa fa-play-circle-o"></i>
+        </div>
+        <div class="ne-video-detail">
+            <div class="ne-video-title">
+                <a ng-href="{{video.url}}">{{video.title}}</a>
+            </div>
+            <div class="ne-video-desc">
+                {{video.description}}
+            </div>
+            <div class="ne-video-stats">
+                <span><i class="fa fa-eye"></i> {{video.views}}</span>
+                <span><i class="fa fa-heart"></i> {{video.likes}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="ne-video-player" ng-if="nePlayVideo" ng-class="fade">
+            <iframe ng-src="{{video.embedSrc}}" frameborder="0" width="{{video.width}}" height="{{video.height}}"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+</div>
 
 <div ng-bind-html="video.rawDescription"></div>

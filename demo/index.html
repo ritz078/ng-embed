@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>ngEmoticons</title>
     <link rel="stylesheet" href="../src/ng-emoticons.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
         body {
             width: 100%;
@@ -13,17 +14,12 @@
             font-family: 'Calibri';
         }
 
-        .emoticons-video {
-            width: 100%;
-            margin: 20px 0;
-        }
 
-        div {
+        .main {
             width: 800px;
             margin: 0 auto;
-            font-size: 20px;
-            color: #3F9996;
-            font-weight: lighter;
+            font-size: 17px;
+            color: #444;
         }
 
         h2 {
@@ -44,15 +40,18 @@
 </head>
 
 <body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
-<h2><img style="width:600px;" src="http://i.imgur.com/VZTXbW6.jpg" alt=""/></h2>
+<div class="main">
+    <h2><img style="width:600px;" src="http://i.imgur.com/VZTXbW6.jpg" alt=""/></h2>
 
-<ng-emoticons emoticons-data="text" emoticons-options="options" emoticons-template-url="template.html"></ng-emoticons>
-<h3>Font Smileys</h3>
+    <ng-emoticons emoticons-data="text" emoticons-options="options"
+                  emoticons-template-url="template.html"></ng-emoticons>
+    <h3>Font Smileys</h3>
 
-<div ng-bind-html="text | emoticons:{'linkTarget':'_blank'}" class="ng-emoticons"></div>
-<h3>Emojis</h3>
+    <div ng-bind-html="text | emoticons:{'linkTarget':'_blank'}" class="ng-emoticons"></div>
+    <h3>Emojis</h3>
 
-<div ng-bind-html="emoji | emoticons"></div>
+    <div ng-bind-html="emoji | emoticons"></div>
+</div>
 </body>
 <script src="../bower_components/angular/angular.min.js"></script>
 <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
