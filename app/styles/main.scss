@@ -1,9 +1,14 @@
 // bower:scss
+@import "bourbon/app/assets/stylesheets/_bourbon.scss";
 // endbower
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+$font:'Roboto', sans-serif;
 
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font;
   color: #333;
 }
 
@@ -29,3 +34,24 @@ body {
   color: #000;
   padding: 0.2em 0;
 }
+
+header{
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.home{
+  .h-banner{
+    height: 305px;
+    width: 100%;
+    @include background-image(linear-gradient(90deg, rgba(67, 206, 162, 0.8) 10%, rgba(24, 90, 157, 0.8) 90%), url('../images/back.jpg'));
+    background-size: 100%;
+  }
+  .github-activity{
+    height: 40px;
+  }
+}
+
+
+
