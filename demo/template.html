@@ -1,5 +1,5 @@
 <div ng-bind-html="x"></div>
-<div class="ne-video" ng-if="video.host">
+<div class="ne-video" ng-if="video.host" class="fade">
     <div class="ne-video-preview" ng-hide="nePlayVideo">
         <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">
             <img ng-src="{{video.thumbnail}}" alt=""/>
@@ -18,10 +18,9 @@
             </div>
         </div>
     </div>
-    <div class="ne-video-player" ng-if="nePlayVideo" ng-class="fade">
+    <div class="ne-video-player" ng-if="nePlayVideo" class="fade">
             <iframe ng-src="{{video.embedSrc}}" frameborder="0" width="{{video.width}}" height="{{video.height}}"
                     webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </div>
 
-<div ng-bind-html="video.rawDescription"></div>
