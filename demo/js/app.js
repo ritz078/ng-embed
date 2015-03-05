@@ -10,7 +10,8 @@ angular.module('ngEmoticonApp', ['ngEmoticons'])
             'video': {
                 'embed': true,
                 'width': 800,
-                'ytTheme': 'light'
+                'ytTheme': 'light',
+                'inline':true
             },
             'image': {
                 'embed': true
