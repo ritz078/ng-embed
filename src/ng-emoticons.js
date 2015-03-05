@@ -322,189 +322,39 @@
         }])
 
 
-        .directive('ngEmoticons',['$filter','$sce',function($filter,$sce){
-
-            var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;
-
-            /**
-             * Video-embedding
-             *
-             * A default aspect ratio of 4:3 until specified by the user
-             *
-             * @type {{calcDimensions: Function, embed: Function}}
-             */
-
-
-            var videoProcess = {
-
-
-                calcDimensions: function (options) {
-
-                    var dimensions = {
-                        'width': null,
-                        'height': null
-                    };
-
-                    dimensions.width=options.video.width;
-                    dimensions.height=options.video.height;
-
-                    if (options.video.height && options.video.width) {
-                        return dimensions;
-                    }
-                    else if (options.video.height) {
-                        dimensions.width = ((options.video.height) / 390) * 640;
-                        return dimensions;
-                    }
-                    else if (options.video.width) {
-                        dimensions.height = ((dimensions.width) / 640) * 390;
-                        return dimensions;
-                    }
-                    else {
-                        dimensions.width = 640;
-                        dimensions.height = 390;
-                        return dimensions;
-                    }
-                },
-
-                /**
-                 * Video embedding function
-                 *
-                 * Currently supports vimeo and youtube video embedding
-                 *
-                 */
+        .directive('ngEmoticons',['$filter','$sce','$http',function($filter,$sce,$http){
 
 
 
-                embed: function (data,options) {
-
-                    var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
-
-                    /**
-                     * Youtube embedding
-                     */
-
-                    if (data.match(p)) {
-                        var youtubeDimensions = this.calcDimensions(options);
-
-                        var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.ytTheme + '" ' +
-                            'frameborder="0" width="' + youtubeDimensions.width + '" height=' + youtubeDimensions.height + ' allowfullscreen></iframe></div>';
-
-
-                        if (!(options.video.inline)) {
-                            data = data.concat(" " + youtubeVideo);
-                        }
-                        else {
-                            /**
-                             * If inline is set to true then
-                             * detect the youtube link in anchor tag and replace whole by embedding url.
-                             *
-                             * @type {RegExp}
-                             */
-
-
-                            data = data.replace(anchorRegex, function (match, text) {
-
-                                //compare the text of the matched url with youtube's url
-
-                                if (text.match(p)) {
-                                    return youtubeVideo;
-                                }
-                                return match;
-
-
-                            });
-                        }
-
-                    }
-
-                    /**
-                     * Vimeo embedding
-                     */
-
-                    var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
-
-                    if (data.match(e)) {
-                        var vimeoDimensions = this.calcDimensions(options);
-
-                        var vimeoVideo = '<div class="emoticons-video"><iframe src="//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0" width="' + vimeoDimensions.width + '" height="' + vimeoDimensions.height + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
-
-                        if (!options.video.inline) {
-                            data = data.concat(" " + vimeoVideo);
-                        }
-                        else {
-                            data = data.replace(anchorRegex, function (match, text) {
-                                if (text.match(e)) {
-                                    return vimeoVideo;
-                                }
-                                return match;
-                            });
-                        }
-
-
-                    }
-
-                    return data;
-                }
-            };
-
-            /**
-             * Image embedding
-             *
-             * Supports jpg,jpeg,png,gif now
-             *
-             * @type {{embed: Function}}
-             */
-
-            var imageProcess = {
-                embed: function (data,options) {
-                    var i = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/gi;
-
-                    if (data.match(i)) {
-                        var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
-                        if(!options.image.inline){
-                            data = data.concat(" " + image);
-                        }
-                        else{
-                            data=data.replace(anchorRegex,function(match,text){
-                                if(text.match(i)){
-                                    return image;
-                                }
-                                return match;
-                            });
-                        }
-
-                    }
-
-                    return data;
-                }
-            };
+            var TEMPLATE='<div ng-bind-html="x"></div>';
 
 
             return{
                 restrict:'AE',
-                template:'<div ng-bind-html="x"></div>',
+                templateUrl:function(element,attributes){
+                  return (attributes.emoticonsTemplateUrl || TEMPLATE);
+                },
                 link:function(scope,elements,attributes){
 
+                    var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;
                     var data=scope.$eval(attributes.emoticonsData);
-
-
                     var userOptions=scope.$eval(attributes.emoticonsOptions);
+                    scope.video={};
 
 
                     var options = {
                         link: true,
                         linkTarget: '_self',
                         image: {
-                            embed: false,
-                            inline: false
+                            embed: false
                         },
                         video: {
                             embed: false,
                             width: null,
                             height: null,
-                            inline: false,
                             ytTheme: 'dark',
-                            ytDetail: false
+                            details: false,
+                            thumbnailQuality:'medium'
                         }
                     };
 
@@ -525,6 +375,164 @@
 
 
                     extendDeep(options,userOptions);
+
+
+
+                    var videoProcess = {
+                        calcDimensions: function (options) {
+                            var dimensions = {
+                                'width': null,
+                                'height': null
+                            };
+                            dimensions.width=options.video.width;
+                            dimensions.height=options.video.height;
+
+                            if (options.video.height && options.video.width) {
+                                return dimensions;
+                            }
+                            else if (options.video.height) {
+                                dimensions.width = ((options.video.height) / 390) * 640;
+                                return dimensions;
+                            }
+                            else if (options.video.width) {
+                                dimensions.height = ((dimensions.width) / 640) * 390;
+                                return dimensions;
+                            }
+                            else {
+                                dimensions.width = 640;
+                                dimensions.height = 390;
+                                return dimensions;
+                            }
+                        },
+
+                        embed: function (data,options) {
+
+                            var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
+
+                            /**
+                             * Youtube embedding
+                             */
+
+                            if (data.match(p)) {
+
+
+                                scope.video.id=RegExp.$1;
+
+                                console.log(scope.video);
+
+                                var youtubeDimensions = this.calcDimensions(options);
+
+                                var youtubeVideo = '<div class="emoticons-video"><iframe src="https://www.youtube.com/embed/' + RegExp.$1 + '?theme=' + options.video.ytTheme + '" ' +
+                                    'frameborder="0" width="' + youtubeDimensions.width + '" height=' + youtubeDimensions.height + ' allowfullscreen></iframe></div>';
+
+
+                                if(options.video.details){
+                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + scope.video.id + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,statistics')
+                                        .success(function(d){
+                                            console.log(d);
+                                            var ytData = d.items[0];
+                                            scope.video.host='youtube';
+                                            scope.video.title= ytData.snippet.title;
+                                            scope.video.thumbnail = ytData.snippet.thumbnails.high.url;
+                                            scope.video.description= ytData.snippet.description;
+                                            scope.video.views= ytData.statistics.viewCount;
+                                            scope.video.likes=ytData.statistics.likeCount;
+                                            scope.video.uploader=ytData.snippet.channelTitle;
+                                            scope.video.uploaderPage='https://www.youtube.com/channel/'+ytData.snippet.channelId;
+                                            scope.video.uploadDate=ytData.snippet.publishedAt;
+
+                                        })
+                                }
+                                if (!(options.video.inline)) {
+                                    data = data.concat(" " + youtubeVideo);
+                                }
+                                else {
+
+                                    data = data.replace(anchorRegex, function (match, text) {
+                                        if (text.match(p)) {
+                                            return youtubeVideo;
+                                        }
+                                        return match;
+
+
+                                    });
+                                }
+                            }
+
+                            /**
+                             * Vimeo embedding
+                             */
+
+                            var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
+
+                            if (data.match(e)) {
+                                var vimeoDimensions = this.calcDimensions(options);
+
+                                var vimeoVideo = '<div class="emoticons-video"><iframe src="//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0" width="' + vimeoDimensions.width + '" height="' + vimeoDimensions.height + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
+
+                                if(options.video.details){
+                                    $http.get('https://vimeo.com/api/v2/video/'+RegExp.$3+'.json')
+                                        .success(function(d){
+                                            console.log(d);
+                                            scope.video.host='vimeo';
+                                            scope.video.id= d[0].id;
+                                            scope.video.title=d[0].title;
+                                            scope.video.rawDescription=(d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
+                                            scope.video.descripton=(d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g,' ');
+                                            scope.video.thumbnail=d[0].thumbnail_medium;
+                                            scope.video.views=d[0].stats_number_of_plays;
+                                            scope.video.likes=d[0].stats_number_of_likes;
+                                            scope.video.uploader=d[0].user_name;
+                                            scope.video.uploaderPage=d[0].user_url;
+                                            scope.video.uploadDate=d[0].uploadDate;
+                                            scope.video.url=d[0].url;
+                                        });
+                                }
+
+
+                                if (!options.video.inline) {
+                                    data = data.concat(" " + vimeoVideo);
+                                }
+                                else {
+                                    data = data.replace(anchorRegex, function (match, text) {
+                                        if (text.match(e)) {
+                                            return vimeoVideo;
+                                        }
+                                        return match;
+                                    });
+                                }
+
+
+                            }
+
+                            return data;
+                        }
+                    };
+
+
+                    var imageProcess = {
+                        embed: function (data,options) {
+                            var i = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/gi;
+
+                            if (data.match(i)) {
+                                var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
+                                if(!options.image.inline){
+                                    data = data.concat(" " + image);
+                                }
+                                else{
+                                    data=data.replace(anchorRegex,function(match,text){
+                                        if(text.match(i)){
+                                            return image;
+                                        }
+                                        return match;
+                                    });
+                                }
+
+                            }
+
+                            return data;
+                        }
+                    };
 
                     var x=($filter('emoticons')(data,options)).$$unwrapTrustedValue();
 

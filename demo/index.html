@@ -32,11 +32,8 @@
         }
 
         a {
-            display: block;
-            text-align: center;
             text-decoration: none;
             color: cornflowerblue;
-            margin-bottom: 30px;
         }
 
         h3 {
@@ -49,7 +46,7 @@
 <body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
 <h2><img style="width:600px;" src="http://i.imgur.com/VZTXbW6.jpg" alt=""/></h2>
 
-<ng-emoticons emoticons-data="text" emoticons-options="options"></ng-emoticons>
+<ng-emoticons emoticons-data="text" emoticons-options="options" emoticons-template-url="template.html"></ng-emoticons>
 <h3>Font Smileys</h3>
 
 <div ng-bind-html="text | emoticons:{'linkTarget':'_blank'}" class="ng-emoticons"></div>
