@@ -5,98 +5,98 @@
     angular.module('ngEmoticons', ['ngSanitize'])
         .filter('emoticons', ['$sce', function ($sce) {
             var icons = [{
-                'text': ':)',
+                'text' : ':)',
                 'class': 'smiley',
-                'code': 'e60a'
+                'code' : 'e60a'
             }, {
-                'text': ':D',
+                'text' : ':D',
                 'class': 'happy',
-                'code': 'e608'
+                'code' : 'e608'
             }, {
-                'text': ':d',
+                'text' : ':d',
                 'class': 'happy',
-                'code': 'e608'
+                'code' : 'e608'
             }, {
-                'text': ':(',
+                'text' : ':(',
                 'class': 'sad',
-                'code': 'e60e'
+                'code' : 'e60e'
             }, {
-                'text': ':/',
+                'text' : ':/',
                 'class': 'wondering',
-                'code': 'e620'
+                'code' : 'e620'
 
             }, {
-                'text': ':P',
+                'text' : ':P',
                 'class': 'tongue',
-                'code': 'e60c'
+                'code' : 'e60c'
             }, {
-                'text': ':p',
+                'text' : ':p',
                 'class': 'tongue',
-                'code': 'e60c'
+                'code' : 'e60c'
             }, {
-                'text': '3:)',
+                'text' : '3:)',
                 'class': 'evil',
-                'code': 'e618'
+                'code' : 'e618'
             }, {
-                'text': '(^)',
+                'text' : '(^)',
                 'class': 'thumbsup2',
-                'code': 'e607'
+                'code' : 'e607'
             }, {
-                'text': ';)',
+                'text' : ';)',
                 'class': 'wink',
-                'code': 'e610'
+                'code' : 'e610'
             }, {
-                'text': ':o',
+                'text' : ':o',
                 'class': 'shocked',
-                'code': 'e61a'
+                'code' : 'e61a'
             }, {
-                'text': '-_-',
+                'text' : '-_-',
                 'class': 'neutral',
-                'code': 'e61e'
+                'code' : 'e61e'
             }, {
-                'text': '(y)',
+                'text' : '(y)',
                 'class': 'thumbs-up',
-                'code': 'e606'
+                'code' : 'e606'
             }, {
-                'text': ':*',
+                'text' : ':*',
                 'class': 'heart',
-                'code': 'e604'
+                'code' : 'e604'
             }, {
-                'text': '&lt;3',
+                'text' : '&lt;3',
                 'class': 'heart',
-                'code': 'e604'
+                'code' : 'e604'
             }, {
-                'text': '<3',
+                'text' : '<3',
                 'class': 'heart',
-                'code': 'e604'
+                'code' : 'e604'
             }, {
-                'text': '&lt;/3',
+                'text' : '&lt;/3',
                 'class': 'heart-broken',
-                'code': 'e605'
+                'code' : 'e605'
             }, {
-                'text': '</3',
+                'text' : '</3',
                 'class': 'heart-broken',
-                'code': 'e605'
+                'code' : 'e605'
             }, {
-                'text': '^_^',
+                'text' : '^_^',
                 'class': 'grin',
-                'code': 'e612'
+                'code' : 'e612'
             }, {
-                'text': '8-)',
+                'text' : '8-)',
                 'class': 'cool',
-                'code': 'e614'
+                'code' : 'e614'
             }, {
-                'text': '8|',
+                'text' : '8|',
                 'class': 'cool',
-                'code': 'e614'
+                'code' : 'e614'
             }, {
-                'text': ':S',
+                'text' : ':S',
                 'class': 'confused',
-                'code': 'e61c'
+                'code' : 'e61c'
             }, {
-                'text': ':s',
+                'text' : ':s',
                 'class': 'confused',
-                'code': 'e61c'
+                'code' : 'e61c'
             }];
 
             var emojiList = [
@@ -183,7 +183,6 @@
                 "small_red_triangle_down", "shipit"
             ];
 
-
             return function (input, userOptions) {
 
                 /**
@@ -195,7 +194,7 @@
                  * @type {Object}
                  */
                 var options = {
-                    link: true,
+                    link      : true,
                     linkTarget: '_self'
                 };
 
@@ -215,7 +214,8 @@
                             angular.forEach(obj, function (value, key) {
                                 if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
                                     extendDeep(dst[key], value);
-                                } else {
+                                }
+                                else {
                                     dst[key] = value;
                                 }
                             });
@@ -226,14 +226,12 @@
 
                 extendDeep(options, userOptions);
 
-
                 if (input === undefined || input === null) {
                     return;
                 }
                 if (typeof input === "object") {
                     return input;
                 }
-
 
                 /**
                  * FUNCTION insertfontSmiley
@@ -257,7 +255,6 @@
                     });
                     return a.join(' ');
                 }
-
 
                 /**
                  * FUNCTION UrlEmbed
@@ -308,7 +305,6 @@
 
                 input = insertfontSmiley(input);
 
-
                 input = insertEmoji(input);
 
                 if (options.link) {
@@ -317,45 +313,39 @@
 
                 return $sce.trustAsHtml(input);
 
-
             };
         }])
 
+        .directive('ngEmoticons', ['$filter', '$sce', '$http', function ($filter, $sce, $http) {
 
-        .directive('ngEmoticons',['$filter','$sce','$http',function($filter,$sce,$http){
+            var TEMPLATE = '<div ng-bind-html="x"></div>';
 
-
-
-            var TEMPLATE='<div ng-bind-html="x"></div>';
-
-
-            return{
-                restrict:'AE',
-                templateUrl:function(element,attributes){
-                  return (attributes.emoticonsTemplateUrl || TEMPLATE);
+            return {
+                restrict   : 'AE',
+                templateUrl: function (element, attributes) {
+                    return (attributes.emoticonsTemplateUrl || TEMPLATE);
                 },
-                link:function(scope,elements,attributes){
+                link       : function (scope, elements, attributes) {
 
-                    var anchorRegex = /<a[^>]*>([^<]+)<\/a>/g;
-                    var data=scope.$eval(attributes.emoticonsData);
-                    var userOptions=scope.$eval(attributes.emoticonsOptions);
-                    scope.video={};
-
+                    var data = scope.$eval(attributes.emoticonsData);
+                    var userOptions = scope.$eval(attributes.emoticonsOptions);
+                    scope.video = {};
+                    scope.image={};
 
                     var options = {
-                        link: true,
+                        link      : true,
                         linkTarget: '_self',
-                        image: {
+                        image     : {
                             embed: false
                         },
-                        video: {
-                            embed: false,
-                            width: null,
-                            height: null,
-                            ytTheme: 'dark',
-                            details: false,
-                            thumbnailQuality:'medium',
-                            ytAuthKey:null
+                        video     : {
+                            embed           : false,
+                            width           : null,
+                            height          : null,
+                            ytTheme         : 'dark',
+                            details         : false,
+                            thumbnailQuality: 'medium',
+                            ytAuthKey       : null
                         }
                     };
 
@@ -365,7 +355,8 @@
                                 angular.forEach(obj, function (value, key) {
                                     if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
                                         extendDeep(dst[key], value);
-                                    } else {
+                                    }
+                                    else {
                                         dst[key] = value;
                                     }
                                 });
@@ -374,27 +365,24 @@
                         return dst;
                     }
 
-
-                    extendDeep(options,userOptions);
+                    extendDeep(options, userOptions);
 
                     String.prototype.trunc =
-                        function(n,useWordBoundary){
-                            var toLong = this.length>n,
-                                s_ = toLong ? this.substr(0,n-1) : this;
-                            s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
-                            return  toLong ? s_ + '...' : s_;
+                        function (n, useWordBoundary) {
+                            var toLong = this.length > n,
+                                s_ = toLong ? this.substr(0, n - 1) : this;
+                            s_ = useWordBoundary && toLong ? s_.substr(0, s_.lastIndexOf(' ')) : s_;
+                            return toLong ? s_ + '...' : s_;
                         };
-
-
 
                     var videoProcess = {
                         calcDimensions: function (options) {
                             var dimensions = {
-                                'width': null,
+                                'width' : null,
                                 'height': null
                             };
-                            dimensions.width=options.video.width;
-                            dimensions.height=options.video.height;
+                            dimensions.width = options.video.width;
+                            dimensions.height = options.video.height;
 
                             if (options.video.height && options.video.width) {
                                 return dimensions;
@@ -414,7 +402,7 @@
                             }
                         },
 
-                        embed: function (data,options) {
+                        embed: function (data, options) {
 
                             var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
@@ -427,26 +415,26 @@
                                 console.log(scope.video);
 
                                 var youtubeDimensions = this.calcDimensions(options);
-                                scope.video.id=RegExp.$1;
-                                if(options.video.details){
-                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key='+options.video.ytAuthKey+'&part=snippet,statistics')
-                                        .success(function(d){
+                                scope.video.id = RegExp.$1;
+                                if (options.video.details) {
+                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.video.ytAuthKey + '&part=snippet,statistics')
+                                        .success(function (d) {
                                             var ytData = d.items[0];
 
-                                            scope.video.host='youtube';
-                                            scope.video.title= ytData.snippet.title;
+                                            scope.video.host = 'youtube';
+                                            scope.video.title = ytData.snippet.title;
                                             scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
-                                            scope.video.description= (ytData.snippet.description.trunc(250,true)).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
-                                            scope.video.rawDescription=scope.video.description;
-                                            scope.video.views= ytData.statistics.viewCount;
-                                            scope.video.likes=ytData.statistics.likeCount;
-                                            scope.video.uploader=ytData.snippet.channelTitle;
-                                            scope.video.uploaderPage='https://www.youtube.com/channel/'+ytData.snippet.channelId;
-                                            scope.video.uploadDate=ytData.snippet.publishedAt;
-                                            scope.video.url=$sce.trustAsResourceUrl("https://www.youtube.com/watch?v="+ytData.id);
-                                            scope.video.embedSrc=$sce.trustAsResourceUrl('https://www.youtube.com/embed/'+scope.video.id+'?autoplay=1');
-                                            scope.video.width=youtubeDimensions.width;
-                                            scope.video.height=youtubeDimensions.height;
+                                            scope.video.description = (ytData.snippet.description.trunc(250, true)).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
+                                            scope.video.rawDescription = scope.video.description;
+                                            scope.video.views = ytData.statistics.viewCount;
+                                            scope.video.likes = ytData.statistics.likeCount;
+                                            scope.video.uploader = ytData.snippet.channelTitle;
+                                            scope.video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
+                                            scope.video.uploadDate = ytData.snippet.publishedAt;
+                                            scope.video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
+                                            scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + '?autoplay=1');
+                                            scope.video.width = youtubeDimensions.width;
+                                            scope.video.height = youtubeDimensions.height;
 
                                         })
                                 }
@@ -462,26 +450,26 @@
 
                             if (data.match(e)) {
                                 var vimeoDimensions = this.calcDimensions(options);
-                                scope.video.id= RegExp.$3;
-                                if(options.video.details){
-                                    $http.get('https://vimeo.com/api/v2/video/'+RegExp.$3+'.json')
-                                        .success(function(d){
+                                scope.video.id = RegExp.$3;
+                                if (options.video.details) {
+                                    $http.get('https://vimeo.com/api/v2/video/' + RegExp.$3 + '.json')
+                                        .success(function (d) {
                                             console.log(d);
-                                            scope.video.host='vimeo';
+                                            scope.video.host = 'vimeo';
 
-                                            scope.video.title=d[0].title;
-                                            scope.video.rawDescription=(d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                            scope.video.description=(d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g,' ').trunc(250,true);
-                                            scope.video.thumbnail=d[0].thumbnail_medium;
-                                            scope.video.views=d[0].stats_number_of_plays;
-                                            scope.video.likes=d[0].stats_number_of_likes;
-                                            scope.video.uploader=d[0].user_name;
-                                            scope.video.uploaderPage=d[0].user_url;
-                                            scope.video.uploadDate=d[0].uploadDate;
-                                            scope.video.url=d[0].url;
-                                            scope.video.embedSrc=$sce.trustAsResourceUrl('//player.vimeo.com/video/'+d[0].id+'?title=0&byline=0&portrait=0&autoplay=1');
-                                            scope.video.width=vimeoDimensions.width;
-                                            scope.video.height=vimeoDimensions.height;
+                                            scope.video.title = d[0].title;
+                                            scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
+                                            scope.video.description = (d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' ').trunc(250, true);
+                                            scope.video.thumbnail = d[0].thumbnail_medium;
+                                            scope.video.views = d[0].stats_number_of_plays;
+                                            scope.video.likes = d[0].stats_number_of_likes;
+                                            scope.video.uploader = d[0].user_name;
+                                            scope.video.uploaderPage = d[0].user_url;
+                                            scope.video.uploadDate = d[0].uploadDate;
+                                            scope.video.url = d[0].url;
+                                            scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0&autoplay=1');
+                                            scope.video.width = vimeoDimensions.width;
+                                            scope.video.height = vimeoDimensions.height;
                                         });
                                 }
                             }
@@ -490,24 +478,15 @@
                         }
                     };
 
-
                     var imageProcess = {
-                        embed: function (data,options) {
+                        embed: function (data, options) {
                             var i = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/gi;
+
+                            scope.image.url=RegExp.$1;
 
                             if (data.match(i)) {
                                 var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
-                                if(!options.image.inline){
-                                    data = data.concat(" " + image);
-                                }
-                                else{
-                                    data=data.replace(anchorRegex,function(match,text){
-                                        if(text.match(i)){
-                                            return image;
-                                        }
-                                        return match;
-                                    });
-                                }
+                                scope.image.url=RegExp.$1;
 
                             }
 
@@ -515,21 +494,23 @@
                         }
                     };
 
-                    var x=($filter('emoticons')(data,options)).$$unwrapTrustedValue();
+                    var x = ($filter('emoticons')(data, options)).$$unwrapTrustedValue();
 
-                    if(options.video.embed){
-                        x=videoProcess.embed(x,options);
+                    if (options.video.embed) {
+                        x = videoProcess.embed(x, options);
                     }
 
-                    if(options.image.embed){
-                        x=imageProcess.embed(x,options);
+                    if (options.image.embed) {
+                        x = imageProcess.embed(x, options);
                     }
 
-                    scope.x= $sce.trustAsHtml(x);
+                    scope.x = $sce.trustAsHtml(x);
 
                     console.log();
                 }
             }
         }]);
+
+
 
 })();
