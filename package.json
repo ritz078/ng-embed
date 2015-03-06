@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "angular": "1.3.x",
-    "angular-sanitize": "1.3.x"
+    "angular-sanitize": "1.3.x",
+    "highlight.js": "git://github.com/isagalaev/highlight.js"
   },
   "bugs": {
     "url": "https://github.com/ritz078/ngEmoticons/issues"

@@ -196,7 +196,7 @@
                 var options = {
                     link      : true,
                     linkTarget: '_self',
-                    newLine   : false
+                    newLine   : true
                 };
 
                 /**
@@ -303,6 +303,8 @@
                  * All the functions are being called here.
                  */
 
+
+
                 function newLine(str) {
                     if (options.newLine) {
                         return str.replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
@@ -325,7 +327,7 @@
             };
         }])
 
-        .directive('ngEmoticons', ['$filter', '$sce', '$http', function ($filter, $sce, $http) {
+        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', function ($filter, $sce, $http, $timeout) {
 
             var TEMPLATE = '<div ng-bind-html="x"></div>';
 
@@ -348,7 +350,10 @@
                         image     : {
                             embed: false
                         },
-                        basicVideo:false,
+                        code      : {
+                            highlight: true
+                        },
+                        basicVideo: false,
                         video     : {
                             embed           : false,
                             width           : null,
@@ -485,12 +490,14 @@
                                 }
                             }
 
-                            if(options.basicVideo){
-                                var f=/((?:https?):\/\/\S*\.(?:ogg|ogv|webm|mp4))/gi;
+                            if (options.basicVideo) {
 
-                                if(data.match(f)){
-                                    scope.video.basic=$sce.trustAsResourceUrl(RegExp.$1);
+                                var f = /((?:https?):\/\/\S*\.(?:ogg|ogv|webm|mp4))/gi;
+
+                                if (data.match(f)) {
+                                    scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
                                 }
+
                             }
 
                             return data;
@@ -513,6 +520,45 @@
                         }
                     };
 
+                    var codeProcess = {
+                        encodeCode: function (c) {
+                            c = c.replace(/\&/gm, '&amp;');
+                            c = c.replace(/\</gm, '&lt;');
+                            c = c.replace(/\>/gm, '&gt;');
+                            return c;
+                        },
+
+                        getCode: function (text) {
+                            var that = this;
+                            text = text.replace(/(^|[^\\`])(`+)(?!`)([^\r]*?[^`])\2(?!`)/gm,
+                                function (wholeMatch, m1, m2, m3, m4) {
+                                    var c = m3;
+                                    c = c.replace(/^([ \t]*)/g, ""); // leading whitespace
+                                    c = c.replace(/[ \t]*$/g, ""); // trailing whitespace
+                                    c = that.encodeCode(c);
+                                    c = c.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
+                                                                   // *blocks*, but in code spans. Will be converted
+                                                                   // back after the auto-linker runs.
+                                    return m1 + "<pre><code>" + c + "</code></pre>";
+                                }
+                            );
+                            return text;
+                        }
+                    };
+
+                    if (options.code.highlight) {
+                        if (!window.hljs) {
+                            throw 'hlsj (Highlight JS is not defined.';
+                        }
+                        else {
+                            data = codeProcess.getCode(data);
+                            $timeout(function () {
+                                hljs.initHighlighting();
+                            },0)
+
+                        }
+                    }
+
                     var x = ($filter('emoticons')(data, options)).$$unwrapTrustedValue();
 
                     if (options.video.embed) {
@@ -524,8 +570,6 @@
                     }
 
                     scope.x = $sce.trustAsHtml(x);
-
-                    console.log();
                 }
             }
         }]);

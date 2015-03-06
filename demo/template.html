@@ -27,7 +27,9 @@
 </div>
 <div class="ne-video" ng-if="video.basic">
     <div class="ne-video-player">
-        <video ng-src="{{video.basic}}" controls></video>
+        <div class="player">
+            <video ng-src="{{video.basic}}" controls></video>
+        </div>
     </div>
 </div>
 <div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]" ng-if="image.url">
