@@ -489,7 +489,7 @@
                     };
 
                     var imageProcess = {
-                        embed: function (data, options) {
+                        embed: function (data) {
                             var i = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
 
                             scope.image.url = RegExp.$1;
@@ -511,7 +511,7 @@
                     }
 
                     if (options.image.embed) {
-                        x = imageProcess.embed(x, options);
+                        x = imageProcess.embed(x);
                     }
 
                     scope.x = $sce.trustAsHtml(x);

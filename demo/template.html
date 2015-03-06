@@ -23,7 +23,7 @@
                     webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </div>
-<div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image-long'}[neImageLong]" ng-if="image.url">
+<div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]" ng-if="image.url">
     <div class="ne-image-wrapper">
         <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/>
     </div>
