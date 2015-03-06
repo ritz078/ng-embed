@@ -348,6 +348,7 @@
                         image     : {
                             embed: false
                         },
+                        basicVideo:false,
                         video     : {
                             embed           : false,
                             width           : null,
@@ -481,6 +482,14 @@
                                             scope.video.width = vimeoDimensions.width;
                                             scope.video.height = vimeoDimensions.height;
                                         });
+                                }
+                            }
+
+                            if(options.basicVideo){
+                                var f=/((?:https?):\/\/\S*\.(?:ogg|ogv|webm|mp4))/gi;
+
+                                if(data.match(f)){
+                                    scope.video.basic=$sce.trustAsResourceUrl(RegExp.$1);
                                 }
                             }
 

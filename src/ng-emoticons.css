@@ -29,6 +29,10 @@
     transition         : all 0.5s linear;
     }
 
+.ne-video video{
+    width:100%;
+    }
+
 .ne-video:hover,.ne-image:hover {
     box-shadow : 0px 2px 2px 0 rgba(0, 0, 0, 0.26);
     }
