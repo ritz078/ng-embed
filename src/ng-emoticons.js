@@ -195,7 +195,8 @@
                  */
                 var options = {
                     link      : true,
-                    linkTarget: '_self'
+                    linkTarget: '_self',
+                    newLine   : false
                 };
 
                 /**
@@ -302,6 +303,14 @@
                  * All the functions are being called here.
                  */
 
+                function newLine(str) {
+                    if (options.newLine) {
+                        return str.replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
+                    }
+                    return str;
+                }
+
+                input = newLine(input);
 
                 input = insertfontSmiley(input);
 
@@ -330,11 +339,12 @@
                     var data = scope.$eval(attributes.emoticonsData);
                     var userOptions = scope.$eval(attributes.emoticonsOptions);
                     scope.video = {};
-                    scope.image={};
+                    scope.image = {};
 
                     var options = {
                         link      : true,
                         linkTarget: '_self',
+                        newLine   : false,
                         image     : {
                             embed: false
                         },
@@ -480,13 +490,13 @@
 
                     var imageProcess = {
                         embed: function (data, options) {
-                            var i = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/gi;
+                            var i = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
 
-                            scope.image.url=RegExp.$1;
+                            scope.image.url = RegExp.$1;
 
                             if (data.match(i)) {
                                 var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
-                                scope.image.url=RegExp.$1;
+                                scope.image.url = RegExp.$1;
 
                             }
 
@@ -510,7 +520,5 @@
                 }
             }
         }]);
-
-
 
 })();
