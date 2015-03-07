@@ -445,7 +445,7 @@
                                             scope.video.width = youtubeDimensions.width;
                                             scope.video.height = youtubeDimensions.height;
 
-                                        })
+                                        });
                                 }
 
                                 return data;  // show only youtube video if both vimeo and youtube videos are present.
@@ -503,7 +503,6 @@
                             scope.image.url = RegExp.$1;
 
                             if (data.match(i)) {
-                                var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
                                 scope.image.url = RegExp.$1;
 
                             }
@@ -515,15 +514,15 @@
                     var codeProcess = {
                         encodeCode: function (c) {
                             c = c.replace(/\&/gm, '&amp;');
-                            c = c.replace(/\</gm, '&lt;');
-                            c = c.replace(/\>/gm, '&gt;');
+                            c = c.replace(/</gm, '&lt;');
+                            c = c.replace(/>/gm, '&gt;');
                             return c;
                         },
 
                         getCode: function (text) {
                             var that = this;
                             text = text.replace(/(^|[^\\`])(`+)(?!`)([^\r]*?[^`])\2(?!`)/gm,
-                                function (wholeMatch, m1, m2, m3, m4) {
+                                function (wholeMatch, m1, m2, m3) {
                                     var c = m3;
                                     c = c.replace(/^([ \t]*)/g, ""); // leading whitespace
                                     c = c.replace(/[ \t]*$/g, ""); // trailing whitespace
@@ -574,7 +573,7 @@
                                     });
                                 }
 
-                            }, 0)
+                            }, 0);
 
                         }
                     }
@@ -583,7 +582,7 @@
 
                     if (options.video.embed) {
                         if (!options.video.ytAuthKey) {
-                            throw 'Youtube authentication key is required to get data from youtube.'
+                            throw 'Youtube authentication key is required to get data from youtube.';
                         }
                         else {
                             x = videoProcess.embed(x, options);
@@ -601,7 +600,7 @@
 
                     scope.x = $sce.trustAsHtml(x);
                 }
-            }
+            };
         }]);
 
 })();
