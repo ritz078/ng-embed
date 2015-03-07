@@ -13,6 +13,51 @@
     font-style  : normal;
     }
 
+.hljs {
+    font-size   : 14px;
+    padding     : 20px;
+    font-family : Consolas, Menlo, Monaco, monospace;
+    padding     : 1.5em;
+    }
+
+pre {
+    position      : relative;
+    margin-bottom : 24px;
+    border-radius : 2px;
+    background    : #FFF;
+    overflow      : hidden;
+    }
+
+code.has-numbering {
+    display     : block;
+    padding     : 12px 30px;
+    overflow-y  : auto;
+    font-weight : 300;
+    font-family : Consolas, Menlo, Monaco, monospace;
+    font-size   : 14px;
+    line-height : 20px;
+    }
+
+code.has-numbering {
+    margin-left : 36px;
+    }
+
+.pre-numbering {
+    position         : absolute;
+    top              : 0;
+    left             : 0;
+    width            : 35px;
+    padding          : 1.1em 5px 12px 0;
+    border-right     : 1px solid #e8e8e8;
+    border-radius    : 3px 0 0 3px;
+    background-color : #EEE;
+    text-align       : right;
+    font-family      : Consolas, Menlo, Monaco, monospace;
+    font-size        : 14px;
+    color            : #AAA;
+    line-height      : 20px;
+    margin-top       : -4px;
+    }
 
 .ne-video {
     padding            : 5px;
@@ -30,11 +75,11 @@
     transition         : all 0.5s linear;
     }
 
-.ne-video video{
-    width:100%;
+.ne-video video {
+    width : 100%;
     }
 
-.ne-video:hover,.ne-image:hover {
+.ne-video:hover, .ne-image:hover {
     box-shadow : 0px 2px 2px 0 rgba(0, 0, 0, 0.26);
     }
 
@@ -114,48 +159,46 @@
     width : 100%;
     }
 
-.ne-image{
-    width : 100%;
-    border-radius: 2px;
-    border:1px solid #e4e4e4;
-    min-height: 250px;
-    max-height : 250px;
-    overflow: hidden;
-    cursor: pointer;
-    padding-bottom : 5px;
+.ne-image {
+    width              : 100%;
+    border-radius      : 2px;
+    border             : 1px solid #e4e4e4;
+    min-height         : 250px;
+    max-height         : 250px;
+    overflow           : hidden;
+    cursor             : pointer;
+    padding-bottom     : 5px;
     -webkit-transition : all 0.5s linear;
     -o-transition      : all 0.5s linear;
     -moz-transition    : all 0.5s linear;
     -ms-transition     : all 0.5s linear;
     -kthtml-transition : all 0.5s linear;
     transition         : all 0.5s linear;
-    box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.26);
-    border-bottom: 5px solid #ffffff;
-    margin : 10px 0;
+    box-shadow         : 0px 1px 1px 0 rgba(0, 0, 0, 0.26);
+    border-bottom      : 5px solid #ffffff;
+    margin             : 10px 0;
     }
 
-.ne-image-long{
+.ne-image-long {
     max-height : 800px;
     }
 
-.ne-image img, .ne-image-long img{
-    width : 100%;
-    display: block;
-    min-height: 250px;
+.ne-image img, .ne-image-long img {
+    width      : 100%;
+    display    : block;
+    min-height : 250px;
     }
 
-.ne-image-wrapper{
-    margin : 5px;
-    margin-bottom : 0;
+.ne-image-wrapper {
+    margin              : 5px;
+    margin-bottom       : 0;
     background-color    : #3498DB;
     background-image    : url('images/loader.svg');
     background-repeat   : no-repeat;
     background-position : center;
-    height: 100%;
-    overflow: hidden;
+    height              : 100%;
+    overflow            : hidden;
     }
-
-
 
 .fade {
     position : absolute;

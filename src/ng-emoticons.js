@@ -351,7 +351,8 @@
                             embed: false
                         },
                         code      : {
-                            highlight: true
+                            highlight  : true,
+                            lineNumbers: false
                         },
                         basicVideo: false,
                         video     : {
@@ -554,7 +555,22 @@
                             data = codeProcess.getCode(data);
                             $timeout(function () {
                                 hljs.initHighlighting();
-                            },0)
+                                if (options.code.lineNumbers) {
+                                    var i = 1;
+                                    $('pre code').each(function () {
+                                        var lines = $(this).text().split('\n').length;
+                                        var $numbering = $('<ul/>').addClass('pre-numbering');
+                                        $(this)
+                                            .addClass('has-numbering')
+                                            .parent()
+                                            .append($numbering);
+                                        for (i; i <= lines; i++) {
+                                            $numbering.append($('<li/>').text(i));
+                                        }
+                                    });
+                                }
+
+                            }, 0)
 
                         }
                     }
