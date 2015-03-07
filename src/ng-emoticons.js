@@ -585,7 +585,13 @@
                     var x = ($filter('emoticons')(data, options)).$$unwrapTrustedValue();
 
                     if (options.video.embed) {
-                        x = videoProcess.embed(x, options);
+                        if(!options.video.ytAuthKey){
+                            throw 'Youtube authentication key is required to get data from youtube.'
+                        }
+                        else{
+                            x = videoProcess.embed(x, options);
+                        }
+
                     }
 
                     if (options.image.embed) {

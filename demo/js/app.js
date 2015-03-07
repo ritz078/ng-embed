@@ -8,6 +8,10 @@ angular.module('ngEmoticonApp', ['ngEmoticons','ngAnimate'])
         $scope.options = {
             'linkTarget': '_blank',
             'basicVideo':true,
+            'code':{
+                'highlight':true,
+                'lineNumbers':true
+            },
             'video': {
                 'embed': true,
                 'width': 800,
