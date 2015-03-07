@@ -195,8 +195,7 @@
                  */
                 var options = {
                     link      : true,
-                    linkTarget: '_self',
-                    newLine   : true
+                    linkTarget: '_self'
                 };
 
                 /**
@@ -304,16 +303,6 @@
                  */
 
 
-
-                function newLine(str) {
-                    if (options.newLine) {
-                        return str.replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                    }
-                    return str;
-                }
-
-                input = newLine(input);
-
                 input = insertfontSmiley(input);
 
                 input = insertEmoji(input);
@@ -347,7 +336,6 @@
                     var options = {
                         link      : true,
                         linkTarget: '_self',
-                        newLine   : false,
                         pdf       : {
                             embed: true
                         },
