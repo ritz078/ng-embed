@@ -269,7 +269,7 @@
 
                 function urlEmbed(str) {
 
-                    var urlRegex = /((href|src)=["']|)(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+                    var urlRegex = /((href|src)=["']|)(\b(https?|ftp|file):\/\/[-A-Z0-9+()&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
                     var strReplaced = str.replace(urlRegex, function (match) {
                             return '<a href="' + match + '" target="' + options.linkTarget + '">' + match + '</a>';
@@ -342,11 +342,15 @@
                     var userOptions = scope.$eval(attributes.emoticonsOptions);
                     scope.video = {};
                     scope.image = {};
+                    scope.pdf={};
 
                     var options = {
                         link      : true,
                         linkTarget: '_self',
                         newLine   : false,
+                        pdf       : {
+                            embed: true
+                        },
                         image     : {
                             embed: false
                         },
@@ -515,6 +519,8 @@
                                 var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
                                 scope.image.url = RegExp.$1;
 
+
+
                             }
 
                             return data;
@@ -544,6 +550,19 @@
                                 }
                             );
                             return text;
+                        }
+                    };
+
+                    var pdfProcess = {
+                        embed: function (str) {
+                                var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
+                                if(str.match(p)) {
+                                    console.log(RegExp.$1);
+                                    scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
+
+                                }
+
+                            return str;
                         }
                     };
 
@@ -583,6 +602,10 @@
 
                     if (options.image.embed) {
                         x = imageProcess.embed(x);
+                    }
+
+                    if (options.pdf.embed){
+                        x=pdfProcess.embed(x);
                     }
 
                     scope.x = $sce.trustAsHtml(x);

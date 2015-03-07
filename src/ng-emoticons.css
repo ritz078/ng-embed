@@ -59,7 +59,80 @@ code.has-numbering {
     margin-top       : -4px;
     }
 
-.ne-video {
+.ne-pdf iframe {
+    width : 420px;
+    height : 530px;
+    display: block;
+    }
+
+.ne-pdf-icon {
+    width        : 200px;
+    height       : 150px;
+    float        : left;
+    border-right : 1px solid #eee;
+    }
+
+.ne-pdf-icon i {
+    margin    : 29px 62px;
+    color     : #999;
+    font-size : 84px;
+    }
+
+
+
+.ne-pdf-view button {
+    font-family        : inherit;
+    font-size          : 14px;
+    background-color   : transparent;
+    border             : 1px solid #ccc;
+    padding            : 6px 15px;
+    border-radius      : 2px;
+    color              : #333;
+    cursor             : pointer;
+    box-shadow         : 0px 1px 1px 0 rgba(0, 0, 0, 0.26);
+    outline            : 0;
+    border-bottom : 0;
+    float:right;
+    margin : 80px 10px 0 10px;
+    -webkit-transition : all 0.5s linear;
+    -o-transition      : all 0.5s linear;
+    -moz-transition    : all 0.5s linear;
+    -ms-transition     : all 0.5s linear;
+    -kthtml-transition : all 0.5s linear;
+    transition         : all 0.5s linear;
+    }
+
+.ne-pdf-view button:hover {
+    box-shadow : 0 2px 2px 0 rgba(0, 0, 0, 0.26);
+    }
+
+.ne-pdf-view button i {
+    margin-right : 6px;
+    }
+
+.ne-pdf-view button a{
+    color:#333;
+    }
+
+.ne-pdf-viewer iframe{
+    margin : 0 auto;
+    }
+
+.ne-pdf-viewer{
+    background-color: #3498DB;
+    position: relative;
+    }
+
+.ne-pdf-viewer i{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: #fff;
+    font-size: 25px;
+    cursor:pointer;
+    }
+
+.ne-video, .ne-pdf {
     padding            : 5px;
     border             : 1px solid #e4e4e4;
     border-radius      : 2px;
@@ -83,7 +156,7 @@ code.has-numbering {
     box-shadow : 0px 2px 2px 0 rgba(0, 0, 0, 0.26);
     }
 
-.ne-video-preview {
+.ne-video-preview, .ne-pdf-preview {
     overflow : auto;
     }
 
@@ -114,13 +187,13 @@ code.has-numbering {
     cursor      : pointer;
     }
 
-.ne-video-detail {
+.ne-video-detail, .ne-pdf-detail {
     width        : calc(100% - 200px);
     float        : left;
     padding-left : 15px;
     }
 
-.ne-video-title {
+.ne-video-title, .ne-pdf-title {
     font-weight   : bolder;
     padding       : 5px 0;
     white-space   : nowrap;

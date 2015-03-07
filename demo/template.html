@@ -19,8 +19,8 @@
         </div>
     </div>
     <div class="ne-video-player" ng-if="nePlayVideo" class="fade">
-            <iframe ng-src="{{video.embedSrc}}" frameborder="0" width="{{video.width}}" height="{{video.height}}"
-                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}"
+                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 
 
@@ -32,9 +32,33 @@
         </div>
     </div>
 </div>
-<div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]" ng-if="image.url">
+<div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]"
+     ng-if="image.url">
     <div class="ne-image-wrapper">
         <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/>
     </div>
+</div>
+<div class="ne-pdf" ng-if="pdf.url">
+    <div class="ne-pdf-preview" ng-hide="neShowPdf">
+        <div class="ne-pdf-icon">
+            <i class="fa fa-file-pdf-o"></i>
+        </div>
+        <div class="ne-pdf-detail" >
+            <div class="ne-pdf-title">
+                <a href="">{{pdf.url}}</a>
+            </div>
+            <div class="ne-pdf-view">
+
+                <button><i class="fa fa-download"></i> <a ng-href="{{pdf.url}}" target="_blank">Download</a></button>
+                <button ng-click="neShowPdf=!neShowPdf"><i class="fa fa-eye"></i> View PDF</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf">
+
+        <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe>
+    </div>
+
 </div>
 
