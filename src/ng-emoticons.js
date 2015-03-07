@@ -331,7 +331,7 @@
                     var userOptions = scope.$eval(attributes.emoticonsOptions);
                     scope.video = {};
                     scope.image = {};
-                    scope.pdf={};
+                    scope.pdf = {};
 
                     var options = {
                         link      : true,
@@ -465,7 +465,6 @@
                                         .success(function (d) {
                                             console.log(d);
                                             scope.video.host = 'vimeo';
-
                                             scope.video.title = d[0].title;
                                             scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
                                             scope.video.description = (d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' ').trunc(250, true);
@@ -507,8 +506,6 @@
                                 var image = '<div class="emoticons-image-wrapper"><img class="emoticons-image" src="' + RegExp.$1 + '"/></div>';
                                 scope.image.url = RegExp.$1;
 
-
-
                             }
 
                             return data;
@@ -543,12 +540,12 @@
 
                     var pdfProcess = {
                         embed: function (str) {
-                                var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
-                                if(str.match(p)) {
-                                    console.log(RegExp.$1);
-                                    scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
+                            var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
+                            if (str.match(p)) {
+                                console.log(RegExp.$1);
+                                scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
 
-                                }
+                            }
 
                             return str;
                         }
@@ -585,10 +582,10 @@
                     var x = ($filter('emoticons')(data, options)).$$unwrapTrustedValue();
 
                     if (options.video.embed) {
-                        if(!options.video.ytAuthKey){
+                        if (!options.video.ytAuthKey) {
                             throw 'Youtube authentication key is required to get data from youtube.'
                         }
-                        else{
+                        else {
                             x = videoProcess.embed(x, options);
                         }
 
@@ -598,8 +595,8 @@
                         x = imageProcess.embed(x);
                     }
 
-                    if (options.pdf.embed){
-                        x=pdfProcess.embed(x);
+                    if (options.pdf.embed) {
+                        x = pdfProcess.embed(x);
                     }
 
                     scope.x = $sce.trustAsHtml(x);

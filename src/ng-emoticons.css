@@ -60,9 +60,9 @@ code.has-numbering {
     }
 
 .ne-pdf iframe {
-    width : 420px;
-    height : 530px;
-    display: block;
+    width   : 420px;
+    height  : 530px;
+    display : block;
     }
 
 .ne-pdf-icon {
@@ -78,8 +78,6 @@ code.has-numbering {
     font-size : 84px;
     }
 
-
-
 .ne-pdf-view button {
     font-family        : inherit;
     font-size          : 14px;
@@ -91,9 +89,9 @@ code.has-numbering {
     cursor             : pointer;
     box-shadow         : 0px 1px 1px 0 rgba(0, 0, 0, 0.26);
     outline            : 0;
-    border-bottom : 0;
-    float:right;
-    margin : 80px 10px 0 10px;
+    border-bottom      : 0;
+    float              : right;
+    margin             : 80px 10px 0 10px;
     -webkit-transition : all 0.5s linear;
     -o-transition      : all 0.5s linear;
     -moz-transition    : all 0.5s linear;
@@ -110,26 +108,26 @@ code.has-numbering {
     margin-right : 6px;
     }
 
-.ne-pdf-view button a{
-    color:#333;
+.ne-pdf-view button a {
+    color : #333;
     }
 
-.ne-pdf-viewer iframe{
+.ne-pdf-viewer iframe {
     margin : 0 auto;
     }
 
-.ne-pdf-viewer{
-    background-color: #3498DB;
-    position: relative;
+.ne-pdf-viewer {
+    background-color : #3498DB;
+    position         : relative;
     }
 
-.ne-pdf-viewer i{
-    position: absolute;
-    right: 10px;
-    top: 8px;
-    color: #fff;
-    font-size: 25px;
-    cursor:pointer;
+.ne-pdf-viewer i {
+    position  : absolute;
+    right     : 10px;
+    top       : 8px;
+    color     : #fff;
+    font-size : 25px;
+    cursor    : pointer;
     }
 
 .ne-video, .ne-pdf {
