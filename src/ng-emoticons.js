@@ -316,14 +316,81 @@
             };
         }])
 
-        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', function ($filter, $sce, $http, $timeout) {
+        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', '$templateCache', function ($filter, $sce, $http, $timeout, $templateCache) {
 
-            var TEMPLATE = '<div ng-bind-html="x"></div>';
+            var TEMPLATE_URL = '';
+
+            var template = '<div ng-bind-html="neText"></div>' +
+                '<div class="ne-video" ng-if="video.host" class="fade">' +
+                '    <div class="ne-video-preview" ng-hide="nePlayVideo">' +
+                '        <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">' +
+                '            <img ng-src="{{video.thumbnail}}" alt=""/>' +
+                '            <i class="fa fa-play-circle-o"></i>' +
+                '        </div>' +
+                '        <div class="ne-video-detail">' +
+                '            <div class="ne-video-title">' +
+                '                <a ng-href="{{video.url}}">{{video.title}}</a>' +
+                '            </div>' +
+                '            <div class="ne-video-desc">' +
+                '                {{video.description}}' +
+                '            </div>' +
+                '            <div class="ne-video-stats">' +
+                '                <span><i class="fa fa-eye"></i> {{video.views}}</span>' +
+                '                <span><i class="fa fa-heart"></i> {{video.likes}}</span>' +
+                '            </div>' +
+                '        </div>' +
+                '    </div>' +
+                '    <div class="ne-video-player" ng-if="nePlayVideo" class="fade">' +
+                '        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' +
+                '    </div>' +
+                '' +
+                '' +
+                '</div>' +
+                '<div class="ne-video" ng-if="video.basic">' +
+                '    <div class="ne-video-player">' +
+                '        <div class="player">' +
+                '            <video ng-src="{{video.basic}}" controls></video>' +
+                '        </div>' +
+                '    </div>' +
+                '</div>' +
+                '<div ng-init="neImageLong=false" ng-class="{false:\'ne-image\', true:\'ne-image ne-image-long\'}[neImageLong]"' +
+                '     ng-if="image.url">' +
+                '    <div class="ne-image-wrapper">' +
+                '        <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/>' +
+                '    </div>' +
+                '</div>' +
+                '<div class="ne-pdf" ng-if="pdf.url">' +
+                '    <div class="ne-pdf-preview" ng-hide="neShowPdf">' +
+                '        <div class="ne-pdf-icon">' +
+                '            <i class="fa fa-file-pdf-o"></i>' +
+                '        </div>' +
+                '        <div class="ne-pdf-detail" >' +
+                '            <div class="ne-pdf-title">' +
+                '                <a href="">{{pdf.url}}</a>' +
+                '            </div>' +
+                '            <div class="ne-pdf-view">' +
+                '' +
+                '                <button><i class="fa fa-download"></i> <a ng-href="{{pdf.url}}" target="_blank">Download</a></button>' +
+                '                <button ng-click="neShowPdf=!neShowPdf"><i class="fa fa-eye"></i> View PDF</button>' +
+                '' +
+                '            </div>' +
+                '        </div>' +
+                '    </div>' +
+                '    <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf">' +
+                '        <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe>' +
+                '    </div>' +
+                '' +
+                '</div>' +
+                '<div class="ne-audio" ng-if="audio.url">' +
+                '    <audio ng-src="{{audio.url}}" controls></audio>' +
+                '</div>';
+
+            $templateCache.put(TEMPLATE_URL, template);
 
             return {
                 restrict   : 'AE',
                 templateUrl: function (element, attributes) {
-                    return (attributes.emoticonsTemplateUrl || TEMPLATE);
+                    return (attributes.emoticonsTemplateUrl || TEMPLATE_URL);
                 },
                 link       : function (scope, elements, attributes) {
 
@@ -610,7 +677,7 @@
                         x = pdfProcess.embed(x);
                     }
 
-                    scope.x = $sce.trustAsHtml(x);
+                    scope.neText = $sce.trustAsHtml(x);
                 }
             };
         }]);

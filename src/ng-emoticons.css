@@ -59,6 +59,10 @@ code.has-numbering {
     margin-top       : -4px;
     }
 
+.pre-numbering li{
+    list-style-type: none;
+    }
+
 .ne-pdf iframe {
     width   : 420px;
     height  : 530px;

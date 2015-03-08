@@ -1,4 +1,4 @@
-<div ng-bind-html="x"></div>
+<div ng-bind-html="neText"></div>
 <div class="ne-video" ng-if="video.host" class="fade">
     <div class="ne-video-preview" ng-hide="nePlayVideo">
         <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">
@@ -19,8 +19,7 @@
         </div>
     </div>
     <div class="ne-video-player" ng-if="nePlayVideo" class="fade">
-        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}"
-                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 
 
@@ -56,7 +55,6 @@
         </div>
     </div>
     <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf">
-
         <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe>
     </div>
 
