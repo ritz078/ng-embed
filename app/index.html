@@ -1,74 +1,95 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title>ngEmoticons | An AngularJS module to conver text</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/ng-emoticons/src/ng-emoticons.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
-    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-    <!-- endbower -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"/>
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="ngEmoticonsApp" ng-controller="ngEmoticonsController" ng-cloak class="ng-cloak">
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ngEmoticons | An AngularJS module to conver text</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/ng-emoticons/src/ng-emoticons.css" />
+  <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
+  <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- endbower -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"/>
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="ngEmoticonsApp" ng-controller="ngEmoticonsController" ng-cloak class="ng-cloak">
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
 
 <header>
   <a href="#/"><img src="images/logo.png" alt=""/></a>
   <nav>
-    <a href="#/examples"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Examples</button></a>
-    <a href="#/documentation"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Docs</button></a>
-    <a href="#/getting-started"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Getting Started</button></a>
-    <a href="#/"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Home</button></span></a>
+    <a href="#/examples">
+      <button class="btn btn--xl btn--white btn--flat" lx-ripple>Examples</button>
+    </a>
+    <a href="#/documentation">
+      <button class="btn btn--xl btn--white btn--flat" lx-ripple>Docs</button>
+    </a>
+    <a href="#/getting-started">
+      <button class="btn btn--xl btn--white btn--flat" lx-ripple>Getting Started</button>
+    </a>
+    <a href="#/">
+      <button class="btn btn--xl btn--white btn--flat" lx-ripple>Home</button>
+      </span></a>
   </nav>
 </header>
-    <ng-view class="fade"></ng-view>
-
+<div ng-view class="content at-view-scale-in"></div>
 <footer>
 
 </footer>
 
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/ng-emoticons/src/ng-emoticons.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/velocity/velocity.js"></script>
-    <script src="bower_components/velocity/velocity.ui.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/lumx/dist/lumx.js"></script>
-    <script src="bower_components/typed.js/js/typed.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(.) scripts/vendor.js -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/ng-emoticons/src/ng-emoticons.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/velocity/velocity.js"></script>
+<script src="bower_components/velocity/velocity.ui.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/lumx/dist/lumx.js"></script>
+<script src="bower_components/typed.js/js/typed.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function (b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+      function () {
+        (b[l].q = b[l].q || []).push(arguments)
+      });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = '//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+<!-- build:js({app,.tmp}) scripts/main.js -->
+<script src="scripts/main.js"></script>
+<script src="scripts/components/main.config.js"></script>
+<script src="scripts/components/main.services.js"></script>
+<script src="scripts/components/main.directives.js"></script>
+<script src="scripts/components/main.controllers.js"></script>
+<!-- endbuild -->
 </body>
 </html>

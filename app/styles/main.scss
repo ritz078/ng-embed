@@ -5,16 +5,18 @@
 
 $font : 'Roboto', sans-serif;
 $themeColor : #3498DB;
+$max-width:1000px;
 
-html{
-  background-color: #fff;
-  overflow: auto;
+html {
+  background-color : #fff;
+  overflow         : auto;
   }
+
 body {
-  background  : #fff;
+  background  : $themeColor;
   font-family : $font;
   color       : #333;
-  overflow: auto;
+  overflow    : auto;
   }
 
 .hero-unit {
@@ -73,91 +75,19 @@ header {
     }
   }
 
-.home {
-  .h-banner {
-    height           : 370px;
-    width            : 100%;
-    background       : url("http://ui.lumapps.com/images/header/header.png");
-    background-color : $themeColor;
-    overflow         : auto;
-    .h-title {
-      font-size   : 35px;
-      display     : block;
-      width       : 900px;
-      margin      : 120px auto 0 auto;
-      color       : #fff;
-      font-weight : lighter;
-      span {
-        font-weight : 500;
-        color       : rgb(30, 30, 113);
-        }
-      }
-    a {
-      display         : table;
-      text-decoration : none;
-      margin          : 0 auto;
-      margin-top      : 80px;
-      .btn {
 
-        display : block;
-        }
-      }
-    .h-version {
-      display    : block;
-      color      : #fff;
-      margin     : 10px;
-      text-align : center;
-      }
 
-    }
-  .h-contribute {
-    height           : 50px;
-    width            : 100%;
-    background-color : $themeColor;
-    border-top       : 1px solid rgba(255, 255, 255, 0.15);
-    }
-  .h-features {
-    max-width : 1000px;
-    width     : 100%;
-    margin    : 0 auto;
-    overflow  : auto;
-    h3{
-      text-align: center;
-      padding: 15px;
-      border-bottom: 1px solid #f4f4f4;
-      font-weight: 500;
-      }
-    .tc-black-1 {
-      div {
-        padding   : 20px 25px;
-        display   : block;
-        font-size : 0.95em;
-        i {
-          font-size    : 42px;
-          float        : left;
-          margin-right : 25px;
-          color        : $themeColor;
-          width        : 40px;
-          height       : 50px;
-          margin-top   : 10px;
-          }
-        span {
-          display     : block;
-          font-weight : 500;
-          color       : $themeColor;
-          }
-        }
-      }
-
-    }
+.content{
+  margin-top : 56px;
+  background-color: #fff;
   }
 
-footer{
-  height : 200px;
-  width : 100%;
-  background-color: $themeColor;
-  margin-top : 40px;
-  overflow: auto;
+footer {
+  height           : 200px;
+  width            : 100%;
+  background-color : $themeColor;
+  margin-top       : 40px;
+  overflow         : auto;
   }
 
 .typed-cursor {
@@ -203,28 +133,58 @@ footer{
     }
   }
 
-.fade {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
+
+.at-view-fade-out.ng-leave {
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   opacity: 1;
   }
-.fade.ng-enter, .fade.ng-leave {
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-  }
-.fade.ng-enter {
+
+.at-view-fade-out.ng-leave-active {
   opacity: 0;
   }
-.fade.ng-enter-active {
-  opacity: 1;
-  }
-.fade.ng-leave {
-  opacity: 1;
-  }
-.fade.ng-leave-active {
+
+.at-view-scale-in.ng-enter {
+  -webkit-transition-property: opacity, -webkit-transform;
+  -moz-transition-property: opacity, -moz-transform;
+  -o-transition-property: opacity, -o-transform;
+  transition-property: opacity, transform;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
   opacity: 0;
   }
+
+.at-view-scale-in.ng-enter-active {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1;
+  }
+
+@import "partials/home";
+@import "partials/gettingstarted";
+@import "partials/documentation";
+@import "partials/examples";

@@ -4,11 +4,12 @@
   "dependencies": {
     "jquery": "~1.11.1",
     "angular": "~1.3.14",
-    "ng-emoticons": "~1.1.3",
+    "ng-emoticons": "canary",
     "angular-route": "~1.3.14",
     "bourbon": "~4.2.1",
     "lumx": "~0.3.20",
     "typed.js": "*",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "angular-animate": "~1.3.14"
   }
 }

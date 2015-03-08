@@ -1,0 +1,78 @@
+.home {
+  .h-banner {
+    height           : 370px;
+    width            : 100%;
+    background       : url("http://ui.lumapps.com/images/header/header.png");
+    background-color : $themeColor;
+    overflow         : auto;
+    .h-title {
+      font-size   : 35px;
+      display     : block;
+      width       : 900px;
+      margin      : 120px auto 0 auto;
+      color       : #fff;
+      font-weight : lighter;
+      span {
+        font-weight : 500;
+        color       : rgb(30, 30, 113);
+        }
+      }
+    a {
+      display         : table;
+      text-decoration : none;
+      margin          : 0 auto;
+      margin-top      : 80px;
+      .btn {
+
+        display : block;
+        }
+      }
+    .h-version {
+      display    : block;
+      color      : #fff;
+      margin     : 10px;
+      text-align : center;
+      }
+
+    }
+  .h-contribute {
+    height           : 50px;
+    width            : 100%;
+    background-color : $themeColor;
+    border-top       : 1px solid rgba(255, 255, 255, 0.15);
+    }
+  .h-features {
+    max-width : 1000px;
+    width     : 100%;
+    margin    : 0 auto;
+    overflow  : auto;
+    h3 {
+      text-align    : center;
+      padding       : 15px;
+      border-bottom : 1px solid #f4f4f4;
+      font-weight   : 500;
+      }
+    .tc-black-1 {
+      div {
+        padding   : 20px 25px;
+        display   : block;
+        font-size : 0.95em;
+        i {
+          font-size    : 42px;
+          float        : left;
+          margin-right : 25px;
+          color        : $themeColor;
+          width        : 40px;
+          height       : 50px;
+          margin-top   : 10px;
+          }
+        span {
+          display     : block;
+          font-weight : 500;
+          color       : $themeColor;
+          }
+        }
+      }
+
+    }
+  }
