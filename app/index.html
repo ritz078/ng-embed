@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>ngEmoticons</title>
+    <title>ngEmoticons | An AngularJS module to conver text</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/ng-emoticons/src/ng-emoticons.css" />
     <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
     <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -24,11 +25,15 @@
     <![endif]-->
 
 <header>
+  <a href="#/"><img src="images/logo.png" alt=""/></a>
   <nav>
-    <a href="#/" lx-ripple="red"><span>Home</span></a>
+    <a href="#/examples"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Examples</button></a>
+    <a href="#/getting-started"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Getting Started</button></a>
+    <a href="#/documentation"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Docs</button></a>
+    <a href="#/"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Home</button></span></a>
   </nav>
 </header>
-    <ng-view></ng-view>
+    <ng-view class="fade"></ng-view>
 
 
 
@@ -44,6 +49,7 @@
     <script src="bower_components/velocity/velocity.ui.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/lumx/dist/lumx.js"></script>
+    <script src="bower_components/typed.js/js/typed.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -1,4 +1,97 @@
 <div class="home">
-  <div class="h-banner"></div>
+  <div class="h-banner">
+    <span class="h-title">
+     An AngularJS module to convert ordinary text into <span class="h-typed"></span>
+    </span>
+    <a ng-href="{{github.zipball_url}}">
+      <button class="btn btn--xl btn--white btn--raised" lx-ripple>Download</button>
+    </a>
+    <span class="h-version">{{github.name}}</span>
+  </div>
+  <div class="h-contribute">
+
+  </div>
+  <div class="h-features">
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-smile-o"></i>
+        <span>Font Smiley Support</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-heart"></i>
+        <span>Emojis' Support</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-code"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-youtube"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-external-link"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-file-pdf-o"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-file-video-o"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-file-image-o"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-file-audio-o"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-gears"></i>
+        <span>Code syntax highlighting</span>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet,
+
+      </div>
+    </div>
+  </div>
 </div>
 
+<script>
+  $(function () {
+    $(".h-typed").typed({
+      strings   : ["emoji.", "code.", "video.", "image.", "smiley.", "link.", "pdf."],
+      typeSpeed : 0,
+      loop      : true,
+      startDelay: 5,
+      backDelay : 3000
+    });
+  });
+</script>
