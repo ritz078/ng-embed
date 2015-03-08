@@ -316,11 +316,11 @@
             };
         }])
 
-        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', '$templateCache', function ($filter, $sce, $http, $timeout, $templateCache) {
+        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', '$templateCache', '$compile', function ($filter, $sce, $http, $timeout, $templateCache, $compile) {
 
             var TEMPLATE_URL = '';
 
-            var template = '<div ng-bind-html="neText"></div>' +
+            var template = '<div ng-bind-html="neText" ne-hljs></div>' +
                 '<div class="ne-video" ng-if="video.host" class="fade">' +
                 '    <div class="ne-video-preview" ng-hide="nePlayVideo">' +
                 '        <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">' +
@@ -606,7 +606,7 @@
                                     c = c.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
                                                                    // *blocks*, but in code spans. Will be converted
                                                                    // back after the auto-linker runs.
-                                    return m1 + "<pre><code>" + c + "</code></pre>";
+                                    return m1 + '<pre><code class="ne-code">' + c + '</code></pre>';
                                 }
                             );
                             return text;
@@ -634,16 +634,16 @@
                             $timeout(function () {
                                 hljs.initHighlighting();
                                 if (options.code.lineNumbers) {
-                                    var i = 1;
-                                    $('pre code').each(function () {
+                                    $('.ne-code').each(function () {
+                                        var i = 1;
                                         var lines = $(this).text().split('\n').length;
-                                        var $numbering = $('<ul/>').addClass('pre-numbering');
+                                        var numbering = $('<ul/>').addClass('pre-numbering');
                                         $(this)
                                             .addClass('has-numbering')
                                             .parent()
-                                            .append($numbering);
+                                            .append(numbering);
                                         for (i; i <= lines; i++) {
-                                            $numbering.append($('<li/>').text(i));
+                                            numbering.append($('<li/>').text(i));
                                         }
                                     });
                                 }
@@ -680,6 +680,22 @@
                     scope.neText = $sce.trustAsHtml(x);
                 }
             };
-        }]);
+        }])
+
+        .directive('neHljs', function ($timeout) {
+            return {
+                restrict: 'AE',
+                link    : function (scope, elem) {
+                    $timeout(function () {
+                        var i = elem.find('.ne-code').length;
+                        var snip = elem.find('.ne-code');
+                        for (var j = 0; j < i; j++) {
+                            hljs.highlightBlock(snip.get(j));
+                        }
+                    }, 0);
+
+                }
+            }
+        })
 
 })();
