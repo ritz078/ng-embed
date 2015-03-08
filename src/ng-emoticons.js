@@ -332,6 +332,7 @@
                     scope.video = {};
                     scope.image = {};
                     scope.pdf = {};
+                    scope.audio = {};
 
                     var options = {
                         link      : true,
@@ -341,6 +342,9 @@
                         },
                         image     : {
                             embed: false
+                        },
+                        audio     : {
+                            embed: true
                         },
                         code      : {
                             highlight  : true,
@@ -421,8 +425,6 @@
 
                             if (data.match(p)) {
 
-                                console.log(scope.video);
-
                                 var youtubeDimensions = this.calcDimensions(options);
                                 scope.video.id = RegExp.$1;
                                 if (options.video.details) {
@@ -463,7 +465,6 @@
                                 if (options.video.details) {
                                     $http.get('https://vimeo.com/api/v2/video/' + RegExp.$3 + '.json')
                                         .success(function (d) {
-                                            console.log(d);
                                             scope.video.host = 'vimeo';
                                             scope.video.title = d[0].title;
                                             scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
@@ -484,7 +485,7 @@
 
                             if (options.basicVideo) {
 
-                                var f = /((?:https?):\/\/\S*\.(?:ogg|ogv|webm|mp4))/gi;
+                                var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
 
                                 if (data.match(f)) {
                                     scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
@@ -496,11 +497,19 @@
                         }
                     };
 
+                    var audioProcess = {
+                        embed: function (str) {
+                            var a = /((?:https?):\/\/\S*\.(?:wav|mp3|ogg))/gi;
+                            if (str.match(a)) {
+                                scope.audio.url = $sce.trustAsResourceUrl(RegExp.$1);
+                            }
+                            return str;
+                        }
+                    };
+
                     var imageProcess = {
                         embed: function (data) {
                             var i = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
-
-                            scope.image.url = RegExp.$1;
 
                             if (data.match(i)) {
                                 scope.image.url = RegExp.$1;
@@ -541,7 +550,6 @@
                         embed: function (str) {
                             var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
                             if (str.match(p)) {
-                                console.log(RegExp.$1);
                                 scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
 
                             }
@@ -588,6 +596,10 @@
                             x = videoProcess.embed(x, options);
                         }
 
+                    }
+
+                    if (options.audio.embed) {
+                        x = audioProcess.embed(x);
                     }
 
                     if (options.image.embed) {

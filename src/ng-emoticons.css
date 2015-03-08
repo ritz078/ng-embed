@@ -130,6 +130,16 @@ code.has-numbering {
     cursor    : pointer;
     }
 
+.ne-audio {
+    background-color : #1D1D1D;
+    border-radius    : 2px;
+    padding-top      : 6px;
+    }
+
+.ne-audio audio {
+    width : 100%;
+    }
+
 .ne-video, .ne-pdf {
     padding            : 5px;
     border             : 1px solid #e4e4e4;
