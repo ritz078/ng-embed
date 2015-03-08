@@ -5,7 +5,7 @@
     <title>ngEmoticons | An AngularJS module to conver text</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.png">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -14,12 +14,13 @@
     <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"/>
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="ngEmoticonsApp" ng-controller="ngEmoticonsController">
+  <body ng-app="ngEmoticonsApp" ng-controller="ngEmoticonsController" ng-cloak class="ng-cloak">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,17 +29,20 @@
   <a href="#/"><img src="images/logo.png" alt=""/></a>
   <nav>
     <a href="#/examples"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Examples</button></a>
-    <a href="#/getting-started"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Getting Started</button></a>
     <a href="#/documentation"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Docs</button></a>
+    <a href="#/getting-started"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Getting Started</button></a>
     <a href="#/"><button class="btn btn--xl btn--white btn--flat" lx-ripple>Home</button></span></a>
   </nav>
 </header>
     <ng-view class="fade"></ng-view>
 
+<footer>
 
+</footer>
 
 
     <!-- build:js(.) scripts/vendor.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>

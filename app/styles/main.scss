@@ -6,10 +6,15 @@
 $font : 'Roboto', sans-serif;
 $themeColor : #3498DB;
 
+html{
+  background-color: #fff;
+  overflow: auto;
+  }
 body {
   background  : #fff;
   font-family : $font;
   color       : #333;
+  overflow: auto;
   }
 
 .hero-unit {
@@ -116,6 +121,12 @@ header {
     width     : 100%;
     margin    : 0 auto;
     overflow  : auto;
+    h3{
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid #f4f4f4;
+      font-weight: 500;
+      }
     .tc-black-1 {
       div {
         padding   : 20px 25px;
@@ -132,13 +143,21 @@ header {
           }
         span {
           display     : block;
-          font-weight : bolder;
+          font-weight : 500;
           color       : $themeColor;
           }
         }
       }
 
     }
+  }
+
+footer{
+  height : 200px;
+  width : 100%;
+  background-color: $themeColor;
+  margin-top : 40px;
+  overflow: auto;
   }
 
 .typed-cursor {
@@ -185,7 +204,6 @@ header {
   }
 
 .fade {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
