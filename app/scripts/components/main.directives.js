@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('ngEmoticonsApp')
-  .directive('highlightJs', ['$timeout',function ($timeout) {
+  .directive('highlightJs', ['$timeout','$compile',function ($timeout,$compile) {
     return {
       restrict: 'AE',
-      link    : function () {
+      link    : function (scope,elem,attrs) {
         $timeout(function(){
-          hljs.initHighlightingOnLoad();
+          var x=elem[0].innerHTML;
+          elem[0].innerHTML='<pre><code>'+x+'</code></pre>';
+          hljs.highlightBlock(elem[0]);
         },0);
       }
     };
