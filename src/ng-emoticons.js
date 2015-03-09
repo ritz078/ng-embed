@@ -340,7 +340,7 @@
                 '            </div>' +
                 '        </div>' +
                 '    </div>' +
-                '    <div class="ne-video-player" ng-if="nePlayVideo" class="fade">' +
+                '    <div class="ne-video-player" ng-if="nePlayVideo">' +
                 '        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' +
                 '    </div>' +
                 '' +
@@ -631,19 +631,23 @@
                         }
                         else {
                             data = codeProcess.getCode(data);
+
+                            /**
+                             * Adding line numbers to code
+                             */
                             $timeout(function () {
                                 hljs.initHighlighting();
                                 if (options.code.lineNumbers) {
-                                    $('.ne-code').each(function () {
+                                    angular.element('.ne-code').each(function () {
                                         var i = 1;
                                         var lines = $(this).text().split('\n').length;
                                         var numbering = $('<ul/>').addClass('pre-numbering');
-                                        $(this)
+                                        angular.element(this)
                                             .addClass('has-numbering')
                                             .parent()
                                             .append(numbering);
                                         for (i; i <= lines; i++) {
-                                            numbering.append($('<li/>').text(i));
+                                            numbering.append(angular.element('<li/>').text(i));
                                         }
                                     });
                                 }
@@ -687,11 +691,9 @@
                 restrict: 'AE',
                 link    : function (scope, elem) {
                     $timeout(function () {
-                        var i = elem.find('.ne-code').length;
-                        var snip = elem.find('.ne-code');
-                        for (var j = 0; j < i; j++) {
-                            hljs.highlightBlock(snip.get(j));
-                        }
+                        elem.find('.ne-code').each(function(){
+                            hljs.highlightBlock(this);
+                        })
                     }, 0);
 
                 }
