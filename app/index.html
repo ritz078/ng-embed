@@ -11,7 +11,6 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/ng-emoticons/src/ng-emoticons.css" />
   <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
-  <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <!-- endbower -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css"/>
@@ -28,7 +27,7 @@
 
 <header>
   <a href="#/"><img src="images/logo.png" alt=""/></a>
-  <nav>
+  <nav class="nav-hor">
     <a href="#/examples">
       <button class="btn btn--xl btn--white btn--flat" lx-ripple>Examples</button>
     </a>
@@ -41,6 +40,23 @@
     <a href="#/">
       <button class="btn btn--xl btn--white btn--flat" lx-ripple>Home</button>
       </span></a>
+  </nav>
+
+  <nav class="main-nav main-nav--palm">
+    <lx-dropdown position="right" from-top>
+      <button class="btn btn--xl btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>
+        <i class="mdi mdi-menu"></i>
+      </button>
+
+      <lx-dropdown-menu>
+        <ul>
+          <li><a href="#/Home" class="dropdown-link">Home</a></li>
+          <li><a href="#/getting-started" class="dropdown-link">Getting Started</a></li>
+          <li><a href="#/documentation" class="dropdown-link">Documentation</a></li>
+          <li><a href="#/examples" target="_self" class="dropdown-link">Examples</a></li>
+        </ul>
+      </lx-dropdown-menu>
+    </lx-dropdown>
   </nav>
 </header>
 <div ng-view class="content at-view-scale-in"></div>

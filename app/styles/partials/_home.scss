@@ -5,16 +5,49 @@
     background       : url("http://ui.lumapps.com/images/header/header.png");
     background-color : $themeColor;
     overflow         : auto;
-    .h-title {
+
+
+    .h-title{
+
       font-size   : 35px;
       display     : block;
       width       : 900px;
       margin      : 120px auto 0 auto;
       color       : #fff;
       font-weight : lighter;
+      @include media-query(portable){
+        display: none;
+        }
       span {
         font-weight : 500;
         color       : rgb(30, 30, 113);
+        }
+      }
+    .h-title-wide {
+      width       : 900px;
+      display: block;
+      @include media-query(portable){
+        display: none;
+        }
+      }
+
+    .h-title-medium {
+      width       : 520px;
+      display: none;
+      @include media-query(portable){
+        display: block;
+        }
+      @include media-query(palm){
+        display: none;
+        }
+      }
+
+    .h-title-small{
+      width: 255px;
+      text-align: center;
+      display: none;
+      @include media-query(palm){
+        display: block;
         }
       }
     a {
@@ -28,10 +61,10 @@
         }
       }
     .h-version {
-      display    : block;
-      color      : #fff;
-      margin     : 10px;
-      text-align : center;
+      display: table;
+      color: #fff;
+      margin: 10px auto;
+      text-align: center;
       }
 
     }

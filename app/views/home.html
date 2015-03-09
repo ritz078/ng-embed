@@ -1,12 +1,18 @@
 <div class="home">
   <div class="h-banner">
-    <span class="h-title">
+    <span class="h-title h-title-wide">
      An AngularJS module to convert ordinary text into <span class="h-typed"></span>
     </span>
+    <span class="h-title h-title-medium">
+     Convert ordinary text into <span class="h-typed"></span>
+    </span>
+    <div class="h-title h-title-small">
+      text into <span class="h-typed"></span>
+    </div>
     <a ng-href="{{github.zipball_url}}">
       <button class="btn btn--xl btn--white btn--raised" lx-ripple>Download</button>
     </a>
-    <span class="h-version">{{github.name}}</span>
+    <span class="h-version" lx-tooltip="Master Branch" tooltip-position="bottom">{{github.name}}</span>
   </div>
   <div class="h-contribute">
 

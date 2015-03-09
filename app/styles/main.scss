@@ -1,11 +1,13 @@
 // bower:scss
 @import "bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "lumx/dist/scss/_lumx.scss";
 // endbower
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);
 
 $font : 'Roboto', sans-serif;
 $themeColor : #3498DB;
-$max-width:1000px;
+$max-width : 1000px;
+$base-background-color : #3498DB;
 
 html {
   background-color : #fff;
@@ -59,9 +61,10 @@ header {
     display    : block;
     float      : left;
     }
-  nav {
-    width : 50%;
-    float : right;
+  .nav-hor {
+    display : inline-block;
+    float   : right;
+
     a {
       display : block;
       float   : right;
@@ -72,14 +75,28 @@ header {
         }
       }
 
+    @include media-query(portable) {
+      display : none;
+      float: left;
+      }
+
+    }
+  .main-nav{
+    display: none;
+    float: right;
+    @include media-query(portable){
+      display: block;
+      }
     }
   }
 
+code {
+  font-family : Consolas, Menlo, Monaco, monospace;
+  }
 
-
-.content{
-  margin-top : 56px;
-  background-color: #fff;
+.content {
+  margin-top       : 56px;
+  background-color : #fff;
   }
 
 footer {
@@ -133,55 +150,54 @@ footer {
     }
   }
 
-
 .at-view-fade-out.ng-leave {
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  opacity: 1;
+  -webkit-transition-property : opacity;
+  -moz-transition-property    : opacity;
+  -o-transition-property      : opacity;
+  transition-property         : opacity;
+  -webkit-transition-duration : 0.5s;
+  -moz-transition-duration    : 0.5s;
+  -o-transition-duration      : 0.5s;
+  transition-duration         : 0.5s;
+  position                    : absolute;
+  top                         : 0px;
+  left                        : 0px;
+  opacity                     : 1;
   }
 
 .at-view-fade-out.ng-leave-active {
-  opacity: 0;
+  opacity : 0;
   }
 
 .at-view-scale-in.ng-enter {
-  -webkit-transition-property: opacity, -webkit-transform;
-  -moz-transition-property: opacity, -moz-transform;
-  -o-transition-property: opacity, -o-transform;
-  transition-property: opacity, transform;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transform-origin: 50% 50%;
-  -moz-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transform: scale(0, 0);
-  -moz-transform: scale(0, 0);
-  -ms-transform: scale(0, 0);
-  -o-transform: scale(0, 0);
-  transform: scale(0, 0);
-  opacity: 0;
+  -webkit-transition-property : opacity, -webkit-transform;
+  -moz-transition-property    : opacity, -moz-transform;
+  -o-transition-property      : opacity, -o-transform;
+  transition-property         : opacity, transform;
+  -webkit-transition-duration : 0.5s;
+  -moz-transition-duration    : 0.5s;
+  -o-transition-duration      : 0.5s;
+  transition-duration         : 0.5s;
+  -webkit-transform-origin    : 50% 50%;
+  -moz-transform-origin       : 50% 50%;
+  -ms-transform-origin        : 50% 50%;
+  -o-transform-origin         : 50% 50%;
+  transform-origin            : 50% 50%;
+  -webkit-transform           : scale(0, 0);
+  -moz-transform              : scale(0, 0);
+  -ms-transform               : scale(0, 0);
+  -o-transform                : scale(0, 0);
+  transform                   : scale(0, 0);
+  opacity                     : 0;
   }
 
 .at-view-scale-in.ng-enter-active {
-  -webkit-transform: scale(1, 1);
-  -moz-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  -o-transform: scale(1, 1);
-  transform: scale(1, 1);
-  opacity: 1;
+  -webkit-transform : scale(1, 1);
+  -moz-transform    : scale(1, 1);
+  -ms-transform     : scale(1, 1);
+  -o-transform      : scale(1, 1);
+  transform         : scale(1, 1);
+  opacity           : 1;
   }
 
 @import "partials/home";
