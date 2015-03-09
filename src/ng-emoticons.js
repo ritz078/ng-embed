@@ -316,7 +316,7 @@
             };
         }])
 
-        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', '$templateCache', '$compile', function ($filter, $sce, $http, $timeout, $templateCache, $compile) {
+        .directive('ngEmoticons', ['$filter', '$sce', '$http', '$timeout', '$templateCache', function ($filter, $sce, $http, $timeout, $templateCache) {
 
             var TEMPLATE_URL = '';
 
@@ -686,18 +686,18 @@
             };
         }])
 
-        .directive('neHljs', function ($timeout) {
+        .directive('neHljs',['$timeout', function ($timeout) {
             return {
                 restrict: 'AE',
                 link    : function (scope, elem) {
                     $timeout(function () {
                         elem.find('.ne-code').each(function(){
                             hljs.highlightBlock(this);
-                        })
+                        });
                     }, 0);
 
                 }
-            }
-        })
+            };
+        }]);
 
 })();
