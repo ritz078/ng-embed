@@ -1,4 +1,37 @@
 .doc{
   max-width: $max-width;
   margin : 0 auto;
+  overflow: auto;
+  position: relative;
+  .doc-dropdown{
+    position: fixed;
+    margin-top:20px;
+    margin-left:-90px;
+    }
+  ul{
+    margin : 20px 40px;
+    }
+
+  .card{
+    margin-top : 20px;
+    }
+
+  table{
+    border:1px solid #eee;
+    tr{
+      &:nth-child(2n){
+        background-color: #f7f7f7;
+        }
+      td{
+        padding : 10px;
+        border-right: 1px solid #eee;
+        }
+      th{
+        padding-left : 10px !important;
+        font-weight:500;
+        height : 50px !important;
+        border-right:1px solid #eee;
+        }
+      }
+    }
   }

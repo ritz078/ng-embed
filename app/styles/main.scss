@@ -70,7 +70,7 @@ header {
     display : inline-block;
     float   : right;
 
-    a {
+    a,.dropdown {
       display : block;
       float   : right;
       .btn {
@@ -99,16 +99,27 @@ code {
   line-height: normal;
   }
 
+.bgc{
+  background-color: $base-background-color;
+  color: #fff !important;
+  }
+
+
 .title{
   text-align: center;
   padding: 15px;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 2px solid #f4f4f4;
   font-weight: 500;
   margin-bottom : 20px;
+  margin-top : 20px;
+  border-radius:2px;
+  color:$themeColor;
+  text-transform: uppercase;
   }
 
 .title-1{
-  font-weight: 500;
+  font-weight: 600;
+  margin :20px 0;
   }
 
 .color-blue{

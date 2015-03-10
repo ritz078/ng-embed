@@ -40,4 +40,5 @@ angular.module('ngEmoticonsApp')
         redirectTo: '/'
       });
 
+
   }]);
