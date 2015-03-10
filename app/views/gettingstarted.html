@@ -13,10 +13,23 @@
   <highlight-js>
     bower install --save ng-emoticons
   </highlight-js>
+  <span class="fs-title display-block">Load the css files</span>
 
+  <highlight-js>
+    &lt;link rel="stylesheet" href="path/to/ng-emoticons.min.css"/&gt;
+  </highlight-js>
+  <span class="fs-title display-block">Then load the following files</span>
+  <highlight-js>
+    &lt;script src="bower_components/angular/angular.js"&gt;&lt;/script&gt;
+    &lt;script src="bower_components/angular-sanitize/angular-sanitize.js"&gt;&lt;/script&gt;
+    &lt;script src="path/to/ng-emoticons.js"&gt;&lt;/script&gt;
+  </highlight-js>
 
-<highlight-js>
-  &lt;link rel="stylesheet" href="path/to/ng-emoticons.min.css"/&gt;
-</highlight-js>
+  <span class="fs-title display-block">
+    Load 'Emoticons' as a dependency
+  </span>
+  <highlight-js>
+    angular.module('yourAppname', ['ngEmoticons'])
+  </highlight-js>
 </div>
 
