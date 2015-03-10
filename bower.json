@@ -28,7 +28,5 @@
     "angular-sanitize": "1.3.x",
     "highlight-js": "~7.0.1"
   },
-  "devDependencies": {
-    "prism": "git@github.com:LeaVerou/prism.git#gh-pages"
-  }
+  "devDependencies": {}
 }
