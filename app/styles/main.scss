@@ -14,6 +14,11 @@ html {
   overflow         : auto;
   }
 
+a{
+  text-decoration: none;
+  color: $blue-400;
+  }
+
 body {
   background  : $themeColor;
   font-family : $font;
@@ -89,13 +94,32 @@ header {
       }
     }
   }
-
 code {
   font-family : Consolas, Menlo, Monaco, monospace;
+  line-height: normal;
+  }
+
+.title{
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #f4f4f4;
+  font-weight: 500;
+  margin-bottom : 20px;
+  }
+
+.title-1{
+  font-weight: 500;
+  }
+
+.color-blue{
+  color: $blue-500;
+
   }
 
 .hljs{
-  padding : 0;
+  padding : 0 !important;
+  line-height : 1;
+  margin : 20px 0;
   }
 
 .content {

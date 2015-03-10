@@ -1,0 +1,24 @@
+<div class="doc">
+  <span class="title display-block">Basic Usage </span>
+  You can use the filter for basic use. Its features are limited to converting text into
+  <a
+    href="http://www.emoji-cheat-sheet.com/" target="_blank"><span class="color-blue">Emojis</span></a>,
+  <span class="color-blue">Font Smileys</span> and <span class="color-blue">HTML Links</span>.
+  <highlight-js>
+    &lt;div ng-bind-html="variable | emoticons"&gt;&lt;/div&gt;
+  </highlight-js>
+  <span class="title-1">Options </span><br>
+  <highlight-js>
+    emoticons:{
+    link        :true,                      //for coverting urls into anchor tags
+    linkTarget  :'_self'                    //_blank|_self|_parent|_top|framename
+    }
+  </highlight-js>
+
+  <span class="title-1">Example</span>
+  <highlight-js>
+    &lt;div ng-bind-html="variable | emoticons:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
+  </highlight-js>
+
+  <span class="title display-block">Advanced Usage</span>
+</div>

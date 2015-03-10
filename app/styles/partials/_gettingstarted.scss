@@ -1,17 +1,9 @@
 .gs{
   max-width: $max-width;
   margin : 0 auto;
-  h2{
-    text-align: center;
-    padding: 15px;
-    border-bottom: 1px solid #f4f4f4;
-    font-weight: 500;
-    }
-  h3{
-    text-align: left;
-    padding: 15px;
-    border-bottom: 1px solid #f4f4f4;
-    font-weight: 500;
+
+  span.display-block{
+    padding : 15px 0;
     }
 
   }
