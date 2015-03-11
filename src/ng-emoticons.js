@@ -329,7 +329,7 @@
                                             scope.video.title = ytData.snippet.title;
                                             scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
                                             scope.video.description = (ytData.snippet.description.trunc(250, true)).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
-                                            scope.video.rawDescription = scope.video.description;
+                                            scope.video.rawDescription = ytData.snippet.description;
                                             scope.video.views = ytData.statistics.viewCount;
                                             scope.video.likes = ytData.statistics.likeCount;
                                             scope.video.uploader = ytData.snippet.channelTitle;
