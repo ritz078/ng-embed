@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('ngEmoticonsApp')
-  .service('githubData', ['$q', '$http', function ($q, $http) {
+  .service('emojiList', ['$http', '$q', function ($http, $q) {
     var deferred = $q.defer();
-    this.getRepoData = function () {
-      $http.get('https://api.github.com/repos/ritz078/ngEmoticons/tags')
-        .success(function (d) {
-          deferred.resolve(d);
-        });
+    this.getData = function () {
+      $http.get('../data/data.json').success(function (d) {
+        deferred.resolve(d);
+      });
       return deferred.promise;
-    };
+    }
   }]);

@@ -8,6 +8,7 @@ $font : 'Roboto', sans-serif;
 $themeColor : #3498DB;
 $max-width : 1000px;
 $base-background-color : #3498DB;
+$base-background-color2:#444;
 
 html {
   background-color : #fff;
@@ -136,14 +137,17 @@ code {
 .content {
   margin-top       : 56px;
   background-color : #fff;
+  padding-bottom : 40px;
   }
 
 footer {
-  height           : 200px;
   width            : 100%;
-  background-color : $themeColor;
-  margin-top       : 40px;
+  background-color : $base-background-color2;
   overflow         : auto;
+  div{
+    text-align: center;
+    padding : 20px;
+    }
   }
 
 .typed-cursor {

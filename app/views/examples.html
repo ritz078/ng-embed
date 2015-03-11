@@ -11,7 +11,7 @@
       <dd offset="80" scroll-to="pdf">pdf Viewing and preview embedding</dd>
       <dd offset="80" scroll-to="code">Code Syntax Highlighting</dd>
       <dd offset="80" scroll-to="media">Media files embedding</dd>
-      <dd offset="80" scroll-to="template"></dd>
+      <dd offset="80" scroll-to="template">Custom Template</dd>
     </dl>
   </div>
   <div class="eg-content">
@@ -274,15 +274,18 @@
               <p class="p+ tc-black-1">
                 <highlight-js lang="javascript">
   $scope.options={
-  link      : true,                   //convert links into anchor tags
-  linkTarget  :'_self' ,
-  video     : {
-  embed           : true,
-  width           : null,          //width of embedded player
-  height          : null,          //height of embedded player
-  ytTheme         : 'dark',        //youtube player theme (light/dark)
-  details         : true,
-  ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
+    link      : true,                   //convert links into anchor tags
+    linkTarget  :'_self' ,
+    image     :{
+       embed:true
+      },
+    video     : {
+      embed           : true,
+      width           : null,          //width of embedded player
+      height          : null,          //height of embedded player
+      ytTheme         : 'dark',        //youtube player theme (light/dark)
+      details         : true,
+      ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
   }};
 
   $scope.mediaExample="Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
@@ -301,7 +304,7 @@
     </div>
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="Custom template">Custom Template</div>
+      <div class="title bgc-blue-400 tc-white-1" id="template">Custom Template</div>
       <div class="tc-black-1">
         <div>
           <lx-tabs>
