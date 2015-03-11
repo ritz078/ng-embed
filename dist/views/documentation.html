@@ -1,0 +1,251 @@
+<div class="doc">
+  <div class="doc-sidebar">
+    <dl>
+      <dt scroll-to="basic" offset="80">Basic Usage</dt>
+      <dd scroll-to="basic-options" offset="80">Options</dd>
+      <dd scroll-to="basic-usage" offset="80">Usage Example</dd>
+    </dl>
+
+    <dl>
+      <dt scroll-to="adv" offset="80">Advanced Usage</dt>
+      <dd offset="80" scroll-to="adv">Features</dd>
+      <dd offset="80" scroll-to="adv-directive">Directive</dd>
+      <dd offset="80" scroll-to="adv-directives-attr">Attributes</dd>
+      <dd offset="80" scroll-to="adv-options">Options</dd>
+      <dd offset="80" scroll-to="adv-template">Default Template</dd>
+      <dd offset="80" scroll-to="adv-variables">template variables</dd>
+    </dl>
+
+  </div>
+  <div class="doc-content">
+    <span class="title display-block" id="basic">Basic Usage </span>
+    You can use the filter for basic use. Its features are limited to converting text into
+    <a
+      href="http://www.emoji-cheat-sheet.com/" target="_blank"><span class="color-blue">Emojis</span></a>,
+    <span class="color-blue">Font Smileys</span> and <span class="color-blue">HTML Links</span>.
+    <highlight-js>
+      &lt;div ng-bind-html="variable | emoticons"&gt;&lt;/div&gt;
+    </highlight-js>
+    <span class="title-1" id="basic-options">Options </span><br>
+    <highlight-js>
+      emoticons:{
+      link        :true,                      //for coverting urls into anchor tags
+      linkTarget  :'_self'                    //_blank|_self|_parent|_top|framename
+      }
+    </highlight-js>
+
+    <span class="title-1" id="basic-usage">Usage Example</span>
+    <highlight-js>
+      &lt;div ng-bind-html="variable | emoticons:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
+    </highlight-js>
+
+    <span class="title display-block" id="adv">Advanced Usage</span>
+    There is a directive that supports many features in additions to the features supported by the filter. These features
+    include :
+
+    <ul>
+      <li>Font Smileys and Emoticons</li>
+      <li>Youtube and Vimeo video embedding</li>
+      <li>web supported media embedding (mp3,mp4,ogg)</li>
+      <li>PDF viewing</li>
+      <li>Code highlighting (uses highlight.js)</li>
+      <li>URL Links</li>
+
+    </ul>
+
+    And is fully customizable<br>
+
+    <div class="title-1" id="adv-directive">Directive</div>
+    <highlight-js>
+      &lt;ng-emoticons emoticons-data="text" emoticons-template-url="template.html" emoticons-options="options"/&gt;
+    </highlight-js>
+    <div class="title-1" id="adv-directives-attr">Details about the Attributes</div>
+    <table class="data-table data-table--has-primary data-table--has-secondary">
+      <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>emoticons-data</td>
+        <td>The scope variable that contains the text string to be processed</td>
+      </tr>
+      <tr>
+        <td>emoticons-options</td>
+        <td>The scope variable that contains the options object (mandatory)</td>
+      </tr>
+      <tr>
+        <td>emoticons-template</td>
+        <td>User defined template for the processed text</td>
+      </tr>
+      </thead>
+    </table>
+
+    <div class="title-1" id="adv-options">Options</div>
+    <highlight-js class="js">
+      angular.module('yourAppName',['ngEmoticons'])
+
+      .controller('yourControllerName',['$scope',function($scope){
+
+      $scope.options = {
+      link      : true,                   //convert links into anchor tags
+      linkTarget  :'_self'                //_blank|_self|_parent|_top|framename
+
+      pdf       : {
+      embed: true                       //to show pdf viewer.
+      },
+
+      image     : {
+      embed: false                      //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
+      },
+
+      audio     : {
+      embed: true                       //to allow embedding audio player if link to
+      //an mp3/wav link if present.
+      },
+
+      code      : {
+      highlight  : true,               //to allow code highlighting of code written in markdown
+      //requires highligh.js (https://highlightjs.org/) as dependency.
+      lineNumbers: false               //to show line numbers
+      },
+
+      basicVideo: false,                 //to allow embedding of mp4/ogg format videos
+
+      video     : {
+      embed           : false,         //to allow youtube/vimeo video embedding
+      width           : null,          //width of embedded player
+      height          : null,          //height of embedded player
+      ytTheme         : 'dark',        //youtube player theme (light/dark)
+      details         : false,         //to show video details (like title, description etc.)
+      ytAuthKey       : null           //youtube auth key required in case details is set to true.
+      }
+      };
+      }]);
+    </highlight-js>
+
+    <div class="title-1" id="adv-template">Default template</div>
+
+    <highlight-js>
+      <code ng-non-bindable>
+      &lt;!--====== Main text with emoticons and link ============--&gt;
+
+      &lt;div ng-bind-html="neText" ne-hljs&gt;&lt;/div&gt;
+
+      &lt;!---- Video Embedding code (Youtube and vimeo)------------&gt;
+
+      &lt;div class="ne-video" ng-if="video.host" class="fade"&gt;
+        &lt;div class="ne-video-preview" ng-hide="nePlayVideo"&gt;
+          &lt;div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo"&gt;
+            &lt;img ng-src="{{video.thumbnail}}" alt=""/&gt;
+            &lt;i class="fa fa-play-circle-o"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;div class="ne-video-detail"&gt;
+        &lt;div class="ne-video-title"&gt;
+          &lt;a ng-href="{{video.url}}"&gt;{{video.title}}&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="ne-video-desc"&gt;
+          {{video.description}}
+        &lt;/div&gt;
+        &lt;div class="ne-video-stats"&gt;
+          &lt;span&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; {{video.views}}&lt;/span&gt;
+          &lt;span&gt;&lt;i class="fa fa-heart"&gt;&lt;/i&gt; {{video.likes}}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+        &lt;div class="ne-video-player" ng-if="nePlayVideo"&gt;
+          &lt;iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!---video player for mp4 and other html5 player supported videos----&gt;
+
+      &lt;div class="ne-video" ng-if="video.basic"&gt;
+        &lt;div class="ne-video-player"&gt;
+          &lt;div class="player"&gt;
+            &lt;video ng-src="{{video.basic}}" controls&gt;&lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- image preview code (gif|jpg|jpeg|tiff|png|svg|webp) ---&gt;
+
+      &lt;div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]"
+      ng-if="image.url"&gt;
+        &lt;div class="ne-image-wrapper"&gt;
+          &lt;img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="ne-pdf" ng-if="pdf.url"&gt;
+        &lt;div class="ne-pdf-preview" ng-hide="neShowPdf"&gt;
+          &lt;div class="ne-pdf-icon"&gt;
+            &lt;i class="fa fa-file-pdf-o"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+          &lt;div class="ne-pdf-detail" &gt;
+          &lt;div class="ne-pdf-title"&gt;
+            &lt;a href=""&gt;{{pdf.url}}&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="ne-pdf-view"&gt;
+            &lt;button&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt; &lt;a ng-href="{{pdf.url}}" target="_blank"&gt;Download&lt;/a&gt;&lt;/button&gt;
+            &lt;button ng-click="neShowPdf=!neShowPdf"&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; View PDF&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!--====== pdf viewer =========--&gt;
+
+        &lt;div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf"&gt;
+          &lt;iframe ng-src="{{pdf.url}}" frameBorder="0"&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!--===== audio player ===========--&gt;
+
+      &lt;div class="ne-audio" ng-if="audio.url"&gt;
+        &lt;audio ng-src="{{audio.url}}" controls&gt;&lt;/audio&gt;
+      &lt;/div&gt;
+      </code>
+    </highlight-js>
+
+    <p> You can make your custom template and use it and even change the styling of the default template by
+      changing the classes. I am giving you the default template so that you are not confused while making your
+      own template and properly know the class names if you want to change the styling.</p>
+    <p>There are certain video details variable that are available for the template. Its structure is given below.</p>
+
+    <div class="title-1" id="adv-variables">Variables accessible in the template</div>
+    <highlight-js class="javascript">
+      var video={
+          host            :String,             // youtube/vimeo
+          title           :String,             // Title of the video
+          thumbnail       :String,             // Url of the video thumbnail
+          description     :String,             // Description of the video truncating after 250 characters replacing linebreak (especially for vimeo)
+          rawDescription  :String,             // Description of the video as sent by the server
+          views           :Number,             // Number of video views
+          likes           :Number,             // No. of likes
+          uploader        :String              // username of video uploader
+          uploaderPage    :String              // url of uploader's page
+          uploadDate      :Date,               // Date of video upload
+          url             :String,             // video url
+          embedSrc        :String,             // video embed url
+          width           :Number,
+          height          :Number              // dimensions of the embedded video
+      }
+
+      var image={
+          url             :String
+      }
+
+      var audio={
+          url             :String
+      }
+
+      var pdf={
+          url             :String
+      }
+    </highlight-js>
+
+
+  </div>
+
+
+</div>

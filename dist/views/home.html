@@ -1,0 +1,88 @@
+<div class="home">
+  <div class="h-banner">
+    <span class="h-title h-title-wide">
+     An AngularJS module to convert ordinary text into <span class="h-typed"></span>
+    </span>
+    <span class="h-title h-title-medium">
+     Convert ordinary text into <span class="h-typed"></span>
+    </span>
+    <div class="h-title h-title-small">
+      text into <span class="h-typed"></span>
+    </div>
+    <a href="https://github.com/ritz078/ngEmoticons">
+      <button class="btn btn--xl btn--white btn--raised" lx-ripple>Contribute on Github</button>
+    </a>
+    <span class="h-version" lx-tooltip="Master Branch" tooltip-position="bottom">v 1.1.3</span>
+  </div>
+  <div class="h-contribute">
+  </div>
+  <div class="h-features">
+    <h3>Features</h3>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-smile-o"></i>
+        <span>Font Smiley Support</span>
+        Use the font smileys by using familiar codes like :) :/ :( etc. You can easily change the color of those smileys.
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-heart"></i>
+        <span>Emojis' Support</span>
+        They were everywhere so here they come. The most widely used emoji set (enhanced for retina display)
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-code"></i>
+        <span>Code syntax highlighting</span>
+        Get inline code syntax highlighting using the code's markdown syntax with customizable themes.
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-youtube"></i>
+        <span>Youtube/vimeo embedding</span>
+        Your simple youtube/vimeo links are automatically converted into embedded video with all the video details.
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-external-link"></i>
+        <span>Text to HTML links</span>
+        Links from the text are converted into html anchor tags automatically.
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-file-pdf-o"></i>
+        <span>PDF viewing</span>
+        The pdf viewing frame loads just after the text (if pdf link present) and makes it easy to view w/o downloading.
+
+      </div>
+    </div>
+    <div class="tc-black-1 mt++" flex-container="row" flex-gutter="30">
+      <div flex-item="6">
+        <i class="fa fa-file-video-o"></i>
+        <span>Multimedia File (Video+Audio+Images) embed</span>
+        All html5 supported multimedia files automaticall load in their respective media players.See <a href="#/examples">examples</a>.
+
+      </div>
+      <div flex-item="6">
+        <i class="fa fa-gears"></i>
+        <span>Fully Customizable</span>
+        You have full control on everything.
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $(".h-typed").typed({
+      strings   : ["emoji.", "code.", "video.", "image.", "smiley.", "link.", "pdf."],
+      typeSpeed : 0,
+      loop      : true,
+      startDelay: 5,
+      backDelay : 3000
+    });
+  });
+</script>
