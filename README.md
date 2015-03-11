@@ -156,12 +156,12 @@ angular.module('yourAppName',['ngEmoticons'])
 <div class="ne-video" ng-if="video.host" class="fade">
   <div class="ne-video-preview" ng-hide="nePlayVideo">
     <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">
-      <img ng-src="" alt=""/>
+      <img ng-src="{{video.thumbnail}}" alt=""/>
       <i class="fa fa-play-circle-o"></i>
     </div>
     <div class="ne-video-detail">
       <div class="ne-video-title">
-        <a ng-href=""></a>
+        <a ng-href="{{video.url}}">{{video.title}}</a>
       </div>
       <div class="ne-video-desc">
         
@@ -173,8 +173,8 @@ angular.module('yourAppName',['ngEmoticons'])
     </div>
   </div>
   <div class="ne-video-player" ng-if="nePlayVideo">
-    <iframe ng-src="" frameBorder="0" width="" height="" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
+          <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
 </div>
 
 <!---video player for mp4 and other html5 player supported videos-->
@@ -182,7 +182,7 @@ angular.module('yourAppName',['ngEmoticons'])
 <div class="ne-video" ng-if="video.basic">
   <div class="ne-video-player">
     <div class="player">
-      <video ng-src="" controls></video>
+      <video ng-src="{{video.basic}}" controls></video>
     </div>
   </div>
 </div>
@@ -192,7 +192,7 @@ angular.module('yourAppName',['ngEmoticons'])
 <div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]"
      ng-if="image.url">
   <div class="ne-image-wrapper">
-    <img ng-src="" ng-click="neImageLong=!neImageLong" alt=""/>
+    <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/>
   </div>
 </div>
 <div class="ne-pdf" ng-if="pdf.url">
@@ -202,10 +202,10 @@ angular.module('yourAppName',['ngEmoticons'])
     </div>
     <div class="ne-pdf-detail" >
       <div class="ne-pdf-title">
-        <a href=""></a>
+        <a href="">{{pdf.url}}</a>
       </div>
       <div class="ne-pdf-view">
-        <button><i class="fa fa-download"></i> <a ng-href="" target="_blank">Download</a></button>
+        <button><i class="fa fa-download"></i> <a ng-href="{{pdf.url}}" target="_blank">Download</a></button>
         <button ng-click="neShowPdf=!neShowPdf"><i class="fa fa-eye"></i> View PDF</button>
       </div>
     </div>
@@ -214,14 +214,14 @@ angular.module('yourAppName',['ngEmoticons'])
 <!--====== pdf viewer =========-->
 
   <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf">
-    <iframe ng-src="" frameBorder="0"></iframe>
+    <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe>
   </div>
 </div>
 
 <!--===== audio player ===========-->
 
 <div class="ne-audio" ng-if="audio.url">
-  <audio ng-src="" controls></audio>
+  <audio ng-src="{{audi.url}}" controls></audio>
 </div>
 ```
 
@@ -248,11 +248,13 @@ var video={
       height:Number                     // dimensions of the embedded video
     }
 
-    var image={url:String}
+ var image={url:String}
 
-    var audio={url:String}
+ var audio={url:String}
 
-    var pdf={url=String}
+ var pdf={url:String}
+
+ var neText=String                      // processed string with highlighted code and emoticons
 
 ```
 
