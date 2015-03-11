@@ -7,6 +7,14 @@ angular.module('ngEmoticonsApp')
       link    : function (scope,elem,$scope) {
         $timeout(function(){
           var x=elem[0].innerHTML;
+          var r=/(\{{2})([a-z]+)(\}{2})/g;
+          if(x.match(r)){
+            console.log(RegExp.$2);
+          }
+          x.replace(r,function(a,b,c){
+            console.log(c);
+            return '<span ng-non-bindable>'+b+'</span>'
+          })
           elem[0].innerHTML='<pre><code ng-non-bindable>'+x+'</code></pre>';
           hljs.highlightBlock(elem[0]);
         },0);

@@ -301,15 +301,39 @@
     </div>
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="template">Custom Template</div>
+      <div class="title bgc-blue-400 tc-white-1" id="Custom template">Custom Template</div>
       <div class="tc-black-1">
         <div>
           <lx-tabs>
-            <!--<lx-tab heading="Template">-->
-              <!--<p class="p+">-->
-                <!--Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius.-->
-              <!--</p>-->
-            <!--</lx-tab>-->
+            <lx-tab heading="Template">
+              <p class="p+">
+                <highlight-js>
+  <code ng-non-bindable>
+  &lt;div ng-bind-html="neText"&gt;&lt;/div&gt;
+
+    &lt;div class="ne-video"&gt;
+      &lt;div class="card"&gt;
+      &lt;div class="card__img card__img--top"&gt;
+        &lt;img ng-src="{{video.thumbnail}}" style="width:100%;" alt=""/&gt;
+      &lt;/div&gt;
+
+      &lt;div class="p+"&gt;
+        &lt;span class="fs-subhead tc-black-2 display-block"&gt;{{video.title}}&lt;/span&gt;
+
+        &lt;div class="paragraph fs-body-1"&gt;
+        &lt;p&gt;
+          {{video.rawDescription}}
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</code>
+                  </highlight-js>
+
+              </p>
+            </lx-tab>
             <lx-tab heading="HTML">
               <p class="p+">
                 <highlight-js>
@@ -336,7 +360,7 @@
       ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
   }};
 
-  $scope.mediaExample="Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
+  $scope.mediaExample="Naviss credere!Orgia de germanus repressor, gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam https://www.youtube.com/watch?v=QHulaj5ZxbI germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
                 </highlight-js>
               </p>
             </lx-tab>

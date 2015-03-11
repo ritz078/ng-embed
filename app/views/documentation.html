@@ -15,6 +15,7 @@
       <dd offset="80" scroll-to="adv-template">Default Template</dd>
       <dd offset="80" scroll-to="adv-variables">template variables</dd>
     </dl>
+
   </div>
   <div class="doc-content">
     <span class="title display-block" id="basic">Basic Usage </span>
@@ -126,6 +127,7 @@
     <div class="title-1" id="adv-template">Default template</div>
 
     <highlight-js>
+      <code ng-non-bindable>
       &lt;!--====== Main text with emoticons and link ============--&gt;
 
       &lt;div ng-bind-html="neText" ne-hljs&gt;&lt;/div&gt;
@@ -202,6 +204,7 @@
       &lt;div class="ne-audio" ng-if="audio.url"&gt;
         &lt;audio ng-src="{{audio.url}}" controls&gt;&lt;/audio&gt;
       &lt;/div&gt;
+      </code>
     </highlight-js>
 
     <p> You can make your custom template and use it and even change the styling of the default template by
