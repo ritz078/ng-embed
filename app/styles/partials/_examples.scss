@@ -5,6 +5,29 @@
     background-color: #575757;
     height : 100%;
     position: fixed;
+    padding : 20px;
+    dl{
+      margin-bottom : 20px;
+      color:#fff;
+      dt{
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        &:before{
+          content: '\f04b';
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          text-decoration: inherit;
+          margin-right : 10px;
+          }
+        }
+      dd{
+        cursor: pointer;
+        font-size: 13px;
+        padding-left : 40px;
+        }
+      }
     }
   .eg-content{
     font-size: 0.9em;
@@ -15,9 +38,12 @@
     .pad{
       padding : 20px;
       }
-    .hljs{
-      margin : 0 20px;
-      }
+      .ne-code{
+        margin : 20px 0;
+        padding : 20px;
+        }
+
+
     .title{
       margin-top : 0 !important;
       }
@@ -28,4 +54,10 @@
   color: #9d6c19;
   }
 
+.ne-video-desc{
+  font-size: 14px;
+  }
+.card{
+  margin-bottom : 20px;
+  }
 

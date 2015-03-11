@@ -32,6 +32,7 @@ angular.module('ngEmoticonsApp')
     $scope.options={
       link      : true,                   //convert links into anchor tags
       linkTarget  :'_self' ,
+      basicVideo:true,
       video     : {
         embed           : true,
         width           : null,          //width of embedded player
@@ -42,6 +43,11 @@ angular.module('ngEmoticonsApp')
       }
     };
 
+    $scope.pdfEmbed="Naviss credere!Orgia de germanus repressor, gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt https://www.cca.edu/sites/default/files/pdf/08/word-to-pdf.pdf abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam https://vimeo.com/92066734 germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
+
+    $scope.codeExample = '```\n<script></script>\n``` www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079';
+
+    $scope.mediaExample="Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
   }])
   .controller('DocumentationCtrl', ['$scope', '$http', function ($scope, $http) {
 
