@@ -147,7 +147,7 @@
 
             var template = '<div ng-bind-html="neText" ne-hljs></div>' +
                 '<div class="ne-video" ng-if="video.host" class="fade">' +
-                '    <div class="ne-video-preview" ng-hide="nePlayVideo">' +
+                '    <div class="ne-video-preview" ng-hide="nePlayVideo || !(options.video.details)">' +
                 '        <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">' +
                 '            <img ng-src="{{video.thumbnail}}" alt=""/>' +
                 '            <i class="fa fa-play-circle-o"></i>' +
@@ -165,7 +165,7 @@
                 '            </div>' +
                 '        </div>' +
                 '    </div>' +
-                '    <div class="ne-video-player" ng-if="nePlayVideo">' +
+                '    <div class="ne-video-player" ng-if="nePlayVideo || !(options.video.details)">' +
                 '        <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' +
                 '    </div>' +
                 '' +
@@ -342,6 +342,13 @@
 
                                         });
                                 }
+                                else{
+                                    scope.video.width = youtubeDimensions.width;
+                                    scope.video.height = youtubeDimensions.height;
+                                    scope.video.host = 'youtube';
+                                    scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + RegExp.$1 + '?autoplay=0');
+
+                                }
 
                                 return data;  // show only youtube video if both vimeo and youtube videos are present.
                             }
@@ -373,6 +380,12 @@
                                             scope.video.width = vimeoDimensions.width;
                                             scope.video.height = vimeoDimensions.height;
                                         });
+                                }
+                                else{
+                                    scope.video.width = vimeoDimensions.width;
+                                    scope.video.height = vimeoDimensions.height;
+                                    scope.video.host = 'vimeo';
+                                    scope.video.embedSrc=$sce.trustAsResourceUrl('//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0&autoplay=0')
                                 }
                             }
 
