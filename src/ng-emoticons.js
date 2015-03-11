@@ -385,7 +385,7 @@
                                     scope.video.width = vimeoDimensions.width;
                                     scope.video.height = vimeoDimensions.height;
                                     scope.video.host = 'vimeo';
-                                    scope.video.embedSrc=$sce.trustAsResourceUrl('//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0&autoplay=0')
+                                    scope.video.embedSrc=$sce.trustAsResourceUrl('//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0&autoplay=0');
                                 }
                             }
 
