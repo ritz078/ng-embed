@@ -214,6 +214,7 @@
 
             return {
                 restrict   : 'AE',
+                scope:true,
                 templateUrl: function (element, attributes) {
                     return (attributes.emoticonsTemplateUrl || TEMPLATE_URL);
                 },
