@@ -1,0 +1,127 @@
+<div class="eg">
+  <div class="eg-sidebar">
+
+  </div>
+  <div class="eg-content">
+    <h2 class="title">Basic Use Example</h2>
+  <div class="tc-white-1" flex-container="column">
+    <div class="tc-black-1 pad">
+      <div ng-bind-html="text1 | emoticons:{linkTarget:'_blank'}"></div>
+    </div>
+    <div>
+      <lx-tabs>
+        <lx-tab heading="HTML">
+          <p class="p+">
+            <highlight-js>
+      &lt;div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
+            </highlight-js>
+          </p>
+        </lx-tab>
+
+        <lx-tab heading="Javascript">
+          <p class="p+ tc-black-1">
+            <highlight-js lang="javascript">
+      $scope.text=  "Lotus :smile: eleates vix attrahendams luna est.Advenas mori!Fermiums prarere in cubiculum!Cum cacula cantare, omnes stellaesmanifestum azureus, nobilis https://angularjs.org/ acipenseres.Cum orgiamori, omnes rationees <3 experientia alter, regius :heart: mortemes.Devatiospersuadere, tanquam secundus spatii.Heu, barcas!Cedriums observare!A falsis,lacta talis imber. :P Cur eleates peregrinatione?"
+          </highlight-js>
+          </p>
+        </lx-tab>
+      </lx-tabs>
+    </div>
+    <div class="title-1">Result</div>
+
+
+  </div>
+
+    <h2 class="title">Advanced Use Examples</h2>
+
+
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1">Youtube video embed</div>
+      <div class="tc-black-1">
+        <div>
+          <lx-tabs>
+            <lx-tab heading="HTML">
+              <p class="p+">
+                <highlight-js>
+  &lt;ng-emoticons emoticons-data="ytEmbed" emoticons-options="options"/&gt;
+                </highlight-js>
+              </p>
+            </lx-tab>
+
+            <lx-tab heading="Javascript">
+              <p class="p+ tc-black-1">
+                <highlight-js lang="javascript">
+  $scope.options={
+    link      : true,                   //convert links into anchor tags
+    linkTarget  :'_self' ,
+    video     : {
+    embed           : true,
+    width           : null,          //width of embedded player
+    height          : null,          //height of embedded player
+    ytTheme         : 'dark',        //youtube player theme (light/dark)
+    details         : true,
+    ytAuthKey       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0'
+  }};
+                </highlight-js>
+              </p>
+            </lx-tab>
+          </lx-tabs>
+        </div>
+        <div class="title bgc-amber-100 tc-black-1">Result</div>
+        <div class="pad">
+          <ng-emoticons emoticons-data="ytEmbed" emoticons-options="options"/>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!--====== vimeo embed ==========-->
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1">Youtube video embed</div>
+      <div class="tc-black-1">
+        <div>
+          <lx-tabs>
+            <lx-tab heading="HTML">
+              <p class="p+">
+                <highlight-js>
+                  &lt;ng-emoticons emoticons-data="vimeoEmbed" emoticons-options="options"/&gt;
+                </highlight-js>
+              </p>
+            </lx-tab>
+
+            <lx-tab heading="Javascript">
+              <p class="p+ tc-black-1">
+                <highlight-js lang="javascript">
+                  $scope.options={
+                  link      : true,                   //convert links into anchor tags
+                  linkTarget  :'_self' ,
+                  video     : {
+                  embed           : true,
+                  width           : null,          //width of embedded player
+                  height          : null,          //height of embedded player
+                  ytTheme         : 'dark',        //youtube player theme (light/dark)
+                  details         : true,
+                  ytAuthKey       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0'
+                  }};
+                </highlight-js>
+              </p>
+            </lx-tab>
+          </lx-tabs>
+        </div>
+        <div class="title bgc-amber-100 tc-black-1">Result</div>
+        <div class="pad">
+          <ng-emoticons emoticons-data="vimeoEmbed" emoticons-options="options"/>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

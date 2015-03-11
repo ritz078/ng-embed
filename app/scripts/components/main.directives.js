@@ -8,7 +8,6 @@ angular.module('ngEmoticonsApp')
         $timeout(function(){
           var x=elem[0].innerHTML;
           elem[0].innerHTML='<pre><code ng-non-bindable>'+x+'</code></pre>';
-          console.log(x);
           hljs.highlightBlock(elem[0]);
         },0);
       }

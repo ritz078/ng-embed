@@ -1,0 +1,31 @@
+.eg{
+  width : 100%;
+  .eg-sidebar{
+    width : 280px;
+    background-color: #575757;
+    height : 100%;
+    position: fixed;
+    }
+  .eg-content{
+    font-size: 0.9em;
+    margin-left : 280px;
+    max-width : 800px;
+    color:#000 !important;
+    padding-left:20px;
+    .pad{
+      padding : 20px;
+      }
+    .hljs{
+      margin : 0 20px;
+      }
+    .title{
+      margin-top : 0 !important;
+      }
+    }
+  }
+
+.icon-emoticon{
+  color: #9d6c19;
+  }
+
+

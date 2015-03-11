@@ -133,74 +133,74 @@
       &lt;!---- Video Embedding code (Youtube and vimeo)------------&gt;
 
       &lt;div class="ne-video" ng-if="video.host" class="fade"&gt;
-      &lt;div class="ne-video-preview" ng-hide="nePlayVideo"&gt;
-      &lt;div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo"&gt;
-      &lt;img ng-src="{{video.thumbnail}}" alt=""/&gt;
-      &lt;i class="fa fa-play-circle-o"&gt;&lt;/i&gt;
+        &lt;div class="ne-video-preview" ng-hide="nePlayVideo"&gt;
+          &lt;div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo"&gt;
+            &lt;img ng-src="{{video.thumbnail}}" alt=""/&gt;
+            &lt;i class="fa fa-play-circle-o"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+        &lt;div class="ne-video-detail"&gt;
+        &lt;div class="ne-video-title"&gt;
+          &lt;a ng-href="{{video.url}}"&gt;{{video.title}}&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="ne-video-desc"&gt;
+          {{video.description}}
+        &lt;/div&gt;
+        &lt;div class="ne-video-stats"&gt;
+          &lt;span&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; {{video.views}}&lt;/span&gt;
+          &lt;span&gt;&lt;i class="fa fa-heart"&gt;&lt;/i&gt; {{video.likes}}&lt;/span&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class="ne-video-detail"&gt;
-      &lt;div class="ne-video-title"&gt;
-      &lt;a ng-href="{{video.url}}"&gt;{{video.title}}&lt;/a&gt;
       &lt;/div&gt;
-      &lt;div class="ne-video-desc"&gt;
-      {{video.description}}
-      &lt;/div&gt;
-      &lt;div class="ne-video-stats"&gt;
-      &lt;span&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; {{video.views}}&lt;/span&gt;
-      &lt;span&gt;&lt;i class="fa fa-heart"&gt;&lt;/i&gt; {{video.likes}}&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="ne-video-player" ng-if="nePlayVideo"&gt;
-      &lt;iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-      &lt;/div&gt;
+        &lt;div class="ne-video-player" ng-if="nePlayVideo"&gt;
+          &lt;iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
 
       &lt;!---video player for mp4 and other html5 player supported videos----&gt;
 
       &lt;div class="ne-video" ng-if="video.basic"&gt;
-      &lt;div class="ne-video-player"&gt;
-      &lt;div class="player"&gt;
-      &lt;video ng-src="{{video.basic}}" controls&gt;&lt;/video&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
+        &lt;div class="ne-video-player"&gt;
+          &lt;div class="player"&gt;
+            &lt;video ng-src="{{video.basic}}" controls&gt;&lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
 
       &lt;!-- image preview code (gif|jpg|jpeg|tiff|png|svg|webp) ---&gt;
 
       &lt;div ng-init="neImageLong=false" ng-class="{false:'ne-image', true:'ne-image ne-image-long'}[neImageLong]"
       ng-if="image.url"&gt;
-      &lt;div class="ne-image-wrapper"&gt;
-      &lt;img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/&gt;
-      &lt;/div&gt;
+        &lt;div class="ne-image-wrapper"&gt;
+          &lt;img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="ne-pdf" ng-if="pdf.url"&gt;
-      &lt;div class="ne-pdf-preview" ng-hide="neShowPdf"&gt;
-      &lt;div class="ne-pdf-icon"&gt;
-      &lt;i class="fa fa-file-pdf-o"&gt;&lt;/i&gt;
-      &lt;/div&gt;
-      &lt;div class="ne-pdf-detail" &gt;
-      &lt;div class="ne-pdf-title"&gt;
-      &lt;a href=""&gt;{{pdf.url}}&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="ne-pdf-view"&gt;
-      &lt;button&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt; &lt;a ng-href="{{pdf.url}}" target="_blank"&gt;Download&lt;/a&gt;&lt;/button&gt;
-      &lt;button ng-click="neShowPdf=!neShowPdf"&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; View PDF&lt;/button&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
+        &lt;div class="ne-pdf-preview" ng-hide="neShowPdf"&gt;
+          &lt;div class="ne-pdf-icon"&gt;
+            &lt;i class="fa fa-file-pdf-o"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+          &lt;div class="ne-pdf-detail" &gt;
+          &lt;div class="ne-pdf-title"&gt;
+            &lt;a href=""&gt;{{pdf.url}}&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="ne-pdf-view"&gt;
+            &lt;button&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt; &lt;a ng-href="{{pdf.url}}" target="_blank"&gt;Download&lt;/a&gt;&lt;/button&gt;
+            &lt;button ng-click="neShowPdf=!neShowPdf"&gt;&lt;i class="fa fa-eye"&gt;&lt;/i&gt; View PDF&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
 
       &lt;!--====== pdf viewer =========--&gt;
 
-      &lt;div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf"&gt;
-      &lt;iframe ng-src="{{pdf.url}}" frameBorder="0"&gt;&lt;/iframe&gt;
-      &lt;/div&gt;
+        &lt;div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf"&gt;
+          &lt;iframe ng-src="{{pdf.url}}" frameBorder="0"&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
 
       &lt;!--===== audio player ===========--&gt;
 
       &lt;div class="ne-audio" ng-if="audio.url"&gt;
-      &lt;audio ng-src="{{audio.url}}" controls&gt;&lt;/audio&gt;
+        &lt;audio ng-src="{{audio.url}}" controls&gt;&lt;/audio&gt;
       &lt;/div&gt;
     </highlight-js>
 
