@@ -30,7 +30,7 @@ angular.module('ngEmoticonApp', ['ngEmoticons', 'ngAnimate', 'ngRoute'])
                 'lineNumbers': true
             },
             'video'     : {
-                'embed'    : true,
+                'embed'    : false,
                 'width'    : 800,
                 'ytTheme'  : 'light',
                 'details'  : true,
@@ -40,7 +40,7 @@ angular.module('ngEmoticonApp', ['ngEmoticons', 'ngAnimate', 'ngRoute'])
                 'embed': true
             }
         };
-        $scope.text1 = '```\n<script></script>\n``` https://www.youtube.com/watch?v=75jLXRGwmvg http://www.w3schools.com/html/horse.mp3 www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! https://channeli.in/notices/userfiles/files/Scan10003%20(2).PDF Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079';
+        $scope.text1 = '```\n<script></script>\n``` http://techslides.com/demos/sample-videos/small.mp4 http://www.w3schools.com/html/horse.mp3 www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! https://channeli.in/notices/userfiles/files/Scan10003%20(2).PDF Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079';
         $scope.text2 = 'https://vimeo.com/92066734 http://www.w3schools.com/html/horse.mp3 www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! https://channeli.in/notices/userfiles/files/Scan10003%20(2).PDF Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079';
     });
 

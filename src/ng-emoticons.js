@@ -389,14 +389,14 @@
                                 }
                             }
 
-                            if (options.basicVideo) {
+                            return data;
+                        },
 
-                                var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
+                        embedBasic:function(data){
+                            var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
 
-                                if (data.match(f)) {
-                                    scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
-                                }
-
+                            if (data.match(f)) {
+                                scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
                             }
 
                             return data;
@@ -507,6 +507,10 @@
                             x = videoProcess.embed(x, options);
                         }
 
+                    }
+
+                    if(options.basicVideo){
+                        x=videoProcess.embedBasic(x);
                     }
 
                     if (options.audio.embed) {
