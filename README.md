@@ -2,10 +2,10 @@
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
 
+[![Join the chat at https://gitter.im/ritz078/ngEmoticons](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmoticons?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Documentation and examples
 --------------------------
-
-[![Join the chat at https://gitter.im/ritz078/ngEmoticons](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmoticons?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * [Full Documentation](http://ritz078.github.io/ngEmoticons/#/documentation)
 * [Examples](http://ritz078.github.io/ngEmoticons/#/examples)
