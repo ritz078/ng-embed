@@ -11,15 +11,17 @@ Documentation and examples
 Features
 --------
 
-* Converts emoticon text codes into emoticons.
+* Converts emoticon text codes into emoticons :smile: , :heart:
 * Finds links in text input and turns them into html links.
 * Youtube and Vimeo video embedding
-* web supported media embedding (mp3,mp4,ogg)
-* PDF viewing with preview and then the actual pdf in a frame
-* Code highlighting (uses highlight.js)
+* HTML5 player supported media embedding (mp3,mp4,ogg)
+* PDF viewing with preview and then the actual pdf in a frame.
+* Inline Code Syntax highlighting (uses highlight.js)
+
+![screen](demo/ngEmoticons.jpg)
 
 Dependencies
------------
+------------
 + AngularJs 1.2 or above
 + angular-sanitize 1.2 or above
 + [highlight.js](https://highlightjs.org/) (Optional if code highlighting required)
