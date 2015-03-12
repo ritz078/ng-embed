@@ -4,12 +4,12 @@
   "dependencies": {
     "jquery": "~1.11.1",
     "angular": "~1.3.14",
-    "ng-emoticons": "~1.1.3",
     "angular-route": "~1.3.14",
     "bourbon": "~4.2.1",
     "lumx": "~0.3.20",
     "typed.js": "*",
     "angular-animate": "~1.3.14",
-    "ngScrollTo": "https://github.com/iameugenejo/ngScrollTo"
+    "ngScrollTo": "https://github.com/iameugenejo/ngScrollTo",
+    "ng-emoticons": "canary"
   }
 }
