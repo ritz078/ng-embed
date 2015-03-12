@@ -1,4 +1,4 @@
-![Imgur](http://i.imgur.com/VZTXbW6.jpg)
+![Imgur](http://i.imgur.com/vqOqcwf.png)
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
 
@@ -19,6 +19,7 @@ Features
 * HTML5 player supported media embedding (mp3,mp4,ogg)
 * PDF viewing with preview and then the actual pdf in a frame.
 * Inline Code Syntax highlighting (uses highlight.js)
+
 
 ![screen](demo/ngEmoticons.jpg)
 
