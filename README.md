@@ -1,6 +1,6 @@
 ![Imgur](http://i.imgur.com/VZTXbW6.jpg)
 
-An AngularJS filter and directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
+An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
 
 Documentation and examples
 --------------------------
@@ -64,12 +64,6 @@ Version 2.0.0
 * media embedding added
 * pdf viewing added
 
-
-Version 1.1.0
--------------
-
-* Emoji support added.
-* Converts links into anchor tags.
 
 Older releases are listed [here](RELEASES.md)
 
