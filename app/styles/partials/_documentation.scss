@@ -6,6 +6,9 @@
     background-color: #555;
     height : 100%;
     padding : 20px;
+    @include media-query(portable){
+      display: none;
+      }
     dl{
       margin-bottom : 20px;
       color:#fff;
@@ -32,6 +35,9 @@
   .doc-content{
     margin-left : 280px;
     padding : 0 20px;
+    @include media-query(portable){
+      margin : 0 auto;
+      }
     .doc-dropdown{
       position: fixed;
       margin-top:20px;
