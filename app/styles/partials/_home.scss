@@ -12,7 +12,7 @@
       font-size   : 35px;
       display     : block;
       width       : 900px;
-      margin      : 120px auto 0 auto;
+      margin      : 70px auto 0 auto;
       color       : #fff;
       font-weight : lighter;
       @include media-query(portable){
@@ -54,7 +54,7 @@
       display         : table;
       text-decoration : none;
       margin          : 0 auto;
-      margin-top      : 80px;
+      margin-top      : 50px;
       .btn {
 
         display : block;
@@ -65,6 +65,10 @@
       color: #fff;
       margin: 10px auto;
       text-align: center;
+      }
+    .h-social{
+      display: table;
+      margin : 30px auto;
       }
 
     }
