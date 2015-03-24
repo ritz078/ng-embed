@@ -2,13 +2,13 @@
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
 
-[![Join the chat at https://gitter.im/ritz078/ngEmoticons](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmoticons?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/ritz078/ngEmbed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmbed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Documentation and examples
 --------------------------
 
-* [Full Documentation](http://ritz078.github.io/ngEmoticons/#/documentation)
-* [Examples](http://ritz078.github.io/ngEmoticons/#/examples)
+* [Full Documentation](http://ritz078.github.io/ngEmbed/#/documentation)
+* [Examples](http://ritz078.github.io/ngEmbed/#/examples)
 
 Features
 --------
@@ -21,7 +21,7 @@ Features
 * Inline Code Syntax highlighting (uses highlight.js)
 
 
-![screen](demo/ngEmoticons.jpg)
+![screen](demo/ngEmbed.jpg)
 
 Dependencies
 ------------
@@ -35,28 +35,28 @@ Getting Started
 
 Install through bower
 ```html
-bower install --save ng-emoticons
+bower install --save ng-embed
 ```
 Install through npm
 ```html
-npm install --save ng-emoticons
+npm install --save ng-embed
 ```
 
 load css files
 ```html
- <link rel="stylesheet" href="path/to/ng-emoticons.min.css"/>
+ <link rel="stylesheet" href="path/to/ng-embed.min.css"/>
 ```
 
  Then load the following files
 ```html
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="path/to/ng-emoticons.js"></script>
+<script src="path/to/ng-embed.js"></script>
 ```
 
 Load 'Emoticons' as a dependency
 ```javascript
-angular.module('yourAppname', ['ngEmoticons'])
+angular.module('yourAppname', ['ngEmbed'])
 ```
 
 Version 2.0.0
@@ -74,12 +74,12 @@ Contributing
 ------------
 
 * If you are Interested in contributing to this project, you are most welcome.
-* If it is a bug-fix/improvement, first report it at [issues](https://github.com/ritz078/ngEmoticons/issues)
+* If it is a bug-fix/improvement, first report it at [issues](https://github.com/ritz078/ngEmbed/issues)
 * Discuss with us in detail about your issue/improvement
 * Get the issue allotted.
 * If you are contributing a bug-fix or a very minor addition, feel free to do a pull request on the master # branch.
 * If you are unsure about the bug/improvement, create an issue to discuss.
-* Report bugs @ [issues](https://github.com/ritz078/ngEmoticons/issues)
+* Report bugs @ [issues](https://github.com/ritz078/ngEmbed/issues)
 
 
 License

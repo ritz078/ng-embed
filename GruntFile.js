@@ -7,14 +7,17 @@ module.exports = function(grunt) {
                 compress: true
             },
             target: {
-                src: 'src/ng-emoticons.js',
-                dest: 'dist/ng-emoticons.min.js'
+                src: 'src/ng-embed.js',
+                dest: 'dist/ng-embed.min.js'
             }
         },
         cssmin:{
+            options:{
+              report:'gzip'
+            },
         	minify:{
-        		src:'src/ng-emoticons.css',
-        		dest:'dist/ng-emoticons.min.css'
+        		src:'src/ng-embed.css',
+        		dest:'dist/ng-embed.min.css'
         	}
         },
         clean:{
@@ -36,7 +39,7 @@ module.exports = function(grunt) {
                 unused: true
             },
             target: {
-                src: 'src/ng-emoticons.js'
+                src: 'src/ng-embed.js'
 
             }
         }
