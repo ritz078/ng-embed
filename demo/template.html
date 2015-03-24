@@ -62,5 +62,8 @@
 <div class="ne-audio" ng-if="audio.url">
     <audio ng-src="{{audio.url}}" controls></audio>
 </div>
+<div ng-if="tweets" ng-repeat="tweet in tweets">
+    <div ng-bind-html="tweet"></div>
+</div>
 
 

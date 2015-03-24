@@ -4,7 +4,8 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 mangle: true,
-                compress: true
+                compress: true,
+                drop_console:true
             },
             target: {
                 src: 'src/ng-embed.js',
@@ -36,7 +37,8 @@ module.exports = function(grunt) {
                 eqeqeq: false,
                 curly: true,
                 undef: false,
-                unused: true
+                unused: true,
+                loopfunc:true
             },
             target: {
                 src: 'src/ng-embed.js'
