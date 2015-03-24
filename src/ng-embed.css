@@ -179,6 +179,11 @@ code.has-numbering {
     border: 0;
 }
 
+.ne-audio iframe{
+    width: 100%;
+    border: 0;
+}
+
 .ne-video:hover, .ne-image:hover {
     box-shadow : 0px 2px 2px 0 rgba(0, 0, 0, 0.26);
     }

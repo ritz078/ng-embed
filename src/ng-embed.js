@@ -267,6 +267,7 @@
                     scope.pdf = {};
                     scope.audio = {};
                     scope.videoServices=[];
+                    scope.audioServices=[];
 
                     var options = {
                         link      : true,
@@ -315,7 +316,19 @@
                         dailymotionEmbed:true,
                         tedEmbed:true,
                         dotsubEmbed:true,
-                        liveleakEmbed:true
+                        liveleakEmbed:true,
+                        soundCloudEmbed  : true,
+                        soundCloudOptions: {
+                            height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
+                            autoPlay    : false,
+                            hideRelated : false,
+                            showComments: true,
+                            showUser    : true,
+                            showReposts : false,
+                            visual      : false,         //Show/hide the big preview image
+                            download    : false          //Show/Hide download buttons
+                        },
+                        spotifyEmbed:true
                     };
 
                     function extendDeep(dst) {
@@ -569,6 +582,34 @@
                                 scope.audio.url = $sce.trustAsResourceUrl(RegExp.$1);
                             }
                             return str;
+                        },
+
+                        soundcloudEmbed:function(str,opts){
+                            var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
+                            var matches = str.match(scRegex) ? str.match(scRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + matches[i] + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
+                                    scope.videoServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        spotifyEmbed:function(str){
+                            var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
+                            var matches = str.match(spotifyRegex) ? str.match(spotifyRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + matches[i].split('/')[2] + '" height="80"></iframe>');
+                                    scope.audioServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
                         }
                     };
 
@@ -709,6 +750,8 @@
                     x=options.tedEmbed?videoProcess.tedEmbed(x,options):x;
                     x=options.dotsubEmbed?videoProcess.dotsubEmbed(x,options):x;
                     x=options.liveleakEmbed?videoProcess.liveleakEmbed(x,options):x;
+                    x=options.soundCloudEmbed?audioProcess.soundcloudEmbed(x,options):x;
+                    x=options.spotifyEmbed?audioProcess.spotifyEmbed(x):x;
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
