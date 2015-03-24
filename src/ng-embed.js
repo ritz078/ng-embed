@@ -185,7 +185,7 @@
 
             var TEMPLATE_URL = '';
 
-            var template = '<div ng-bind-html="neText" ne-hljs></div>' +
+            var template = '<div ng-bind-html="neText"></div>' +
                 '<div class="ne-video" ng-if="video.host" class="fade">' +
                 '    <div class="ne-video-preview" ng-hide="nePlayVideo || !(options.video.details)">' +
                 '        <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo">' +
@@ -562,20 +562,6 @@
                     }
 
                     scope.neText = $sce.trustAsHtml(x);
-                }
-            };
-        }])
-
-        .directive('neHljs', ['$timeout', function ($timeout) {
-            return {
-                restrict: 'AE',
-                link    : function (scope, elem) {
-                    $timeout(function () {
-                        elem.find('.ne-code').each(function () {
-                            hljs.highlightBlock(this);
-                        });
-                    }, 0);
-
                 }
             };
         }]);
