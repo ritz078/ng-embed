@@ -313,7 +313,9 @@
                         },
                         twitchtvEmbed:true,
                         dailymotionEmbed:true,
-                        tedEmbed:true
+                        tedEmbed:true,
+                        dotsubEmbed:true,
+                        liveleakEmbed:true
                     };
 
                     function extendDeep(dst) {
@@ -527,6 +529,36 @@
                                 }
                             }
                             return str;
+                        },
+
+                        dotsubEmbed:function(str,opts){
+                            var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
+                            var matches = str.match(dotsubRegex) ? str.match(dotsubRegex).getUnique() : null;
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + matches[i].split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
+                                    scope.videoServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        liveleakEmbed:function(str,opts){
+                            var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
+                            var matches = str.match(liveleakRegex) ? str.match(liveleakRegex).getUnique() : null;
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + matches[i].split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
+                                    scope.videoServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
                         }
                     };
 
@@ -675,6 +707,8 @@
                     x=options.twitchtvEmbed?videoProcess.twitchtvEmbed(x,options):x;
                     x=options.dailymotionEmbed?videoProcess.dailymotionEmbed(x,options):x;
                     x=options.tedEmbed?videoProcess.tedEmbed(x,options):x;
+                    x=options.dotsubEmbed?videoProcess.dotsubEmbed(x,options):x;
+                    x=options.liveleakEmbed?videoProcess.liveleakEmbed(x,options):x;
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
