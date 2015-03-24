@@ -24,6 +24,8 @@
     padding     : 1.5em;
     }
 
+
+
 pre {
     position      : relative;
     margin-bottom : 24px;
@@ -166,6 +168,16 @@ code.has-numbering {
 .ne-video video {
     width : 100%;
     }
+
+.ne-video iframe{
+    width: 100%;
+    border: 0;
+}
+
+.ne-video object{
+    width: 100%;
+    border: 0;
+}
 
 .ne-video:hover, .ne-image:hover {
     box-shadow : 0px 2px 2px 0 rgba(0, 0, 0, 0.26);

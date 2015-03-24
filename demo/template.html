@@ -65,5 +65,12 @@
 <div ng-if="tweets" ng-repeat="tweet in tweets">
     <div ng-bind-html="tweet"></div>
 </div>
+<div ng-if="videoServices" class="ne-video" ng-repeat="v in videoServices">
+    <div class="ne-video-player">
+        <div class="player">
+            <div ng-bind-html="v"></div>
+        </div>
+    </div>
+</div>
 
 

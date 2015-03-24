@@ -266,6 +266,7 @@
                     scope.image = {};
                     scope.pdf = {};
                     scope.audio = {};
+                    scope.videoServices=[];
 
                     var options = {
                         link      : true,
@@ -310,6 +311,9 @@
                             //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
                             lang       : 'en'
                         },
+                        twitchtvEmbed:true,
+                        dailymotionEmbed:true,
+                        tedEmbed:true
                     };
 
                     function extendDeep(dst) {
@@ -474,6 +478,55 @@
                             }
 
                             return data;
+                        },
+
+                        twitchtvEmbed:function(str,opts){
+                            var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
+                            var matches = str.match(twitchRegex) ? str.match(twitchRegex).getUnique() : null;
+                            var videoDimensions=videoProcess.calcDimensions(opts);
+                            if(matches){
+                                var i=0;
+                                while(i<matches.length){
+                                    console.log(matches[i]);
+                                    var frame=$sce.trustAsHtml('<object bgcolor="#000000" ' +
+                                    'data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" height="' + videoDimensions.height + '" id="clip_embed_player_flash" type="application/x-shockwave-flash" width="' + videoDimensions.width + '">' + '<param name="movie" value="http://www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />' + '<param name="allowScriptAccess" value="always" />' + '<param name="allowNetworking" value="all" />' + '<param name="allowFullScreen" value="true" />' + '<param name="flashvars" value="channel=' + matches[i].split('/')[1] + '&auto_play=false" />' + '</object>');
+                                    scope.videoServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        dailymotionEmbed:function(str,opts){
+                            var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
+                            var matches = str.match(dmRegex) ? str.match(dmRegex).getUnique() : null;
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + matches[i].split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                    scope.videoServices.push(frame);
+
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        tedEmbed     : function (str, opts) {
+                            var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
+                            var matches = str.match(tedRegex) ? str.match(tedRegex).getUnique() : null;
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe src="http://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
+                                    'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                    scope.videoServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
                         }
                     };
 
@@ -517,7 +570,7 @@
                                         lang.push(m2);
                                     }
 
-                                    return '<pre><code class="ne-code ' + m2 + '">' + hljs.highlightAuto(c, lang).value + '</code></pre>';
+                                    return '<pre><code class="ne-code hljs ' + m2 + '">' + hljs.highlightAuto(c, lang).value + '</code></pre>';
                                 }
                             );
                             return text;
@@ -614,24 +667,14 @@
 
                     }
 
-                    if (options.basicVideo) {
-                        x = videoProcess.embedBasic(x);
-                    }
-
-                    if (options.audio.embed) {
-                        x = audioProcess.embed(x);
-                    }
-
-                    if (options.image.embed) {
-                        x = imageProcess.embed(x);
-                    }
-
-                    if (options.pdf.embed) {
-                        x = pdfProcess.embed(x);
-                    }
-                    if(options.tweetEmbed){
-                        x=tweetProcess.embed(x,options);
-                    }
+                    x=options.basicVideo?videoProcess.embedBasic(x):x;
+                    x=options.audio.embed?audioProcess.embed(x):x;
+                    x=options.image.embed?imageProcess.embed(x):x;
+                    x=options.pdf.embed?pdfProcess.embed(x):x;
+                    x=options.tweetEmbed?tweetProcess.embed(x,options):x;
+                    x=options.twitchtvEmbed?videoProcess.twitchtvEmbed(x,options):x;
+                    x=options.dailymotionEmbed?videoProcess.dailymotionEmbed(x,options):x;
+                    x=options.tedEmbed?videoProcess.tedEmbed(x,options):x;
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
