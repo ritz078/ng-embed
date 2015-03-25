@@ -266,29 +266,29 @@
                     scope.image = {};
                     scope.pdf = {};
                     scope.audio = {};
-                    scope.videoServices=[];
-                    scope.audioServices=[];
-                    scope.codeServices=[];
-                    scope.gist='';
+                    scope.videoServices = [];
+                    scope.audioServices = [];
+                    scope.codeServices = [];
+                    scope.gist = '';
 
                     var options = {
-                        link      : true,
-                        linkTarget: '_self',
-                        pdf       : {
+                        link             : true,
+                        linkTarget       : '_self',
+                        pdf              : {
                             embed: true
                         },
-                        image     : {
+                        image            : {
                             embed: false
                         },
-                        audio     : {
+                        audio            : {
                             embed: true
                         },
-                        code      : {
+                        code             : {
                             highlight  : true,
                             lineNumbers: false
                         },
-                        basicVideo: false,
-                        video     : {
+                        basicVideo       : false,
+                        video            : {
                             embed           : false,
                             width           : null,
                             height          : null,
@@ -297,28 +297,28 @@
                             thumbnailQuality: 'medium',
                             ytAuthKey       : null
                         },
-                        tweetEmbed:true,
-                        tweetOptions:{
+                        tweetEmbed       : true,
+                        tweetOptions     : {
                             //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
-                            maxWidth   : 550,
+                            maxWidth  : 550,
                             //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
-                            hideMedia  : false,
+                            hideMedia : false,
                             //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
                             //will not be displayed when the requested Tweet is in reply to another Tweet.
-                            hideThread : false,
+                            hideThread: false,
                             //Specifies whether the embedded Tweet should be floated left, right, or center in
                             //the page relative to the parent element.Valid values are left, right, center, and none.
                             //Defaults to none, meaning no alignment styles are specified for the Tweet.
-                            align      : 'none',
+                            align     : 'none',
                             //Request returned HTML and a rendered Tweet in the specified.
                             //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
-                            lang       : 'en'
+                            lang      : 'en'
                         },
-                        twitchtvEmbed:true,
-                        dailymotionEmbed:true,
-                        tedEmbed:true,
-                        dotsubEmbed:true,
-                        liveleakEmbed:true,
+                        twitchtvEmbed    : true,
+                        dailymotionEmbed : true,
+                        tedEmbed         : true,
+                        dotsubEmbed      : true,
+                        liveleakEmbed    : true,
                         soundCloudEmbed  : true,
                         soundCloudOptions: {
                             height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
@@ -330,15 +330,17 @@
                             visual      : false,         //Show/hide the big preview image
                             download    : false          //Show/Hide download buttons
                         },
-                        spotifyEmbed:true,
+                        spotifyEmbed     : true,
                         codepenEmbed     : true,
                         codepenHeight    : 300,
                         jsfiddleEmbed    : true,
                         jsfiddleHeight   : 300,
                         jsbinEmbed       : true,
                         jsbinHeight      : 300,
-                        plunkerEmbed:true,
-                        githubgistEmbed:true
+                        plunkerEmbed     : true,
+                        githubgistEmbed  : true,
+                        ideoneEmbed      : true,
+                        ideoneHeight:300
                     };
 
                     function extendDeep(dst) {
@@ -505,14 +507,14 @@
                             return data;
                         },
 
-                        twitchtvEmbed:function(str,opts){
+                        twitchtvEmbed: function (str, opts) {
                             var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
                             var matches = str.match(twitchRegex) ? str.match(twitchRegex).getUnique() : null;
-                            var videoDimensions=videoProcess.calcDimensions(opts);
-                            if(matches){
-                                var i=0;
-                                while(i<matches.length){
-                                    var frame=$sce.trustAsHtml('<object bgcolor="#000000" ' +
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame = $sce.trustAsHtml('<object bgcolor="#000000" ' +
                                     'data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" height="' + videoDimensions.height + '" id="clip_embed_player_flash" type="application/x-shockwave-flash" width="' + videoDimensions.width + '">' + '<param name="movie" value="http://www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />' + '<param name="allowScriptAccess" value="always" />' + '<param name="allowNetworking" value="all" />' + '<param name="allowFullScreen" value="true" />' + '<param name="flashvars" value="channel=' + matches[i].split('/')[1] + '&auto_play=false" />' + '</object>');
                                     scope.videoServices.push(frame);
                                     i++;
@@ -521,14 +523,14 @@
                             return str;
                         },
 
-                        dailymotionEmbed:function(str,opts){
+                        dailymotionEmbed: function (str, opts) {
                             var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
                             var matches = str.match(dmRegex) ? str.match(dmRegex).getUnique() : null;
                             var videoDimensions = videoProcess.calcDimensions(opts);
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + matches[i].split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + matches[i].split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                     scope.videoServices.push(frame);
 
                                     i++;
@@ -537,14 +539,14 @@
                             return str;
                         },
 
-                        tedEmbed     : function (str, opts) {
+                        tedEmbed: function (str, opts) {
                             var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
                             var matches = str.match(tedRegex) ? str.match(tedRegex).getUnique() : null;
                             var videoDimensions = videoProcess.calcDimensions(opts);
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe src="http://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
+                                    var frame = $sce.trustAsHtml('<iframe src="http://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
                                     'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
@@ -553,14 +555,14 @@
                             return str;
                         },
 
-                        dotsubEmbed:function(str,opts){
+                        dotsubEmbed: function (str, opts) {
                             var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
                             var matches = str.match(dotsubRegex) ? str.match(dotsubRegex).getUnique() : null;
                             var videoDimensions = videoProcess.calcDimensions(opts);
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + matches[i].split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + matches[i].split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
                                 }
@@ -568,14 +570,14 @@
                             return str;
                         },
 
-                        liveleakEmbed:function(str,opts){
+                        liveleakEmbed: function (str, opts) {
                             var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
                             var matches = str.match(liveleakRegex) ? str.match(liveleakRegex).getUnique() : null;
                             var videoDimensions = videoProcess.calcDimensions(opts);
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + matches[i].split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
+                                    var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + matches[i].split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
                                     scope.videoServices.push(frame);
                                     i++;
                                 }
@@ -593,13 +595,13 @@
                             return str;
                         },
 
-                        soundcloudEmbed:function(str,opts){
+                        soundcloudEmbed: function (str, opts) {
                             var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
                             var matches = str.match(scRegex) ? str.match(scRegex).getUnique() : null;
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + matches[i] + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + matches[i] + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
                                 }
@@ -607,13 +609,13 @@
                             return str;
                         },
 
-                        spotifyEmbed:function(str){
+                        spotifyEmbed: function (str) {
                             var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
                             var matches = str.match(spotifyRegex) ? str.match(spotifyRegex).getUnique() : null;
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + matches[i].split('/')[2] + '" height="80"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + matches[i].split('/')[2] + '" height="80"></iframe>');
                                     scope.audioServices.push(frame);
                                     i++;
                                 }
@@ -671,34 +673,35 @@
                         }
                     };
 
-                    var tweetProcess={
-                        embed:function(str,opts){
-                            if(!window.twttr){
+                    var tweetProcess = {
+                        embed: function (str, opts) {
+                            if (!window.twttr) {
                                 throw new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js');
                             }
-                            function renderTweet(){
-                                $timeout(function(){
+                            function renderTweet() {
+                                $timeout(function () {
                                     twttr.widgets.load();
-                                },10);
+                                }, 10);
                             }
-                            var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
-                            var matches=str.match(tweetRegex)?str.match(tweetRegex).getUnique():null;
-                            scope.tweets=[];
-                            if(matches){
-                                var i=0;
 
-                                while(i<matches.length){
+                            var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
+                            var matches = str.match(tweetRegex) ? str.match(tweetRegex).getUnique() : null;
+                            scope.tweets = [];
+                            if (matches) {
+                                var i = 0;
+
+                                while (i < matches.length) {
                                     /**
                                      * callback=JSON_CALLBACK is an angular fix to make sure we get the correct mime type of the
                                      * received data.
                                      */
-                                    var url='https://api.twitter.com/1/statuses/oembed.json?omit_script=true&callback=JSON_CALLBACK&url=' + matches[i]+ '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
-                                    $http.jsonp(url).success(function(d){
-                                            scope.tweets.push(d.html);
-                                            if(scope.tweets.length==matches.length){
-                                                renderTweet();
-                                            }
-                                        });
+                                    var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&callback=JSON_CALLBACK&url=' + matches[i] + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
+                                    $http.jsonp(url).success(function (d) {
+                                        scope.tweets.push(d.html);
+                                        if (scope.tweets.length == matches.length) {
+                                            renderTweet();
+                                        }
+                                    });
                                     i++;
                                 }
                             }
@@ -706,14 +709,14 @@
                         }
                     };
 
-                    var codeEmbedProcess={
+                    var codeEmbedProcess = {
                         codepenEmbed: function (str, opts) {
                             var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
                             var matches = str.match(codepenRegex) ? str.match(codepenRegex).getUnique() : null;
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + matches[i].replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + matches[i].replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
                                     scope.codeServices.push(frame);
                                     i++;
                                 }
@@ -727,7 +730,7 @@
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + matches[i] + '/embedded"></iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + matches[i] + '/embedded"></iframe>');
                                     scope.codeServices.push(frame);
                                     i++;
                                 }
@@ -741,7 +744,7 @@
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame=$sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + matches[i] + '/embed?html,js,output">Simple Animation Tests</iframe>');
+                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + matches[i] + '/embed?html,js,output">Simple Animation Tests</iframe>');
                                     scope.codeServices.push(frame);
                                     i++;
                                 }
@@ -749,32 +752,46 @@
                             return str;
                         },
 
-                        plunkerEmbed:function(str,opts){
-                            var plnkrRegex=/plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
-                            var matches=str.match(plnkrRegex)?str.match(plnkrRegex).getUnique():null;
+                        plunkerEmbed: function (str, opts) {
+                            var plnkrRegex = /plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
+                            var matches = str.match(plnkrRegex) ? str.match(plnkrRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var idMatch = (matches[i].indexOf('?') === -1) ? (matches[i].split('/')[2]) : (matches[i].split('/')[2].split('?')[0]);
+                                    var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
+                                    scope.codeServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        githubgistEmbed: function (str) {
+                            var gistRegex = /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
+                            var matches = str.match(gistRegex) ? str.match(gistRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    scope.gist = matches[i].split('/')[2];
+                                    i++;
+                                }
+                            }
+
+                            return str;
+                        },
+
+                        ideoneEmbed:function(str,opts){
+                            var ideoneRegex=/ideone.com\/[a-zA-Z0-9]{6}/gi;
+                            var matches=str.match(ideoneRegex)?str.match(ideoneRegex).getUnique():null;
                             if(matches){
                                 var i=0;
                                 while(i<matches.length){
-                                    var idMatch=(matches[i].indexOf('?')===-1)?(matches[i].split('/')[2]):(matches[i].split('/')[2].split('?')[0]);
-                                    var frame=$sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/'+idMatch+'" height="'+opts.jsbinHeight+'"></iframe>');
+                                    var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+matches[i].split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
                                     scope.codeServices.push(frame);
                                     i++;
                                 }
                             }
-                            return str;
-                        },
-
-                        githubgistEmbed:function(str){
-                            var gistRegex=/gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
-                            var matches=str.match(gistRegex)?str.match(gistRegex).getUnique():null;
-                                if(matches){
-                                    var i=0;
-                                    while(i<matches.length){
-                                        scope.gist=matches[i].split('/')[2];
-                                        i++;
-                                    }
-                                }
-
                             return str;
                         }
                     };
@@ -823,23 +840,24 @@
 
                     }
 
-                    x=options.basicVideo?videoProcess.embedBasic(x):x;
-                    x=options.audio.embed?audioProcess.embed(x):x;
-                    x=options.image.embed?imageProcess.embed(x):x;
-                    x=options.pdf.embed?pdfProcess.embed(x):x;
-                    x=options.tweetEmbed?tweetProcess.embed(x,options):x;
-                    x=options.twitchtvEmbed?videoProcess.twitchtvEmbed(x,options):x;
-                    x=options.dailymotionEmbed?videoProcess.dailymotionEmbed(x,options):x;
-                    x=options.tedEmbed?videoProcess.tedEmbed(x,options):x;
-                    x=options.dotsubEmbed?videoProcess.dotsubEmbed(x,options):x;
-                    x=options.liveleakEmbed?videoProcess.liveleakEmbed(x,options):x;
-                    x=options.soundCloudEmbed?audioProcess.soundcloudEmbed(x,options):x;
-                    x=options.spotifyEmbed?audioProcess.spotifyEmbed(x):x;
-                    x=options.codepenEmbed?codeEmbedProcess.codepenEmbed(x,options):x;
-                    x=options.jsfiddleEmbed?codeEmbedProcess.jsfiddleEmbed(x,options):x;
-                    x=options.jsbinEmbed?codeEmbedProcess.jsbinEmbed(x,options):x;
-                    x=options.plunkerEmbed?codeEmbedProcess.plunkerEmbed(x,options):x;
-                    x=options.githubgistEmbed?codeEmbedProcess.githubgistEmbed(x,options):data;
+                    x = options.basicVideo ? videoProcess.embedBasic(x) : x;
+                    x = options.audio.embed ? audioProcess.embed(x) : x;
+                    x = options.image.embed ? imageProcess.embed(x) : x;
+                    x = options.pdf.embed ? pdfProcess.embed(x) : x;
+                    x = options.tweetEmbed ? tweetProcess.embed(x, options) : x;
+                    x = options.twitchtvEmbed ? videoProcess.twitchtvEmbed(x, options) : x;
+                    x = options.dailymotionEmbed ? videoProcess.dailymotionEmbed(x, options) : x;
+                    x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
+                    x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
+                    x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
+                    x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
+                    x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
+                    x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
+                    x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
+                    x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
+                    x = options.plunkerEmbed ? codeEmbedProcess.plunkerEmbed(x, options) : x;
+                    x = options.githubgistEmbed ? codeEmbedProcess.githubgistEmbed(x, options) : x;
+                    x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
 
 
                     scope.neText = $sce.trustAsHtml(x);
@@ -852,9 +870,9 @@
         .directive('neGist', function () {
             return {
                 restrict: 'EA',
-                replace: true,
+                replace : true,
                 template: '<div></div>',
-                link: function(scope, element, attrs) {
+                link    : function (scope, element, attrs) {
                     var gistId = attrs.id;
 
                     var iframe = document.createElement('iframe');
@@ -864,7 +882,7 @@
                     element[0].appendChild(iframe);
 
                     var iframeHtml = '<html><head><base target="_parent"><style>table{font-size:12px;}</style>' +
-                        '</head><body onload="parent.document.getElementById(\'' + iframe.id + '\').style.height='+
+                        '</head><body onload="parent.document.getElementById(\'' + iframe.id + '\').style.height=' +
                         'document.body.scrollHeight + \'px\'" style="margin:10px 0;"><script type="text/javascript">' +
                         '!function(){"use strict";window.retargetLinks=function(){ var gists=' +
                         'document.getElementsByClassName("gist");for(var i=0,links;i<gists.length;i++){' +
@@ -876,7 +894,7 @@
                     if (iframe.contentDocument) {
                         doc = iframe.contentDocument;
                     }
-                    else if (iframe.contentWindow){
+                    else if (iframe.contentWindow) {
                         doc = iframe.contentWindow.document;
                     }
 
