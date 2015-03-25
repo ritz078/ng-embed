@@ -24,7 +24,6 @@ Features
 * Codepen, jsbin, jsfiddle, ideone and github gist embed supported
 * soundcloud and spotify support
 * Twitch tv, dotSub, dailymotion, TED and liveLeak support.
-* Google map location embed
 
 
 ![screen](demo/ngEmbed.jpg)
