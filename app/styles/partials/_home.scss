@@ -11,10 +11,11 @@
 
       font-size   : 35px;
       display     : block;
-      width       : 900px;
+      width       : 1100px;
       margin      : 70px auto 0 auto;
       color       : #fff;
       font-weight : lighter;
+      text-align: center;
       @include media-query(portable){
         display: none;
         }

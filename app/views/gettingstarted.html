@@ -5,39 +5,44 @@
     npm
   </span>
   <highlight-js>
-    npm install --save ng-emoticons
+    npm install --save ng-embed
   </highlight-js>
   <span class="title-1">
     bower
   </span>
   <highlight-js>
-    bower install --save ng-emoticons
+    bower install --save ng-embed
   </highlight-js>
 
   <span class="title display-block">Manual Installation</span>
   <span class="title-1">Load the css files</span>
 
   <highlight-js>
-    &lt;link rel="stylesheet" href="path/to/ng-emoticons.min.css"/&gt;
+    &lt;link rel="stylesheet" href="path/to/ng-embed.css"/&gt;
   </highlight-js>
   <span class="title-1">Then load the following files</span>
   <highlight-js>
     &lt;script src="bower_components/angular/angular.js"&gt;&lt;/script&gt;
     &lt;script src="bower_components/angular-sanitize/angular-sanitize.js"&gt;&lt;/script&gt;
-    &lt;script src="path/to/ng-emoticons.js"&gt;&lt;/script&gt;
+    &lt;!--==== Optional =====-->
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
+    &lt;!--===================-->
+    &lt;script src="path/to/ng-embed.js"&gt;&lt;/script&gt;
   </highlight-js>
 
   <span class="title-1">
-    Load 'Emoticons' as a dependency
+    Load 'ngEmbed' as a dependency
   </span>
   <highlight-js>
-    angular.module('yourAppname', ['ngEmoticons'])
+    angular.module('yourAppname', ['ngEmbed'])
   </highlight-js>
 
-  <span class="title-1">Highlight.js for code syntax highlighting (optional)</span>
+  <span class="title-1">Highlight.js for code syntax highlighting (optional) as is twitter widget js</span>
   <highlight-js>
     &lt;link rel="stylesheet" href="path/to/highlight-theme.css"/&gt;
     &lt;script src="path/to/highlight.js"&gt;&lt;/script&gt;
+    &lt;script src="http://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
   </highlight-js>
 </div>
 

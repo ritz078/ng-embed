@@ -24,11 +24,11 @@
       href="http://www.emoji-cheat-sheet.com/" target="_blank"><span class="color-blue">Emojis</span></a>,
     <span class="color-blue">Font Smileys</span> and <span class="color-blue">HTML Links</span>.
     <highlight-js>
-      &lt;div ng-bind-html="variable | emoticons"&gt;&lt;/div&gt;
+      &lt;div ng-bind-html="variable | embed"&gt;&lt;/div&gt;
     </highlight-js>
     <span class="title-1" id="basic-options">Options </span><br>
     <highlight-js>
-      emoticons:{
+      embed:{
       link        :true,                      //for coverting urls into anchor tags
       linkTarget  :'_self'                    //_blank|_self|_parent|_top|framename
       }
@@ -36,7 +36,7 @@
 
     <span class="title-1" id="basic-usage">Usage Example</span>
     <highlight-js>
-      &lt;div ng-bind-html="variable | emoticons:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
+      &lt;div ng-bind-html="variable | embed:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
     </highlight-js>
 
     <span class="title display-block" id="adv">Advanced Usage</span>
@@ -44,20 +44,23 @@
     include :
 
     <ul>
-      <li>Font Smileys and Emoticons</li>
-      <li>Youtube and Vimeo video embedding</li>
-      <li>web supported media embedding (mp3,mp4,ogg)</li>
-      <li>PDF viewing</li>
-      <li>Code highlighting (uses highlight.js)</li>
-      <li>URL Links</li>
-
+      <li>Converts emoticon text codes into emoticons :smile: , :heart:</li>
+      <li>Finds links in text input and turns them into html links.</li>
+      <li>Youtube and Vimeo video embedding with video details fetched from the api.</li>
+      <li>HTML5 player supported media embedding (mp3,mp4,ogg)</li>
+      <li>PDF viewing with preview and then the actual pdf in a frame.</li>
+      <li>Inline Code Syntax highlighting (uses highlight.js)</li>
+      <li>Twitter tweet embedding supported</li>
+      <li></li>Codepen, jsbin, jsfiddle embed supported</ul>
+      <li>soundcloud and spotify support</li>
+      <li>Twitch tv, dotSub, dailymotion, vine,TED and liveLeak support.</li>
     </ul>
 
     And is fully customizable<br>
 
     <div class="title-1" id="adv-directive">Directive</div>
     <highlight-js>
-      &lt;ng-emoticons emoticons-data="text" emoticons-template-url="template.html" emoticons-options="options"/&gt;
+      &lt;ng-embed embed-data="text" embed-template-url="template.html" embed-options="options"/&gt;
     </highlight-js>
     <div class="title-1" id="adv-directives-attr">Details about the Attributes</div>
     <table class="data-table data-table--has-primary data-table--has-secondary">
@@ -67,15 +70,15 @@
         <th>Description</th>
       </tr>
       <tr>
-        <td>emoticons-data</td>
+        <td>embed-data</td>
         <td>The scope variable that contains the text string to be processed</td>
       </tr>
       <tr>
-        <td>emoticons-options</td>
+        <td>embed-options</td>
         <td>The scope variable that contains the options object (mandatory)</td>
       </tr>
       <tr>
-        <td>emoticons-template</td>
+        <td>embed-template</td>
         <td>User defined template for the processed text</td>
       </tr>
       </thead>
@@ -83,43 +86,80 @@
 
     <div class="title-1" id="adv-options">Options</div>
     <highlight-js class="js">
-      angular.module('yourAppName',['ngEmoticons'])
+      angular.module('yourAppName',['ngEmbed'])
 
       .controller('yourControllerName',['$scope',function($scope){
 
       $scope.options = {
-      link      : true,                   //convert links into anchor tags
-      linkTarget  :'_self'                //_blank|_self|_parent|_top|framename
-
-      pdf       : {
-      embed: true                       //to show pdf viewer.
+      link             : true,
+      linkTarget       : '_self',
+      pdf              : {
+        embed: true
       },
-
-      image     : {
-      embed: false                      //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
+      image            : {
+        embed: false
       },
-
-      audio     : {
-      embed: true                       //to allow embedding audio player if link to
-      //an mp3/wav link if present.
+      audio            : {
+        embed: true
       },
-
-      code      : {
-      highlight  : true,               //to allow code highlighting of code written in markdown
-      //requires highligh.js (https://highlightjs.org/) as dependency.
-      lineNumbers: false               //to show line numbers
+      code             : {
+          highlight  : true,
+          lineNumbers: false
       },
-
-      basicVideo: false,                 //to allow embedding of mp4/ogg format videos
-
-      video     : {
-      embed           : false,         //to allow youtube/vimeo video embedding
-      width           : null,          //width of embedded player
-      height          : null,          //height of embedded player
-      ytTheme         : 'dark',        //youtube player theme (light/dark)
-      details         : false,         //to show video details (like title, description etc.)
-      ytAuthKey       : null           //youtube auth key required in case details is set to true.
-      }
+      basicVideo       : false,
+      video            : {
+          embed           : false,
+          width           : null,
+          height          : null,
+          ytTheme         : 'dark',
+          details         : false,
+          thumbnailQuality: 'medium',
+          ytAuthKey       : null
+      },
+      tweetEmbed       : true,
+      tweetOptions     : {
+          //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
+          maxWidth  : 550,
+          //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
+          hideMedia : false,
+          //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
+          //will not be displayed when the requested Tweet is in reply to another Tweet.
+          hideThread: false,
+          //Specifies whether the embedded Tweet should be floated left, right, or center in
+          //the page relative to the parent element.Valid values are left, right, center, and none.
+          //Defaults to none, meaning no alignment styles are specified for the Tweet.
+          align     : 'none',
+          //Request returned HTML and a rendered Tweet in the specified.
+          //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
+          lang      : 'en'
+      },
+      twitchtvEmbed    : true,
+      dailymotionEmbed : true,
+      tedEmbed         : true,
+      dotsubEmbed      : true,
+      liveleakEmbed    : true,
+      soundCloudEmbed  : true,
+      soundCloudOptions: {
+          height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
+          autoPlay    : false,
+          hideRelated : false,
+          showComments: true,
+          showUser    : true,
+          showReposts : false,
+          visual      : false,         //Show/hide the big preview image
+          download    : false          //Show/Hide download buttons
+      },
+      spotifyEmbed     : true,
+      codepenEmbed     : true,
+      codepenHeight    : 300,
+      jsfiddleEmbed    : true,
+      jsfiddleHeight   : 300,
+      jsbinEmbed       : true,
+      jsbinHeight      : 300,
+      plunkerEmbed     : true,
+      githubgistEmbed  : true,
+      ideoneEmbed      : true,
+      ideoneHeight:300
       };
       }]);
     </highlight-js>
@@ -130,7 +170,7 @@
       <code ng-non-bindable>
       &lt;!--====== Main text with emoticons and link ============--&gt;
 
-      &lt;div ng-bind-html="neText" ne-hljs&gt;&lt;/div&gt;
+      &lt;div ng-bind-html="neText"&gt;&lt;/div&gt;
 
       &lt;!---- Video Embedding code (Youtube and vimeo)------------&gt;
 
@@ -204,6 +244,26 @@
       &lt;div class="ne-audio" ng-if="audio.url"&gt;
         &lt;audio ng-src="{{audio.url}}" controls&gt;&lt;/audio&gt;
       &lt;/div&gt;
+
+      &lt;div ng-if="tweets" ng-repeat="tweet in tweets"&gt;
+        &lt;div ng-bind-html="tweet"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="videoServices" class="ne-video" ng-repeat="v in videoServices"&gt;
+        &lt;div class="ne-video-player"&gt;
+          &lt;div class="player"&gt;
+            &lt;div ng-bind-html="v"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="audioServices" class="ne-audio" ng-repeat="a in audioServices"&gt;
+        &lt;div ng-bind-html="a"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="codeServices" class="ne-embed" ng-repeat="c in codeServices"&gt;
+        &lt;div ng-bind-html="c"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div ng-if="gist" class="ne-gist" ng-repeat="g in gist"&gt;
+        &lt;ne-gist id="{{g}}"&gt;&lt;/ne-gist&gt;
+      &lt;/div&gt;
       </code>
     </highlight-js>
 
@@ -242,6 +302,14 @@
       var pdf={
           url             :String
       }
+
+      var codeServices    :Array                // array of embed code of links of jsbin, jsfiddle, ideone and codepen
+
+      var audioServices   :Array                //array of embed code of spotify and soundcloud
+
+      var videoServices   :Array                // Array of embed code of dailymotion, ted, liveleak, dotsub and twitch tv
+
+      var gist            :Array                // Array of all gist ids.
     </highlight-js>
 
 

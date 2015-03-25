@@ -1,25 +1,25 @@
 <div class="home">
   <div class="h-banner">
     <span class="h-title h-title-wide">
-     An AngularJS module to convert ordinary text into <span class="h-typed"></span>
+     An AngularJS module to embed ordinary <span class="h-typed"></span> into text.
     </span>
     <span class="h-title h-title-medium">
-     Convert ordinary text into <span class="h-typed"></span>
+     Convert <span class="h-typed"></span> into ordinary text.
     </span>
     <div class="h-title h-title-small">
-      text into <span class="h-typed"></span>
+      <span class="h-typed"></span> into text.
     </div>
     <div class="h-social">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://rkritesh.in/ngEmoticons" data-via="ritz078" data-size="large" data-hashtags="angularjs">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://rkritesh.in/ngEmbed" data-via="ritz078" data-size="large" data-hashtags="angularjs">Tweet</a>
       <a href="https://twitter.com/ritz078" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ritz078</a>
 
-      <iframe src="https://ghbtns.com/github-btn.html?user=ritz078&repo=ngEmoticons&type=star&count=true&size=large" frameborder="0" scrolling="0" width="150px" height="30px"></iframe>
+      <iframe src="https://ghbtns.com/github-btn.html?user=ritz078&repo=ngEmbed&type=star&count=true&size=large" frameborder="0" scrolling="0" width="150px" height="30px"></iframe>
       <iframe src="https://ghbtns.com/github-btn.html?user=ritz078&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
     </div>
     <a href="https://github.com/ritz078/ngEmoticons">
       <button class="btn btn--xl btn--white btn--raised" lx-ripple>Contribute on Github</button>
     </a>
-    <span class="h-version" lx-tooltip="Master Branch" tooltip-position="bottom">v 2.0.0</span>
+    <span class="h-version" lx-tooltip="Master Branch" tooltip-position="bottom">v 2.0.1</span>
   </div>
   <div class="h-features">
     <h3>Features</h3>
@@ -86,7 +86,7 @@
         {{codeExample}}
       </div>
     </div>
-<div class="h-result"> <span class="fs-display-1 display-block">to</span>   <ng-emoticons emoticons-data="codeExample" emoticons-options="options"></ng-emoticons>
+<div class="h-result"> <span class="fs-display-1 display-block">to</span><ng-emoticons emoticons-data="codeExample" emoticons-options="options"></ng-emoticons>
 </div>
 
   </div>
@@ -95,7 +95,8 @@
 <script>
   $(function () {
     $(".h-typed").typed({
-      strings   : ["emoji.", "code.", "video.", "image.", "smiley.", "link.", "pdf."],
+      strings   : ["emojis", "code", "vimeo","youtube","pdf","tweets","audio","ted","liveleak","dailymotion","spotify","soundcloud",
+      "ideone","jsfiddle","jsbin","codepen","dotSub"],
       typeSpeed : 0,
       loop      : true,
       startDelay: 5,
