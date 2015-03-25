@@ -331,6 +331,9 @@ code.has-numbering {
     overflow            : hidden;
     }
 
+.ne-gist body{
+    margin: 0 !important;
+}
 
 
 .emoticons-image-wrapper, .emoticons-image {

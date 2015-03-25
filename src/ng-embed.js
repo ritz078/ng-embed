@@ -269,6 +269,7 @@
                     scope.videoServices=[];
                     scope.audioServices=[];
                     scope.codeServices=[];
+                    scope.gist='';
 
                     var options = {
                         link      : true,
@@ -336,7 +337,8 @@
                         jsfiddleHeight   : 300,
                         jsbinEmbed       : true,
                         jsbinHeight      : 300,
-                        plunkerEmbed:true
+                        plunkerEmbed:true,
+                        githubgistEmbed:true
                     };
 
                     function extendDeep(dst) {
@@ -760,6 +762,20 @@
                                 }
                             }
                             return str;
+                        },
+
+                        githubgistEmbed:function(str){
+                            var gistRegex=/gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
+                            var matches=str.match(gistRegex)?str.match(gistRegex).getUnique():null;
+                                if(matches){
+                                    var i=0;
+                                    while(i<matches.length){
+                                        scope.gist=matches[i].split('/')[2];
+                                        i++;
+                                    }
+                                }
+
+                            return str;
                         }
                     };
 
@@ -794,6 +810,7 @@
                         }
                     }
 
+
                     var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
 
                     if (options.video.embed) {
@@ -822,10 +839,53 @@
                     x=options.jsfiddleEmbed?codeEmbedProcess.jsfiddleEmbed(x,options):x;
                     x=options.jsbinEmbed?codeEmbedProcess.jsbinEmbed(x,options):x;
                     x=options.plunkerEmbed?codeEmbedProcess.plunkerEmbed(x,options):x;
+                    x=options.githubgistEmbed?codeEmbedProcess.githubgistEmbed(x,options):data;
+
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
             };
-        }]);
+        }])
+
+        //This directive is a modification of a module developed by Scott Corgan.
+        //present at scottcorgan/angular-gist
+        .directive('neGist', function () {
+            return {
+                restrict: 'EA',
+                replace: true,
+                template: '<div></div>',
+                link: function(scope, element, attrs) {
+                    var gistId = attrs.id;
+
+                    var iframe = document.createElement('iframe');
+                    iframe.setAttribute('width', '100%');
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.id = "gist-" + gistId;
+                    element[0].appendChild(iframe);
+
+                    var iframeHtml = '<html><head><base target="_parent"><style>table{font-size:12px;}</style>' +
+                        '</head><body onload="parent.document.getElementById(\'' + iframe.id + '\').style.height='+
+                        'document.body.scrollHeight + \'px\'" style="margin:10px 0;"><script type="text/javascript">' +
+                        '!function(){"use strict";window.retargetLinks=function(){ var gists=' +
+                        'document.getElementsByClassName("gist");for(var i=0,links;i<gists.length;i++){' +
+                        'links=gists[i].getElementsByTagName("a");for(var j=0;j<links.length;j++){ ' +
+                        'links[j].setAttribute("target","_blank");}}}}();</script><script type="text/javascript" ' +
+                        'src="https://gist.github.com/' + gistId + '.js" onload="retargetLinks()"></script></body></html>';
+
+                    var doc = iframe.document;
+                    if (iframe.contentDocument) {
+                        doc = iframe.contentDocument;
+                    }
+                    else if (iframe.contentWindow){
+                        doc = iframe.contentWindow.document;
+                    }
+
+                    doc.open();
+                    doc.writeln(iframeHtml);
+                    doc.close();
+                }
+            };
+        });
 
 })();
+

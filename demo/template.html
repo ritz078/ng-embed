@@ -78,5 +78,7 @@
 <div ng-if="codeServices" class="ne-embed" ng-repeat="c in codeServices">
     <div ng-bind-html="c"></div>
 </div>
-
+<div ng-if="gist" class="ne-gist">
+    <ne-gist id="{{gist}}"></ne-gist>
+</div>
 

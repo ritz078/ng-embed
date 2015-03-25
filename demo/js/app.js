@@ -28,6 +28,7 @@ angular.module('ngEmoticonApp', ['ngEmbed'])
             }
         };
         $scope.qwe = '';
+        $scope.gist='Pol.Idoleums mori!Cum bromium favere, omnes lumenes imperium lotus, castus eraes. https://gist.github.com/ritz078/75c238ffa59244ae8e1a A falsis, valebat magnum cobaltum.Tatas unda, tanquam albus lamia.Pulchritudine volares, tanquam barbatus silva.';
         $scope.plunker='http://plnkr.co/edit/AK732k Cur elevatus trabem?Boreass observare in audax hafnia!Ubi est brevis cursus?Prarere inciviliter ducunt ad regius tumultumque.Lotus xiphiass ducunt ad nuclear vexatum iacere.Sunt deuses pugna rusticus, bassus guttuses.Olla castus musa est.Nunquam amor magister.Secundus, mirabilis agripetas callide promissio de teres, castus medicina.';
         $scope.codepen = 'http://codepen.io/jexordexan/pen/yyYEJa Eheu, fatalis accola!Gallus cantares, tanquam bassus aonides.Albusguttuss ducunt ad abnoba.Vox dexter heuretes est.Magnum advenas ducunt ad classis.Fluctuss trabem, tanquamnobilis elogium.Altus silva una anhelares demolitione est.Lactea de magnum domina, anhelare coordinatae!Spatii,uria, et ventus.Lactas assimilant in piscinam!';
         $scope.jsfiddle = 'Cum zelus resistere, omnes cursuses aperto grandis, fidelis heureteses.Est pius axona, cesaris.Est gratissecula, cesaris. http://jsfiddle.net/zalun/NmudS/ Fiscina clemens guttus est.Nunquam prensionem adiurator.Caduntcito ducunt ad regius nutrix.Vita castus candidatus est.';
