@@ -1,4 +1,5 @@
-![Imgur](http://i.imgur.com/vqOqcwf.png)
+ngEmbed
+=======
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, and highlighting code syntax in an ordinary text string. .
 
