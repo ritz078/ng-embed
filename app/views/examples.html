@@ -1,19 +1,19 @@
 <div class="eg">
-  <div class="eg-sidebar">
-    <dl>
-      <dt scroll-to="basic" offset="80">Basic Use Example</dt>
-      <dd scroll-to="emoji" offset="80">Emojis and url filter</dd>
-    </dl>
-    <dl>
-      <dt>Advanced Usage Examples</dt>
-      <dd offset="80" scroll-to="yt">Youtube Video Embedding</dd>
-      <dd offset="80" scroll-to="vim">Vimeo video embedding</dd>
-      <dd offset="80" scroll-to="pdf">pdf Viewing and preview embedding</dd>
-      <dd offset="80" scroll-to="code">Code Syntax Highlighting</dd>
-      <dd offset="80" scroll-to="media">Media files embedding</dd>
-      <dd offset="80" scroll-to="template">Custom Template</dd>
-    </dl>
-  </div>
+  <!--<div class="eg-sidebar">-->
+    <!--<dl>-->
+      <!--<dt scroll-to="basic" offset="80">Basic Use Example</dt>-->
+      <!--<dd scroll-to="emoji" offset="80">Emojis and url filter</dd>-->
+    <!--</dl>-->
+    <!--<dl>-->
+      <!--<dt>Advanced Usage Examples</dt>-->
+      <!--<dd offset="80" scroll-to="yt">Youtube Video Embedding</dd>-->
+      <!--<dd offset="80" scroll-to="vim">Vimeo video embedding</dd>-->
+      <!--<dd offset="80" scroll-to="pdf">pdf Viewing and preview embedding</dd>-->
+      <!--<dd offset="80" scroll-to="code">Code Syntax Highlighting</dd>-->
+      <!--<dd offset="80" scroll-to="media">Media files embedding</dd>-->
+      <!--<dd offset="80" scroll-to="template">Custom Template</dd>-->
+    <!--</dl>-->
+  <!--</div>-->
   <div class="eg-content">
     <h2 class="title" id="basic">Basic Use Example (as Filter)</h2>
     <div class="card">
@@ -158,12 +158,15 @@
 
     <div class="card">
       <div class="title bgc-blue-400 tc-white-1" id="mixed">Mixed</div>
+      <div class="raw">{{text1}}</div>
+      <div class="title tc-black-1">Result</div>
       <ng-embed embed-options="options" embed-data="text1"></ng-embed>
     </div>
 
     <div class="card">
       <div class="title bgc-blue-400 tc-white-1" id="tweet">Tweet Embed</div>
-      <div class="title bgc-blue-400 tc-white-1" id="twitter">Twitter</div>
+      <div class="raw">{{twitter}}</div>
+      <div class="title tc-black-1">Result</div>
       <ng-embed embed-data="twitter" embed-options="options"></ng-embed>
     </div>
 
@@ -176,6 +179,8 @@
 
     <div class="card">
       <div class="title bgc-blue-400 tc-white-1" id="dailymotion">Dailymotion and TED Support</div>
+      <div class="raw">{{dailymotion}}</div>
+      <div class="title tc-black-1">Result</div>
       <ng-embed embed-options="options" embed-data="dailymotion"></ng-embed>
     </div>
 
