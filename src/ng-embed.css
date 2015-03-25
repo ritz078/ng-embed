@@ -185,6 +185,10 @@ code.has-numbering {
     width               : 100%;
 }
 
+.ne-plunker{
+    background-color: #ffffff !important;
+}
+
 
 
 .ne-video video {

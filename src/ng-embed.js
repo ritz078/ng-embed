@@ -336,6 +336,7 @@
                         jsfiddleHeight   : 300,
                         jsbinEmbed       : true,
                         jsbinHeight      : 300,
+                        plunkerEmbed:true
                     };
 
                     function extendDeep(dst) {
@@ -744,6 +745,20 @@
                                 }
                             }
                             return str;
+                        },
+
+                        plunkerEmbed:function(str,opts){
+                            var plnkrRegex=/plnkr.co\/edit\/[a-zA-Z0-9]+\?p=[a-z]+/gi;
+                            var matches=str.match(plnkrRegex)?str.match(plnkrRegex).getUnique():null;
+                            if(matches){
+                                var i=0;
+                                while(i<matches.length){
+                                    var frame=$sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/'+matches[i].split('/')[2].split('?')[0]+'" height="'+opts.jsbinHeight+'"></iframe>');
+                                    scope.codeServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
                         }
                     };
 
@@ -805,6 +820,7 @@
                     x=options.codepenEmbed?codeEmbedProcess.codepenEmbed(x,options):x;
                     x=options.jsfiddleEmbed?codeEmbedProcess.jsfiddleEmbed(x,options):x;
                     x=options.jsbinEmbed?codeEmbedProcess.jsbinEmbed(x,options):x;
+                    x=options.plunkerEmbed?codeEmbedProcess.plunkerEmbed(x,options):x;
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
