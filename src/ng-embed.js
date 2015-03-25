@@ -225,14 +225,14 @@
                             lineNumbers: false
                         },
                         basicVideo       : false,
+                        gdevAuth:null,
                         video            : {
                             embed           : false,
                             width           : null,
                             height          : null,
                             ytTheme         : 'dark',
                             details         : false,
-                            thumbnailQuality: 'medium',
-                            ytAuthKey       : null
+                            thumbnailQuality: 'medium'
                         },
                         tweetEmbed       : true,
                         tweetOptions     : {
@@ -363,7 +363,7 @@
                                 var youtubeDimensions = this.calcDimensions(options);
                                 scope.video.id = RegExp.$1;
                                 if (options.video.details) {
-                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.video.ytAuthKey + '&part=snippet,statistics')
+                                    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics')
                                         .success(function (d) {
                                             var ytData = d.items[0];
 
@@ -768,7 +768,7 @@
                     var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
 
                     if (options.video.embed) {
-                        if (!options.video.ytAuthKey) {
+                        if (!options.gdevAuth) {
                             throw 'Youtube authentication key is required to get data from youtube.';
                         }
                         else {

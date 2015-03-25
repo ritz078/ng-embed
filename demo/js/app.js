@@ -13,12 +13,12 @@ angular.module('ngEmoticonApp', ['ngEmbed'])
                 'highlight'  : true,
                 'lineNumbers': true
             },
+            'gdevAuth': 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0',
             'video'     : {
                 'embed'    : true,
                 'width'    : 800,
                 'ytTheme'  : 'light',
-                'details'  : true,
-                'ytAuthKey': 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0'
+                'details'  : true
             },
             'image'     : {
                 'embed': true

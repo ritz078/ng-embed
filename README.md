@@ -21,7 +21,7 @@ Features
 * PDF viewing with preview and then the actual pdf in a frame.
 * Inline Code Syntax highlighting (uses highlight.js)
 * Twitter tweet embedding supported
-* Codepen, jsbin, jsfiddle, ideone and github gist embed supported
+* Codepen, jsbin, jsfiddle, ideone, plunker and github gist embed supported
 * soundcloud and spotify support
 * Twitch tv, dotSub, dailymotion, TED and liveLeak support.
 
