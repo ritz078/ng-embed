@@ -269,7 +269,7 @@
                     scope.videoServices = [];
                     scope.audioServices = [];
                     scope.codeServices = [];
-                    scope.gist = '';
+                    scope.gist = [];
 
                     var options = {
                         link             : true,
@@ -773,7 +773,7 @@
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    scope.gist = matches[i].split('/')[2];
+                                    scope.gist.push(matches[i].split('/')[2]);
                                     i++;
                                 }
                             }
