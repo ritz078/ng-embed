@@ -91,30 +91,30 @@
       .controller('yourControllerName',['$scope',function($scope){
 
       $scope.options = {
-      link             : true,
-      linkTarget       : '_self',
+      link             : true,      //convert links into anchor tags
+      linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
       pdf              : {
-        embed: true
+        embed: true                 //to show pdf viewer.
       },
       image            : {
-        embed: false
+        embed: false                //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
       },
       audio            : {
-        embed: true
+        embed: true                 //to allow embedding audio player if link to
       },
       code             : {
-          highlight  : true,
-          lineNumbers: false
+          highlight  : true,        //to allow code highlighting of code written in markdown
+      //requires highligh.js (https://highlightjs.org/) as dependency.
+          lineNumbers: false        //to show line numbers
       },
-      basicVideo       : false,
+      basicVideo       : false,     //to allow embedding of mp4/ogg format videos
+      gdevAuth         :'xxxxxxxx', // Google developer auth key for youtube data api
       video            : {
-          embed           : false,
-          width           : null,
-          height          : null,
-          ytTheme         : 'dark',
-          details         : false,
-          thumbnailQuality: 'medium',
-          ytAuthKey       : null
+          embed           : false,    //to allow youtube/vimeo video embedding
+          width           : null,     //width of embedded player
+          height          : null,     //height of embedded player
+          ytTheme         : 'dark',   //youtube player theme (light/dark)
+          details         : false,    //to show video details (like title, description etc.)
       },
       tweetEmbed       : true,
       tweetOptions     : {
@@ -150,15 +150,15 @@
           download    : false          //Show/Hide download buttons
       },
       spotifyEmbed     : true,
-      codepenEmbed     : true,
+      codepenEmbed     : true,        //set to true to embed codepen
       codepenHeight    : 300,
-      jsfiddleEmbed    : true,
+      jsfiddleEmbed    : true,        //set to true to embed jsfiddle
       jsfiddleHeight   : 300,
-      jsbinEmbed       : true,
+      jsbinEmbed       : true,        //set to true to embed jsbin
       jsbinHeight      : 300,
-      plunkerEmbed     : true,
+      plunkerEmbed     : true,        //set to true to embed plunker
       githubgistEmbed  : true,
-      ideoneEmbed      : true,
+      ideoneEmbed      : true,        //set to true to embed ideone
       ideoneHeight:300
       };
       }]);

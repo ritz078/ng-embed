@@ -15,12 +15,12 @@ angular.module('ngEmoticonsApp')
       image:{
         embed:true
       },
+      gdevAuth       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0',
       video     : {
         embed           : true,
         width           : 900,          //width of embedded player
         ytTheme         : 'light',        //youtube player theme (light/dark)
-        details         : true,
-        ytAuthKey       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0'
+        details         : true
       }
     };
   }])
@@ -39,13 +39,14 @@ angular.module('ngEmoticonsApp')
       image:{
         embed:true
       },
+      gdevAuth       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0',
       video     : {
         embed           : true,
         width           : null,          //width of embedded player
         height          : null,          //height of embedded player
         ytTheme         : 'light',        //youtube player theme (light/dark)
         details         : true,
-        ytAuthKey       : 'AIzaSyAQONTdSSaKwqB1X8i6dHgn9r_PtusDhq0'
+
       }
     };
 
