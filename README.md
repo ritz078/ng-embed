@@ -16,10 +16,15 @@ Features
 
 * Converts emoticon text codes into emoticons :smile: , :heart:
 * Finds links in text input and turns them into html links.
-* Youtube and Vimeo video embedding
+* Youtube and Vimeo video embedding with video details fetched from the api.
 * HTML5 player supported media embedding (mp3,mp4,ogg)
 * PDF viewing with preview and then the actual pdf in a frame.
 * Inline Code Syntax highlighting (uses highlight.js)
+* Twitter tweet embedding supported
+* Codepen, jsbin, jsfiddle, ideone and github gist embed supported
+* soundcloud and spotify support
+* Twitch tv, dotSub, dailymotion, TED and liveLeak support.
+* Google map location embed
 
 
 ![screen](demo/ngEmbed.jpg)
@@ -29,6 +34,7 @@ Dependencies
 + AngularJs 1.2 or above
 + angular-sanitize 1.2 or above
 + [highlight.js](https://highlightjs.org/) (Optional if code highlighting required)
++ [Twiiter widget js](http://platform.twitter.com/widgets.js) (if twitter embedding required)
 
 
 Getting Started
@@ -52,6 +58,10 @@ load css files
 ```html
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<!--==== Optional =====-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="http://platform.twitter.com/widgets.js"></script>
+<!--===================-->
 <script src="path/to/ng-embed.js"></script>
 ```
 
@@ -59,14 +69,6 @@ Load 'Emoticons' as a dependency
 ```javascript
 angular.module('yourAppname', ['ngEmbed'])
 ```
-
-Version 2.0.0
--------------
-
-* Video embedding added
-* code syntax highlighting added
-* media embedding added
-* pdf viewing added
 
 
 Older releases are listed [here](RELEASES.md)
