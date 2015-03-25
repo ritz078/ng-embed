@@ -268,6 +268,7 @@
                     scope.audio = {};
                     scope.videoServices=[];
                     scope.audioServices=[];
+                    scope.codeServices=[];
 
                     var options = {
                         link      : true,
@@ -328,7 +329,13 @@
                             visual      : false,         //Show/hide the big preview image
                             download    : false          //Show/Hide download buttons
                         },
-                        spotifyEmbed:true
+                        spotifyEmbed:true,
+                        codepenEmbed     : true,
+                        codepenHeight    : 300,
+                        jsfiddleEmbed    : true,
+                        jsfiddleHeight   : 300,
+                        jsbinEmbed       : true,
+                        jsbinHeight      : 300,
                     };
 
                     function extendDeep(dst) {
@@ -502,7 +509,6 @@
                             if(matches){
                                 var i=0;
                                 while(i<matches.length){
-                                    console.log(matches[i]);
                                     var frame=$sce.trustAsHtml('<object bgcolor="#000000" ' +
                                     'data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" height="' + videoDimensions.height + '" id="clip_embed_player_flash" type="application/x-shockwave-flash" width="' + videoDimensions.width + '">' + '<param name="movie" value="http://www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />' + '<param name="allowScriptAccess" value="always" />' + '<param name="allowNetworking" value="all" />' + '<param name="allowFullScreen" value="true" />' + '<param name="flashvars" value="channel=' + matches[i].split('/')[1] + '&auto_play=false" />' + '</object>');
                                     scope.videoServices.push(frame);
@@ -697,6 +703,50 @@
                         }
                     };
 
+                    var codeEmbedProcess={
+                        codepenEmbed: function (str, opts) {
+                            var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
+                            var matches = str.match(codepenRegex) ? str.match(codepenRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + matches[i].replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
+                                    scope.codeServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        jsfiddleEmbed: function (str, opts) {
+                            var jsfiddleRegex = /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi;
+                            var matches = str.match(jsfiddleRegex) ? str.match(jsfiddleRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + matches[i] + '/embedded"></iframe>');
+                                    scope.codeServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        },
+
+                        jsbinEmbed: function (str, opts) {
+                            var jsbinRegex = /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi;
+                            var matches = str.match(jsbinRegex) ? str.match(jsbinRegex).getUnique() : null;
+                            if (matches) {
+                                var i = 0;
+                                while (i < matches.length) {
+                                    var frame=$sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + matches[i] + '/embed?html,js,output">Simple Animation Tests</iframe>');
+                                    scope.codeServices.push(frame);
+                                    i++;
+                                }
+                            }
+                            return str;
+                        }
+                    };
+
                     if (options.code.highlight) {
                         if (!window.hljs) {
                             throw new ReferenceError('hlsj (Highlight JS is not defined.');
@@ -752,6 +802,9 @@
                     x=options.liveleakEmbed?videoProcess.liveleakEmbed(x,options):x;
                     x=options.soundCloudEmbed?audioProcess.soundcloudEmbed(x,options):x;
                     x=options.spotifyEmbed?audioProcess.spotifyEmbed(x):x;
+                    x=options.codepenEmbed?codeEmbedProcess.codepenEmbed(x,options):x;
+                    x=options.jsfiddleEmbed?codeEmbedProcess.jsfiddleEmbed(x,options):x;
+                    x=options.jsbinEmbed?codeEmbedProcess.jsbinEmbed(x,options):x;
 
                     scope.neText = $sce.trustAsHtml(x);
                 }
