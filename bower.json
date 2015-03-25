@@ -9,6 +9,7 @@
     "lumx": "~0.3.23",
     "typed.js": "*",
     "angular-animate": "~1.3.14",
-    "ngScrollTo": "https://github.com/iameugenejo/ngScrollTo"
+    "ngScrollTo": "https://github.com/iameugenejo/ngScrollTo",
+    "ng-embed": "~2.0.1"
   }
 }

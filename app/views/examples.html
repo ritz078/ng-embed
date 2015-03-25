@@ -29,7 +29,7 @@
             <lx-tab heading="HTML">
               <p class="p+">
                 <highlight-js>
-  &lt;div ng-bind-html="text | emoticons:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
+  &lt;div ng-bind-html="text | embed:{linkTarget:'_blank'}"&gt;&lt;/div&gt;
                 </highlight-js>
               </p>
             </lx-tab>
@@ -44,7 +44,7 @@
         </div>
         <div class="title tc-black-1">Result</div>
         <div class="pad">
-          <div ng-bind-html="text1 | emoticons:{linkTarget:'_blank'}"></div>
+          <div ng-bind-html="text1 | embed:{linkTarget:'_blank'}"></div>
 
         </div>
 
@@ -69,7 +69,7 @@
             <lx-tab heading="HTML">
               <p class="p+">
                 <highlight-js>
-  &lt;ng-emoticons emoticons-data="ytEmbed" emoticons-options="options"/&gt;
+  &lt;ng-embed embed-data="ytEmbed" embed-options="options"/&gt;
                 </highlight-js>
               </p>
             </lx-tab>
@@ -97,7 +97,7 @@
         </div>
         <div class="title tc-black-1">Result</div>
         <div class="pad">
-          <ng-emoticons emoticons-data="ytEmbed" emoticons-options="options"/>
+          <ng-embed embed-data="ytEmbed" embed-options="options"/>
 
         </div>
 
@@ -119,7 +119,7 @@
             <lx-tab heading="HTML">
               <p class="p+">
                 <highlight-js>
-  &lt;ng-emoticons emoticons-data="vimeoEmbed" emoticons-options="options"/&gt;
+  &lt;ng-embed embed-data="vimeoEmbed" embed-options="options"/&gt;
                 </highlight-js>
               </p>
             </lx-tab>
@@ -147,7 +147,7 @@
         </div>
         <div class="title tc-black-1">Result</div>
         <div class="pad">
-          <ng-emoticons emoticons-data="vimeoEmbed" emoticons-options="options"/>
+          <ng-embed embed-data="vimeoEmbed" embed-options="options"/>
 
         </div>
 
@@ -157,226 +157,96 @@
     <!--====== pdf embed =============-->
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="pdf">PDF viewing and preview</div>
-      <div class="tc-black-1">
-        <div>
-          <lx-tabs>
-            <lx-tab heading="Raw Text">
-              <p class="p+">
-  Naviss credere!Orgia de germanus repressor, gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt https://www.cca.edu/sites/default/files/pdf/08/word-to-pdf.pdf abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam https://vimeo.com/92066734 germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius.
-              </p>
-            </lx-tab>
-            <lx-tab heading="HTML">
-              <p class="p+">
-                <highlight-js>
-    &lt;ng-emoticons emoticons-data="pdfEmbed" emoticons-options="options"/&gt;
-                </highlight-js>
-              </p>
-            </lx-tab>
-
-            <lx-tab heading="Javascript">
-              <p class="p+ tc-black-1">
-                <highlight-js lang="javascript">
-    $scope.options={
-    link      : true,                   //convert links into anchor tags
-    linkTarget  :'_self' ,
-    video     : {
-    embed           : true,
-    width           : null,          //width of embedded player
-    height          : null,          //height of embedded player
-    ytTheme         : 'dark',        //youtube player theme (light/dark)
-    details         : true,
-    ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
-    }};
-
-    $scope.pdfEmbed="Naviss credere!Orgia de germanus repressor, gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt https://www.cca.edu/sites/default/files/pdf/08/word-to-pdf.pdf abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam https://vimeo.com/92066734 germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
-                </highlight-js>
-              </p>
-            </lx-tab>
-          </lx-tabs>
-        </div>
-        <div class="title tc-black-1">Result</div>
-        <div class="pad">
-          <ng-emoticons emoticons-data="pdfEmbed" emoticons-options="options"/>
-
-        </div>
-
-      </div>
+      <div class="title bgc-blue-400 tc-white-1" id="mixed">Mixed</div>
+      <ng-embed embed-options="options" embed-data="text1"></ng-embed>
     </div>
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="code">Code Syntax Highlighting</div>
-      <div class="tc-black-1">
-        <div>
-          <lx-tabs>
-            <lx-tab heading="Raw Text">
-              <p class="p+">
-  ```\n&lt;script&gt;&lt;/script&gt;\n``` www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079
-              </p>
-            </lx-tab>
-            <lx-tab heading="HTML">
-              <p class="p+">
-                <highlight-js>
-  &lt;ng-emoticons emoticons-data="codeExample" emoticons-options="options"/&gt;
-                </highlight-js>
-              </p>
-            </lx-tab>
-
-            <lx-tab heading="Javascript">
-              <p class="p+ tc-black-1">
-                <highlight-js lang="javascript">
-  $scope.options={
-  link      : true,                   //convert links into anchor tags
-  linkTarget  :'_self' ,
-  video     : {
-  embed           : true,
-  width           : null,          //width of embedded player
-  height          : null,          //height of embedded player
-  ytTheme         : 'dark',        //youtube player theme (light/dark)
-  details         : true,
-  ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
-  }};
-
-  $scope.codeExample = '```\n<script></script>\n``` www.ng-conf.org http://www.iitr.ac.in ROTFL!!!! Now this explains :P why Kejriwal & his Nocere cito ducunt ad noster domina.Salvus nutrixs ducunt ad decor.Grandis torquis sed mire visums xiphias est.```javascript\ngrade = (student, period=(if b? then 7 else 6)) ->\n    if student.excellentWork\n      "A+"\n  else if student.okayStuff\n     if student.triedHard then "B" else "B-"\n   else\n      "C"\nclass Animal extends Being\nconstructor: (@name) ->\nmove: (meters) ->\nalert @name + " moved #{meters}m."\n``` with Yogendra Yadav. Because he had praised Narendra :smile: Modi and Gujarat model in an interview.Check this 1-min clip in which Yogendra Yadav openly praises Modis Gujarat development : https://vimeo.com/119199079';
-                </highlight-js>
-              </p>
-            </lx-tab>
-          </lx-tabs>
-        </div>
-        <div class="title tc-black-1">Result</div>
-        <div class="pad">
-          <ng-emoticons emoticons-data="codeExample" emoticons-options="options"/>
-
-        </div>
-
-      </div>
+      <div class="title bgc-blue-400 tc-white-1" id="tweet">Tweet Embed</div>
+      <div class="title bgc-blue-400 tc-white-1" id="twitter">Twitter</div>
+      <ng-embed embed-data="twitter" embed-options="options"></ng-embed>
     </div>
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="media">Media files Embedding</div>
-      <div class="tc-black-1">
-        <div>
-          <lx-tabs>
-            <lx-tab heading="Raw Text">
-              <p class="p+">
-  Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius.
-              </p>
-            </lx-tab>
-            <lx-tab heading="HTML">
-              <p class="p+">
-                <highlight-js>
-  &lt;ng-emoticons emoticons-data="mediaExample" emoticons-options="options"/&gt;
-                </highlight-js>
-              </p>
-            </lx-tab>
-
-            <lx-tab heading="Javascript">
-              <p class="p+ tc-black-1">
-                <highlight-js lang="javascript">
-  $scope.options={
-    link      : true,                   //convert links into anchor tags
-    linkTarget  :'_self' ,
-    image     :{
-       embed:true
-      },
-    video     : {
-      embed           : true,
-      width           : null,          //width of embedded player
-      height          : null,          //height of embedded player
-      ytTheme         : 'dark',        //youtube player theme (light/dark)
-      details         : true,
-      ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
-  }};
-
-  $scope.mediaExample="Naviss credere!Orgia de germanus repressor, http://techslides.com/demos/sample-videos/small.mp4 gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt  abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
-                </highlight-js>
-              </p>
-            </lx-tab>
-          </lx-tabs>
-        </div>
-        <div class="title tc-black-1">Result</div>
-        <div class="pad">
-          <ng-emoticons emoticons-data="mediaExample" emoticons-options="options"/>
-
-        </div>
-
-      </div>
+      <div class="title bgc-blue-400 tc-white-1" id="twitch">Twitch TV Support</div>
+      <div class="raw">{{twitchtv}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="twitchtv"></ng-embed>
     </div>
 
     <div class="card">
-      <div class="title bgc-blue-400 tc-white-1" id="template">Custom Template</div>
-      <div class="tc-black-1">
-        <div>
-          <lx-tabs>
-            <lx-tab heading="Template">
-              <p class="p+">
-                <highlight-js>
-  <code ng-non-bindable>
-  &lt;div ng-bind-html="neText"&gt;&lt;/div&gt;
-
-    &lt;div class="ne-video"&gt;
-      &lt;div class="card"&gt;
-      &lt;div class="card__img card__img--top"&gt;
-        &lt;img ng-src="{{video.thumbnail}}" style="width:100%;" alt=""/&gt;
-      &lt;/div&gt;
-
-      &lt;div class="p+"&gt;
-        &lt;span class="fs-subhead tc-black-2 display-block"&gt;{{video.title}}&lt;/span&gt;
-
-        &lt;div class="paragraph fs-body-1"&gt;
-        &lt;p&gt;
-          {{video.rawDescription}}
-        &lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-</code>
-                  </highlight-js>
-
-              </p>
-            </lx-tab>
-            <lx-tab heading="HTML">
-              <p class="p+">
-                <highlight-js>
-  &lt;ng-emoticons
-  emoticons-template-url="template/template.html"
-  emoticons-data="mediaExample"
-  emoticons-options="options" /&gt;
-                </highlight-js>
-              </p>
-            </lx-tab>
-
-            <lx-tab heading="Javascript">
-              <p class="p+ tc-black-1">
-        <highlight-js lang="javascript">
-  $scope.options={
-      link      : true,                   //convert links into anchor tags
-      linkTarget  :'_self' ,
-      video     : {
-      embed           : true,
-      width           : null,          //width of embedded player
-      height          : null,          //height of embedded player
-      ytTheme         : 'dark',        //youtube player theme (light/dark)
-      details         : true,
-      ytAuthKey       : 'xxxxxxxONTdSSaKwqB1Xxxxxxxx9r_PtusDhq0'
-  }};
-
-  $scope.mediaExample="Naviss credere!Orgia de germanus repressor, gratia rumor!Nunquam pugna axona.Cur orexis peregrinationes?Sunt abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam https://www.youtube.com/watch?v=QHulaj5ZxbI germanus musa.Cur lacta prarere? :smile: Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius."
-                </highlight-js>
-              </p>
-            </lx-tab>
-          </lx-tabs>
-        </div>
-        <div class="title tc-black-1">Result</div>
-        <div class="pad">
-          <ng-emoticons emoticons-data="ytEmbed" emoticons-template-url="template/template.html" emoticons-options="options"/>
-
-        </div>
-
-      </div>
+      <div class="title bgc-blue-400 tc-white-1" id="dailymotion">Dailymotion and TED Support</div>
+      <ng-embed embed-options="options" embed-data="dailymotion"></ng-embed>
     </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="liveleak">Liveleak Support</div>
+      <div class="raw">{{liveleak}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="liveleak"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="dotsub">dotSub Support</div>
+      <div class="raw">{{dotsub}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="dotsub"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="soundcloud">SoundCloud</div>
+      <div class="raw">{{soundcloud}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="soundcloud"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="spotify">Spotify</div>
+      <div class="raw">{{spotify}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="spotify"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="jsbin">JSBin Support</div>
+      <div class="raw">{{jsbin}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="jsbin"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="jsfiddle">jsfiddle</div>
+      <div class="raw">{{jsfiddle}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="jsfiddle"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="codepen">codepen</div>
+      <div class="raw">{{codepen}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="codepen"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="plunker">Plunker Support</div>
+      <div class="raw">{{plunker}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="plunker"></ng-embed>
+    </div>
+
+    <div class="card">
+      <ng-embed embed-options="options" embed-data="gist"></ng-embed>
+    </div>
+
+    <div class="card">
+      <div class="title bgc-blue-400 tc-white-1" id="ideone">ideone Support</div>
+      <div class="raw">{{ideone}}</div>
+      <div class="title tc-black-1">Result</div>
+      <ng-embed embed-options="options" embed-data="ideone"></ng-embed>
+    </div>
+
+
 
 
 
