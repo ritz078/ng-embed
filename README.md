@@ -10,8 +10,8 @@ Contents
 * [Features](#features)
 * [Dependencies](#dependencies)
 * [Getting Started](#getting-started)
-* [Simple Usage using Filter](#simple-usage-filter)
-* [Advanced Usage (Directive)](#advanced-usage-directive)
+* [Filter Usage](#simple-usage-filter)
+* [Directive Usagein](#advanced-usage-directive)
 * [Options](#options)
 * [Default Template](#default-template)
 * [Template Variables](#template-variables)
@@ -75,7 +75,7 @@ Load 'Emoticons' as a dependency
 angular.module('yourAppname', ['ngEmbed'])
 ```
 
-Simple Usage (Filter)
+Filter Use
 ----------------------
 You can use the filter for basic use. Its features are limited to converting text into [emojis](http://www.emoji-cheat-sheet.com/), font smileys and HTML Links.
 
@@ -90,8 +90,8 @@ embed:{
  }
 ```
 
-Advanced Usage (Directive)
---------------------------
+Directive Usage
+---------------
 The directive supports many features in additions to the features supported by the filter.
 
 And is fully customizable
@@ -307,20 +307,20 @@ These variable can be used while you are creating your custom template.
 
   ```javascript
 var video={
-	  host            :String,             // youtube/vimeo
-	  title           :String,             // Title of the video
-	  thumbnail       :String,             // Url of the video thumbnail
-	  description     :String,             // Description of the video truncating after 250 characters replacing linebreak (especially for vimeo)
-	  rawDescription  :String,             // Description of the video as sent by the server
-	  views           :Number,             // Number of video views
-	  likes           :Number,             // No. of likes
-	  uploader        :String              // username of video uploader
-	  uploaderPage    :String              // url of uploader's page
-	  uploadDate      :Date,               // Date of video upload
-	  url             :String,             // video url
-	  embedSrc        :String,             // video embed url
+	  host            :String,   // youtube/vimeo
+	  title           :String,   // Title of the video
+	  thumbnail       :String,   // Url of the video thumbnail
+	  description     :String,   // Description of the video truncating after 250 characters replacing linebreak (especially for vimeo)
+	  rawDescription  :String,   // Description of the video as sent by the server
+	  views           :Number,   // Number of video views
+	  likes           :Number,   // No. of likes
+	  uploader        :String    // username of video uploader
+	  uploaderPage    :String    // url of uploader's page
+	  uploadDate      :Date,     // Date of video upload
+	  url             :String,   // video url
+	  embedSrc        :String,   // video embed url
 	  width           :Number,
-	  height          :Number              // dimensions of the embedded video
+	  height          :Number    // dimensions of the embedded video
 }
 
 var image 	={url:String}
@@ -329,19 +329,18 @@ var audio 	={url:String}
 
 var pdf		={url:String}
 
-var codeServices    :Array                // array of embed code of links of jsbin, jsfiddle, ideone and codepen
+var codeServices    :Array        // array of embed code of links of jsbin, jsfiddle, ideone and codepen
 
-var audioServices   :Array                //array of embed code of spotify and soundcloud
+var audioServices   :Array        //array of embed code of spotify and soundcloud
 
-var videoServices   :Array                // Array of embed code of dailymotion, ted, liveleak, dotsub and twitch tv
+var videoServices   :Array        // Array of embed code of dailymotion, ted, liveleak, dotsub and twitch tv
 
-var gist            :Array                // Array of all gist ids.
+var gist            :Array        // Array of all gist ids.
 ```
 
 
 Releases
 --------
-
 
 Older releases are listed [here](RELEASES.md)
 
