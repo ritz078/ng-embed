@@ -3,7 +3,10 @@ ngEmbed
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, highlighting code syntax and embedding almost every service in an ordinary text string .
 
-The examples are given [here](http://rkritesh.in/ngEmbed)
+The demo examples are given [here](http://rkritesh.in/ngEmbed)
+
+**PS : The jquery version of this module is [embed-js](http://github.com/ritz078/embed-js).**
+
 
 [![Join the chat at https://gitter.im/ritz078/ngEmbed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmbed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
