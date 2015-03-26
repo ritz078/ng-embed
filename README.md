@@ -61,10 +61,12 @@ load css files
 ```html
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+
 <!--==== Optional =====-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script src="http://platform.twitter.com/widgets.js"></script>
 <!--===================-->
+
 <script src="path/to/ng-embed.js"></script>
 ```
 
@@ -118,75 +120,75 @@ angular.module('yourAppName',['ngEmbed'])
 .controller('yourControllerName',['$scope',function($scope){
 
 $scope.options = {
-      link             : true,      //convert links into anchor tags
-      linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
-      pdf              : {
-        embed: true                 //to show pdf viewer.
-      },
-      image            : {
-        embed: false                //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
-      },
-      audio            : {
-        embed: true                 //to allow embedding audio player if link to
-      },
-      code             : {
-          highlight  : true,        //to allow code highlighting of code written in markdown
-      //requires highligh.js (https://highlightjs.org/) as dependency.
-          lineNumbers: false        //to show line numbers
-      },
-      basicVideo       : false,     //to allow embedding of mp4/ogg format videos
-      gdevAuth         :'xxxxxxxx', // Google developer auth key for youtube data api
-      video            : {
-          embed           : false,    //to allow youtube/vimeo video embedding
-          width           : null,     //width of embedded player
-          height          : null,     //height of embedded player
-          ytTheme         : 'dark',   //youtube player theme (light/dark)
-          details         : false,    //to show video details (like title, description etc.)
-      },
-      tweetEmbed       : true,
-      tweetOptions     : {
-          //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
-          maxWidth  : 550,
-          //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
-          hideMedia : false,
-          //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
-          //will not be displayed when the requested Tweet is in reply to another Tweet.
-          hideThread: false,
-          //Specifies whether the embedded Tweet should be floated left, right, or center in
-          //the page relative to the parent element.Valid values are left, right, center, and none.
-          //Defaults to none, meaning no alignment styles are specified for the Tweet.
-          align     : 'none',
-          //Request returned HTML and a rendered Tweet in the specified.
-          //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
-          lang      : 'en'
-      },
-      twitchtvEmbed    : true,
-      dailymotionEmbed : true,
-      tedEmbed         : true,
-      dotsubEmbed      : true,
-      liveleakEmbed    : true,
-      soundCloudEmbed  : true,
-      soundCloudOptions: {
-          height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
-          autoPlay    : false,
-          hideRelated : false,
-          showComments: true,
-          showUser    : true,
-          showReposts : false,
-          visual      : false,         //Show/hide the big preview image
-          download    : false          //Show/Hide download buttons
-      },
-      spotifyEmbed     : true,
-      codepenEmbed     : true,        //set to true to embed codepen
-      codepenHeight    : 300,
-      jsfiddleEmbed    : true,        //set to true to embed jsfiddle
-      jsfiddleHeight   : 300,
-      jsbinEmbed       : true,        //set to true to embed jsbin
-      jsbinHeight      : 300,
-      plunkerEmbed     : true,        //set to true to embed plunker
-      githubgistEmbed  : true,
-      ideoneEmbed      : true,        //set to true to embed ideone
-      ideoneHeight:300
+  link             : true,      //convert links into anchor tags
+  linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
+  pdf              : {
+    embed: true                 //to show pdf viewer.
+  },
+  image            : {
+    embed: false                //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
+  },
+  audio            : {
+    embed: true                 //to allow embedding audio player if link to
+  },
+  code             : {
+      highlight  : true,        //to allow code highlighting of code written in markdown
+  //requires highligh.js (https://highlightjs.org/) as dependency.
+      lineNumbers: false        //to show line numbers
+  },
+  basicVideo       : false,     //to allow embedding of mp4/ogg format videos
+  gdevAuth         :'xxxxxxxx', // Google developer auth key for youtube data api
+  video            : {
+      embed           : false,    //to allow youtube/vimeo video embedding
+      width           : null,     //width of embedded player
+      height          : null,     //height of embedded player
+      ytTheme         : 'dark',   //youtube player theme (light/dark)
+      details         : false,    //to show video details (like title, description etc.)
+  },
+  tweetEmbed       : true,
+  tweetOptions     : {
+      //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
+      maxWidth  : 550,
+      //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
+      hideMedia : false,
+      //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
+      //will not be displayed when the requested Tweet is in reply to another Tweet.
+      hideThread: false,
+      //Specifies whether the embedded Tweet should be floated left, right, or center in
+      //the page relative to the parent element.Valid values are left, right, center, and none.
+      //Defaults to none, meaning no alignment styles are specified for the Tweet.
+      align     : 'none',
+      //Request returned HTML and a rendered Tweet in the specified.
+      //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
+      lang      : 'en'
+  },
+  twitchtvEmbed    : true,
+  dailymotionEmbed : true,
+  tedEmbed         : true,
+  dotsubEmbed      : true,
+  liveleakEmbed    : true,
+  soundCloudEmbed  : true,
+  soundCloudOptions: {
+      height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
+      autoPlay    : false,
+      hideRelated : false,
+      showComments: true,
+      showUser    : true,
+      showReposts : false,
+      visual      : false,         //Show/hide the big preview image
+      download    : false          //Show/Hide download buttons
+  },
+  spotifyEmbed     : true,
+  codepenEmbed     : true,        //set to true to embed codepen
+  codepenHeight    : 300,
+  jsfiddleEmbed    : true,        //set to true to embed jsfiddle
+  jsfiddleHeight   : 300,
+  jsbinEmbed       : true,        //set to true to embed jsbin
+  jsbinHeight      : 300,
+  plunkerEmbed     : true,        //set to true to embed plunker
+  githubgistEmbed  : true,
+  ideoneEmbed      : true,        //set to true to embed ideone
+  ideoneHeight:300
       };
   }]);
 ```
