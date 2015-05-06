@@ -114,7 +114,7 @@
                     angular.forEach(icons, function (icon) {
                         for (var i = 0; i < a.length; i++) {
                             if (a[i] === icon.text) {
-                                a[i] = '<i class="icon-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</i>';
+                                a[i] = '<i class="ne-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</i>';
                             }
                         }
                     });
