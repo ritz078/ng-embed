@@ -75,7 +75,7 @@ load css files
 <script src="path/to/ng-embed.js"></script>
 ```
 
-Load 'Emoticons' as a dependency
+Load 'ngEmbed' as a dependency
 ```javascript
 angular.module('yourAppname', ['ngEmbed'])
 ```
