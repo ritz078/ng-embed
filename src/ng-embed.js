@@ -133,10 +133,17 @@
 
                 function urlEmbed(str) {
 
-                    var urlRegex = /((href|src)=["']|)(\b(https?|ftp|file):\/\/[-A-Z0-9+()&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+                    var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
+                    var protocolRegex = /^[a-z]+\:\/\//i;
 
-                    var strReplaced = str.replace(urlRegex, function (match) {
-                            return '<a href="' + match + '" target="' + options.linkTarget + '">' + match + '</a>';
+                    var strReplaced = str.replace(urlRegex, function (text) {
+                            var url = text;
+                            if (!protocolRegex.test(text))
+                            {
+                                url = 'http://' + text;
+                            }
+
+                            return '<a href="' + url + '" target="' + options.linkTarget + '">' + text + '</a>';
                         }
                     );
                     return strReplaced;
