@@ -355,13 +355,11 @@ Older releases are listed [here](RELEASES.md)
 Contributing
 ------------
 
-* If you are Interested in contributing to this project, you are most welcome.
-* If it is a bug-fix/improvement, first report it at [issues](https://github.com/ritz078/ngEmbed/issues)
-* Discuss with us in detail about your issue/improvement
-* Get the issue allotted.
-* If you are contributing a bug-fix or a very minor addition, feel free to do a pull request on the master # branch.
-* If you are unsure about the bug/improvement, create an issue to discuss.
-* Report bugs @ [issues](https://github.com/ritz078/ngEmbed/issues)
+* If you are interested in contributing to this project, you are most welcome.
+* Start by filing an [issue](https://github.com/ritz078/ngEmbed/issues) concerning whatever you’d like to see changed.
+* In case of larger changes, get the issue allotted
+* In case of bugfixes or very minor additions, feel free to file a pull request on the master # branch.
+* Please run the default grunt-task before filing any pull requests.
 
 
 License
