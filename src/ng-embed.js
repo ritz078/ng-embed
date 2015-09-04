@@ -174,6 +174,10 @@
                  * All the functions are being called here.
                  */
 
+                // sanitize - needs to be called before other functions are called. If not it would sanitize
+                // the emojis and the links and break the whole ng-embed functionality
+                var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
+                input = input.replace(/[&<>]/g, function(m) { return map[m];});
 
                 input = insertfontSmiley(input);
 
