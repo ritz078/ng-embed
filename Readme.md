@@ -6,6 +6,7 @@
 * ES2015 support (using [rollup.js](http://rollupjs.org/) and [Babel](http://babeljs.io/))
 * UMD supported build
 * Automatic versioning using [semantic-release](https://github.com/semantic-release/semantic-release)
+* Mocha and Chai for testing
 * Test before commiting using [ghooks](https://github.com/gtramontina/ghooks)
 * Lint using [babel-eslint](https://github.com/babel/babel-eslint)
 
@@ -13,5 +14,5 @@
 Supported tasks are `grunt`, `grunt watch` and `grunt build`
 
 ##License
-MIT @ [Ritesh Kumar](https://github.com/ritz078)
+MIT @ 2015
 
