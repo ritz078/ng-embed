@@ -1,8 +1,8 @@
 {
   "name": "lunar",
   "version": "0.0.0-semantically-released",
-  "description": "",
-  "main": "index.js",
+  "description": "A boilerplate to write plugins in pure JavaScript using ES2015",
+  "main": "dist/lunar.js",
   "scripts": {
     "test": "rollup -c && mocha test/bundle.test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"

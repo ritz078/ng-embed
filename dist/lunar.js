@@ -1,7 +1,7 @@
 /*
- *  lunar - v1.0.0
- *  
- *  http://riteshkr.com/lunar
+ *  lunar - v0.0.0-semantically-released
+ *  A boilerplate to write plugins in pure JavaScript using ES2015
+ *  https://github.com/ritz078/lunar
  *
  *  Made by Ritesh Kumar
  *  Under MIT License
