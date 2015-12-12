@@ -7,6 +7,8 @@ module.exports = function (grunt) {
 		// Import package manifest
 		pkg: grunt.file.readJSON("package.json"),
 
+		projectName:"lunar",
+
 		// Banner definitions
 		meta: {
 			banner: "/*\n" +
@@ -28,17 +30,16 @@ module.exports = function (grunt) {
 			options: {
 				format       : 'umd',
 				banner       : "<%= meta.banner %>",
-				externals    : ['regeneratorRuntime'],
 				sourceMap    : true,
 				useStrict    : true,
-				sourceMapFile: 'src/embed.js',
+				sourceMapFile: 'dist/<%= projectName %>.js',
 				plugins      : [
 					babel()
 				]
 			},
 			files  : {
-				src : 'src/lunar.js',
-				dest: 'dist/lunar.js'
+				src : 'src/<%= projectName %>.js',
+				dest: 'dist/<%= projectName %>.js'
 			}
 		}
 

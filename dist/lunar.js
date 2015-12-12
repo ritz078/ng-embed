@@ -1,9 +1,9 @@
 /*
  *  lunar - v1.0.0
  *  
- *  
+ *  http://riteshkr.com/lunar
  *
- *  Made by 
+ *  Made by Ritesh Kumar
  *  Under MIT License
  */
 
