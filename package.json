@@ -1,10 +1,11 @@
 {
   "name": "lunar",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "rollup -c && mocha test/bundle.test.js"
+    "test": "rollup -c && mocha test/bundle.test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT",
   "devDependencies": {
@@ -26,7 +27,8 @@
     "load-grunt-tasks": "^3.3.0",
     "mocha": "^2.3.4",
     "rollup": "^0.21.2",
-    "rollup-plugin-babel": "^2.2.0"
+    "rollup-plugin-babel": "^2.2.0",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "ghooks": {
