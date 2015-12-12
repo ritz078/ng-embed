@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 		// Import package manifest
 		pkg: grunt.file.readJSON("package.json"),
 
-		projectName:"lunar",
+		projectName:"<%= pkg.name %>",
 
 		// Banner definitions
 		meta: {
@@ -41,10 +41,40 @@ module.exports = function (grunt) {
 				src : 'src/<%= projectName %>.js',
 				dest: 'dist/<%= projectName %>.js'
 			}
+		},
+
+		watch:{
+			js:{
+				files:["src/**/*.js"],
+				tasks:["eslint","rollup","uglify"]
+			}
+		},
+
+		uglify:{
+			options: {
+				banner: "<%= meta.banner %>",
+				mangle: true,
+				compress: {
+					sequences    : true,
+					dead_code    : true,
+					conditionals : true,
+					booleans     : true,
+					unused       : true,
+					if_return    : true,
+					join_vars    : true,
+					drop_console : true
+				}
+			},
+			build: {
+				files: {
+					"dist/<%= projectName %>.min.js": "src/<%= projectName %>.js"
+				}
+			}
 		}
 
 
 	});
 
 	grunt.registerTask("default", ["eslint","rollup"]);
+	grunt.registerTask("build",["eslint","rollup","uglify"]);
 };
