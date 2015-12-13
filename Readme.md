@@ -1,10 +1,10 @@
-#lunar
+#javascript-plugin-boilerplate
 
 > A boilerplate to write plugins in pure JavaScript using ES2015
 
 ###Features
 * ES2015 support (using [rollup.js](http://rollupjs.org/) and [Babel](http://babeljs.io/))
-* UMD supported build
+* [UMD](https://github.com/umdjs/umd) supported build
 * Automatic versioning using [semantic-release](https://github.com/semantic-release/semantic-release)
 * Mocha and Chai for testing
 * Test before commiting using [ghooks](https://github.com/gtramontina/ghooks)
