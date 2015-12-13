@@ -6,7 +6,7 @@
 * ES2015 support (using [rollup.js](http://rollupjs.org/) and [Babel](http://babeljs.io/))
 * [UMD](https://github.com/umdjs/umd) supported build
 * Automatic versioning using [semantic-release](https://github.com/semantic-release/semantic-release)
-* Mocha and Chai for testing
+* [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/) for testing
 * Test before commiting using [ghooks](https://github.com/gtramontina/ghooks)
 * Lint using [babel-eslint](https://github.com/babel/babel-eslint)
 
