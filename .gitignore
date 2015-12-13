@@ -2,3 +2,4 @@ node_modules
 .idea
 .sass-cache
 bower_components
+coverage

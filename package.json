@@ -4,8 +4,9 @@
   "description": "A boilerplate to write plugins in pure JavaScript using ES2015",
   "main": "dist/lunar.js",
   "scripts": {
-    "commit":"git cz",
-    "test": "rollup -c && mocha test/bundle.test.js",
+    "commit": "git cz",
+    "test":"rollup -c && mocha test/bundle.test.js",
+    "test:coverage": "rollup -c && istanbul cover -x *.test.js _mocha -- -R spec test/bundle.test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT",
@@ -25,6 +26,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-eslint": "^17.3.1",
     "grunt-rollup": "^0.6.1",
+    "istanbul": "^0.4.1",
     "load-grunt-tasks": "^3.3.0",
     "mocha": "^2.3.4",
     "rollup": "^0.21.2",
