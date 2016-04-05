@@ -494,7 +494,7 @@
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="http://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
+                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
                                     'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
