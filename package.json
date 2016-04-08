@@ -2,12 +2,7 @@
   "name": "ng-embed",
   "version": "2.0.4",
   "description": "An AngularJS filter to convert text into emoticons.",
-  "main": [
-    "./src/ng-embed.js",
-    "./src/ng-embed.css",
-    "./fonts/*",
-    "./images/*"
-  ],
+  "main": "./src/ng-embed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
