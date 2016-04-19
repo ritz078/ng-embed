@@ -149,6 +149,7 @@ $scope.options = {
       height          : null,     //height of embedded player
       ytTheme         : 'dark',   //youtube player theme (light/dark)
       details         : false,    //to show video details (like title, description etc.)
+      autoPlay        : true,     //to autoplay embedded videos
   },
   tweetEmbed       : true,
   tweetOptions     : {

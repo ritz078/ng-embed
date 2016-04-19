@@ -376,6 +376,7 @@
                                 if (options.video.details) {
                                     $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics')
                                         .success(function (d) {
+                                            var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
                                             var ytData = d.items[0];
 
                                             scope.video.host = 'youtube';
@@ -389,7 +390,7 @@
                                             scope.video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
                                             scope.video.uploadDate = ytData.snippet.publishedAt;
                                             scope.video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
-                                            scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + '?autoplay=1');
+                                            scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + autoPlay);
                                             scope.video.width = youtubeDimensions.width;
                                             scope.video.height = youtubeDimensions.height;
 
@@ -416,8 +417,10 @@
                                 var vimeoDimensions = this.calcDimensions(options);
                                 scope.video.id = RegExp.$3;
                                 if (options.video.details) {
+
                                     $http.get('https://vimeo.com/api/v2/video/' + RegExp.$3 + '.json')
                                         .success(function (d) {
+                                            var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
                                             scope.video.host = 'vimeo';
                                             scope.video.title = d[0].title;
                                             scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
@@ -429,7 +432,7 @@
                                             scope.video.uploaderPage = d[0].user_url;
                                             scope.video.uploadDate = d[0].uploadDate;
                                             scope.video.url = d[0].url;
-                                            scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0&autoplay=1');
+                                            scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0' + autoPlay);
                                             scope.video.width = vimeoDimensions.width;
                                             scope.video.height = vimeoDimensions.height;
                                         });
