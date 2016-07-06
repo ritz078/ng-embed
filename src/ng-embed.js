@@ -143,7 +143,11 @@
                                 url = 'http://' + text;
                             }
 
-                            return '<a href="' + url + '" target="' + options.linkTarget + '">' + text + '</a>';
+                            if (options.linkTarget == 'cordova'){
+                                return '<a href="#" onclick="window.open(\''+ url +'\', \'_system\', \'location=yes\')" >' + text + '</a>';
+                            }else{
+                                return '<a href="' + url + '" target="' + options.linkTarget + '">' + text + '</a>';
+                            }
                         }
                     );
                     return strReplaced;
