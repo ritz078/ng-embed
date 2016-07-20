@@ -782,40 +782,57 @@
                         }
                     }
 
+                    //recal
+                    function processEmbed(){
+                      var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
 
-                    var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
+                      if (options.video.embed) {
+                          if (!options.gdevAuth) {
+                              throw 'Youtube authentication key is required to get data from youtube.';
+                          }
+                          else {
+                              x = videoProcess.embed(x, options);
+                          }
 
-                    if (options.video.embed) {
-                        if (!options.gdevAuth) {
-                            throw 'Youtube authentication key is required to get data from youtube.';
-                        }
-                        else {
-                            x = videoProcess.embed(x, options);
-                        }
+                      }
 
+                      x = options.basicVideo ? videoProcess.embedBasic(x) : x;
+                      x = options.audio.embed ? audioProcess.embed(x) : x;
+                      x = options.image.embed ? imageProcess.embed(x) : x;
+                      x = options.pdf.embed ? pdfProcess.embed(x) : x;
+                      x = options.tweetEmbed ? tweetProcess.embed(x, options) : x;
+                      x = options.twitchtvEmbed ? videoProcess.twitchtvEmbed(x, options) : x;
+                      x = options.dailymotionEmbed ? videoProcess.dailymotionEmbed(x, options) : x;
+                      x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
+                      x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
+                      x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
+                      x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
+                      x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
+                      x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
+                      x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
+                      x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
+                      x = options.plunkerEmbed ? codeEmbedProcess.plunkerEmbed(x, options) : x;
+                      x = options.githubgistEmbed ? codeEmbedProcess.githubgistEmbed(x, options) : x;
+                      x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
+
+
+                      scope.neText = $sce.trustAsHtml(x);
                     }
 
-                    x = options.basicVideo ? videoProcess.embedBasic(x) : x;
-                    x = options.audio.embed ? audioProcess.embed(x) : x;
-                    x = options.image.embed ? imageProcess.embed(x) : x;
-                    x = options.pdf.embed ? pdfProcess.embed(x) : x;
-                    x = options.tweetEmbed ? tweetProcess.embed(x, options) : x;
-                    x = options.twitchtvEmbed ? videoProcess.twitchtvEmbed(x, options) : x;
-                    x = options.dailymotionEmbed ? videoProcess.dailymotionEmbed(x, options) : x;
-                    x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
-                    x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
-                    x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
-                    x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
-                    x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
-                    x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
-                    x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
-                    x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
-                    x = options.plunkerEmbed ? codeEmbedProcess.plunkerEmbed(x, options) : x;
-                    x = options.githubgistEmbed ? codeEmbedProcess.githubgistEmbed(x, options) : x;
-                    x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
+                    processEmbed();
 
-
-                    scope.neText = $sce.trustAsHtml(x);
+                    scope.$watch(attributes.embedData, function(newData) {
+                      data = scope.$eval(newData);
+                      scope.video = {};
+                      scope.image = {};
+                      scope.pdf = {};
+                      scope.audio = {};
+                      scope.videoServices = [];
+                      scope.audioServices = [];
+                      scope.codeServices = [];
+                      scope.gist = [];
+                      processEmbed();
+                    });
                 }
             };
         }])
@@ -861,4 +878,3 @@
         });
 
 })();
-
