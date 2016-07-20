@@ -782,10 +782,8 @@
                         }
                     }
 
-                    //recal
                     function processEmbed(){
                       var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
-
                       if (options.video.embed) {
                           if (!options.gdevAuth) {
                               throw 'Youtube authentication key is required to get data from youtube.';
@@ -817,21 +815,24 @@
 
 
                       scope.neText = $sce.trustAsHtml(x);
+                      $timeout(function(){},0);
                     }
 
                     processEmbed();
 
-                    scope.$watch(attributes.embedData, function(newData) {
-                      data = scope.$eval(newData);
-                      scope.video = {};
-                      scope.image = {};
-                      scope.pdf = {};
-                      scope.audio = {};
-                      scope.videoServices = [];
-                      scope.audioServices = [];
-                      scope.codeServices = [];
-                      scope.gist = [];
-                      processEmbed();
+                    scope.$watch(attributes.embedData, function(newData,oldData) {
+                      if(oldData !== newData){
+                        data = newData;
+                        scope.video = {};
+                        scope.image = {};
+                        scope.pdf = {};
+                        scope.audio = {};
+                        scope.videoServices = [];
+                        scope.audioServices = [];
+                        scope.codeServices = [];
+                        scope.gist = [];
+                        processEmbed();
+                      }
                     });
                 }
             };
