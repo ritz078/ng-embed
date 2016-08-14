@@ -59,6 +59,8 @@
                  * @type {Object}
                  */
                 var options = {
+                    fontSmiley: true,
+                    emoji     : true,
                     link      : true,
                     linkTarget: '_self'
                 };
@@ -183,9 +185,13 @@
                 var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
                 input = input.replace(/[&<>]/g, function(m) { return map[m];});
 
-                input = insertfontSmiley(input);
+                if (options.fontSmiley) {
+                    input = insertfontSmiley(input);
+                }
 
-                input = insertEmoji(input);
+                if (options.emoji) {
+                    input = insertEmoji(input);
+                }
 
                 if (options.link) {
                     input = urlEmbed(input);
@@ -224,6 +230,8 @@
                     scope.gist = [];
 
                     var options = {
+                        fontSmiley       : true,
+                        emoji            : true,
                         link             : true,
                         linkTarget       : '_self',
                         pdf              : {

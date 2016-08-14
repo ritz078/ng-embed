@@ -90,6 +90,8 @@ You can use the filter for basic use. Its features are limited to converting tex
 **Options**
 ```javascript
 embed:{
+      fontSmiley  :true,                      //for coverting ascii smileys into font smileys
+      emoji       :true,                      //for coverting emojis short names into images
       link        :true,                      //for coverting urls into anchor tags
       linkTarget  :'_self'                    //_blank|_self|_parent|_top|framename
  }
@@ -125,6 +127,8 @@ angular.module('yourAppName',['ngEmbed'])
 .controller('yourControllerName',['$scope',function($scope){
 
 $scope.options = {
+  fontSmiley       : true,      //convert ascii smileys into font smileys
+  emoji            : true,      //convert emojis short names into images
   link             : true,      //convert links into anchor tags
   linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
   pdf              : {
