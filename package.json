@@ -1,6 +1,6 @@
 {
   "name": "ng-embed",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "An AngularJS filter to convert text into emoticons.",
   "main": "./src/ng-embed.js",
   "scripts": {
@@ -20,8 +20,8 @@
     "smileys"
   ],
   "dependencies": {
-    "angular": "1.x",
-    "angular-sanitize": "1.x",
+    "angular": "^1.x",
+    "angular-sanitize": "^1.x",
     "grunt": "0.4.5",
     "grunt-cli": "1.2.0"
   },
