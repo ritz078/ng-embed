@@ -135,7 +135,7 @@
 
                 function urlEmbed(str) {
 
-                    var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
+                    var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@$#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
                     var protocolRegex = /^[a-z]+\:\/\//i;
 
                     var strReplaced = str.replace(urlRegex, function (text) {
@@ -183,6 +183,11 @@
                 // sanitize - needs to be called before other functions are called. If not it would sanitize
                 // the emojis and the links and break the whole ng-embed functionality
                 var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
+		
+		if(!angular.isNumber(input)){
+		    input = input.toString();			
+		}
+
                 input = input.replace(/[&<>]/g, function(m) { return map[m];});
 
                 if (options.fontSmiley) {
