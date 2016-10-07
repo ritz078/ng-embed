@@ -487,8 +487,12 @@
                             if (matches) {
                                 var i = 0;
                                 while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<object bgcolor="#000000" ' +
-                                        'data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" height="' + videoDimensions.height + '" id="clip_embed_player_flash" type="application/x-shockwave-flash" width="' + videoDimensions.width + '">' + '<param name="movie" value="http://www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />' + '<param name="allowScriptAccess" value="always" />' + '<param name="allowNetworking" value="all" />' + '<param name="allowFullScreen" value="true" />' + '<param name="flashvars" value="channel=' + matches[i].split('/')[1] + '&auto_play=false" />' + '</object>');
+                                    var frame = $sce.trustAsHtml('<iframe ' +
+                                        'src="https://player.twitch.tv/?channel=' + matches[i].split('/')[1] +'" ' +
+                                        'height="' + videoDimensions.height + '" ' +
+                                        'width="' + videoDimensions.width + '" ' +
+                                        'frameborder="0" ' + 'scrolling="no" ' + 'allowfullscreen="true">' +
+                                        '</iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
                                 }
