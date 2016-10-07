@@ -488,10 +488,13 @@
                                 var i = 0;
                                 while (i < matches.length) {
                                     var frame = $sce.trustAsHtml('<iframe ' +
-                                        'src="https://player.twitch.tv/?channel=' + matches[i].split('/')[1] +'" ' +
+                                        'src="https://player.twitch.tv/?channel=' + matches[i].split('/')[1] +'&!autoplay" ' +
                                         'height="' + videoDimensions.height + '" ' +
                                         'width="' + videoDimensions.width + '" ' +
-                                        'frameborder="0" ' + 'scrolling="no" ' + 'allowfullscreen="true">' +
+                                        'autoplay="false" ' +
+                                        'frameborder="0" ' +
+                                        'scrolling="no" ' +
+                                        'allowfullscreen="true">' +
                                         '</iframe>');
                                     scope.videoServices.push(frame);
                                     i++;
