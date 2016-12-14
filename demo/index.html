@@ -2,124 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>ngEmbed</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<meta charset="UTF-8">
+	<title>ngEmbed</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="https://highlightjs.org/static/styles/github.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../src/ng-embed.css">
-    <style>
-        header{
-            background-color: #00AEE2;
-            padding: 10px;
-            width:100%;
-            color: #fff;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
-            position:fixed;
-            overflow: auto;overflow: auto;
-            z-index:9999;
-        }
-        body {
-            width       : 100%;
-            height      : 100%;
-            margin      : 0 auto;
-            font-family : 'Lato';
-            }
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../src/ng-embed.css">
+	<style>
+		header{
+			background-color: #00AEE2;
+			padding: 10px;
+			width:100%;
+			color: #fff;
+			text-align: center;
+			font-size: 30px;
+			box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+			position:fixed;
+			overflow: auto;overflow: auto;
+			z-index:9999;
+		}
+		body {
+			width       : 100%;
+			height      : 100%;
+			margin      : 0 auto;
+			font-family : 'Lato';
+		}
 
-        .main {
-            width     : 800px;
-            margin    : 0 auto;
-            font-size : 17px;
-            color     : #444;
-            overflow: auto;
-            padding-top: 50px;
-            }
+		.main {
+			width     : 800px;
+			margin    : 0 auto;
+			font-size : 17px;
+			color     : #444;
+			overflow: auto;
+			padding-top: 50px;
+		}
 
-        h2 {
-            text-align  : center;
-            font-family : inherit;
-            }
+		h2 {
+			text-align  : center;
+			font-family : inherit;
+		}
 
-        a {
-            text-decoration : none;
-            color           : cornflowerblue;
-            }
+		a {
+			text-decoration : none;
+			color           : cornflowerblue;
+		}
 
-        h3 {
-            font-family : inherit;
-            text-align  : center;
-            }
-        h2{
-            text-align: center;
-            padding: 15px;
-            border-bottom: 2px solid #f4f4f4;
-            font-weight: 500;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            border-radius: 2px;
-            color: #3498DB;
-            text-transform: uppercase;
-        }
-    </style>
+		h3 {
+			font-family : inherit;
+			text-align  : center;
+		}
+		h2{
+			text-align: center;
+			padding: 15px;
+			border-bottom: 2px solid #f4f4f4;
+			font-weight: 500;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			border-radius: 2px;
+			color: #3498DB;
+			text-transform: uppercase;
+		}
+	</style>
 </head>
 
 <body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
 <header>ngEmbed</header>
 <div class="main">
-    <h2>Simple Filter Usage</h2>
-    <div ng-bind-html="text|embed"></div>
-    <h2>Directive Usage</h2>
-    <h3>Emojis and Font icons</h3>
-    <ng-embed embed-data="text" embed-options="options"></ng-embed>
-    <h3>Media Embed</h3>
-    <ng-embed embed-data="media" embed-options="options" ></ng-embed>
-    <h3>pdf</h3>
-    <ng-embed embed-data="pdf" embed-options="options"></ng-embed>
-    <h3>vimeo</h3>
-    <ng-embed embed-data="vimeo" embed-options="options"></ng-embed>
-    <h3>Youtube support</h3>
-    <ng-embed embed-data="youtube" embed-options="options"></ng-embed>
-    <h3>Code Syntax Highlighting</h3>
-    <ng-embed embed-data="text1" embed-options="options"></ng-embed>
-    <h3>Ideone Support</h3>
-    <ng-embed embed-data="ideone" embed-options="options"></ng-embed>
-    <h3>Github Gist Support</h3>
-    <ng-embed embed-data="gist" embed-options="options"></ng-embed>
-    <h3>Plunker Support</h3>
-    <ng-embed embed-data="plunker" embed-options="options"></ng-embed>
-    <h3>jsbin Support</h3>
-    <ng-embed embed-data="jsbin" embed-options="options"></ng-embed>
-    <h3>jsfiddle Support</h3>
-    <ng-embed embed-data="jsfiddle" embed-options="options"></ng-embed>
-    <h3>codepen Support</h3>
-    <ng-embed embed-data="codepen" embed-options="options"></ng-embed>
-    <h3>Spotify Support</h3>
-    <ng-embed embed-data="spotify" embed-options="options"></ng-embed>
-    <h3>SoundCloud Support</h3>
-    <ng-embed embed-data="soundcloud" embed-options="options"></ng-embed>
-    <h3>LiveLeak Support</h3>
-    <ng-embed embed-data="liveleak" embed-options="options"></ng-embed>
-    <h3>dotsub Support</h3>
-    <ng-embed embed-data="dotsub" embed-options="options"></ng-embed>
-    <h3>Dailymotion and TED Embed</h3>
-    <ng-embed embed-data="dailymotion" embed-options="options"></ng-embed>
-    <h3>Twitch TV Embed</h3>
-    <ng-embed embed-data="twitchtv" embed-options="options"></ng-embed>
-    <h3>Twitter Support</h3>
-    <ng-embed embed-data="twitter" embed-options="options"></ng-embed>
+	<h2>Simple Filter Usage</h2>
+	<div ng-bind-html="text|embed"></div>
+	<h2>Directive Usage</h2>
+	<h3>Emojis and Font icons</h3>
+	<ng-embed embed-data="text" embed-options="options"></ng-embed>
+	<h3>Media Embed</h3>
+	<ng-embed embed-data="media" embed-options="options" ></ng-embed>
+	<h3>pdf</h3>
+	<ng-embed embed-data="pdf" embed-options="options"></ng-embed>
+	<h3>vimeo</h3>
+	<ng-embed embed-data="vimeo" embed-options="options"></ng-embed>
+	<h3>Youtube support</h3>
+	<ng-embed embed-data="youtube" embed-options="options"></ng-embed>
+	<h3>Code Syntax Highlighting</h3>
+	<ng-embed embed-data="text1" embed-options="options"></ng-embed>
+	<h3>Ideone Support</h3>
+	<ng-embed embed-data="ideone" embed-options="options"></ng-embed>
+	<h3>Github Gist Support</h3>
+	<ng-embed embed-data="gist" embed-options="options"></ng-embed>
+	<h3>Plunker Support</h3>
+	<ng-embed embed-data="plunker" embed-options="options"></ng-embed>
+	<h3>jsbin Support</h3>
+	<ng-embed embed-data="jsbin" embed-options="options"></ng-embed>
+	<h3>jsfiddle Support</h3>
+	<ng-embed embed-data="jsfiddle" embed-options="options"></ng-embed>
+	<h3>codepen Support</h3>
+	<ng-embed embed-data="codepen" embed-options="options"></ng-embed>
+	<h3>Spotify Support</h3>
+	<ng-embed embed-data="spotify" embed-options="options"></ng-embed>
+	<h3>SoundCloud Support</h3>
+	<ng-embed embed-data="soundcloud" embed-options="options"></ng-embed>
+	<h3>LiveLeak Support</h3>
+	<ng-embed embed-data="liveleak" embed-options="options"></ng-embed>
+	<h3>dotsub Support</h3>
+	<ng-embed embed-data="dotsub" embed-options="options"></ng-embed>
+	<h3>Dailymotion and TED Embed</h3>
+	<ng-embed embed-data="dailymotion" embed-options="options"></ng-embed>
+	<h3>Twitch TV Embed</h3>
+	<ng-embed embed-data="twitchtv" embed-options="options"></ng-embed>
+	<h3>Twitter Support</h3>
+	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
 
 
 
 </div>
 </body>
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script src="http://platform.twitter.com/widgets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
 <script src="../src/ng-embed.js"></script>
 <script src="js/app.js"></script>
 
