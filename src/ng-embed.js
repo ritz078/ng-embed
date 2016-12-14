@@ -594,7 +594,7 @@
 
                     var imageProcess = {
                         embed: function (data) {
-                            var i = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
+                            var i = /(((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))(\?([\w=&_%\-]*))?)/gi;
 
                             if (data.match(i)) {
                                 scope.image.url = RegExp.$1;
