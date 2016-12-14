@@ -392,9 +392,9 @@
                                 scope.video.id = RegExp.$1;
                                 if (options.video.details) {
                                     $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics')
-                                        .success(function (d) {
+                                        .then(function (r) {
                                             var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
-                                            var ytData = d.items[0];
+                                            var ytData = r.data.items[0];
 
                                             scope.video.host = 'youtube';
                                             scope.video.title = ytData.snippet.title;
@@ -436,7 +436,8 @@
                                 if (options.video.details) {
 
                                     $http.get('https://vimeo.com/api/v2/video/' + RegExp.$3 + '.json')
-                                        .success(function (d) {
+                                        .then(function (r) {
+                                        	var d = r.data;
                                             var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
                                             scope.video.host = 'vimeo';
                                             scope.video.title = d[0].title;
@@ -664,8 +665,8 @@
                                      * received data.
                                      */
                                     var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&callback=JSON_CALLBACK&url=' + matches[i] + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
-                                    $http.jsonp(url).success(function (d) {
-                                        scope.tweets.push(d.html);
+                                    $http.jsonp(url).then(function (r) {
+                                        scope.tweets.push(r.data.html);
                                         if (scope.tweets.length == matches.length) {
                                             renderTweet();
                                         }
