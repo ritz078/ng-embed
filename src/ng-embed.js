@@ -59,6 +59,7 @@
 				 * @type {Object}
 				 */
 				var options = {
+					sanitizeHtml: true,
 					fontSmiley: true,
 					emoji     : true,
 					link      : true,
@@ -182,13 +183,17 @@
 
 					// sanitize - needs to be called before other functions are called. If not it would sanitize
 					// the emojis and the links and break the whole ng-embed functionality
-				var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
 
 				if(!angular.isNumber(input)){
 					input = input.toString();
 				}
 
-				input = input.replace(/[&<>]/g, function(m) { return map[m];});
+				if (options.sanitizeHtml) {
+				    var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
+				    input = input.replace(/[&<>]/g, function (m) {
+				        return map[m];
+				    });
+				}
 
 				if (options.fontSmiley) {
 					input = insertfontSmiley(input);
@@ -235,6 +240,7 @@
 					scope.gist = [];
 
 					var options = {
+						sanitizeHtml     : true,
 						fontSmiley       : true,
 						emoji            : true,
 						link             : true,
@@ -335,7 +341,7 @@
 						};
 
 					/**
-					 * Retures a new array with unique values
+					 * Return a new array with unique values
 					 *
 					 * @returns {Array}
 					 */
@@ -483,8 +489,15 @@
 							if (matches) {
 								var i = 0;
 								while (i < matches.length) {
-									var frame = $sce.trustAsHtml('<object bgcolor="#000000" ' +
-										'data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" height="' + videoDimensions.height + '" id="clip_embed_player_flash" type="application/x-shockwave-flash" width="' + videoDimensions.width + '">' + '<param name="movie" value="http://www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />' + '<param name="allowScriptAccess" value="always" />' + '<param name="allowNetworking" value="all" />' + '<param name="allowFullScreen" value="true" />' + '<param name="flashvars" value="channel=' + matches[i].split('/')[1] + '&auto_play=false" />' + '</object>');
+                                    var frame = $sce.trustAsHtml('<iframe ' +
+                                        'src="https://player.twitch.tv/?channel=' + matches[i].split('/')[1] +'&!autoplay" ' +
+                                        'height="' + videoDimensions.height + '" ' +
+                                        'width="' + videoDimensions.width + '" ' +
+                                        'autoplay="false" ' +
+                                        'frameborder="0" ' +
+                                        'scrolling="no" ' +
+                                        'allowfullscreen="true">' +
+                                        '</iframe>');
 									scope.videoServices.push(frame);
 									i++;
 								}
