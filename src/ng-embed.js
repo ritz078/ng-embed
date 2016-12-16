@@ -397,7 +397,8 @@
 								var youtubeDimensions = this.calcDimensions(options);
 								scope.video.id = RegExp.$1;
 								if (options.video.details) {
-									$http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics')
+									var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
+									$http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
 										.then(function (r) {
 											var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
 											var ytData = r.data.items[0];
