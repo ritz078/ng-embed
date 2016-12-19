@@ -227,17 +227,9 @@
                     return (attributes.embedTemplateUrl || TEMPLATE_URL);
                 },
                 link       : function (scope, elements, attributes) {
+                	var embedFilter = $filter('embed');
 
-                    var data = scope.$eval(attributes.embedData);
                     var userOptions = scope.$eval(attributes.embedOptions);
-                    scope.video = {};
-                    scope.image = {};
-                    scope.pdf = {};
-                    scope.audio = {};
-                    scope.videoServices = [];
-                    scope.audioServices = [];
-                    scope.codeServices = [];
-                    scope.gist = [];
 
                     var options = {
 	                    watchEmbedData   : false,
@@ -623,25 +615,59 @@
 
                     var codeProcess = {
 
+	                    /**
+	                     * Encodes the characters like <, > and space and replaces them with
+	                     * &lt;, &gt; and &gt; respectively.
+	                     * @param  {string} code The string that has to be encoded.
+	                     * @return {string}      The encoded string
+	                     */
+	                    encode: function(code) {
+			                code = code.replace(/&amp;/gm, '');
+			                code = code.replace(/&lt;/g, '<');
+			                code = code.replace(/&gt;/g, '>');
+			                return code;
+		                },
+
+		                /**
+		                 * removes whitespace characters
+		                 * @param  {string} code The string from which the whitespace has to be removed
+		                 * @return {string}
+		                 */
+		                trimSpace: function(code) {
+			                code = code.replace(/^([ \t]*)/g, ''); // leading whitespace
+			                code = code.replace(/[ \t]*$/g, ''); // trailing whitespace
+			                return code;
+		                },
+
                         getCode: function (text) {
-                            text = text.replace(/(`+)(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
-                                function (wholeMatch, m1, m2, m3) {
-                                    var c = m3;
-                                    c = c.replace(/^([ \t]*)/g, ""); // leading whitespace
-                                    c = c.replace(/[ \t]*$/g, ""); // trailing whitespace
-                                    c = c.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
+                            return (text + '').replace(/(`+)(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
+                                function (wholeMatch, group1, group2, group3) {
+                                    var code = group3;
+                                    code = codeProcess.trimSpace(code);
+	                                code = codeProcess.encode(code);
+
+                                    code = code.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
                                                                    // *blocks*, but in code spans. Will be converted
                                                                    // back after the auto-linker runs.
 
-                                    var lang = [];
-                                    if (m2) {
-                                        lang.push(m2);
+	                                var language = group2.split('\n')[0];
+
+	                                var highlightedCode;
+                                    if ( language ) {
+		                                highlightedCode = hljs.highlightAuto(code, [language]);
+	                                } else {
+		                                highlightedCode = hljs.highlightAuto(code);
+		                                language        = highlightedCode.language;
                                     }
 
-                                    return '<pre><code class="ne-code hljs ' + m2 + '">' + hljs.highlightAuto(c, lang).value + '</code></pre>';
+                                    return '<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>';
+                                    /*
+	                                var codeBlock = $sce.trustAsHtml('<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>');
+	                                scope.codeServices.push(codeBlock);
+                                    return '';
+                                    */
                                 }
                             );
-                            return text;
                         }
                     };
 
@@ -787,10 +813,8 @@
                                 }
                             }
                             return str;
-                        }
-                    };
-
-                    if (options.code.highlight) {
+                        },
+	                    highlightEmbed: function(data, options) {
                         if (!window.hljs) {
                             throw new ReferenceError('hlsj (Highlight JS is not defined.');
                         }
@@ -801,28 +825,52 @@
                              * Adding line numbers to code
                              */
                             $timeout(function () {
+			                    	// wrapped in timeout to allow code elements to be added to DOM
                                 if (options.code.lineNumbers) {
-                                    angular.element('.ne-code').each(function () {
-                                        var i = 1;
-                                        var lines = $(this).text().split('\n').length;
-                                        var numbering = $('<ul/>').addClass('pre-numbering');
-                                        angular.element(this)
-                                            .addClass('has-numbering')
+				                    	var codeBlocks = elements.find('.ne-code');
+				                    	if( codeBlocks.length > 0 ) {
+						                    angular.forEach(codeBlocks, function(block) {
+							                    var codeElement = angular.element(block)
+								                    .addClass('has-numbering');
+							                    var content = codeElement.text();
+							                    var lineCount = content.split('\n').length;
+							                    var lineNbrList = angular.element('<ul/>').addClass('pre-numbering');
+							                    for (var i = 1; i <= lineCount; i++) {
+								                    var lineNbr = angular.element('<li/>').text(i);
+								                    lineNbrList.append(lineNbr);
+							                    }
+
+							                    codeElement
                                             .parent()
-                                            .append(numbering);
-                                        for (i; i <= lines; i++) {
-                                            numbering.append(angular.element('<li/>').text(i));
-                                        }
+								                    .append(lineNbrList);
                                     });
                                 }
+				                    }
 
-                            }, 0);
+			                    }, 20);
+		                    }
 
+		                    return data;
                         }
-                    }
+                    };
 
-                    function processEmbed(){
-                      var x = ($filter('embed')(data, options)).$$unwrapTrustedValue();
+                    function processEmbed(input){
+                    	// clear scope
+	                    scope.video = {};
+	                    scope.image = {};
+	                    scope.pdf = {};
+	                    scope.audio = {};
+	                    scope.videoServices = [];
+	                    scope.audioServices = [];
+	                    scope.codeServices = [];
+	                    scope.gist = [];
+
+	                    // make sure that input is string
+	                    if( !angular.isString(input) || input.length === 0 ) {
+		                    input = ' ';
+                    }
+                      var x = embedFilter(input, options).$$unwrapTrustedValue();
+
                       if (options.video.embed) {
                           if (!options.gdevAuth) {
                               throw 'Youtube authentication key is required to get data from youtube.';
@@ -845,6 +893,7 @@
                       x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
                       x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
                       x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
+                      x = options.code.highlight ? codeEmbedProcess.highlightEmbed(x, options) : x;
                       x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
                       x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
                       x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
@@ -859,25 +908,11 @@
                     }
 
                     if( !options.watchEmbedData ) {
-	                    processEmbed();
+	                    var newData = scope.$eval(attributes.embedData);
+	                    processEmbed(newData);
                     }
                     else {
-	                    scope.$watch(attributes.embedData, function(newData) {
-	                    	// fix, make sure that data is string
-	                    	if( (newData + '').length == 0 ) {
-	                    		newData = ' ';
-		                    }
-		                    data = newData;
-		                    scope.video = {};
-		                    scope.image = {};
-		                    scope.pdf = {};
-		                    scope.audio = {};
-		                    scope.videoServices = [];
-		                    scope.audioServices = [];
-		                    scope.codeServices = [];
-		                    scope.gist = [];
-		                    processEmbed();
-	                    });
+	                    scope.$watch(attributes.embedData, processEmbed);
                     }
                 }
             };
