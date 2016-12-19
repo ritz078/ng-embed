@@ -110,6 +110,10 @@
 	<ng-embed embed-data="twitchtv" embed-options="options"></ng-embed>
 	<h3>Twitter Support</h3>
 	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
+	<h3>$scope watch support</h3>
+	<textarea ng-model="model.watchText" placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc">
+	</textarea>
+	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
 
 
 
