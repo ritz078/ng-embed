@@ -66,32 +66,6 @@
                     linkTarget: '_self'
                 };
 
-                /**
-                 * Function extendDeep
-                 *
-                 * @description
-                 * Extends an object to another object using deep analyzing
-                 *
-                 * @param dst
-                 * @returns extended object
-                 */
-
-                function extendDeep(dst) {
-                    angular.forEach(arguments, function (obj) {
-                        if (obj !== dst) {
-                            angular.forEach(obj, function (value, key) {
-                                if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
-                                    extendDeep(dst[key], value);
-                                }
-                                else {
-                                    dst[key] = value;
-                                }
-                            });
-                        }
-                    });
-                    return dst;
-                }
-
                 extendDeep(options, userOptions);
 
                 if (input === undefined || input === null) {
@@ -307,48 +281,7 @@
                         ideoneHeight:300
                     };
 
-                    function extendDeep(dst) {
-                        angular.forEach(arguments, function (obj) {
-                            if (obj !== dst) {
-                                angular.forEach(obj, function (value, key) {
-                                    if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
-                                        extendDeep(dst[key], value);
-                                    }
-                                    else {
-                                        dst[key] = value;
-                                    }
-                                });
-                            }
-                        });
-                        return dst;
-                    }
-
                     extendDeep(options, userOptions);
-
-                    String.prototype.trunc =
-                        function (n, useWordBoundary) {
-                            var toLong = this.length > n,
-                                s_ = toLong ? this.substr(0, n - 1) : this;
-                            s_ = useWordBoundary && toLong ? s_.substr(0, s_.lastIndexOf(' ')) : s_;
-                            return toLong ? s_ + '...' : s_;
-                        };
-
-                    /**
-					 * Return a new array with unique values
-                     *
-                     * @returns {Array}
-                     */
-                    Array.prototype.getUnique = function () {
-                        var u = {}, a = [];
-                        for (var i = 0, l = this.length; i < l; ++i) {
-                            if (u.hasOwnProperty(this[i])) {
-                                continue;
-                            }
-                            a.push(this[i]);
-                            u[this[i]] = 1;
-                        }
-                        return a;
-                    };
 
                     var videoProcess = {
                         calcDimensions: function (options) {
@@ -399,7 +332,7 @@
                                             scope.video.host = 'youtube';
                                             scope.video.title = ytData.snippet.title;
                                             scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
-                                            scope.video.description = (ytData.snippet.description.trunc(250, true)).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
+                                            scope.video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
                                             scope.video.rawDescription = ytData.snippet.description;
                                             scope.video.views = ytData.statistics.viewCount;
                                             scope.video.likes = ytData.statistics.likeCount;
@@ -442,7 +375,7 @@
                                             scope.video.host = 'vimeo';
                                             scope.video.title = d[0].title;
                                             scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                            scope.video.description = (d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' ').trunc(250, true);
+                                            scope.video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
                                             scope.video.thumbnail = d[0].thumbnail_medium;
                                             scope.video.views = d[0].stats_number_of_plays;
                                             scope.video.likes = d[0].stats_number_of_likes;
@@ -478,13 +411,13 @@
 
                         twitchtvEmbed: function (str, opts) {
                             var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
-                            var matches = str.match(twitchRegex) ? str.match(twitchRegex).getUnique() : null;
-                            var videoDimensions = videoProcess.calcDimensions(opts);
+                            var matches = str.match(twitchRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
+                            	var uniqueMatches = getUniqueArray(matches);
+                            var videoDimensions = videoProcess.calcDimensions(opts);
+                                angular.forEach(uniqueMatches, function(match) {
                                     var frame = $sce.trustAsHtml('<iframe ' +
-                                        'src="https://player.twitch.tv/?channel=' + matches[i].split('/')[1] +'&!autoplay" ' +
+                                        'src="https://player.twitch.tv/?channel=' + match.split('/')[1] +'&!autoplay" ' +
                                         'height="' + videoDimensions.height + '" ' +
                                         'width="' + videoDimensions.width + '" ' +
                                         'autoplay="false" ' +
@@ -493,70 +426,64 @@
                                         'allowfullscreen="true">' +
                                         '</iframe>');
                                     scope.videoServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         dailymotionEmbed: function (str, opts) {
                             var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
-                            var matches = str.match(dmRegex) ? str.match(dmRegex).getUnique() : null;
+                            var matches = str.match(dmRegex);
+	                        if (matches) {
+		                        var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
-                            if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + matches[i].split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + match.split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                     scope.videoServices.push(frame);
-
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         tedEmbed: function (str, opts) {
                             var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(tedRegex) ? str.match(tedRegex).getUnique() : null;
+                            var matches = str.match(tedRegex);
+	                        if (matches) {
+		                        var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
-                            if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.ted.com/talks/' + matches[i].split('/')[2] + '.html" ' +
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.ted.com/talks/' + match.split('/')[2] + '.html" ' +
                                     'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                     scope.videoServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         dotsubEmbed: function (str, opts) {
                             var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
-                            var matches = str.match(dotsubRegex) ? str.match(dotsubRegex).getUnique() : null;
+                            var matches = str.match(dotsubRegex);
+	                        if (matches) {
+		                        var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
-                            if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + matches[i].split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + match.split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
                                     scope.videoServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         liveleakEmbed: function (str, opts) {
                             var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(liveleakRegex) ? str.match(liveleakRegex).getUnique() : null;
+                            var matches = str.match(liveleakRegex);
+	                        if (matches) {
+		                        var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
-                            if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + matches[i].split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
                                     scope.videoServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         }
@@ -573,28 +500,26 @@
 
                         soundcloudEmbed: function (str, opts) {
                             var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
-                            var matches = str.match(scRegex) ? str.match(scRegex).getUnique() : null;
+                            var matches = str.match(scRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + matches[i] + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + match + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
                                     scope.videoServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         spotifyEmbed: function (str) {
                             var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(spotifyRegex) ? str.match(spotifyRegex).getUnique() : null;
+                            var matches = str.match(spotifyRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + matches[i].split('/')[2] + '" height="80"></iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + match.split('/')[2] + '" height="80"></iframe>');
                                     scope.audioServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         }
@@ -686,7 +611,7 @@
                     var tweetProcess = {
                         embed: function (str, opts) {
                             if (!window.twttr) {
-                                throw new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js');
+                                console.error(new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js'));
                             }
                             function renderTweet() {
                                 $timeout(function () {
@@ -694,14 +619,14 @@
                                 }, 10);
                             }
 
-                            var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
-                            var matches = str.match(tweetRegex) ? str.match(tweetRegex).getUnique() : null;
-                            scope.tweets = [];
-                            if (matches) {
-                                var i = 0;
+	                        scope.tweets = [];
 
-                                while (i < matches.length) {
-									var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&&url=' + matches[i] + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
+                            var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
+                            var matches = str.match(tweetRegex);
+                            if (matches) {
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+									var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&&url=' + match + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
 									var request;
 									if(  parseInt(angular.version.major) >= 1 && parseInt(angular.version.minor) >= 6 ) {
 										request = $http.jsonp($sce.trustAsResourceUrl(url), { callbackParam: 'JSON_CALLBACK' });
@@ -716,14 +641,13 @@
 
 									request.then(function (r) {
 										scope.tweets.push(r.data.html);
-                                        if (scope.tweets.length == matches.length) {
+                                        if (scope.tweets.length == uniqueMatches.length) {
                                             renderTweet();
                                         }
 									}).catch(function(err) {
 										console.error(err);
                                     });
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         }
@@ -732,70 +656,67 @@
                     var codeEmbedProcess = {
                         codepenEmbed: function (str, opts) {
                             var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
-                            var matches = str.match(codepenRegex) ? str.match(codepenRegex).getUnique() : null;
+                            var matches = str.match(codepenRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + matches[i].replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + match.replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
                                     scope.codeServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         jsfiddleEmbed: function (str, opts) {
                             var jsfiddleRegex = /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(jsfiddleRegex) ? str.match(jsfiddleRegex).getUnique() : null;
+                            var matches = str.match(jsfiddleRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + matches[i] + '/embedded"></iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + match + '/embedded"></iframe>');
                                     scope.codeServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         jsbinEmbed: function (str, opts) {
                             var jsbinRegex = /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi;
-                            var matches = str.match(jsbinRegex) ? str.match(jsbinRegex).getUnique() : null;
+                            var matches = str.match(jsbinRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + matches[i] + '/embed?html,js,output">Simple Animation Tests</iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + match + '/embed?html,js,output">Simple Animation Tests</iframe>');
                                     scope.codeServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         plunkerEmbed: function (str, opts) {
                             var plnkrRegex = /plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
-                            var matches = str.match(plnkrRegex) ? str.match(plnkrRegex).getUnique() : null;
+                            var matches = str.match(plnkrRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    var idMatch = (matches[i].indexOf('?') === -1) ? (matches[i].split('/')[2]) : (matches[i].split('/')[2].split('?')[0]);
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+		                        	var path = match.split('/')[2];
+                                    var idMatch = (match.indexOf('?') === -1) ? path : path.split('?')[0];
                                     var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
                                     scope.codeServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 
                         githubgistEmbed: function (str) {
                             var gistRegex = /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
-                            var matches = str.match(gistRegex) ? str.match(gistRegex).getUnique() : null;
+                            var matches = str.match(gistRegex);
                             if (matches) {
-                                var i = 0;
-                                while (i < matches.length) {
-                                    scope.gist.push(matches[i].split('/')[2]);
-                                    i++;
-                                }
+		                        var gists = [];
+		                        angular.forEach(matches, function(match) {
+                                    gists.push(match.split('/')[2]);
+                                });
+		                        scope.gist = getUniqueArray(gists);
                             }
 
                             return str;
@@ -803,20 +724,20 @@
 
                         ideoneEmbed:function(str,opts){
                             var ideoneRegex=/ideone.com\/[a-zA-Z0-9]{6}/gi;
-                            var matches=str.match(ideoneRegex)?str.match(ideoneRegex).getUnique():null;
+                            var matches=str.match(ideoneRegex);
                             if(matches){
-                                var i=0;
-                                while(i<matches.length){
-                                    var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+matches[i].split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
+		                        var uniqueMatches = getUniqueArray(matches);
+		                        angular.forEach(uniqueMatches, function(match) {
+                                    var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+match.split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
                                     scope.codeServices.push(frame);
-                                    i++;
-                                }
+                                });
                             }
                             return str;
                         },
 	                    highlightEmbed: function(data, options) {
                         if (!window.hljs) {
-                            throw new ReferenceError('hlsj (Highlight JS is not defined.');
+			                    console.error(new ReferenceError('hlsj (Highlight JS is not defined.'));
+			                    return data;
                         }
                         else {
                             data = codeProcess.getCode(data);
@@ -873,7 +794,7 @@
 
                       if (options.video.embed) {
                           if (!options.gdevAuth) {
-                              throw 'Youtube authentication key is required to get data from youtube.';
+                              console.error('Youtube authentication key is required to get data from youtube.');
                           }
                           else {
                               x = videoProcess.embed(x, options);
@@ -957,4 +878,60 @@
                 }
             };
         });
+
+	function getUniqueArray(list) {
+		//*
+		// fast way using hashmap
+		// inspired by http://jszen.com/best-way-to-get-unique-values-of-an-array-in-javascript.7.html
+		var n = {},r=[];
+		for(var i = 0; i < list.length; i++)
+		{
+			if (!n[list[i]])
+			{
+				n[list[i]] = true;
+				r.push(list[i]);
+			}
+		}
+		return r;
+		//*/
+		/*
+		// IE9+, a bit slower
+		return list.filter(function (x, i, a) {
+			return a.indexOf(x) === i;
+		});
+		//*/
+	}
+
+	function trunc(str, n, useWordBoundary) {
+		var toLong = str.length > n,
+			s_ = toLong ? str.substr(0, n - 1) : str;
+		s_ = useWordBoundary && toLong ? s_.substr(0, s_.lastIndexOf(' ')) : s_;
+		return toLong ? s_ + '...' : s_;
+	}
+
+	/**
+	 * Function extendDeep
+	 *
+	 * @description
+	 * Extends an object to another object using deep analyzing
+	 *
+	 * @param dst
+	 * @returns extended object
+	 */
+
+	function extendDeep(dst) {
+		angular.forEach(arguments, function (obj) {
+			if (obj !== dst) {
+				angular.forEach(obj, function (value, key) {
+					if (dst[key] && dst[key].constructor && dst[key].constructor === Object) {
+						extendDeep(dst[key], value);
+					}
+					else {
+						dst[key] = value;
+					}
+				});
+			}
+		});
+		return dst;
+	}
 })();
