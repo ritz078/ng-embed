@@ -240,6 +240,7 @@
                     scope.gist = [];
 
                     var options = {
+	                    watchEmbedData   : false,
 						sanitizeHtml     : true,
 						fontSmiley       : true,
 						emoji            : true,
@@ -852,26 +853,32 @@
                       x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
 
 
-                      scope.neText = $sce.trustAsHtml(x);
-                      $timeout(function(){},0);
+                      $timeout(function(html){
+	                      scope.neText = $sce.trustAsHtml(html);
+                      }, 0, true, x);
                     }
 
-                    processEmbed();
-
-                    scope.$watch(attributes.embedData, function(newData,oldData) {
-                      if(oldData !== newData){
-                        data = newData;
-                        scope.video = {};
-                        scope.image = {};
-                        scope.pdf = {};
-                        scope.audio = {};
-                        scope.videoServices = [];
-                        scope.audioServices = [];
-                        scope.codeServices = [];
-                        scope.gist = [];
-                        processEmbed();
-                      }
-                    });
+                    if( !options.watchEmbedData ) {
+	                    processEmbed();
+                    }
+                    else {
+	                    scope.$watch(attributes.embedData, function(newData) {
+	                    	// fix, make sure that data is string
+	                    	if( (newData + '').length == 0 ) {
+	                    		newData = ' ';
+		                    }
+		                    data = newData;
+		                    scope.video = {};
+		                    scope.image = {};
+		                    scope.pdf = {};
+		                    scope.audio = {};
+		                    scope.videoServices = [];
+		                    scope.audioServices = [];
+		                    scope.codeServices = [];
+		                    scope.gist = [];
+		                    processEmbed();
+	                    });
+                    }
                 }
             };
         }])

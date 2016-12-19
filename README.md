@@ -127,6 +127,7 @@ angular.module('yourAppName',['ngEmbed'])
 .controller('yourControllerName',['$scope',function($scope){
 
 $scope.options = {
+  watchEmbedData   : false,     //watch embed data and render on change 
   fontSmiley       : true,      //convert ascii smileys into font smileys
   emoji            : true,      //convert emojis short names into images
   link             : true,      //convert links into anchor tags
