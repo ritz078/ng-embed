@@ -60,81 +60,6 @@
                 }
 
                 /**
-                 * FUNCTION insertfontSmiley
-                 * @description
-                 * Coverts the text into font emoticons
-                 *
-                 * @param  {string} str
-                 *
-                 * @return {string}
-                 */
-
-                function insertfontSmiley(str) {
-
-                    var a = str.split(' ');
-                    angular.forEach(NG_EMBED_BASIC_EMOTICONS, function (icon) {
-                        for (var i = 0; i < a.length; i++) {
-                            if (a[i] === icon.text) {
-                                a[i] = '<i class="ne-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</i>';
-                            }
-                        }
-                    });
-                    return a.join(' ');
-                }
-
-                /**
-                 * FUNCTION UrlEmbed
-                 * @description
-                 * Converts normal links written in the text into html anchor tags.
-                 *
-                 * @param  {string} str
-                 *
-                 * @return {string}
-                 */
-
-                function urlEmbed(str) {
-
-					var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@$#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
-                    var protocolRegex = /^[a-z]+\:\/\//i;
-
-                    return str.replace(urlRegex, function (text) {
-                            var url = text;
-                            if (!protocolRegex.test(text))
-                            {
-                                url = 'http://' + text;
-                            }
-
-                            if (options.linkTarget == 'cordova'){
-                                return '<a href="#" onclick="window.open(\''+ url +'\', \'_system\', \'location=yes\')" >' + text + '</a>';
-                            }else{
-                                return '<a href="' + url + '" target="' + options.linkTarget + '">' + text + '</a>';
-                            }
-                        }
-                    );
-                }
-
-                /**
-                 * FUNCTION insertEmoji
-                 *
-                 * @description
-                 * Converts text into emojis
-                 *
-                 * @param  {string} str
-                 *
-                 * @return {string}
-                 */
-
-                function insertEmoji(str) {
-
-                    var emojiRegex = new RegExp(":(" + NG_EMBED_EMOJI_LIST.join("|") + "):", "g");
-
-                    return str.replace(emojiRegex, function (match, text) {
-                        return "<i class='emoticon emoticon-" + text + "' title=':" + text + ":'></i>";
-
-                    });
-                }
-
-                /**
                  * All the functions are being called here.
                  */
 
@@ -146,22 +71,19 @@
 				}
 
 				if (options.sanitizeHtml) {
-                var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
-				    input = input.replace(/[&<>]/g, function (m) {
-				        return map[m];
-				    });
+					input = sanitizeHtml(input);
 				}
 
 				if (options.fontSmiley) {
-                input = insertfontSmiley(input);
+                    input = insertfontSmiley(input, NG_EMBED_BASIC_EMOTICONS);
 				}
 
 				if (options.emoji) {
-                input = insertEmoji(input);
+                    input = insertEmoji(input, NG_EMBED_EMOJI_LIST);
 				}
 
                 if (options.link) {
-                    input = urlEmbed(input);
+                    input = urlEmbed(input, options.linkTarget);
                 }
 
                 return $sce.trustAsHtml(input);
@@ -918,5 +840,100 @@
 			}
 		});
 		return dst;
+	}
+
+	/**
+	 * FUNCTION insertfontSmiley
+	 * @description
+	 * Coverts the text into font emoticons
+	 *
+	 * @param  {string} str
+	 * @param  {Array} icons
+	 *
+	 * @return {string}
+	 */
+
+	function insertfontSmiley(str, icons) {
+
+		var a = str.split(' ');
+		angular.forEach(icons, function (icon) {
+			for (var i = 0; i < a.length; i++) {
+				if (a[i] === icon.text) {
+					a[i] = '<i class="ne-emoticon" title="' + icon.text + '">' + '&#x' + icon.code + '</i>';
+				}
+			}
+		});
+		return a.join(' ');
+	}
+
+	/**
+	 * FUNCTION insertEmoji
+	 *
+	 * @description
+	 * Converts text into emojis
+	 *
+	 * @param  {string} str
+	 * @param  {Array} emojiList
+	 *
+	 * @return {string}
+	 */
+
+	function insertEmoji(str, emojiList) {
+
+		var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
+
+		return str.replace(emojiRegex, function (match, text) {
+			return "<i class='emoticon emoticon-" + text + "' title=':" + text + ":'></i>";
+
+		});
+	}
+
+	/**
+	 * FUNCTION UrlEmbed
+	 * @description
+	 * Converts normal links written in the text into html anchor tags.
+	 *
+	 * @param  {string} str
+	 * @param  {string} linkTarget
+	 *
+	 * @return {string}
+	 */
+
+	function urlEmbed(str, linkTarget) {
+
+		var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@$#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
+		var protocolRegex = /^[a-z]+\:\/\//i;
+
+		return str.replace(urlRegex, function (text) {
+				var url = text;
+				if (!protocolRegex.test(text))
+				{
+					url = 'http://' + text;
+				}
+
+				if (linkTarget == 'cordova'){
+					return '<a href="#" onclick="window.open(\''+ url +'\', \'_system\', \'location=yes\')" >' + text + '</a>';
+				}else{
+					return '<a href="' + url + '" target="' + linkTarget + '">' + text + '</a>';
+				}
+			}
+		);
+	}
+
+	/**
+	 * FUNCTION sanitizeHtml
+	 *
+	 * @description
+	 * Converts <, >, & to html entities
+	 *
+	 * @param  {string} str
+	 *
+	 * @return {string}
+	 */
+	function sanitizeHtml(str) {
+		var map = {'&': '&amp;', '>': '&gt;', '<': '&lt;'};
+		return str.replace(/[&<>]/g, function (m) {
+			return map[m];
+		});
 	}
 })();
