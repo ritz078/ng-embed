@@ -277,7 +277,7 @@
 	                embed: function (data, options) {
 		                // show only youtube video if both vimeo and youtube videos are present.
 		                return videoProcess.youtubeEmbed(data, options)
-			                .catch(function(err) {
+			                .catch(function() {
 			                	return videoProcess.vimeoEmbed(data, options);
 			                });
 	                },
