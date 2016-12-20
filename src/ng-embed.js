@@ -57,8 +57,8 @@
 			};
 		});
 
-	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', 'NG_DEFAULT_TEMPLATE_URL'];
-	function ngEmbedDirective($filter, $sce, $http, $timeout, NG_DEFAULT_TEMPLATE_URL) {
+	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', '$q', 'NG_DEFAULT_TEMPLATE_URL'];
+	function ngEmbedDirective($filter, $sce, $http, $timeout, $q, NG_DEFAULT_TEMPLATE_URL) {
 
         return {
             restrict   : 'AE',
@@ -176,94 +176,111 @@
                         }
                     },
 
-                    embed: function (data, options) {
+	                youtubeEmbed: function(data, options) {
+                    	var promise, video;
 
-                        var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
+		                var pattern = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
-                        /**
-                         * Youtube embedding
-                         */
+		                if (data.match(pattern)) {
+			                var dimensions = videoProcess.calcDimensions(options);
 
-                        if (data.match(p)) {
+			                video = {
+				                id: RegExp.$1,
+				                host: 'youtube',
+				                width: dimensions.width,
+			                    height: dimensions.height
+			                };
 
-                            var youtubeDimensions = this.calcDimensions(options);
-                            scope.video.id = RegExp.$1;
+			                if (options.video.details) {
+				                var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
+				                promise = $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + video.id + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
+					                .then(function (r) {
+						                var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
+						                var ytData = r.data.items[0];
+
+						                video.title = ytData.snippet.title;
+						                video.thumbnail = ytData.snippet.thumbnails.medium.url;
+						                video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
+						                video.rawDescription = ytData.snippet.description;
+						                video.views = ytData.statistics.viewCount;
+						                video.likes = ytData.statistics.likeCount;
+						                video.uploader = ytData.snippet.channelTitle;
+						                video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
+						                video.uploadDate = ytData.snippet.publishedAt;
+						                video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
+						                video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + video.id + autoPlay);
+
+						                return video;
+					                });
+			                }
+			                else {
+				                video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + video.id + '?autoplay=0');
+								promise = $q.resolve(video);
+			                }
+		                }
+		                else {
+			                promise = $q.reject();
+		                }
+
+		                return promise;
+	                },
+
+                    vimeoEmbed: function (data, options) {
+                    	var promise, video;
+
+                        var pattern = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
+
+                        if (data.match(pattern)) {
+	                        var dimensions = videoProcess.calcDimensions(options);
+
+	                        video = {
+		                        id: RegExp.$3,
+		                        host: 'vimeo',
+		                        width: dimensions.width,
+		                        height: dimensions.height
+	                        };
+                            
                             if (options.video.details) {
-								var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
-								$http.get('https://www.googleapis.com/youtube/v3/videos?id=' + scope.video.id + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
-									.then(function (r) {
-                                        var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
-										var ytData = r.data.items[0];
 
-                                        scope.video.host = 'youtube';
-                                        scope.video.title = ytData.snippet.title;
-                                        scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
-                                        scope.video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
-                                        scope.video.rawDescription = ytData.snippet.description;
-                                        scope.video.views = ytData.statistics.viewCount;
-                                        scope.video.likes = ytData.statistics.likeCount;
-                                        scope.video.uploader = ytData.snippet.channelTitle;
-                                        scope.video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
-                                        scope.video.uploadDate = ytData.snippet.publishedAt;
-                                        scope.video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
-                                        scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + autoPlay);
-                                        scope.video.width = youtubeDimensions.width;
-                                        scope.video.height = youtubeDimensions.height;
-
-                                    });
-                            }
-                            else {
-                                scope.video.width = youtubeDimensions.width;
-                                scope.video.height = youtubeDimensions.height;
-                                scope.video.host = 'youtube';
-                                scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + '?autoplay=0');
-
-                            }
-
-                            return data;  // show only youtube video if both vimeo and youtube videos are present.
-                        }
-
-                        /**
-                         * Vimeo embedding
-                         */
-
-                        var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
-
-                        if (data.match(e)) {
-                            var vimeoDimensions = this.calcDimensions(options);
-                            scope.video.id = RegExp.$3;
-                            if (options.video.details) {
-
-                                $http.get('https://vimeo.com/api/v2/video/' + scope.video.id + '.json')
+                                promise = $http.get('https://vimeo.com/api/v2/video/' + video.id + '.json')
 									.then(function (r) {
 										var d = r.data;
                                         var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
-                                        scope.video.host = 'vimeo';
-                                        scope.video.title = d[0].title;
-                                        scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                        scope.video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
-                                        scope.video.thumbnail = d[0].thumbnail_medium;
-                                        scope.video.views = d[0].stats_number_of_plays;
-                                        scope.video.likes = d[0].stats_number_of_likes;
-                                        scope.video.uploader = d[0].user_name;
-                                        scope.video.uploaderPage = d[0].user_url;
-                                        scope.video.uploadDate = d[0].uploadDate;
-                                        scope.video.url = d[0].url;
-                                        scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0' + autoPlay);
-                                        scope.video.width = vimeoDimensions.width;
-                                        scope.video.height = vimeoDimensions.height;
+                                        video.title = d[0].title;
+                                        video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
+                                        video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
+                                        video.thumbnail = d[0].thumbnail_medium;
+                                        video.views = d[0].stats_number_of_plays;
+                                        video.likes = d[0].stats_number_of_likes;
+                                        video.uploader = d[0].user_name;
+                                        video.uploaderPage = d[0].user_url;
+                                        video.uploadDate = d[0].uploadDate;
+                                        video.url = d[0].url;
+                                        video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0' + autoPlay);
+
+                                        return video;
                                     });
                             }
                             else {
-                                scope.video.width = vimeoDimensions.width;
-                                scope.video.height = vimeoDimensions.height;
-                                scope.video.host = 'vimeo';
-                                scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + scope.video.id + '?title=0&byline=0&portrait=0&autoplay=0');
+                                video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + video.id + '?title=0&byline=0&portrait=0&autoplay=0');
+
+	                            promise = $q.resolve(video);
                             }
                         }
+                        else {
+	                        promise = $q.reject();
+                        }
 
-                        return data;
+                        return promise;
                     },
+
+	                embed: function (data, options) {
+		                // show only youtube video if both vimeo and youtube videos are present.
+		                return videoProcess.youtubeEmbed(data, options)
+			                .catch(function(err) {
+			                	return videoProcess.vimeoEmbed(data, options);
+			                });
+	                },
 
                     embedBasic: function (data) {
                         var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
@@ -478,6 +495,7 @@
                     embed: function (str, opts) {
                         if (!window.twttr) {
                             console.error(new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js'));
+                            return data;
                         }
                         function renderTweet() {
                             $timeout(function () {
@@ -614,25 +632,25 @@
                         $timeout(function () {
 		                        // wrapped in timeout to allow code elements to be added to DOM
                             if (options.code.lineNumbers) {
-			                        var codeBlocks = elements.find('.ne-code');
-			                        if( codeBlocks.length > 0 ) {
-					                    angular.forEach(codeBlocks, function(block) {
-						                    var codeElement = angular.element(block)
-							                    .addClass('has-numbering');
-						                    var content = codeElement.text();
-						                    var lineCount = content.split('\n').length;
-						                    var lineNbrList = angular.element('<ul/>').addClass('pre-numbering');
-						                    for (var i = 1; i <= lineCount; i++) {
-							                    var lineNbr = angular.element('<li/>').text(i);
-							                    lineNbrList.append(lineNbr);
-						                    }
+		                        var codeBlocks = elements.find('.ne-code');
+		                        if( codeBlocks.length > 0 ) {
+				                    angular.forEach(codeBlocks, function(block) {
+					                    var codeElement = angular.element(block)
+						                    .addClass('has-numbering');
+					                    var content = codeElement.text();
+					                    var lineCount = content.split('\n').length;
+					                    var lineNbrList = angular.element('<ul/>').addClass('pre-numbering');
+					                    for (var i = 1; i <= lineCount; i++) {
+						                    var lineNbr = angular.element('<li/>').text(i);
+						                    lineNbrList.append(lineNbr);
+					                    }
 
-						                    codeElement
-                                        .parent()
-							                    .append(lineNbrList);
-                                });
-                            }
-			                    }
+					                    codeElement
+	                                        .parent()
+						                    .append(lineNbrList);
+                                         });
+                                    }
+	                            }
 
 		                    }, 20);
 	                    }
@@ -663,7 +681,11 @@
                           console.error('Youtube authentication key is required to get data from youtube.');
                       }
                       else {
-                          x = videoProcess.embed(x, options);
+                          videoProcess.embed(x, options)
+	                        .then(function(video) {
+		                        console.log(video);
+                          	    scope.video = video;
+                            });
                       }
 
                   }
