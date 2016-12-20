@@ -1,0 +1,12 @@
+{
+  "browser": true,
+  "jquery": false,
+
+  "eqeqeq": false,
+  "curly": true,
+  "undef": false,
+  "unused": true,
+  "loopfunc": true,
+
+  "devel": true
+}
