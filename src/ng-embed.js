@@ -31,6 +31,38 @@
 		.constant('NG_EMBED_EMOJI_LIST', [
 			"bowtie", "smile", "laughing", "blush", "smiley", "relaxed", "smirk", "heart_eyes", "kissing_heart", "kissing_closed_eyes", "flushed", "relieved", "satisfied", "grin", "wink", "stuck_out_tongue_winking_eye", "stuck_out_tongue_closed_eyes", "grinning", "kissing", "winky_face", "kissing_smiling_eyes", "stuck_out_tongue", "sleeping", "worried", "frowning", "anguished", "open_mouth", "grimacing", "confused", "hushed", "expressionless", "unamused", "sweat_smile", "sweat", "wow", "disappointed_relieved", "weary", "pensive", "disappointed", "confounded", "fearful", "cold_sweat", "persevere", "cry", "sob", "joy", "astonished", "scream", "neckbeard", "tired_face", "angry", "rage", "triumph", "sleepy", "yum", "mask", "sunglasses", "dizzy_face", "imp", "smiling_imp", "neutral_face", "no_mouth", "innocent", "alien", "yellow_heart", "blue_heart", "purple_heart", "heart", "green_heart", "broken_heart", "heartbeat", "heartpulse", "two_hearts", "revolving_hearts", "cupid", "sparkling_heart", "sparkles", "star", "star2", "dizzy", "boom", "collision", "anger", "exclamation", "question", "grey_exclamation", "grey_question", "zzz", "dash", "sweat_drops", "notes", "musical_note", "fire", "hankey", "poop", "shit", "\\+1", "thumbsup", "-1", "thumbsdown", "ok_hand", "punch", "facepunch", "fist", "v", "wave", "hand", "raised_hand", "open_hands", "point_up", "point_down", "point_left", "point_right", "raised_hands", "pray", "point_up_2", "clap", "muscle", "metal", "fu", "walking", "runner", "running", "couple", "family", "two_men_holding_hands", "two_women_holding_hands", "dancer", "dancers", "ok_woman", "no_good", "information_desk_person", "raising_hand", "bride_with_veil", "person_with_pouting_face", "person_frowning", "bow", "couplekiss", "couple_with_heart", "massage", "haircut", "nail_care", "boy", "girl", "woman", "man", "baby", "older_woman", "older_man", "person_with_blond_hair", "man_with_gua_pi_mao", "man_with_turban", "construction_worker", "cop", "angel", "princess", "smiley_cat", "smile_cat", "heart_eyes_cat", "kissing_cat", "smirk_cat", "scream_cat", "crying_cat_face", "joy_cat", "pouting_cat", "japanese_ogre", "japanese_goblin", "see_no_evil", "hear_no_evil", "speak_no_evil", "guardsman", "skull", "feet", "lips", "kiss", "droplet", "ear", "eyes", "nose", "tongue", "love_letter", "bust_in_silhouette", "busts_in_silhouette", "speech_balloon", "thought_balloon", "feelsgood", "finnadie", "goberserk", "godmode", "hurtrealbad", "rage1", "rage2", "rage3", "rage4", "suspect", "trollface", "sunny", "umbrella", "cloud", "snowflake", "snowman", "zap", "cyclone", "foggy", "ocean", "cat", "dog", "mouse", "hamster", "rabbit", "wolf", "frog", "tiger", "koala", "bear", "pig", "pig_nose", "cow", "boar", "monkey_face", "monkey", "horse", "racehorse", "camel", "sheep", "elephant", "panda_face", "snake", "bird", "baby_chick", "hatched_chick", "hatching_chick", "chicken", "penguin", "turtle", "bug", "honeybee", "ant", "beetle", "snail", "octopus", "tropical_fish", "fish", "whale", "whale2", "dolphin", "cow2", "ram", "rat", "water_buffalo", "tiger2", "rabbit2", "dragon", "goat", "rooster", "dog2", "pig2", "mouse2", "ox", "dragon_face", "blowfish", "crocodile", "dromedary_camel", "leopard", "cat2", "poodle", "paw_prints", "bouquet", "cherry_blossom", "tulip", "four_leaf_clover", "rose", "sunflower", "hibiscus", "maple_leaf", "leaves", "fallen_leaf", "herb", "mushroom", "cactus", "palm_tree", "evergreen_tree", "deciduous_tree", "chestnut", "seedling", "blossom", "ear_of_rice", "shell", "globe_with_meridians", "sun_with_face", "full_moon_with_face", "new_moon_with_face", "new_moon", "waxing_crescent_moon", "first_quarter_moon", "waxing_gibbous_moon", "full_moon", "waning_gibbous_moon", "last_quarter_moon", "waning_crescent_moon", "last_quarter_moon_with_face", "first_quarter_moon_with_face", "moon", "earth_africa", "earth_americas", "earth_asia", "volcano", "milky_way", "partly_sunny", "octocat", "squirrel", "bamboo", "gift_heart", "dolls", "school_satchel", "mortar_board", "flags", "fireworks", "sparkler", "wind_chime", "rice_scene", "jack_o_lantern", "ghost", "santa", "christmas_tree", "gift", "bell", "no_bell", "tanabata_tree", "tada", "confetti_ball", "balloon", "crystal_ball", "cd", "dvd", "floppy_disk", "camera", "video_camera", "movie_camera", "computer", "tv", "iphone", "phone", "telephone", "telephone_receiver", "pager", "fax", "minidisc", "vhs", "sound", "speaker", "mute", "loudspeaker", "mega", "hourglass", "hourglass_flowing_sand", "alarm_clock", "watch", "radio", "satellite", "loop", "mag", "mag_right", "unlock", "lock", "lock_with_ink_pen", "closed_lock_with_key", "key", "bulb", "flashlight", "high_brightness", "low_brightness", "electric_plug", "battery", "calling", "email", "mailbox", "postbox", "bath", "bathtub", "shower", "toilet", "wrench", "nut_and_bolt", "hammer", "seat", "moneybag", "yen", "dollar", "pound", "euro", "credit_card", "money_with_wings", "e-mail", "inbox_tray", "outbox_tray", "envelope", "incoming_envelope", "postal_horn", "mailbox_closed", "mailbox_with_mail", "mailbox_with_no_mail", "door", "smoking", "bomb", "gun", "hocho", "pill", "syringe", "page_facing_up", "page_with_curl", "bookmark_tabs", "bar_chart", "chart_with_upwards_trend", "chart_with_downwards_trend", "scroll", "clipboard", "calendar", "date", "card_index", "file_folder", "open_file_folder", "scissors", "pushpin", "paperclip", "black_nib", "pencil2", "straight_ruler", "triangular_ruler", "closed_book", "green_book", "blue_book", "orange_book", "notebook", "notebook_with_decorative_cover", "ledger", "books", "bookmark", "name_badge", "microscope", "telescope", "newspaper", "football", "basketball", "soccer", "baseball", "tennis", "8ball", "rugby_football", "bowling", "golf", "mountain_bicyclist", "bicyclist", "horse_racing", "snowboarder", "swimmer", "surfer", "ski", "spades", "hearts", "clubs", "diamonds", "gem", "ring", "trophy", "musical_score", "musical_keyboard", "violin", "space_invader", "video_game", "black_joker", "flower_playing_cards", "game_die", "dart", "mahjong", "clapper", "memo", "pencil", "book", "art", "microphone", "headphones", "trumpet", "saxophone", "guitar", "shoe", "sandal", "high_heel", "lipstick", "boot", "shirt", "tshirt", "necktie", "womans_clothes", "dress", "running_shirt_with_sash", "jeans", "kimono", "bikini", "ribbon", "tophat", "crown", "womans_hat", "mans_shoe", "closed_umbrella", "briefcase", "handbag", "pouch", "purse", "eyeglasses", "fishing_pole_and_fish", "coffee", "tea", "sake", "baby_bottle", "beer", "beers", "cocktail", "tropical_drink", "wine_glass", "fork_and_knife", "pizza", "hamburger", "fries", "poultry_leg", "meat_on_bone", "spaghetti", "curry", "fried_shrimp", "bento", "sushi", "fish_cake", "rice_ball", "rice_cracker", "rice", "ramen", "stew", "oden", "dango", "egg", "bread", "doughnut", "custard", "icecream", "ice_cream", "shaved_ice", "birthday", "cake", "cookie", "chocolate_bar", "candy", "lollipop", "honey_pot", "apple", "green_apple", "tangerine", "lemon", "cherries", "grapes", "watermelon", "strawberry", "peach", "melon", "banana", "pear", "pineapple", "sweet_potato", "eggplant", "tomato", "corn", "house", "house_with_garden", "school", "office", "post_office", "hospital", "bank", "convenience_store", "love_hotel", "hotel", "wedding", "church", "department_store", "european_post_office", "city_sunrise", "city_sunset", "japanese_castle", "european_castle", "tent", "factory", "tokyo_tower", "japan", "mount_fuji", "sunrise_over_mountains", "sunrise", "stars", "themoreyouknow", "tmyk", "statue_of_liberty", "bridge_at_night", "carousel_horse", "rainbow", "ferris_wheel", "fountain", "roller_coaster", "ship", "speedboat", "boat", "sailboat", "rowboat", "anchor", "rocket", "airplane", "helicopter", "steam_locomotive", "tram", "mountain_railway", "bike", "aerial_tramway", "suspension_railway", "mountain_cableway", "tractor", "blue_car", "oncoming_automobile", "car", "red_car", "taxi", "oncoming_taxi", "articulated_lorry", "bus", "oncoming_bus", "rotating_light", "police_car", "oncoming_police_car", "fire_engine", "ambulance", "minibus", "truck", "train", "station", "train2", "bullettrain_front", "bullettrain_side", "light_rail", "monorail", "railway_car", "trolleybus", "ticket", "fuelpump", "vertical_traffic_light", "traffic_light", "warning", "construction", "beginner", "atm", "slot_machine", "busstop", "barber", "hotsprings", "checkered_flag", "crossed_flags", "izakaya_lantern", "moyai", "circus_tent", "performing_arts", "round_pushpin", "triangular_flag_on_post", "jp", "kr", "cn", "us", "fr", "es", "it", "ru", "gb", "uk", "de", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "keycap_ten", "1234", "zero", "hash", "symbols", "arrow_backward", "arrow_down", "arrow_forward", "arrow_left", "capital_abcd", "abcd", "abc", "arrow_lower_left", "arrow_lower_right", "arrow_right", "arrow_up", "arrow_upper_left", "arrow_upper_right", "arrow_double_down", "arrow_double_up", "arrow_down_small", "arrow_heading_down", "arrow_heading_up", "leftwards_arrow_with_hook", "arrow_right_hook", "left_right_arrow", "arrow_up_down", "arrow_up_small", "arrows_clockwise", "arrows_counterclockwise", "rewind", "fast_forward", "information_source", "ok", "twisted_rightwards_arrows", "repeat", "repeat_one", "new", "top", "up", "cool", "free", "ng", "cinema", "koko", "signal_strength", "u5272", "u5408", "u55b6", "u6307", "u6708", "u6709", "u6e80", "u7121", "u7533", "u7a7a", "u7981", "sa", "restroom", "mens", "womens", "baby_symbol", "no_smoking", "parking", "wheelchair", "metro", "baggage_claim", "accept", "wc", "potable_water", "put_litter_in_its_place", "secret", "congratulations", "m", "passport_control", "left_luggage", "customs", "ideograph_advantage", "cl", "sos", "id", "no_entry_sign", "underage", "no_mobile_phones", "do_not_litter", "non-potable_water", "no_bicycles", "no_pedestrians", "children_crossing", "no_entry", "eight_spoked_asterisk", "eight_pointed_black_star", "heart_decoration", "vs", "vibration_mode", "mobile_phone_off", "chart", "currency_exchange", "aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpius", "sagittarius", "capricorn", "aquarius", "pisces", "ophiuchus", "six_pointed_star", "negative_squared_cross_mark", "a", "b", "ab", "o2", "diamond_shape_with_a_dot_inside", "recycle", "end", "on", "soon", "clock1", "clock130", "clock10", "clock1030", "clock11", "clock1130", "clock12", "clock1230", "clock2", "clock230", "clock3", "clock330", "clock4", "clock430", "clock5", "clock530", "clock6", "clock630", "clock7", "clock730", "clock8", "clock830", "clock9", "clock930", "heavy_dollar_sign", "copyright", "registered", "tm", "x", "heavy_exclamation_mark", "bangbang", "interrobang", "o", "heavy_multiplication_x", "heavy_plus_sign", "heavy_minus_sign", "heavy_division_sign", "white_flower", "100", "heavy_check_mark", "ballot_box_with_check", "radio_button", "link", "curly_loop", "wavy_dash", "part_alternation_mark", "trident", "black_square", "white_square", "white_check_mark", "black_square_button", "white_square_button", "black_circle", "white_circle", "red_circle", "large_blue_circle", "large_blue_diamond", "large_orange_diamond", "small_blue_diamond", "small_orange_diamond", "small_red_triangle", "small_red_triangle_down", "shipit"
 		])
+	    .constant('NG_EMBED_REGEXP_PATTERNS', {
+		    // url
+		    protocol     : /^[a-z]+:\/\//i,
+		    url          : /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@$#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/gi,
+		    // files
+		    basicVideo   : /((?:https?|ftp|file):\/\/\S*\.(?:ogv|webm|mp4)(\?([\w=&_%\-]*))?)/gi,
+		    basicAudio   : /((?:https?|ftp|file):\/\/\S*\.(?:wav|mp3|ogg)(\?([\w=&_%\-]*))?)/gi,
+		    basicImage   : /((?:https?|ftp|file):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp)(\?([\w=&_%\-]*))?)/gi,
+		    pdf          : /((?:https?|ftp|file):\/\/\S*\.(?:pdf)(\?([\w=&_%\-]*))?)/gi,
+		    // audio
+		    soundCloud   : /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi,
+		    spotify      : /spotify.com\/track\/[a-zA-Z0-9_]+/gi,
+		    // code
+		    highlightCode: /(`{3})(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
+		    codepen      : /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi,
+		    gist         : /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/gi,
+		    ideone       : /ideone.com\/[a-zA-Z0-9]{6}/gi,
+		    jsbin        : /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi,
+		    jsfiddle     : /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi,
+		    plunker      : /plnkr.co\/edit\/[a-zA-Z0-9?=]+/gi,
+		    // video
+		    dotsub       : /dotsub.com\/view\/[a-zA-Z0-9-]+/gi,
+		    dailymotion  : /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi,
+		    liveleak     : /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi,
+		    ted          : /ted.com\/talks\/[a-zA-Z0-9_]+/gi,
+		    vimeo        : /vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi,
+		    youtube      : /(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi,
+		    twitchtv     : /twitch.tv\/[a-zA_Z0-9_]+/gi,
+		    ustream      : /ustream.tv\/[a-z\/0-9]*/gi,
+		    // social media
+		    twitter      : /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi
+	    })
 
 		.filter('embed', EmbedFilter)
 
@@ -57,8 +89,8 @@
 			};
 		});
 
-	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', '$q', 'NG_DEFAULT_TEMPLATE_URL'];
-	function ngEmbedDirective($filter, $sce, $http, $timeout, $q, NG_DEFAULT_TEMPLATE_URL) {
+	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', '$q', 'NG_DEFAULT_TEMPLATE_URL', 'NG_EMBED_REGEXP_PATTERNS'];
+	function ngEmbedDirective($filter, $sce, $http, $timeout, $q, NG_DEFAULT_TEMPLATE_URL, NG_EMBED_REGEXP_PATTERNS) {
 
         return {
             restrict   : 'AE',
@@ -180,9 +212,7 @@
 	                youtubeEmbed: function(data, options) {
                     	var promise, video;
 
-		                var pattern = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
-
-		                if (data.match(pattern)) {
+		                if (data.match(NG_EMBED_REGEXP_PATTERNS.youtube)) {
 			                var dimensions = videoProcess.calcDimensions(options);
 
 			                video = {
@@ -229,9 +259,7 @@
                     vimeoEmbed: function (data, options) {
                     	var promise, video;
 
-                        var pattern = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
-
-                        if (data.match(pattern)) {
+                        if (data.match(NG_EMBED_REGEXP_PATTERNS.vimeo)) {
 	                        var dimensions = videoProcess.calcDimensions(options);
 
 	                        video = {
@@ -284,9 +312,7 @@
 	                },
 
                     embedBasic: function (data) {
-                        var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
-
-                        if (data.match(f)) {
+                        if (data.match(NG_EMBED_REGEXP_PATTERNS.basicVideo)) {
                             scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
                         }
 
@@ -294,8 +320,7 @@
                     },
 
                     twitchtvEmbed: function (str, opts) {
-                        var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
-                        var matches = str.match(twitchRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.twitchtv);
                         if (matches) {
                             var uniqueMatches = getUniqueArray(matches);
                         var videoDimensions = videoProcess.calcDimensions(opts);
@@ -316,8 +341,7 @@
                     },
 
                     dailymotionEmbed: function (str, opts) {
-                        var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
-                        var matches = str.match(dmRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.dailymotion);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
                         var videoDimensions = videoProcess.calcDimensions(opts);
@@ -330,8 +354,7 @@
                     },
 
                     tedEmbed: function (str, opts) {
-                        var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
-                        var matches = str.match(tedRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.ted);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
                         var videoDimensions = videoProcess.calcDimensions(opts);
@@ -345,8 +368,7 @@
                     },
 
                     dotsubEmbed: function (str, opts) {
-                        var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
-                        var matches = str.match(dotsubRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.dotsub);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
                         var videoDimensions = videoProcess.calcDimensions(opts);
@@ -359,8 +381,7 @@
                     },
 
                     liveleakEmbed: function (str, opts) {
-                        var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
-                        var matches = str.match(liveleakRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.liveleak);
                         if (matches) {
                             var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
@@ -373,8 +394,7 @@
                     },
 
 	                ustreamEmbed: function (str, opts) {
-		                var pattern = /ustream.tv\/[a-z\/0-9]*/gi;
-		                var matches = str.match(pattern);
+		                var matches = str.match(NG_EMBED_REGEXP_PATTERNS.ustream);
 		                if (matches) {
 			                var uniqueMatches = getUniqueArray(matches);
 			                var videoDimensions = videoProcess.calcDimensions(opts);
@@ -393,16 +413,14 @@
 
                 var audioProcess = {
                     embed: function (str) {
-                        var a = /((?:https?):\/\/\S*\.(?:wav|mp3|ogg))/gi;
-                        if (str.match(a)) {
+                        if (str.match(NG_EMBED_REGEXP_PATTERNS.basicAudio)) {
                             scope.audio.url = $sce.trustAsResourceUrl(RegExp.$1);
                         }
                         return str;
                     },
 
                     soundcloudEmbed: function (str, opts) {
-                        var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
-                        var matches = str.match(scRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.soundCloud);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -414,8 +432,7 @@
                     },
 
                     spotifyEmbed: function (str) {
-                        var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
-                        var matches = str.match(spotifyRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.spotify);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -429,13 +446,9 @@
 
                 var imageProcess = {
                     embed: function (data) {
-						var i = /(((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))(\?([\w=&_%\-]*))?)/gi;
-
-                        if (data.match(i)) {
+                        if (data.match(NG_EMBED_REGEXP_PATTERNS.basicImage)) {
                             scope.image.url = RegExp.$1;
-
                         }
-
                         return data;
                     }
                 };
@@ -449,28 +462,16 @@
                      * @return {string}      The encoded string
                      */
                     encode: function(code) {
-		                code = code.replace(/&amp;/gm, '');
-		                code = code.replace(/&lt;/g, '<');
-		                code = code.replace(/&gt;/g, '>');
-		                return code;
-	                },
-
-	                /**
-	                 * removes whitespace characters
-	                 * @param  {string} code The string from which the whitespace has to be removed
-	                 * @return {string}
-	                 */
-	                trimSpace: function(code) {
-		                code = code.replace(/^([ \t]*)/g, ''); // leading whitespace
-		                code = code.replace(/[ \t]*$/g, ''); // trailing whitespace
-		                return code;
+                    	var encoded = htmlEncode(code);
+		                encoded = encoded.replace(/&amp;/gm, '');
+		                return encoded;
 	                },
 
                     getCode: function (text) {
-                        return (text + '').replace(/(`+)(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
+                        return (text + '').replace(NG_EMBED_REGEXP_PATTERNS.highlightCode,
                             function (wholeMatch, group1, group2, group3) {
                                 var code = group3;
-                                code = codeProcess.trimSpace(code);
+                                code = trimSpace(code);
                                 code = codeProcess.encode(code);
 
                                 code = code.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
@@ -500,10 +501,8 @@
 
                 var pdfProcess = {
                     embed: function (str) {
-                        var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
-                        if (str.match(p)) {
+                        if (str.match(NG_EMBED_REGEXP_PATTERNS.pdf)) {
                             scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
-
                         }
 
                         return str;
@@ -524,8 +523,7 @@
 
                         scope.tweets = [];
 
-                        var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
-                        var matches = str.match(tweetRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.twitter);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -558,8 +556,7 @@
 
                 var codeEmbedProcess = {
                     codepenEmbed: function (str, opts) {
-                        var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
-                        var matches = str.match(codepenRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.codepen);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -571,8 +568,7 @@
                     },
 
                     jsfiddleEmbed: function (str, opts) {
-                        var jsfiddleRegex = /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi;
-                        var matches = str.match(jsfiddleRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.jsfiddle);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -584,8 +580,7 @@
                     },
 
                     jsbinEmbed: function (str, opts) {
-                        var jsbinRegex = /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi;
-                        var matches = str.match(jsbinRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.jsbin);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -597,8 +592,7 @@
                     },
 
                     plunkerEmbed: function (str, opts) {
-                        var plnkrRegex = /plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
-                        var matches = str.match(plnkrRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.plunker);
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -612,8 +606,7 @@
                     },
 
                     githubgistEmbed: function (str) {
-                        var gistRegex = /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
-                        var matches = str.match(gistRegex);
+                        var matches = str.match(NG_EMBED_REGEXP_PATTERNS.gist);
                         if (matches) {
 	                        var gists = [];
 	                        angular.forEach(matches, function(match) {
@@ -626,8 +619,7 @@
                     },
 
                     ideoneEmbed:function(str,opts){
-                        var ideoneRegex=/ideone.com\/[a-zA-Z0-9]{6}/gi;
-                        var matches=str.match(ideoneRegex);
+                        var matches=str.match(NG_EMBED_REGEXP_PATTERNS.ideone);
                         if(matches){
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
@@ -747,8 +739,10 @@
         };
     }
 
-	EmbedFilter.$inject = ['$sce', 'NG_EMBED_BASIC_EMOTICONS', 'NG_EMBED_EMOJI_LIST'];
-	function EmbedFilter($sce, NG_EMBED_BASIC_EMOTICONS, NG_EMBED_EMOJI_LIST) {
+	EmbedFilter.$inject = ['$sce', 'NG_EMBED_BASIC_EMOTICONS', 'NG_EMBED_EMOJI_LIST', 'NG_EMBED_REGEXP_PATTERNS'];
+	function EmbedFilter($sce, NG_EMBED_BASIC_EMOTICONS, NG_EMBED_EMOJI_LIST, NG_EMBED_REGEXP_PATTERNS) {
+
+		var EMOIJ_REGEX = new RegExp(":(" + NG_EMBED_EMOJI_LIST.join("|") + "):", "gi");
 
 		return function (input, userOptions) {
 
@@ -798,11 +792,11 @@
 			}
 
 			if (options.emoji) {
-				input = insertEmoji(input, NG_EMBED_EMOJI_LIST);
+				input = insertEmoji(input, EMOIJ_REGEX);
 			}
 
 			if (options.link) {
-				input = urlEmbed(input, options.linkTarget);
+				input = urlEmbed(input, options.linkTarget, NG_EMBED_REGEXP_PATTERNS.url, NG_EMBED_REGEXP_PATTERNS.protocol);
 			}
 
 			return $sce.trustAsHtml(input);
@@ -861,6 +855,18 @@ element.appendChild(iframe);
 		});
 		//*/
 	}
+
+	/**
+	 * Function trunc
+	 *
+	 * @description
+	 * truncates string to specified length
+	 *
+	 * @param {string} str
+	 * @param {number} n
+	 * @param {boolean} useWordBoundary
+	 * @returns string
+	 */
 
 	function trunc(str, n, useWordBoundary) {
 		var toLong = str.length > n,
@@ -926,18 +932,14 @@ element.appendChild(iframe);
 	 * Converts text into emojis
 	 *
 	 * @param  {string} str
-	 * @param  {Array} emojiList
+	 * @param  {RegExp} emojiPattern
 	 *
 	 * @return {string}
 	 */
 
-	function insertEmoji(str, emojiList) {
-
-		var emojiRegex = new RegExp(":(" + emojiList.join("|") + "):", "g");
-
-		return str.replace(emojiRegex, function (match, text) {
+	function insertEmoji(str, emojiPattern) {
+		return str.replace(emojiPattern, function (match, text) {
 			return "<i class='emoticon emoticon-" + text + "' title=':" + text + ":'></i>";
-
 		});
 	}
 
@@ -948,25 +950,23 @@ element.appendChild(iframe);
 	 *
 	 * @param  {string} str
 	 * @param  {string} linkTarget
+	 * @param  {RegExp} urlPattern
+	 * @param  {RegExp} protocolPattern
 	 *
 	 * @return {string}
 	 */
 
-	function urlEmbed(str, linkTarget) {
-
-		var urlRegex = /\b(?:(https?|ftp|file):\/\/|www\.)[-A-Z0-9+()&@$#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/ig;
-		var protocolRegex = /^[a-z]+\:\/\//i;
-
-		return str.replace(urlRegex, function (text) {
+	function urlEmbed(str, linkTarget, urlPattern, protocolPattern) {
+		return str.replace(urlPattern, function (text) {
 				var url = text;
-				if (!protocolRegex.test(text))
-				{
+				if (!protocolPattern.test(text)) {
 					url = 'http://' + text;
 				}
 
 				if (linkTarget == 'cordova'){
 					return '<a href="#" onclick="window.open(\''+ url +'\', \'_system\', \'location=yes\')" >' + text + '</a>';
-				}else{
+				}
+				else {
 					return '<a href="' + url + '" target="' + linkTarget + '">' + text + '</a>';
 				}
 			}
@@ -988,5 +988,35 @@ element.appendChild(iframe);
 		return str.replace(/[&<>]/g, function (m) {
 			return map[m];
 		});
+	}
+
+	/**
+	 * FUNCTION htmlEncode
+	 *
+	 * @description
+	 * Converts html entities for <, >, & to characters
+	 *
+	 * @param  {string} str
+	 *
+	 * @return {string}
+	 */
+	function htmlEncode(str) {
+		var map = {'&amp;': '&', '&gt;': '>', '&lt;': '<'};
+		return str.replace(/&(amp|gt|lt);/g, function (m) {
+			return map[m];
+		});
+	}
+
+	/**
+	 * FUNCTION trimSpace
+	 *
+	 * removes whitespace characters
+	 * @param  {string} str The string from which the whitespace has to be removed
+	 * @return {string}
+	 */
+	function trimSpace(str) {
+		var trimmed = str.replace(/^([ \t]*)/g, ''); // leading whitespace
+		trimmed = trimmed.replace(/[ \t]*$/g, ''); // trailing whitespace
+		return trimmed;
 	}
 })();
