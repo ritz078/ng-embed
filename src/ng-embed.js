@@ -123,6 +123,7 @@
                     tedEmbed         : true,
                     dotsubEmbed      : true,
                     liveleakEmbed    : true,
+	                ustreamEmbed    : true,
                     soundCloudEmbed  : true,
                     soundCloudOptions: {
                         height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
@@ -361,15 +362,33 @@
                         var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
                         var matches = str.match(liveleakRegex);
                         if (matches) {
-	                        var uniqueMatches = getUniqueArray(matches);
-                        var videoDimensions = videoProcess.calcDimensions(opts);
+                            var uniqueMatches = getUniqueArray(matches);
+                            var videoDimensions = videoProcess.calcDimensions(opts);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
+                                var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                 scope.videoServices.push(frame);
                             });
                         }
                         return str;
-                    }
+                    },
+
+	                ustreamEmbed: function (str, opts) {
+		                var pattern = /ustream.tv\/[a-z\/0-9]*/gi;
+		                var matches = str.match(pattern);
+		                if (matches) {
+			                var uniqueMatches = getUniqueArray(matches);
+			                var videoDimensions = videoProcess.calcDimensions(opts);
+			                angular.forEach(uniqueMatches, function(match) {
+				                var id = match.split('/');
+				                if( id.indexOf('embed') < 0) {
+					                id.splice(1, 0, 'embed');
+				                }
+				                var frame = $sce.trustAsHtml('<iframe src="http://www.' + id.join('/') + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+				                scope.videoServices.push(frame);
+			                });
+		                }
+		                return str;
+	                }
                 };
 
                 var audioProcess = {
@@ -700,6 +719,7 @@
                   x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
                   x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
                   x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
+                  x = options.ustreamEmbed ? videoProcess.ustreamEmbed(x, options) : x;
                   x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
                   x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
                   x = options.code.highlight ? codeEmbedProcess.highlightEmbed(x, options) : x;

@@ -178,6 +178,7 @@ $scope.options = {
   tedEmbed         : true,
   dotsubEmbed      : true,
   liveleakEmbed    : true,
+  ustreamEmbed    : true,
   soundCloudEmbed  : true,
   soundCloudOptions: {
       height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
