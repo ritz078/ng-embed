@@ -42,665 +42,668 @@
 		    $templateCache.put(NG_DEFAULT_TEMPLATE_URL, template);
 	    }])
 
-        .directive('ngEmbed', ['$filter', '$sce', '$http', '$timeout', 'NG_DEFAULT_TEMPLATE_URL', function ($filter, $sce, $http, $timeout, NG_DEFAULT_TEMPLATE_URL) {
+		.directive('ngEmbed', ngEmbedDirective)
 
-            return {
-                restrict   : 'AE',
-                scope      : true,
-                templateUrl: function (element, attributes) {
-                    return (attributes.embedTemplateUrl || NG_DEFAULT_TEMPLATE_URL);
-                },
-                link       : function (scope, elements, attributes) {
-                	var embedFilter = $filter('embed');
+		//This directive is a modification of a module developed by Scott Corgan.
+		//present at scottcorgan/angular-gist
+		.directive('neGist', function () {
+			return {
+				restrict: 'EA',
+				replace : true,
+				template: '<div></div>',
+				link    : function (scope, element, attrs) {
+					appendGistToElement(element[0], attrs.id);
+				}
+			};
+		});
 
-                    var userOptions = scope.$eval(attributes.embedOptions);
+	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', 'NG_DEFAULT_TEMPLATE_URL'];
+	function ngEmbedDirective($filter, $sce, $http, $timeout, NG_DEFAULT_TEMPLATE_URL) {
 
-                    var options = {
-	                    watchEmbedData   : false,
-						sanitizeHtml     : true,
-						fontSmiley       : true,
-						emoji            : true,
-                        link             : true,
-                        linkTarget       : '_self',
-                        pdf              : {
-                            embed: true
-                        },
-                        image            : {
-                            embed: false
-                        },
-                        audio            : {
-                            embed: true
-                        },
-                        code             : {
-                            highlight  : true,
-                            lineNumbers: false
-                        },
-                        basicVideo       : false,
-                        gdevAuth:null,
-                        video            : {
-                            embed           : false,
-                            width           : null,
-                            height          : null,
-                            ytTheme         : 'dark',
-                            details         : false,
-                            thumbnailQuality: 'medium'
-                        },
-                        tweetEmbed       : true,
-                        tweetOptions     : {
-                            //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
-                            maxWidth  : 550,
-                            //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
-                            hideMedia : false,
-                            //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
-                            //will not be displayed when the requested Tweet is in reply to another Tweet.
-                            hideThread: false,
-                            //Specifies whether the embedded Tweet should be floated left, right, or center in
-                            //the page relative to the parent element.Valid values are left, right, center, and none.
-                            //Defaults to none, meaning no alignment styles are specified for the Tweet.
-                            align     : 'none',
-                            //Request returned HTML and a rendered Tweet in the specified.
-                            //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
-                            lang      : 'en'
-                        },
-                        twitchtvEmbed    : true,
-                        dailymotionEmbed : true,
-                        tedEmbed         : true,
-                        dotsubEmbed      : true,
-                        liveleakEmbed    : true,
-                        soundCloudEmbed  : true,
-                        soundCloudOptions: {
-                            height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
-                            autoPlay    : false,
-                            hideRelated : false,
-                            showComments: true,
-                            showUser    : true,
-                            showReposts : false,
-                            visual      : false,         //Show/hide the big preview image
-                            download    : false          //Show/Hide download buttons
-                        },
-                        spotifyEmbed     : true,
-                        codepenEmbed     : true,
-                        codepenHeight    : 300,
-                        jsfiddleEmbed    : true,
-                        jsfiddleHeight   : 300,
-                        jsbinEmbed       : true,
-                        jsbinHeight      : 300,
-                        plunkerEmbed     : true,
-                        githubgistEmbed  : true,
-                        ideoneEmbed      : true,
-                        ideoneHeight:300
-                    };
+        return {
+            restrict   : 'AE',
+            scope      : true,
+            templateUrl: function (element, attributes) {
+                return (attributes.embedTemplateUrl || NG_DEFAULT_TEMPLATE_URL);
+            },
+            link       : function (scope, elements, attributes) {
+                var embedFilter = $filter('embed');
 
-                    extendDeep(options, userOptions);
+                var userOptions = scope.$eval(attributes.embedOptions);
 
-                    var videoProcess = {
-                        calcDimensions: function (options) {
-                            var dimensions = {
-                                'width' : null,
-                                'height': null
-                            };
-                            dimensions.width = options.video.width;
-                            dimensions.height = options.video.height;
+                var options = {
+                    watchEmbedData   : false,
+					sanitizeHtml     : true,
+					fontSmiley       : true,
+					emoji            : true,
+                    link             : true,
+                    linkTarget       : '_self',
+                    pdf              : {
+                        embed: true
+                    },
+                    image            : {
+                        embed: false
+                    },
+                    audio            : {
+                        embed: true
+                    },
+                    code             : {
+                        highlight  : true,
+                        lineNumbers: false
+                    },
+                    basicVideo       : false,
+                    gdevAuth:null,
+                    video            : {
+                        embed           : false,
+                        width           : null,
+                        height          : null,
+                        ytTheme         : 'dark',
+                        details         : false,
+                        thumbnailQuality: 'medium'
+                    },
+                    tweetEmbed       : true,
+                    tweetOptions     : {
+                        //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
+                        maxWidth  : 550,
+                        //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
+                        hideMedia : false,
+                        //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
+                        //will not be displayed when the requested Tweet is in reply to another Tweet.
+                        hideThread: false,
+                        //Specifies whether the embedded Tweet should be floated left, right, or center in
+                        //the page relative to the parent element.Valid values are left, right, center, and none.
+                        //Defaults to none, meaning no alignment styles are specified for the Tweet.
+                        align     : 'none',
+                        //Request returned HTML and a rendered Tweet in the specified.
+                        //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
+                        lang      : 'en'
+                    },
+                    twitchtvEmbed    : true,
+                    dailymotionEmbed : true,
+                    tedEmbed         : true,
+                    dotsubEmbed      : true,
+                    liveleakEmbed    : true,
+                    soundCloudEmbed  : true,
+                    soundCloudOptions: {
+                        height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
+                        autoPlay    : false,
+                        hideRelated : false,
+                        showComments: true,
+                        showUser    : true,
+                        showReposts : false,
+                        visual      : false,         //Show/hide the big preview image
+                        download    : false          //Show/Hide download buttons
+                    },
+                    spotifyEmbed     : true,
+                    codepenEmbed     : true,
+                    codepenHeight    : 300,
+                    jsfiddleEmbed    : true,
+                    jsfiddleHeight   : 300,
+                    jsbinEmbed       : true,
+                    jsbinHeight      : 300,
+                    plunkerEmbed     : true,
+                    githubgistEmbed  : true,
+                    ideoneEmbed      : true,
+                    ideoneHeight:300
+                };
 
-                            if (options.video.height && options.video.width) {
-                                return dimensions;
-                            }
-                            else if (options.video.height) {
-                                dimensions.width = ((options.video.height) / 390) * 640;
-                                return dimensions;
-                            }
-                            else if (options.video.width) {
-                                dimensions.height = ((dimensions.width) / 640) * 390;
-                                return dimensions;
-                            }
-                            else {
-                                dimensions.width = 640;
-                                dimensions.height = 390;
-                                return dimensions;
-                            }
-                        },
+                extendDeep(options, userOptions);
 
-                        embed: function (data, options) {
+                var videoProcess = {
+                    calcDimensions: function (options) {
+                        var dimensions = {
+                            'width' : null,
+                            'height': null
+                        };
+                        dimensions.width = options.video.width;
+                        dimensions.height = options.video.height;
 
-                            var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
-
-                            /**
-                             * Youtube embedding
-                             */
-
-                            if (data.match(p)) {
-
-                                var youtubeDimensions = this.calcDimensions(options);
-                                scope.video.id = RegExp.$1;
-                                if (options.video.details) {
-									var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
-									$http.get('https://www.googleapis.com/youtube/v3/videos?id=' + RegExp.$1 + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
-										.then(function (r) {
-                                            var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
-											var ytData = r.data.items[0];
-
-                                            scope.video.host = 'youtube';
-                                            scope.video.title = ytData.snippet.title;
-                                            scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
-                                            scope.video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
-                                            scope.video.rawDescription = ytData.snippet.description;
-                                            scope.video.views = ytData.statistics.viewCount;
-                                            scope.video.likes = ytData.statistics.likeCount;
-                                            scope.video.uploader = ytData.snippet.channelTitle;
-                                            scope.video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
-                                            scope.video.uploadDate = ytData.snippet.publishedAt;
-                                            scope.video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
-                                            scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + autoPlay);
-                                            scope.video.width = youtubeDimensions.width;
-                                            scope.video.height = youtubeDimensions.height;
-
-                                        });
-                                }
-                                else {
-                                    scope.video.width = youtubeDimensions.width;
-                                    scope.video.height = youtubeDimensions.height;
-                                    scope.video.host = 'youtube';
-                                    scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + RegExp.$1 + '?autoplay=0');
-
-                                }
-
-                                return data;  // show only youtube video if both vimeo and youtube videos are present.
-                            }
-
-                            /**
-                             * Vimeo embedding
-                             */
-
-                            var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
-
-                            if (data.match(e)) {
-                                var vimeoDimensions = this.calcDimensions(options);
-                                scope.video.id = RegExp.$3;
-                                if (options.video.details) {
-
-                                    $http.get('https://vimeo.com/api/v2/video/' + RegExp.$3 + '.json')
-										.then(function (r) {
-											var d = r.data;
-                                            var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
-                                            scope.video.host = 'vimeo';
-                                            scope.video.title = d[0].title;
-                                            scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                            scope.video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
-                                            scope.video.thumbnail = d[0].thumbnail_medium;
-                                            scope.video.views = d[0].stats_number_of_plays;
-                                            scope.video.likes = d[0].stats_number_of_likes;
-                                            scope.video.uploader = d[0].user_name;
-                                            scope.video.uploaderPage = d[0].user_url;
-                                            scope.video.uploadDate = d[0].uploadDate;
-                                            scope.video.url = d[0].url;
-                                            scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0' + autoPlay);
-                                            scope.video.width = vimeoDimensions.width;
-                                            scope.video.height = vimeoDimensions.height;
-                                        });
-                                }
-                                else {
-                                    scope.video.width = vimeoDimensions.width;
-                                    scope.video.height = vimeoDimensions.height;
-                                    scope.video.host = 'vimeo';
-                                    scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + RegExp.$3 + '?title=0&byline=0&portrait=0&autoplay=0');
-                                }
-                            }
-
-                            return data;
-                        },
-
-                        embedBasic: function (data) {
-                            var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
-
-                            if (data.match(f)) {
-                                scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
-                            }
-
-                            return data;
-                        },
-
-                        twitchtvEmbed: function (str, opts) {
-                            var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
-                            var matches = str.match(twitchRegex);
-                            if (matches) {
-                            	var uniqueMatches = getUniqueArray(matches);
-                            var videoDimensions = videoProcess.calcDimensions(opts);
-                                angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe ' +
-                                        'src="https://player.twitch.tv/?channel=' + match.split('/')[1] +'&!autoplay" ' +
-                                        'height="' + videoDimensions.height + '" ' +
-                                        'width="' + videoDimensions.width + '" ' +
-                                        'autoplay="false" ' +
-                                        'frameborder="0" ' +
-                                        'scrolling="no" ' +
-                                        'allowfullscreen="true">' +
-                                        '</iframe>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        dailymotionEmbed: function (str, opts) {
-                            var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
-                            var matches = str.match(dmRegex);
-	                        if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-                            var videoDimensions = videoProcess.calcDimensions(opts);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + match.split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        tedEmbed: function (str, opts) {
-                            var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(tedRegex);
-	                        if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-                            var videoDimensions = videoProcess.calcDimensions(opts);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.ted.com/talks/' + match.split('/')[2] + '.html" ' +
-                                    'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        dotsubEmbed: function (str, opts) {
-                            var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
-                            var matches = str.match(dotsubRegex);
-	                        if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-                            var videoDimensions = videoProcess.calcDimensions(opts);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + match.split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        liveleakEmbed: function (str, opts) {
-                            var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(liveleakRegex);
-	                        if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-                            var videoDimensions = videoProcess.calcDimensions(opts);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
+                        if (options.video.height && options.video.width) {
+                            return dimensions;
                         }
-                    };
-
-                    var audioProcess = {
-                        embed: function (str) {
-                            var a = /((?:https?):\/\/\S*\.(?:wav|mp3|ogg))/gi;
-                            if (str.match(a)) {
-                                scope.audio.url = $sce.trustAsResourceUrl(RegExp.$1);
-                            }
-                            return str;
-                        },
-
-                        soundcloudEmbed: function (str, opts) {
-                            var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
-                            var matches = str.match(scRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + match + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
-                                    scope.videoServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        spotifyEmbed: function (str) {
-                            var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(spotifyRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + match.split('/')[2] + '" height="80"></iframe>');
-                                    scope.audioServices.push(frame);
-                                });
-                            }
-                            return str;
+                        else if (options.video.height) {
+                            dimensions.width = ((options.video.height) / 390) * 640;
+                            return dimensions;
                         }
-                    };
-
-                    var imageProcess = {
-                        embed: function (data) {
-							var i = /(((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))(\?([\w=&_%\-]*))?)/gi;
-
-                            if (data.match(i)) {
-                                scope.image.url = RegExp.$1;
-
-                            }
-
-                            return data;
-                        }
-                    };
-
-                    var codeProcess = {
-
-	                    /**
-	                     * Encodes the characters like <, > and space and replaces them with
-	                     * &lt;, &gt; and &gt; respectively.
-	                     * @param  {string} code The string that has to be encoded.
-	                     * @return {string}      The encoded string
-	                     */
-	                    encode: function(code) {
-			                code = code.replace(/&amp;/gm, '');
-			                code = code.replace(/&lt;/g, '<');
-			                code = code.replace(/&gt;/g, '>');
-			                return code;
-		                },
-
-		                /**
-		                 * removes whitespace characters
-		                 * @param  {string} code The string from which the whitespace has to be removed
-		                 * @return {string}
-		                 */
-		                trimSpace: function(code) {
-			                code = code.replace(/^([ \t]*)/g, ''); // leading whitespace
-			                code = code.replace(/[ \t]*$/g, ''); // trailing whitespace
-			                return code;
-		                },
-
-                        getCode: function (text) {
-                            return (text + '').replace(/(`+)(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
-                                function (wholeMatch, group1, group2, group3) {
-                                    var code = group3;
-                                    code = codeProcess.trimSpace(code);
-	                                code = codeProcess.encode(code);
-
-                                    code = code.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
-                                                                   // *blocks*, but in code spans. Will be converted
-                                                                   // back after the auto-linker runs.
-
-	                                var language = group2.split('\n')[0];
-
-	                                var highlightedCode;
-                                    if ( language ) {
-		                                highlightedCode = hljs.highlightAuto(code, [language]);
-	                                } else {
-		                                highlightedCode = hljs.highlightAuto(code);
-		                                language        = highlightedCode.language;
-                                    }
-
-                                    return '<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>';
-                                    /*
-	                                var codeBlock = $sce.trustAsHtml('<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>');
-	                                scope.codeServices.push(codeBlock);
-                                    return '';
-                                    */
-                                }
-                            );
-                        }
-                    };
-
-                    var pdfProcess = {
-                        embed: function (str) {
-                            var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
-                            if (str.match(p)) {
-                                scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
-
-                            }
-
-                            return str;
-                        }
-                    };
-
-                    var tweetProcess = {
-                        embed: function (str, opts) {
-                            if (!window.twttr) {
-                                console.error(new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js'));
-                            }
-                            function renderTweet() {
-                                $timeout(function () {
-                                    twttr.widgets.load();
-                                }, 10);
-                            }
-
-	                        scope.tweets = [];
-
-                            var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
-                            var matches = str.match(tweetRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-									var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&&url=' + match + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
-									var request;
-									if(  parseInt(angular.version.major) >= 1 && parseInt(angular.version.minor) >= 6 ) {
-										request = $http.jsonp($sce.trustAsResourceUrl(url), { callbackParam: 'JSON_CALLBACK' });
-									}
-									else {
-                                    /**
-                                     * callback=JSON_CALLBACK is an angular fix to make sure we get the correct mime type of the
-                                     * received data.
-                                     */
-										request = $http.jsonp(url + '&callback=JSON_CALLBACK');
-									}
-
-									request.then(function (r) {
-										scope.tweets.push(r.data.html);
-                                        if (scope.tweets.length == uniqueMatches.length) {
-                                            renderTweet();
-                                        }
-									}).catch(function(err) {
-										console.error(err);
-                                    });
-                                });
-                            }
-                            return str;
-                        }
-                    };
-
-                    var codeEmbedProcess = {
-                        codepenEmbed: function (str, opts) {
-                            var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
-                            var matches = str.match(codepenRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + match.replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
-                                    scope.codeServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        jsfiddleEmbed: function (str, opts) {
-                            var jsfiddleRegex = /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi;
-                            var matches = str.match(jsfiddleRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + match + '/embedded"></iframe>');
-                                    scope.codeServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        jsbinEmbed: function (str, opts) {
-                            var jsbinRegex = /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi;
-                            var matches = str.match(jsbinRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + match + '/embed?html,js,output">Simple Animation Tests</iframe>');
-                                    scope.codeServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        plunkerEmbed: function (str, opts) {
-                            var plnkrRegex = /plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
-                            var matches = str.match(plnkrRegex);
-                            if (matches) {
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-		                        	var path = match.split('/')[2];
-                                    var idMatch = (match.indexOf('?') === -1) ? path : path.split('?')[0];
-                                    var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
-                                    scope.codeServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-
-                        githubgistEmbed: function (str) {
-                            var gistRegex = /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
-                            var matches = str.match(gistRegex);
-                            if (matches) {
-		                        var gists = [];
-		                        angular.forEach(matches, function(match) {
-                                    gists.push(match.split('/')[2]);
-                                });
-		                        scope.gist = getUniqueArray(gists);
-                            }
-
-                            return str;
-                        },
-
-                        ideoneEmbed:function(str,opts){
-                            var ideoneRegex=/ideone.com\/[a-zA-Z0-9]{6}/gi;
-                            var matches=str.match(ideoneRegex);
-                            if(matches){
-		                        var uniqueMatches = getUniqueArray(matches);
-		                        angular.forEach(uniqueMatches, function(match) {
-                                    var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+match.split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
-                                    scope.codeServices.push(frame);
-                                });
-                            }
-                            return str;
-                        },
-	                    highlightEmbed: function(data, options) {
-                        if (!window.hljs) {
-			                    console.error(new ReferenceError('hlsj (Highlight JS is not defined.'));
-			                    return data;
+                        else if (options.video.width) {
+                            dimensions.height = ((dimensions.width) / 640) * 390;
+                            return dimensions;
                         }
                         else {
-                            data = codeProcess.getCode(data);
-
-                            /**
-                             * Adding line numbers to code
-                             */
-                            $timeout(function () {
-			                    	// wrapped in timeout to allow code elements to be added to DOM
-                                if (options.code.lineNumbers) {
-				                    	var codeBlocks = elements.find('.ne-code');
-				                    	if( codeBlocks.length > 0 ) {
-						                    angular.forEach(codeBlocks, function(block) {
-							                    var codeElement = angular.element(block)
-								                    .addClass('has-numbering');
-							                    var content = codeElement.text();
-							                    var lineCount = content.split('\n').length;
-							                    var lineNbrList = angular.element('<ul/>').addClass('pre-numbering');
-							                    for (var i = 1; i <= lineCount; i++) {
-								                    var lineNbr = angular.element('<li/>').text(i);
-								                    lineNbrList.append(lineNbr);
-							                    }
-
-							                    codeElement
-                                            .parent()
-								                    .append(lineNbrList);
-                                    });
-                                }
-				                    }
-
-			                    }, 20);
-		                    }
-
-		                    return data;
+                            dimensions.width = 640;
+                            dimensions.height = 390;
+                            return dimensions;
                         }
-                    };
+                    },
 
-                    function processEmbed(input){
-                    	// clear scope
-	                    scope.video = {};
-	                    scope.image = {};
-	                    scope.pdf = {};
-	                    scope.audio = {};
-	                    scope.videoServices = [];
-	                    scope.audioServices = [];
-	                    scope.codeServices = [];
-	                    scope.gist = [];
+                    embed: function (data, options) {
 
-	                    // make sure that input is string
-	                    if( !angular.isString(input) || input.length === 0 ) {
-		                    input = ' ';
+                        var p = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
+
+                        /**
+                         * Youtube embedding
+                         */
+
+                        if (data.match(p)) {
+
+                            var youtubeDimensions = this.calcDimensions(options);
+                            scope.video.id = RegExp.$1;
+                            if (options.video.details) {
+								var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
+								$http.get('https://www.googleapis.com/youtube/v3/videos?id=' + scope.video.id + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
+									.then(function (r) {
+                                        var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
+										var ytData = r.data.items[0];
+
+                                        scope.video.host = 'youtube';
+                                        scope.video.title = ytData.snippet.title;
+                                        scope.video.thumbnail = ytData.snippet.thumbnails.medium.url;
+                                        scope.video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
+                                        scope.video.rawDescription = ytData.snippet.description;
+                                        scope.video.views = ytData.statistics.viewCount;
+                                        scope.video.likes = ytData.statistics.likeCount;
+                                        scope.video.uploader = ytData.snippet.channelTitle;
+                                        scope.video.uploaderPage = 'https://www.youtube.com/channel/' + ytData.snippet.channelId;
+                                        scope.video.uploadDate = ytData.snippet.publishedAt;
+                                        scope.video.url = $sce.trustAsResourceUrl("https://www.youtube.com/watch?v=" + ytData.id);
+                                        scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + autoPlay);
+                                        scope.video.width = youtubeDimensions.width;
+                                        scope.video.height = youtubeDimensions.height;
+
+                                    });
+                            }
+                            else {
+                                scope.video.width = youtubeDimensions.width;
+                                scope.video.height = youtubeDimensions.height;
+                                scope.video.host = 'youtube';
+                                scope.video.embedSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + scope.video.id + '?autoplay=0');
+
+                            }
+
+                            return data;  // show only youtube video if both vimeo and youtube videos are present.
+                        }
+
+                        /**
+                         * Vimeo embedding
+                         */
+
+                        var e = /https?:\/\/(?:www\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi;
+
+                        if (data.match(e)) {
+                            var vimeoDimensions = this.calcDimensions(options);
+                            scope.video.id = RegExp.$3;
+                            if (options.video.details) {
+
+                                $http.get('https://vimeo.com/api/v2/video/' + scope.video.id + '.json')
+									.then(function (r) {
+										var d = r.data;
+                                        var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
+                                        scope.video.host = 'vimeo';
+                                        scope.video.title = d[0].title;
+                                        scope.video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
+                                        scope.video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
+                                        scope.video.thumbnail = d[0].thumbnail_medium;
+                                        scope.video.views = d[0].stats_number_of_plays;
+                                        scope.video.likes = d[0].stats_number_of_likes;
+                                        scope.video.uploader = d[0].user_name;
+                                        scope.video.uploaderPage = d[0].user_url;
+                                        scope.video.uploadDate = d[0].uploadDate;
+                                        scope.video.url = d[0].url;
+                                        scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + d[0].id + '?title=0&byline=0&portrait=0' + autoPlay);
+                                        scope.video.width = vimeoDimensions.width;
+                                        scope.video.height = vimeoDimensions.height;
+                                    });
+                            }
+                            else {
+                                scope.video.width = vimeoDimensions.width;
+                                scope.video.height = vimeoDimensions.height;
+                                scope.video.host = 'vimeo';
+                                scope.video.embedSrc = $sce.trustAsResourceUrl('//player.vimeo.com/video/' + scope.video.id + '?title=0&byline=0&portrait=0&autoplay=0');
+                            }
+                        }
+
+                        return data;
+                    },
+
+                    embedBasic: function (data) {
+                        var f = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/gi;
+
+                        if (data.match(f)) {
+                            scope.video.basic = $sce.trustAsResourceUrl(RegExp.$1);
+                        }
+
+                        return data;
+                    },
+
+                    twitchtvEmbed: function (str, opts) {
+                        var twitchRegex = /www.twitch.tv\/[a-zA_Z0-9_]+/gi;
+                        var matches = str.match(twitchRegex);
+                        if (matches) {
+                            var uniqueMatches = getUniqueArray(matches);
+                        var videoDimensions = videoProcess.calcDimensions(opts);
+                            angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe ' +
+                                    'src="https://player.twitch.tv/?channel=' + match.split('/')[1] +'&!autoplay" ' +
+                                    'height="' + videoDimensions.height + '" ' +
+                                    'width="' + videoDimensions.width + '" ' +
+                                    'autoplay="false" ' +
+                                    'frameborder="0" ' +
+                                    'scrolling="no" ' +
+                                    'allowfullscreen="true">' +
+                                    '</iframe>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    dailymotionEmbed: function (str, opts) {
+                        var dmRegex = /dailymotion.com\/video\/[a-zA-Z0-9-_]+/gi;
+                        var matches = str.match(dmRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+                        var videoDimensions = videoProcess.calcDimensions(opts);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + match.split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    tedEmbed: function (str, opts) {
+                        var tedRegex = /ted.com\/talks\/[a-zA-Z0-9_]+/gi;
+                        var matches = str.match(tedRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+                        var videoDimensions = videoProcess.calcDimensions(opts);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe src="https://embed.ted.com/talks/' + match.split('/')[2] + '.html" ' +
+                                'height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    dotsubEmbed: function (str, opts) {
+                        var dotsubRegex = /dotsub.com\/view\/[a-zA-Z0-9-]+/gi;
+                        var matches = str.match(dotsubRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+                        var videoDimensions = videoProcess.calcDimensions(opts);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe src="https://dotsub.com/media/' + match.split('/')[2] + '/embed/" width="' + videoDimensions.width + '" height="' + videoDimensions.height + '"></iframe>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    liveleakEmbed: function (str, opts) {
+                        var liveleakRegex = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi;
+                        var matches = str.match(liveleakRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+                        var videoDimensions = videoProcess.calcDimensions(opts);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe></div>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
                     }
-                      var x = embedFilter(input, options).$$unwrapTrustedValue();
+                };
 
-                      if (options.video.embed) {
-                          if (!options.gdevAuth) {
-                              console.error('Youtube authentication key is required to get data from youtube.');
-                          }
-                          else {
-                              x = videoProcess.embed(x, options);
-                          }
+                var audioProcess = {
+                    embed: function (str) {
+                        var a = /((?:https?):\/\/\S*\.(?:wav|mp3|ogg))/gi;
+                        if (str.match(a)) {
+                            scope.audio.url = $sce.trustAsResourceUrl(RegExp.$1);
+                        }
+                        return str;
+                    },
 
-                      }
+                    soundcloudEmbed: function (str, opts) {
+                        var scRegex = /soundcloud.com\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/gi;
+                        var matches = str.match(scRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe height="160" scrolling="no" ' + 'src="https://w.soundcloud.com/player/?url=https://' + match + '&auto_play=' + opts.soundCloudOptions.autoPlay + '&hide_related=' + opts.soundCloudOptions.hideRelated + '&show_comments=' + opts.soundCloudOptions.showComments + '&show_user=' + opts.soundCloudOptions.showUser + '&show_reposts=' + opts.soundCloudOptions.showReposts + '&visual=' + opts.soundCloudOptions.visual + '&download=' + opts.soundCloudOptions.download + '&color=' + opts.soundCloudOptions.themeColor + '&theme_color=' + opts.soundCloudOptions.themeColor + '"></iframe>');
+                                scope.videoServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
 
-                      x = options.basicVideo ? videoProcess.embedBasic(x) : x;
-                      x = options.audio.embed ? audioProcess.embed(x) : x;
-                      x = options.image.embed ? imageProcess.embed(x) : x;
-                      x = options.pdf.embed ? pdfProcess.embed(x) : x;
-                      x = options.tweetEmbed ? tweetProcess.embed(x, options) : x;
-                      x = options.twitchtvEmbed ? videoProcess.twitchtvEmbed(x, options) : x;
-                      x = options.dailymotionEmbed ? videoProcess.dailymotionEmbed(x, options) : x;
-                      x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
-                      x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
-                      x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
-                      x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
-                      x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
-                      x = options.code.highlight ? codeEmbedProcess.highlightEmbed(x, options) : x;
-                      x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
-                      x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
-                      x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
-                      x = options.plunkerEmbed ? codeEmbedProcess.plunkerEmbed(x, options) : x;
-                      x = options.githubgistEmbed ? codeEmbedProcess.githubgistEmbed(x, options) : x;
-                      x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
-
-
-                      $timeout(function(html){
-	                      scope.neText = $sce.trustAsHtml(html);
-                      }, 0, true, x);
+                    spotifyEmbed: function (str) {
+                        var spotifyRegex = /spotify.com\/track\/[a-zA-Z0-9_]+/gi;
+                        var matches = str.match(spotifyRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + match.split('/')[2] + '" height="80"></iframe>');
+                                scope.audioServices.push(frame);
+                            });
+                        }
+                        return str;
                     }
+                };
 
-                    if( !options.watchEmbedData ) {
-	                    var newData = scope.$eval(attributes.embedData);
-	                    processEmbed(newData);
+                var imageProcess = {
+                    embed: function (data) {
+						var i = /(((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))(\?([\w=&_%\-]*))?)/gi;
+
+                        if (data.match(i)) {
+                            scope.image.url = RegExp.$1;
+
+                        }
+
+                        return data;
+                    }
+                };
+
+                var codeProcess = {
+
+                    /**
+                     * Encodes the characters like <, > and space and replaces them with
+                     * &lt;, &gt; and &gt; respectively.
+                     * @param  {string} code The string that has to be encoded.
+                     * @return {string}      The encoded string
+                     */
+                    encode: function(code) {
+		                code = code.replace(/&amp;/gm, '');
+		                code = code.replace(/&lt;/g, '<');
+		                code = code.replace(/&gt;/g, '>');
+		                return code;
+	                },
+
+	                /**
+	                 * removes whitespace characters
+	                 * @param  {string} code The string from which the whitespace has to be removed
+	                 * @return {string}
+	                 */
+	                trimSpace: function(code) {
+		                code = code.replace(/^([ \t]*)/g, ''); // leading whitespace
+		                code = code.replace(/[ \t]*$/g, ''); // trailing whitespace
+		                return code;
+	                },
+
+                    getCode: function (text) {
+                        return (text + '').replace(/(`+)(\s|[a-z]+)\s*([\s\S]*?[^`])\s*\1(?!`)/gm,
+                            function (wholeMatch, group1, group2, group3) {
+                                var code = group3;
+                                code = codeProcess.trimSpace(code);
+                                code = codeProcess.encode(code);
+
+                                code = code.replace(/:\/\//g, "~P"); // to prevent auto-linking. Not necessary in code
+                                                               // *blocks*, but in code spans. Will be converted
+                                                               // back after the auto-linker runs.
+
+                                var language = group2.split('\n')[0];
+
+                                var highlightedCode;
+                                if ( language ) {
+	                                highlightedCode = hljs.highlightAuto(code, [language]);
+                                } else {
+	                                highlightedCode = hljs.highlightAuto(code);
+	                                language        = highlightedCode.language;
+                                }
+
+                                return '<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>';
+                                /*
+                                var codeBlock = $sce.trustAsHtml('<pre><code class="ne-code hljs ' + language + '">' + highlightedCode.value + '</code></pre>');
+                                scope.codeServices.push(codeBlock);
+                                return '';
+                                */
+                            }
+                        );
+                    }
+                };
+
+                var pdfProcess = {
+                    embed: function (str) {
+                        var p = /((?:https?):\/\/\S*\.(?:pdf|PDF))/gi;
+                        if (str.match(p)) {
+                            scope.pdf.url = $sce.trustAsResourceUrl(RegExp.$1);
+
+                        }
+
+                        return str;
+                    }
+                };
+
+                var tweetProcess = {
+                    embed: function (str, opts) {
+                        if (!window.twttr) {
+                            console.error(new ReferenceError('twttr is not defined. Load http://platform.twitter.com/widgets.js'));
+                        }
+                        function renderTweet() {
+                            $timeout(function () {
+                                twttr.widgets.load();
+                            }, 10);
+                        }
+
+                        scope.tweets = [];
+
+                        var tweetRegex = /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi;
+                        var matches = str.match(tweetRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+								var url = 'https://api.twitter.com/1/statuses/oembed.json?omit_script=true&&url=' + match + '&maxwidth=' + opts.tweetOptions.maxWidth + '&hide_media=' + opts.tweetOptions.hideMedia + '&hide_thread=' + opts.tweetOptions.hideThread + '&align=' + opts.tweetOptions.align + '&lang=' + opts.tweetOptions.lang;
+								var request;
+								if(  parseInt(angular.version.major) >= 1 && parseInt(angular.version.minor) >= 6 ) {
+									request = $http.jsonp($sce.trustAsResourceUrl(url), { callbackParam: 'JSON_CALLBACK' });
+								}
+								else {
+                                /**
+                                 * callback=JSON_CALLBACK is an angular fix to make sure we get the correct mime type of the
+                                 * received data.
+                                 */
+									request = $http.jsonp(url + '&callback=JSON_CALLBACK');
+								}
+
+								request.then(function (r) {
+									scope.tweets.push(r.data.html);
+                                    if (scope.tweets.length == uniqueMatches.length) {
+                                        renderTweet();
+                                    }
+								}).catch(function(err) {
+									console.error(err);
+                                });
+                            });
+                        }
+                        return str;
+                    }
+                };
+
+                var codeEmbedProcess = {
+                    codepenEmbed: function (str, opts) {
+                        var codepenRegex = /http:\/\/codepen.io\/([A-Za-z0-9_]+)\/pen\/([A-Za-z0-9_]+)/gi;
+                        var matches = str.match(codepenRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe scrolling="no" height="' + opts.codepenHeight + '" src="' + match.replace(/\/pen\//, '/embed/') + '/?height=' + opts.codepenHeight + '" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>');
+                                scope.codeServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    jsfiddleEmbed: function (str, opts) {
+                        var jsfiddleRegex = /jsfiddle.net\/[a-zA-Z0-9_]+\/[a-zA-Z0-9_]+/gi;
+                        var matches = str.match(jsfiddleRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + match + '/embedded"></iframe>');
+                                scope.codeServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    jsbinEmbed: function (str, opts) {
+                        var jsbinRegex = /jsbin.com\/[a-zA-Z0-9_]+\/[0-9_]+/gi;
+                        var matches = str.match(jsbinRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + match + '/embed?html,js,output">Simple Animation Tests</iframe>');
+                                scope.codeServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    plunkerEmbed: function (str, opts) {
+                        var plnkrRegex = /plnkr.co\/edit\/[a-zA-Z0-9\?=]+/gi;
+                        var matches = str.match(plnkrRegex);
+                        if (matches) {
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+	                            var path = match.split('/')[2];
+                                var idMatch = (match.indexOf('?') === -1) ? path : path.split('?')[0];
+                                var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
+                                scope.codeServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+
+                    githubgistEmbed: function (str) {
+                        var gistRegex = /gist.github.com\/[a-zA-Z0-9_-]+\/([a-zA-Z0-9]+)/g;
+                        var matches = str.match(gistRegex);
+                        if (matches) {
+	                        var gists = [];
+	                        angular.forEach(matches, function(match) {
+                                gists.push(match.split('/')[2]);
+                            });
+	                        scope.gist = getUniqueArray(gists);
+                        }
+
+                        return str;
+                    },
+
+                    ideoneEmbed:function(str,opts){
+                        var ideoneRegex=/ideone.com\/[a-zA-Z0-9]{6}/gi;
+                        var matches=str.match(ideoneRegex);
+                        if(matches){
+	                        var uniqueMatches = getUniqueArray(matches);
+	                        angular.forEach(uniqueMatches, function(match) {
+                                var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+match.split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
+                                scope.codeServices.push(frame);
+                            });
+                        }
+                        return str;
+                    },
+                    highlightEmbed: function(data, options) {
+                    if (!window.hljs) {
+		                    console.error(new ReferenceError('hlsj (Highlight JS is not defined.'));
+		                    return data;
                     }
                     else {
-	                    scope.$watch(attributes.embedData, processEmbed);
-                    }
-                }
-            };
-        }])
+                        data = codeProcess.getCode(data);
 
-        //This directive is a modification of a module developed by Scott Corgan.
-        //present at scottcorgan/angular-gist
-        .directive('neGist', function () {
-            return {
-	            restrict: 'EA',
-	            replace : true,
-	            template: '<div></div>',
-	            link    : function (scope, element, attrs) {
-		            appendGistToElement(element[0], attrs.id);
-	            }
-            };
-        });
+                        /**
+                         * Adding line numbers to code
+                         */
+                        $timeout(function () {
+		                        // wrapped in timeout to allow code elements to be added to DOM
+                            if (options.code.lineNumbers) {
+			                        var codeBlocks = elements.find('.ne-code');
+			                        if( codeBlocks.length > 0 ) {
+					                    angular.forEach(codeBlocks, function(block) {
+						                    var codeElement = angular.element(block)
+							                    .addClass('has-numbering');
+						                    var content = codeElement.text();
+						                    var lineCount = content.split('\n').length;
+						                    var lineNbrList = angular.element('<ul/>').addClass('pre-numbering');
+						                    for (var i = 1; i <= lineCount; i++) {
+							                    var lineNbr = angular.element('<li/>').text(i);
+							                    lineNbrList.append(lineNbr);
+						                    }
+
+						                    codeElement
+                                        .parent()
+							                    .append(lineNbrList);
+                                });
+                            }
+			                    }
+
+		                    }, 20);
+	                    }
+
+	                    return data;
+                    }
+                };
+
+                function processEmbed(input){
+                    // clear scope
+                    scope.video = {};
+                    scope.image = {};
+                    scope.pdf = {};
+                    scope.audio = {};
+                    scope.videoServices = [];
+                    scope.audioServices = [];
+                    scope.codeServices = [];
+                    scope.gist = [];
+
+                    // make sure that input is string
+                    if( !angular.isString(input) || input.length === 0 ) {
+	                    input = ' ';
+                }
+                  var x = embedFilter(input, options).$$unwrapTrustedValue();
+
+                  if (options.video.embed) {
+                      if (!options.gdevAuth) {
+                          console.error('Youtube authentication key is required to get data from youtube.');
+                      }
+                      else {
+                          x = videoProcess.embed(x, options);
+                      }
+
+                  }
+
+                  x = options.basicVideo ? videoProcess.embedBasic(x) : x;
+                  x = options.audio.embed ? audioProcess.embed(x) : x;
+                  x = options.image.embed ? imageProcess.embed(x) : x;
+                  x = options.pdf.embed ? pdfProcess.embed(x) : x;
+                  x = options.tweetEmbed ? tweetProcess.embed(x, options) : x;
+                  x = options.twitchtvEmbed ? videoProcess.twitchtvEmbed(x, options) : x;
+                  x = options.dailymotionEmbed ? videoProcess.dailymotionEmbed(x, options) : x;
+                  x = options.tedEmbed ? videoProcess.tedEmbed(x, options) : x;
+                  x = options.dotsubEmbed ? videoProcess.dotsubEmbed(x, options) : x;
+                  x = options.liveleakEmbed ? videoProcess.liveleakEmbed(x, options) : x;
+                  x = options.soundCloudEmbed ? audioProcess.soundcloudEmbed(x, options) : x;
+                  x = options.spotifyEmbed ? audioProcess.spotifyEmbed(x) : x;
+                  x = options.code.highlight ? codeEmbedProcess.highlightEmbed(x, options) : x;
+                  x = options.codepenEmbed ? codeEmbedProcess.codepenEmbed(x, options) : x;
+                  x = options.jsfiddleEmbed ? codeEmbedProcess.jsfiddleEmbed(x, options) : x;
+                  x = options.jsbinEmbed ? codeEmbedProcess.jsbinEmbed(x, options) : x;
+                  x = options.plunkerEmbed ? codeEmbedProcess.plunkerEmbed(x, options) : x;
+                  x = options.githubgistEmbed ? codeEmbedProcess.githubgistEmbed(x, options) : x;
+                  x = options.ideoneEmbed ? codeEmbedProcess.ideoneEmbed(x, options) : x;
+
+
+                  $timeout(function(html){
+                      scope.neText = $sce.trustAsHtml(html);
+                  }, 0, true, x);
+                }
+
+                if( !options.watchEmbedData ) {
+                    var newData = scope.$eval(attributes.embedData);
+                    processEmbed(newData);
+                }
+                else {
+                    scope.$watch(attributes.embedData, processEmbed);
+                }
+            }
+        };
+    }
 
 	EmbedFilter.$inject = ['$sce', 'NG_EMBED_BASIC_EMOTICONS', 'NG_EMBED_EMOJI_LIST'];
 	function EmbedFilter($sce, NG_EMBED_BASIC_EMOTICONS, NG_EMBED_EMOJI_LIST) {
