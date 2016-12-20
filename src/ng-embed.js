@@ -694,7 +694,6 @@
                       else {
                           videoProcess.embed(x, options)
 	                        .then(function(video) {
-		                        console.log(video);
                           	    scope.video = video;
                             });
                       }
