@@ -63,47 +63,14 @@
 		    // social media
 		    twitter      : /https:\/\/twitter\.com\/\w+\/\w+\/\d+/gi
 	    })
-
-		.filter('embed', EmbedFilter)
-
-	    .constant('NG_DEFAULT_TEMPLATE_URL', 'ng-embed-default-template.html')
-	    .run(['$templateCache', 'NG_DEFAULT_TEMPLATE_URL', function($templateCache, NG_DEFAULT_TEMPLATE_URL) {
-
-		    var template = '<div ng-bind-html="neText"></div> <div class="ne-video" ng-if="video.host" class="fade"> <div class="ne-video-preview" ng-hide="nePlayVideo || !options.video.details"> <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo"> <img ng-src="{{video.thumbnail}}" alt=""/> <i class="fa fa-play-circle-o"></i> </div> <div class="ne-video-detail"> <div class="ne-video-title"> <a ng-href="{{video.url}}">{{video.title}}</a> </div> <div class="ne-video-desc"> {{video.description}} </div> <div class="ne-video-stats"> <span><i class="fa fa-eye"></i> {{video.views}}</span> <span><i class="fa fa-heart"></i> {{video.likes}}</span> </div> </div> </div> <div class="ne-video-player" ng-if="nePlayVideo || !(options.video.details)"> <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div> </div> <div class="ne-video" ng-if="video.basic"> <div class="ne-video-player"> <div class="player"> <video ng-src="{{video.basic}}" controls></video> </div> </div> </div> <div ng-init="neImageLong=false" ng-class="{false:\'ne-image\', true:\'ne-image ne-image-long\'}[neImageLong]" ng-if="image.url"> <div class="ne-image-wrapper"> <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/> </div> </div> <div class="ne-pdf" ng-if="pdf.url"> <div class="ne-pdf-preview" ng-hide="neShowPdf"> <div class="ne-pdf-icon"> <i class="fa fa-file-pdf-o"></i> </div> <div class="ne-pdf-detail" > <div class="ne-pdf-title"> <a href="">{{pdf.url}}</a> </div> <div class="ne-pdf-view"> <button><i class="fa fa-download"></i> <a ng-href="{{pdf.url}}" target="_blank">Download</a></button> <button ng-click="neShowPdf=!neShowPdf"><i class="fa fa-eye"></i> View PDF</button> </div> </div> </div> <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf"> <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe> </div> </div> <div class="ne-audio" ng-if="audio.url"> <audio ng-src="{{audio.url}}" controls></audio> </div> <div ng-if="tweets" ng-repeat="tweet in tweets"> <div ng-bind-html="tweet"></div> </div> <div ng-if="videoServices" class="ne-video" ng-repeat="v in videoServices"> <div class="ne-video-player"> <div class="player"> <div ng-bind-html="v"></div> </div> </div> </div> <div ng-if="audioServices" class="ne-audio" ng-repeat="a in audioServices"> <div ng-bind-html="a"></div> </div> <div ng-if="codeServices" class="ne-embed" ng-repeat="c in codeServices"> <div ng-bind-html="c"></div> </div> <div ng-if="gist" class="ne-gist" ng-repeat="g in gist"> <ne-gist id="{{g}}"></ne-gist> </div>';
-
-		    $templateCache.put(NG_DEFAULT_TEMPLATE_URL, template);
-	    }])
-
-		.directive('ngEmbed', ngEmbedDirective)
-
-		//This directive is a modification of a module developed by Scott Corgan.
-		//present at scottcorgan/angular-gist
-		.directive('neGist', function () {
-			return {
-				restrict: 'EA',
-				replace : true,
-				template: '<div></div>',
-				link    : function (scope, element, attrs) {
-					appendGistToElement(element[0], attrs.id);
-				}
-			};
-		});
-
-	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', '$q', 'NG_DEFAULT_TEMPLATE_URL', 'NG_EMBED_REGEXP_PATTERNS'];
-	function ngEmbedDirective($filter, $sce, $http, $timeout, $q, NG_DEFAULT_TEMPLATE_URL, NG_EMBED_REGEXP_PATTERNS) {
-
-        return {
-            restrict   : 'AE',
-            scope      : true,
-            templateUrl: function (element, attributes) {
-                return (attributes.embedTemplateUrl || NG_DEFAULT_TEMPLATE_URL);
-            },
-            link       : function (scope, elements, attributes) {
-                var embedFilter = $filter('embed');
-
-                var userOptions = scope.$eval(attributes.embedOptions);
-
-                var options = {
+	    .constant('NG_EMBED_FILTER_DEFAULT_OPTIONS', {
+		    sanitizeHtml: true,
+		    fontSmiley: true,
+		    emoji: true,
+		    link: true,
+		    linkTarget: '_self'
+	    })
+	    .constant('NG_EMBED_DEFAULT_OPTIONS', {
                     watchEmbedData   : false,
 					sanitizeHtml     : true,
 					fontSmiley       : true,
@@ -178,7 +145,49 @@
                     githubgistEmbed  : true,
                     ideoneEmbed      : true,
                     ideoneHeight:300
+	    })
+
+		.filter('embed', EmbedFilter)
+
+	    .constant('NG_DEFAULT_TEMPLATE_URL', 'ng-embed-default-template.html')
+	    .run(['$templateCache', 'NG_DEFAULT_TEMPLATE_URL', function($templateCache, NG_DEFAULT_TEMPLATE_URL) {
+
+		    var template = '<div ng-bind-html="neText"></div> <div class="ne-video" ng-if="video.host" class="fade"> <div class="ne-video-preview" ng-hide="nePlayVideo || !options.video.details"> <div class="ne-video-thumb" ng-click="nePlayVideo=!nePlayVideo"> <img ng-src="{{video.thumbnail}}" alt=""/> <i class="fa fa-play-circle-o"></i> </div> <div class="ne-video-detail"> <div class="ne-video-title"> <a ng-href="{{video.url}}">{{video.title}}</a> </div> <div class="ne-video-desc"> {{video.description}} </div> <div class="ne-video-stats"> <span><i class="fa fa-eye"></i> {{video.views}}</span> <span><i class="fa fa-heart"></i> {{video.likes}}</span> </div> </div> </div> <div class="ne-video-player" ng-if="nePlayVideo || !(options.video.details)"> <iframe ng-src="{{video.embedSrc}}" frameBorder="0" width="{{video.width}}" height="{{video.height}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div> </div> <div class="ne-video" ng-if="video.basic"> <div class="ne-video-player"> <div class="player"> <video ng-src="{{video.basic}}" controls></video> </div> </div> </div> <div ng-init="neImageLong=false" ng-class="{false:\'ne-image\', true:\'ne-image ne-image-long\'}[neImageLong]" ng-if="image.url"> <div class="ne-image-wrapper"> <img ng-src="{{image.url}}" ng-click="neImageLong=!neImageLong" alt=""/> </div> </div> <div class="ne-pdf" ng-if="pdf.url"> <div class="ne-pdf-preview" ng-hide="neShowPdf"> <div class="ne-pdf-icon"> <i class="fa fa-file-pdf-o"></i> </div> <div class="ne-pdf-detail" > <div class="ne-pdf-title"> <a href="">{{pdf.url}}</a> </div> <div class="ne-pdf-view"> <button><i class="fa fa-download"></i> <a ng-href="{{pdf.url}}" target="_blank">Download</a></button> <button ng-click="neShowPdf=!neShowPdf"><i class="fa fa-eye"></i> View PDF</button> </div> </div> </div> <div class="ne-pdf-viewer" ng-if="neShowPdf" ng-show="neShowPdf"> <iframe ng-src="{{pdf.url}}" frameBorder="0"></iframe> </div> </div> <div class="ne-audio" ng-if="audio.url"> <audio ng-src="{{audio.url}}" controls></audio> </div> <div ng-if="tweets" ng-repeat="tweet in tweets"> <div ng-bind-html="tweet"></div> </div> <div ng-if="videoServices" class="ne-video" ng-repeat="v in videoServices"> <div class="ne-video-player"> <div class="player"> <div ng-bind-html="v"></div> </div> </div> </div> <div ng-if="audioServices" class="ne-audio" ng-repeat="a in audioServices"> <div ng-bind-html="a"></div> </div> <div ng-if="codeServices" class="ne-embed" ng-repeat="c in codeServices"> <div ng-bind-html="c"></div> </div> <div ng-if="gist" class="ne-gist" ng-repeat="g in gist"> <ne-gist id="{{g}}"></ne-gist> </div>';
+
+		    $templateCache.put(NG_DEFAULT_TEMPLATE_URL, template);
+	    }])
+
+		.directive('ngEmbed', ngEmbedDirective)
+
+		//This directive is a modification of a module developed by Scott Corgan.
+		//present at scottcorgan/angular-gist
+		.directive('neGist', function () {
+			return {
+				restrict: 'EA',
+				replace : true,
+				template: '<div></div>',
+				link    : function (scope, element, attrs) {
+					appendGistToElement(element[0], attrs.id);
+				}
                 };
+		});
+
+	ngEmbedDirective.$inject = ['$filter', '$sce', '$http', '$timeout', '$q', 'NG_DEFAULT_TEMPLATE_URL', 'NG_EMBED_REGEXP_PATTERNS', 'NG_EMBED_DEFAULT_OPTIONS'];
+	function ngEmbedDirective($filter, $sce, $http, $timeout, $q, NG_DEFAULT_TEMPLATE_URL, NG_EMBED_REGEXP_PATTERNS, NG_EMBED_DEFAULT_OPTIONS) {
+
+        return {
+            restrict   : 'AE',
+            scope      : true,
+            templateUrl: function (element, attributes) {
+                return (attributes.embedTemplateUrl || NG_DEFAULT_TEMPLATE_URL);
+            },
+            link       : function (scope, elements, attributes) {
+                var embedFilter = $filter('embed');
+
+                var userOptions = scope.$eval(attributes.embedOptions);
+
+                var options = {};
+	            angular.copy(NG_EMBED_DEFAULT_OPTIONS, options);
 
                 extendDeep(options, userOptions);
 
@@ -738,28 +747,15 @@
         };
     }
 
-	EmbedFilter.$inject = ['$sce', 'NG_EMBED_BASIC_EMOTICONS', 'NG_EMBED_EMOJI_LIST', 'NG_EMBED_REGEXP_PATTERNS'];
-	function EmbedFilter($sce, NG_EMBED_BASIC_EMOTICONS, NG_EMBED_EMOJI_LIST, NG_EMBED_REGEXP_PATTERNS) {
+	EmbedFilter.$inject = ['$sce', 'NG_EMBED_BASIC_EMOTICONS', 'NG_EMBED_EMOJI_LIST', 'NG_EMBED_REGEXP_PATTERNS', 'NG_EMBED_FILTER_DEFAULT_OPTIONS'];
+	function EmbedFilter($sce, NG_EMBED_BASIC_EMOTICONS, NG_EMBED_EMOJI_LIST, NG_EMBED_REGEXP_PATTERNS, NG_EMBED_FILTER_DEFAULT_OPTIONS) {
 
 		var EMOIJ_REGEX = new RegExp(":(" + NG_EMBED_EMOJI_LIST.join("|") + "):", "gi");
 
 		return function (input, userOptions) {
 
-			/**
-			 * defaultOptions
-			 *
-			 * @description
-			 * Holds the default configuration of the module.
-			 *
-			 * @type {Object}
-			 */
-			var options = {
-				sanitizeHtml: true,
-				fontSmiley: true,
-				emoji: true,
-				link: true,
-				linkTarget: '_self'
-			};
+			var options = {};
+			angular.copy(NG_EMBED_FILTER_DEFAULT_OPTIONS, options);
 
 			extendDeep(options, userOptions);
 
@@ -770,16 +766,12 @@
 				return input;
 			}
 
-			/**
-			 * All the functions are being called here.
-			 */
-
-			// sanitize - needs to be called before other functions are called. If not it would sanitize
-			// the emojis and the links and break the whole ng-embed functionality
-
 			if (!angular.isNumber(input)) {
 				input = input.toString();
 			}
+
+			// sanitize - needs to be called before other functions are called. If not it would sanitize
+			// the emojis and the links and break the whole ng-embed functionality
 
 			if (options.sanitizeHtml) {
 				input = sanitizeHtml(input);
