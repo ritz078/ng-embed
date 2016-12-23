@@ -183,6 +183,7 @@
             },
             link       : function (scope, elements, attributes) {
                 var embedFilter = $filter('embed');
+                var httpProtocol = getHttpProtocol();
 
                 var userOptions = scope.$eval(attributes.embedOptions);
 
@@ -355,7 +356,7 @@
 	                        var uniqueMatches = getUniqueArray(matches);
                         var videoDimensions = videoProcess.calcDimensions(opts);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame = $sce.trustAsHtml('<iframe src="http://www.dailymotion.com/embed/video/' + match.split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                var frame = $sce.trustAsHtml('<iframe src="' + httpProtocol +  '//www.dailymotion.com/embed/video/' + match.split('/')[2] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                 scope.videoServices.push(frame);
                             });
                         }
@@ -395,7 +396,7 @@
                             var uniqueMatches = getUniqueArray(matches);
                             var videoDimensions = videoProcess.calcDimensions(opts);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame = $sce.trustAsHtml('<iframe src="http://www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+                                var frame = $sce.trustAsHtml('<iframe src="' + httpProtocol +  '//www.liveleak.com/e/' + match.split('=')[1] + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
                                 scope.videoServices.push(frame);
                             });
                         }
@@ -412,7 +413,7 @@
 				                if( id.indexOf('embed') < 0) {
 					                id.splice(1, 0, 'embed');
 				                }
-				                var frame = $sce.trustAsHtml('<iframe src="http://www.' + id.join('/') + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
+				                var frame = $sce.trustAsHtml('<iframe src="' + httpProtocol +  '//www.' + id.join('/') + '" height="' + videoDimensions.height + '" width="' + videoDimensions.width + '"></iframe>');
 				                scope.videoServices.push(frame);
 			                });
 		                }
@@ -581,7 +582,7 @@
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="http://' + match + '/embedded"></iframe>');
+                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsfiddleHeight + '" src="' + httpProtocol + '//' + match + '/embedded"></iframe>');
                                 scope.codeServices.push(frame);
                             });
                         }
@@ -593,7 +594,7 @@
                         if (matches) {
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="http://' + match + '/embed?html,js,output">Simple Animation Tests</iframe>');
+                                var frame = $sce.trustAsHtml('<iframe height="' + opts.jsbinHeight + '" class="jsbin-embed foo" src="' + httpProtocol + '//' + match + '/embed?html,js,output">Simple Animation Tests</iframe>');
                                 scope.codeServices.push(frame);
                             });
                         }
@@ -607,7 +608,7 @@
 	                        angular.forEach(uniqueMatches, function(match) {
 	                            var path = match.split('/')[2];
                                 var idMatch = (match.indexOf('?') === -1) ? path : path.split('?')[0];
-                                var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="http://embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
+                                var frame = $sce.trustAsHtml('<iframe class="ne-plunker" src="' + httpProtocol + '//embed.plnkr.co/' + idMatch + '" height="' + opts.jsbinHeight + '"></iframe>');
                                 scope.codeServices.push(frame);
                             });
                         }
@@ -632,7 +633,7 @@
                         if(matches){
 	                        var uniqueMatches = getUniqueArray(matches);
 	                        angular.forEach(uniqueMatches, function(match) {
-                                var frame=$sce.trustAsHtml('<iframe src="http://ideone.com/embed/'+match.split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
+                                var frame=$sce.trustAsHtml('<iframe src="' + httpProtocol + '//ideone.com/embed/'+match.split('/')[1]+'" height="'+opts.ideoneHeight+'"></iframe>');
                                 scope.codeServices.push(frame);
                             });
                         }
@@ -949,7 +950,7 @@ element.appendChild(iframe);
 		return str.replace(urlPattern, function (text) {
 				var url = text;
 				if (!protocolPattern.test(text)) {
-					url = 'http://' + text;
+					url = getHttpProtocol() + '//' + text;
 				}
 
 				if (linkTarget == 'cordova'){
@@ -1007,5 +1008,15 @@ element.appendChild(iframe);
 		var trimmed = str.replace(/^([ \t]*)/g, ''); // leading whitespace
 		trimmed = trimmed.replace(/[ \t]*$/g, ''); // trailing whitespace
 		return trimmed;
+	}
+
+	/**
+	 * FUNCTION getHttpProtocol
+	 *
+	 * Get https: if host is running https or http: otherwise
+	 * @returns string
+	 */
+	function getHttpProtocol() {
+		return window.location.protocol.match(/https/) ? 'https:' : 'http:';
 	}
 })();
