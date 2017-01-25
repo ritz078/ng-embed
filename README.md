@@ -1,17 +1,10 @@
 [![GitHub version](https://badge.fury.io/gh/ritz078%2Fng-embed.svg)](https://badge.fury.io/gh/ritz078%2Fng-embed)
-
 [![NPM version](https://badge.fury.io/js/ng-embed.svg)](https://npmjs.org/package/ng-embed)
-
 [![Bower version](https://badge.fury.io/bo/ng-embed.svg)](http://bower.io/search/?q=ng-embed)
-
 [![Dependency Status](https://david-dm.org/ritz078/ng-embed/status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed)
-
 [![devDependency Status](https://david-dm.org/ritz078/ng-embed/dev-status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed#info=devDependencies)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 [![Issues](http://img.shields.io/github/issues/ritz078/ng-embed.svg)](https://github.com/ritz078/ng-embed/issues)
-
 [![Chat](http://img.shields.io/badge/gitter.im-ritz078/ngEmbed-blue.svg)](https://gitter.im/ritz078/ng-embed)
 
 ngEmbed
