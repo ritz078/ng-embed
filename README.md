@@ -2,6 +2,8 @@
 
 [![NPM](https://nodei.co/npm/ng-embed.png)](https://npmjs.org/package/ng-embed)
 
+[![Bower version](https://badge.fury.io/bo/ng-embed.svg)](http://bower.io/search/?q=ng-embed)
+
 ngEmbed
 =======
 
