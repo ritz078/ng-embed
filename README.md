@@ -4,6 +4,10 @@
 
 [![Bower version](https://badge.fury.io/bo/ng-embed.svg)](http://bower.io/search/?q=ng-embed)
 
+[![Dependency Status](https://david-dm.org/ritz078/ng-embed/status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed)
+
+[![devDependency Status](https://david-dm.org/ritz078/ng-embed/dev-status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed#info=devDependencies)
+
 ngEmbed
 =======
 
