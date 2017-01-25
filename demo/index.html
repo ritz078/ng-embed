@@ -72,7 +72,17 @@
 
 	<h2>Simple Filter Usage</h2>
 	<div ng-bind-html="text|embed"></div>
+
 	<h2>Directive Usage</h2>
+
+	<h3>$scope watch support</h3>
+	<textarea class="form-control"
+	          ng-model="model.watchText"
+	          placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc"
+	>
+	</textarea>
+	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
+
 	<h3>Emojis and Font icons</h3>
 	<ng-embed embed-data="text" embed-options="options"></ng-embed>
 	<h3>Media Embed</h3>
@@ -113,12 +123,6 @@
 	<ng-embed embed-data="ustream" embed-options="options"></ng-embed>
 	<h3>Twitter Support</h3>
 	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
-	<h3>$scope watch support</h3>
-	<textarea class="form-control" ng-model="model.watchText" placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc">
-	</textarea>
-	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
-
-
 
 </div>
 </body>
