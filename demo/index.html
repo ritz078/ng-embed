@@ -3,12 +3,19 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ngEmbed</title>
-	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<title>ngEmbed demo</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css">
+	<!-- Extra to make demo look nice -->
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- Optional, if using highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+	<!-- Required -->
 	<link rel="stylesheet" href="../src/ng-embed.css">
+
+	<!-- Only for demo -->
 	<style>
 		header{
 			background-color: #00AEE2;
@@ -19,28 +26,18 @@
 			font-size: 30px;
 			box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
 			position:fixed;
-			overflow: auto;overflow: auto;
+			overflow: auto;
 			z-index:9999;
 		}
 		body {
-			width       : 100%;
-			height      : 100%;
-			margin      : 0 auto;
 			font-family : 'Lato';
 		}
 
 		.main {
 			width     : 800px;
-			margin    : 0 auto;
 			font-size : 17px;
 			color     : #444;
-			overflow: auto;
 			padding-top: 50px;
-		}
-
-		h2 {
-			text-align  : center;
-			font-family : inherit;
 		}
 
 		a {
@@ -53,6 +50,7 @@
 			text-align  : center;
 		}
 		h2{
+			font-family : inherit;
 			text-align: center;
 			padding: 15px;
 			border-bottom: 2px solid #f4f4f4;
@@ -66,12 +64,25 @@
 	</style>
 </head>
 
-<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
+<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl">
+
 <header>ngEmbed</header>
-<div class="main">
+
+<div class="main center-block" ng-cloak>
+
 	<h2>Simple Filter Usage</h2>
 	<div ng-bind-html="text|embed"></div>
+
 	<h2>Directive Usage</h2>
+
+	<h3>$scope watch support</h3>
+	<textarea class="form-control"
+	          ng-model="model.watchText"
+	          placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc"
+	>
+	</textarea>
+	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
+
 	<h3>Emojis and Font icons</h3>
 	<ng-embed embed-data="text" embed-options="options"></ng-embed>
 	<h3>Media Embed</h3>
@@ -112,21 +123,21 @@
 	<ng-embed embed-data="ustream" embed-options="options"></ng-embed>
 	<h3>Twitter Support</h3>
 	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
-	<h3>$scope watch support</h3>
-	<textarea ng-model="model.watchText" placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc">
-	</textarea>
-	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
-
-
 
 </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-sanitize.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+<!-- Optional if using highligt.js or embedding tweets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
+
+<!-- Required -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-sanitize.min.js"></script>
 <script src="../src/ng-embed.js"></script>
+
+<!-- Only for demo -->
 <script src="js/app.js"></script>
 
 </html>
