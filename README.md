@@ -1,3 +1,5 @@
+[![GitHub version](https://badge.fury.io/gh/ritz078%2Fng-embed.svg)](https://badge.fury.io/gh/ritz078%2Fng-embed)
+
 ngEmbed
 =======
 
