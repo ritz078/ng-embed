@@ -59,9 +59,12 @@
 	</style>
 </head>
 
-<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl" ng-cloak>
+<body ng-app="ngEmoticonApp" ng-controller="ngEmoticonCtrl">
+
 <header>ngEmbed</header>
-<div class="main">
+
+<div class="main" ng-cloak>
+
 	<h2>Simple Filter Usage</h2>
 	<div ng-bind-html="text|embed"></div>
 	<h2>Directive Usage</h2>
