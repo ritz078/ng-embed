@@ -8,6 +8,7 @@
 	<!-- Extra to make demo look nice -->
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- Optional, if using highlight.js -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
@@ -34,10 +35,8 @@
 
 		.main {
 			width     : 800px;
-			margin    : 0 auto;
 			font-size : 17px;
 			color     : #444;
-			overflow: auto;
 			padding-top: 50px;
 		}
 
@@ -69,7 +68,7 @@
 
 <header>ngEmbed</header>
 
-<div class="main" ng-cloak>
+<div class="main center-block" ng-cloak>
 
 	<h2>Simple Filter Usage</h2>
 	<div ng-bind-html="text|embed"></div>
@@ -115,7 +114,7 @@
 	<h3>Twitter Support</h3>
 	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
 	<h3>$scope watch support</h3>
-	<textarea ng-model="model.watchText" placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc">
+	<textarea class="form-control" ng-model="model.watchText" placeholder="Type text containing any of the supported services, emoticons, twitter feed, video url, etc">
 	</textarea>
 	<ng-embed embed-data="model.watchText" embed-options="watchOptions"></ng-embed>
 
