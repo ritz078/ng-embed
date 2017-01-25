@@ -12,6 +12,8 @@
 
 [![Issues](http://img.shields.io/github/issues/ritz078/ng-embed.svg)](https://github.com/ritz078/ng-embed/issues)
 
+[![Chat](http://img.shields.io/badge/gitter.im-ritz078/ngEmbed-blue.svg)](https://gitter.im/ritz078/ng-embed)
+
 ngEmbed
 =======
 
@@ -20,9 +22,6 @@ An AngularJS filter/directive for  converting text into emoticons, embedding vid
 The demo examples are given [here](http://riteshkr.com/ng-embed)
 
 **PS : The jquery version of this module is [embed-js](http://github.com/ritz078/embed-js).**
-
-
-[![Join the chat at https://gitter.im/ritz078/ngEmbed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmbed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Contents
 --------
