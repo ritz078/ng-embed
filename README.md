@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/ritz078%2Fng-embed.svg)](https://badge.fury.io/gh/ritz078%2Fng-embed)
 
-[![NPM](https://nodei.co/npm/ng-embed.png)](https://npmjs.org/package/ng-embed)
+[![NPM version](https://badge.fury.io/js/ng-embed.svg)](https://npmjs.org/package/ng-embed)
 
 [![Bower version](https://badge.fury.io/bo/ng-embed.svg)](http://bower.io/search/?q=ng-embed)
 
