@@ -8,8 +8,8 @@
 [![Issues](http://img.shields.io/github/issues/ritz078/ng-embed.svg)](https://github.com/ritz078/ng-embed/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-ngEmbed
-=======
+
+# ngEmbed
 
 An AngularJS filter/directive for  converting text into emoticons, embedding videos (youtube/vimeo/mp4,ogg), audio, pdf, highlighting code syntax and embedding almost every service in an ordinary text string .
 
@@ -17,20 +17,23 @@ The demo examples are given [here](http://riteshkr.com/ng-embed)
 
 **PS : The jquery version of this module is [embed-js](http://github.com/ritz078/embed-js).**
 
-Contents
---------
+
+## Contents
+
 * [Features](#features)
 * [Dependencies](#dependencies)
+* [Installation](#installation)
+* [CDN](#cdn)
 * [Getting Started](#getting-started)
-* [Filter Usage](#simple-usage-filter)
-* [Directive Usagein](#advanced-usage-directive)
-* [Options](#options)
+* [Filter Usage](#filter-usage)
+* [Directive Usage](#directive-usage)
+	- [Options](#options)
 * [Default Template](#default-template)
 * [Template Variables](#template-variables)
 * [Releases](#releases)
+* [Contributing](#contributing)
 
-Features
---------
+## Features
 
 * Converts emoticon text codes into emoticons :smile: , :heart:
 * Finds links in text input and turns them into html links.
@@ -39,47 +42,51 @@ Features
 * PDF viewing with preview and then the actual pdf in a frame.
 * Inline Code Syntax highlighting (uses highlight.js)
 * Twitter tweet embedding supported
-* Codepen, jsbin, jsfiddle, ideone, plunker and github gist embed supported
-* soundcloud and spotify support
-* Twitch tv, dotSub, dailymotion, TED and liveLeak support.
+* CodePen, jsBin, jsFiddle, Ideone, plunker and Github gist embed supported
+* Soundcloud and Spotify support
+* Twitch TV, dotSub, Dailymotion, TED, LiveLeak and UStream support.
 
 
-Dependencies
-------------
-+ AngularJs 1.2 or above
-+ angular-sanitize 1.2 or above
+## Dependencies
+
++ [AngularJs](https://angularjs.org/) 1.2 or above
++ [angular-sanitize](https://angularjs.org/) 1.2 or above
 + [highlight.js](https://highlightjs.org/) (Optional if code highlighting required)
-+ [Twiiter widget js](http://platform.twitter.com/widgets.js) (if twitter embedding required)
++ [Twitter widget js](https://platform.twitter.com/widgets.js) (if twitter embedding required)
 
+## Installation
 
-Getting Started
----------------
-
-Install through bower
+Install through [bower](http://bower.io/search/?q=ng-embed)
 ```html
 bower install --save ng-embed
 ```
-Install through npm
+Install through [npm](https://www.npmjs.org/package/ng-embed)
 ```html
 npm install --save ng-embed
 ```
 
-load css files
+## CDN
+
+* [cdnjs](https://cdnjs.com/libraries/ng-embed)
+
+## Getting Started
+
+Load [ng-embed.min.css] stylesheet file
 ```html
  <link rel="stylesheet" href="path/to/ng-embed.min.css"/>
 ```
 
- Then load the following files
+Then load [angular.min.js] and [angular-sanitize.min.js] dependencies before loading [ng-embed.min.js]
 ```html
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="path/to/angular.min.js"></script>
+<script src="path/to/angular-sanitize.min.js"></script>
 
 <!--==== Optional =====-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script src="http://platform.twitter.com/widgets.js"></script>
+<script src="path/to/highlight.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
 <!--===================-->
 
-<script src="path/to/ng-embed.js"></script>
+<script src="path/to/ng-embed.min.js"></script>
 ```
 
 Load 'ngEmbed' as a dependency
@@ -87,28 +94,39 @@ Load 'ngEmbed' as a dependency
 angular.module('yourAppname', ['ngEmbed'])
 ```
 
-Filter Use
-----------------------
+## Filter Use
+
 You can use the filter for basic use. Its features are limited to converting text into [emojis](http://www.emoji-cheat-sheet.com/), font smileys and HTML Links.
 
 ```html
 <div ng-bind-html="variable | embed"></div>
 ```
+
+or with custom options
+
+```html
+<div ng-bind-html="variable | embed:customOptions"></div>
+
+<div ng-bind-html="variable | embed:{sanitizeHtml:false,linkTarget:'_blank'}"></div>
+```
+
 **Options**
+
+Defaults:
+
 ```javascript
-embed:{
-      fontSmiley  :true,                      //for coverting ascii smileys into font smileys
-      emoji       :true,                      //for coverting emojis short names into images
-      link        :true,                      //for coverting urls into anchor tags
-      linkTarget  :'_self'                    //_blank|_self|_parent|_top|framename
+var embed = {
+	fontSmiley  :true,    // toggle converting ascii smileys into font smileys
+	sanitizeHtml: true,   // toggle converting html code into text
+	emoji       :true,    // toggle converting emojis short names into images
+	link        :true,    // toggle converting urls into anchor tags
+    linkTarget  :'_self'  //_blank|_self|_parent|_top|framename|cordova
  }
 ```
 
-Directive Usage
----------------
-The directive supports many features in additions to the features supported by the filter.
+## Directive Usage
 
-And is fully customizable
+The directive supports many features in additions to the features supported by the filter and is fully customizable.
 
 **Directive**
 ```html
@@ -125,95 +143,108 @@ Attribute|Description
 **embed-options**|The scope variable that contains the options object (mandatory)
 **embed-template-url**|User defined template for the processed text
 
-Options
--------
+### Options
 
 ```javascript
 angular.module('yourAppName',['ngEmbed'])
 
 .controller('yourControllerName',['$scope',function($scope){
 
-$scope.options = {
-  watchEmbedData   : false,     //watch embed data and render on change 
-  fontSmiley       : true,      //convert ascii smileys into font smileys
-  emoji            : true,      //convert emojis short names into images
-  link             : true,      //convert links into anchor tags
-  linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
-  pdf              : {
-    embed: true                 //to show pdf viewer.
-  },
-  image            : {
-    embed: false                //to allow showing image after the text gif|jpg|jpeg|tiff|png|svg|webp.
-  },
-  audio            : {
-    embed: true                 //to allow embedding audio player if link to
-  },
-  code             : {
-      highlight  : true,        //to allow code highlighting of code written in markdown
-  //requires highligh.js (https://highlightjs.org/) as dependency.
-      lineNumbers: false        //to show line numbers
-  },
-  basicVideo       : false,     //to allow embedding of mp4/ogg format videos
-  gdevAuth         :'xxxxxxxx', // Google developer auth key for youtube data api
-  video            : {
-      embed           : false,    //to allow youtube/vimeo video embedding
-      width           : null,     //width of embedded player
-      height          : null,     //height of embedded player
-      ytTheme         : 'dark',   //youtube player theme (light/dark)
-      details         : false,    //to show video details (like title, description etc.)
-      autoPlay        : true,     //to autoplay embedded videos
-  },
-  tweetEmbed       : true,
-  tweetOptions     : {
-      //The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
-      maxWidth  : 550,
-      //When set to true or 1 links in a Tweet are not expanded to photo, video, or link previews.
-      hideMedia : false,
-      //When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
-      //will not be displayed when the requested Tweet is in reply to another Tweet.
-      hideThread: false,
-      //Specifies whether the embedded Tweet should be floated left, right, or center in
-      //the page relative to the parent element.Valid values are left, right, center, and none.
-      //Defaults to none, meaning no alignment styles are specified for the Tweet.
-      align     : 'none',
-      //Request returned HTML and a rendered Tweet in the specified.
-      //Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
-      lang      : 'en'
-  },
-  twitchtvEmbed    : true,
-  dailymotionEmbed : true,
-  tedEmbed         : true,
-  dotsubEmbed      : true,
-  liveleakEmbed    : true,
-  ustreamEmbed    : true,
-  soundCloudEmbed  : true,
-  soundCloudOptions: {
-      height      : 160, themeColor: 'f50000',   //Hex Code of the player theme color
-      autoPlay    : false,
-      hideRelated : false,
-      showComments: true,
-      showUser    : true,
-      showReposts : false,
-      visual      : false,         //Show/hide the big preview image
-      download    : false          //Show/Hide download buttons
-  },
-  spotifyEmbed     : true,
-  codepenEmbed     : true,        //set to true to embed codepen
-  codepenHeight    : 300,
-  jsfiddleEmbed    : true,        //set to true to embed jsfiddle
-  jsfiddleHeight   : 300,
-  jsbinEmbed       : true,        //set to true to embed jsbin
-  jsbinHeight      : 300,
-  plunkerEmbed     : true,        //set to true to embed plunker
-  githubgistEmbed  : true,
-  ideoneEmbed      : true,        //set to true to embed ideone
-  ideoneHeight:300
-      };
+// Default options
+	$scope.options = {
+	  watchEmbedData   : false,     // watch embed data and render on change 
+	  
+	  sanitizeHtml     : true,      // convert html to text
+	  
+	  fontSmiley       : true,      // convert ascii smileys into font smileys
+	  emoji            : true,      // convert emojis short names into images
+	  
+	  link             : true,      // convert links into anchor tags
+	  linkTarget       : '_self',   //_blank|_self|_parent|_top|framename
+	  
+	  pdf              : {
+		embed: true                 // show pdf viewer.
+	  },
+	  
+	  image            : {
+		embed: false                // toggle embedding image after link, supports gif|jpg|jpeg|tiff|png|svg|webp.
+	  },
+	  
+	  audio            : {
+		embed: true                 // toggle embedding audio player, supports wav|mp3|ogg
+	  },
+	  
+	  basicVideo       : false,     // embed video player, supports ogv|webm|mp4
+	  gdevAuth         :'xxxxxxxx', // Google developer auth key for YouTube data api
+	  video            : {
+		  embed           : false,    // embed YouTube/Vimeo videos
+		  width           : null,     // width of embedded player
+		  height          : null,     // height of embedded player
+		  ytTheme         : 'dark',   // YouTube player theme (light/dark)
+		  details         : false,    // display video details (like title, description etc.)
+		  thumbnailQuality: 'medium', // quality of the thumbnail low|medium|high
+		  autoPlay        : true     // autoplay embedded videos
+	  },
+	  twitchtvEmbed    : true,
+	  dailymotionEmbed : true,
+	  tedEmbed         : true,
+	  dotsubEmbed      : true,
+	  liveleakEmbed    : true,
+	  ustreamEmbed    : true,
+	  
+	  soundCloudEmbed  : true,
+	  soundCloudOptions: {
+		  height      : 160,
+		  themeColor: 'f50000',
+		  autoPlay    : false,
+		  hideRelated : false,
+		  showComments: true,
+		  showUser    : true,
+		  showReposts : false,
+		  visual      : false,         // Show/hide the big preview image
+		  download    : false          // Show/Hide download buttons
+	  },
+	  spotifyEmbed     : true,
+	  
+	  tweetEmbed       : true,        // toggle embedding tweets
+	  tweetOptions     : {
+			// The maximum width of a rendered Tweet in whole pixels. Must be between 220 and 550 inclusive.
+			maxWidth  : 550,
+			// Toggle expanding links in Tweets to photo, video, or link previews.
+			hideMedia : false,
+			// When set to true or 1 a collapsed version of the previous Tweet in a conversation thread
+			// will not be displayed when the requested Tweet is in reply to another Tweet.
+			hideThread: false,
+			// Specifies whether the embedded Tweet should be floated left, right, or center in
+			// the page relative to the parent element.Valid values are left, right, center, and none.
+			// Defaults to none, meaning no alignment styles are specified for the Tweet.
+			align     : 'none',
+			// Request returned HTML and a rendered Tweet in the specified.
+			// Supported Languages listed here (https://dev.twitter.com/web/overview/languages)
+			lang      : 'en'
+		},
+	  
+	  code             : {
+		highlight  : true,        // highlight code written in 100+ languages supported by highlight
+								  // requires highlight.js (https://highlightjs.org/) as dependency.
+		lineNumbers: false        // display line numbers
+	  },
+	  codepenEmbed     : true,
+	  codepenHeight    : 300,
+	  jsfiddleEmbed    : true,
+	  jsfiddleHeight   : 300,
+	  jsbinEmbed       : true,
+	  jsbinHeight      : 300,
+	  plunkerEmbed     : true,
+	  githubgistEmbed  : true,
+	  ideoneEmbed      : true,
+	  ideoneHeight     : 300
+	};
+	
   }]);
 ```
 
-Default Template
-----------------
+## Default Template
 ```html
 <!--====== Main text with emoticons and link ============-->
 
@@ -313,15 +344,12 @@ ng-if="image.url">
 </div>
 ```
 
-  You can make your custom template and use it and even change the styling of the default template by
-      changing the classes. I am giving you the default template so that you are not confused while making your
-      own template and properly know the class names if you want to change the styling.
+  Change the styling of the default template by styling the classes or provide a custom template. The default template is provided as an example.
 
   There are certain variables that are available for the template. Its structure is given below.
 
+### Template Variables
 
-Template Variables
-------------------
 These variable can be used while you are creating your custom template.
 
   ```javascript
@@ -357,17 +385,15 @@ var videoServices   :Array        // Array of embed code of dailymotion, ted, li
 var gist            :Array        // Array of all gist ids.
 ```
 
-Examples
---------
+## Examples
+
 The examples are given [here](http://riteshkr.com/ng-embed)
 
-Releases
---------
+## Releases
 
-Older releases are listed [here](RELEASES.md)
+Older releases are listed in [RELEASES.md](RELEASES.md)
 
-Contributing
-------------
+## Contributing
 
 * If you are interested in contributing to this project, you are most welcome.
 * Start by filing an [issue](https://github.com/ritz078/ngEmbed/issues) concerning whatever you’d like to see changed.
@@ -375,13 +401,8 @@ Contributing
 * In case of bugfixes or very minor additions, feel free to file a pull request on the master # branch.
 * Please run the default grunt-task before filing any pull requests.
 
+## License
 
-License
--------
-
-The MIT License (MIT)
-
-Copyright (c) 2014 Ritesh Kumar
-
-
-
+ngEmbed &copy; 2014-2017+ Ritesh Kumar. <br>
+Released under the [MIT] License.<br>
+Authored and maintained by [Ritesh Kumar](https://github.com/ritz078) with help from [contributors](https://github.com/ritz078/ng-embed/contributors).
