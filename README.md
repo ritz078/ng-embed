@@ -1,3 +1,13 @@
+[![GitHub version](https://badge.fury.io/gh/ritz078%2Fng-embed.svg)](https://badge.fury.io/gh/ritz078%2Fng-embed)
+[![NPM version](https://badge.fury.io/js/ng-embed.svg)](https://npmjs.org/package/ng-embed)
+[![Bower version](https://badge.fury.io/bo/ng-embed.svg)](http://bower.io/search/?q=ng-embed)
+[![Dependency Status](https://david-dm.org/ritz078/ng-embed/status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed)
+[![devDependency Status](https://david-dm.org/ritz078/ng-embed/dev-status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed#info=devDependencies)
+
+[![Chat](http://img.shields.io/badge/gitter.im-ritz078/ngEmbed-blue.svg)](https://gitter.im/ritz078/ng-embed)
+[![Issues](http://img.shields.io/github/issues/ritz078/ng-embed.svg)](https://github.com/ritz078/ng-embed/issues)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ngEmbed
 =======
 
@@ -6,9 +16,6 @@ An AngularJS filter/directive for  converting text into emoticons, embedding vid
 The demo examples are given [here](http://riteshkr.com/ng-embed)
 
 **PS : The jquery version of this module is [embed-js](http://github.com/ritz078/embed-js).**
-
-
-[![Join the chat at https://gitter.im/ritz078/ngEmbed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ritz078/ngEmbed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Contents
 --------
