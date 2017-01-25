@@ -10,6 +10,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[![Issues](http://img.shields.io/github/issues/ritz078/ng-embed.svg)](https://github.com/ritz078/ng-embed/issues)
+
 ngEmbed
 =======
 
