@@ -8,6 +8,8 @@
 
 [![devDependency Status](https://david-dm.org/ritz078/ng-embed/dev-status.svg?theme=shields.io)](https://david-dm.org/ritz078/ng-embed#info=devDependencies)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ngEmbed
 =======
 
