@@ -218,6 +218,14 @@
                             return dimensions;
                         }
                     },
+	                getRequestConfig: function() {
+		                // clear existing headers if present for this http request
+		                return {
+		                	headers: {
+		                		'Authorization': undefined
+		                	}
+		                };
+	                },
 
 	                youtubeEmbed: function(data, options) {
                     	var promise, video;
@@ -233,15 +241,17 @@
 			                };
 
 			                if (options.video.details) {
-				                var requestConfig = { headers: { 'Authorization': undefined }}; // clear existing headers if present for this http request
-				                promise = $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + video.id + '&key=' + options.gdevAuth + '&part=snippet,statistics', requestConfig)
+
+				                promise = $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + video.id + '&key=' + options.gdevAuth + '&part=snippet,statistics', videoProcess.getRequestConfig())
 					                .then(function (r) {
 						                var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '?autoplay=1' : '?autoplay=0';
 						                var ytData = r.data.items[0];
 
 						                video.title = ytData.snippet.title;
 						                video.thumbnail = ytData.snippet.thumbnails.medium.url;
-						                video.description = trunc(ytData.snippet.description, 250, true).replace(/\n/g, ' ').replace(/&#10;/g, ' ');
+						                video.description = trunc(ytData.snippet.description, 250, true)
+							                .replace(/\n/g, ' ')
+							                .replace(/&#10;/g, ' ');
 						                video.rawDescription = ytData.snippet.description;
 						                video.views = ytData.statistics.viewCount;
 						                video.likes = ytData.statistics.likeCount;
@@ -281,13 +291,16 @@
                             
                             if (options.video.details) {
 
-                                promise = $http.get('https://vimeo.com/api/v2/video/' + video.id + '.json')
+                                promise = $http.get('https://vimeo.com/api/v2/video/' + video.id + '.json', videoProcess.getRequestConfig())
 									.then(function (r) {
 										var d = r.data;
                                         var autoPlay = ((options.video.autoPlay === undefined) || (options.video.autoPlay === true)) ? '&autoplay=1' : '&autoplay=0';
                                         video.title = d[0].title;
-                                        video.rawDescription = (d[0].description).replace(/\n/g, '<br/>').replace(/&#10;/g, '<br/>');
-                                        video.description = trunc((d[0].description).replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
+                                        video.rawDescription = (d[0].description)
+	                                        .replace(/\n/g, '<br/>')
+	                                        .replace(/&#10;/g, '<br/>');
+                                        video.description = trunc((d[0].description)
+	                                        .replace(/((<|&lt;)br\s*\/*(>|&gt;)\r\n)/g, ' '), 250, true);
                                         video.thumbnail = d[0].thumbnail_medium;
                                         video.views = d[0].stats_number_of_plays;
                                         video.likes = d[0].stats_number_of_likes;
