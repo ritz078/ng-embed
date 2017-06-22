@@ -1,7 +1,3 @@
-* {
-    box-sizing : border-box;
-    }
-
 @font-face {
     font-family : 'emoticons';
     src         : url('../fonts/emoticons.eot?5zh0vu');
@@ -37,9 +33,6 @@ code.has-numbering {
     font-family : Consolas, Menlo, Monaco, monospace;
     font-size   : 14px;
     line-height : 20px;
-    }
-
-code.has-numbering {
     margin-left : 36px;
     }
 
@@ -65,12 +58,14 @@ code.has-numbering {
     }
 
 .ne-pdf iframe {
+    box-sizing: border-box;
     width   : 420px;
     height  : 530px;
     display : block;
     }
 
 .ne-pdf-icon {
+    box-sizing: border-box;
     width        : 200px;
     height       : 150px;
     float        : left;
@@ -146,6 +141,7 @@ code.has-numbering {
     }
 
 .ne-video, .ne-pdf {
+    box-sizing: border-box;
     padding            : 5px;
     border             : 1px solid #e4e4e4;
     border-radius      : 2px;
@@ -162,6 +158,7 @@ code.has-numbering {
     }
 
 .ne-embed {
+    box-sizing: border-box;
     width         : 100%;
     padding       : 5px;
     border        : 1px solid #e4e4e4;
@@ -184,8 +181,6 @@ code.has-numbering {
 .ne-plunker{
     background-color: #ffffff !important;
 }
-
-
 
 .ne-video video {
     width : 100%;
@@ -242,6 +237,7 @@ code.has-numbering {
     }
 
 .ne-video-detail, .ne-pdf-detail {
+    box-sizing: border-box;
     width        : calc(100% - 200px);
     float        : left;
     padding-left : 15px;
@@ -3881,5 +3877,3 @@ code.has-numbering {
 .emoticon-shipit {
     background-position : -27749px 0;
     }
-
-
