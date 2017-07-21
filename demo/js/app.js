@@ -5,7 +5,7 @@
  */
 angular.module('ngEmoticonApp', ['ngEmbed'])
 
-    .controller('ngEmoticonCtrl', ['$scope', function ($scope) {
+    .controller('ngEmoticonCtrl', ['$scope', 'NG_EMBED_EMOJI_LIST', function ($scope, NG_EMBED_EMOJI_LIST) {
         $scope.options = {
             'linkTarget': '_blank',
             'basicVideo': false,
@@ -55,6 +55,8 @@ angular.module('ngEmoticonApp', ['ngEmbed'])
 
         $scope.media='Naviss credere!Orgia de :smile: germanus repressor, http://www.w3schools.com/html/mov_bbb.ogg gratia rumor!Nunquam pugna axona. http://media1.santabanta.com/full1/Hinduism/Lord%20Krishna/lor27h.jpg Cur orexis peregrinationes?Sunt abactores pugna gratis, germanus lamiaes.Cur lanista cantare?Est castus bromium, cesaris.Tabess velum, tanquam germanus musa.Cur lacta prarere? Assimilant aegre ducunt ad magnum advena.Emeritis, fidelis menss interdum examinare de varius, lotus detrius.';
 
+        $scope.emoji=NG_EMBED_EMOJI_LIST.map(emo => `${emo} = :${emo}:`);
+
 
         $scope.model = {
         	watchText: 'Hello world :)'
@@ -63,4 +65,3 @@ angular.module('ngEmoticonApp', ['ngEmbed'])
 	    angular.copy($scope.options, $scope.watchOptions);
 	    $scope.watchOptions.watchEmbedData = true;
     }]);
-

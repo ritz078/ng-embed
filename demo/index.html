@@ -61,6 +61,11 @@
 			color: #3498DB;
 			text-transform: uppercase;
 		}
+
+		.emo {
+			display: inline-block;
+			width: 33%;
+		}
 	</style>
 </head>
 
@@ -123,6 +128,8 @@
 	<ng-embed embed-data="ustream" embed-options="options"></ng-embed>
 	<h3>Twitter Support</h3>
 	<ng-embed embed-data="twitter" embed-options="options"></ng-embed>
+	<h3>Emoji list</h3>
+	<ng-embed ng-repeat="emo in emoji" embed-data="emo" embed-options="options" class="emo"></ng-embed>
 
 </div>
 </body>
