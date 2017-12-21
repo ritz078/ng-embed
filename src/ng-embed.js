@@ -57,7 +57,7 @@
 		    liveleak     : /liveleak.com\/view\?i=[a-zA-Z0-9_]+/gi,
 		    ted          : /ted.com\/talks\/[a-zA-Z0-9_]+/gi,
 		    vimeo        : /vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)*/gi,
-		    youtube      : /(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi,
+		    youtube      : /(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|))([\w\-]{11})[?=&+%\w-]*/gi,
 		    twitchtv     : /twitch.tv\/[a-zA_Z0-9_]+/gi,
 		    ustream      : /ustream.tv\/[a-z\/0-9]*/gi,
 		    // social media
